@@ -23,7 +23,10 @@ h1, h2, h3, h4, h5, h6 {
   color: #4B4F55;
 }
 
-h1 { margin-bottom: 1em; font-size: 44px; line-height: 54px; }
+h1 { 
+	font-size: 44px; 
+	line-height: 54px;
+}
 p { 
 	margin: 1em 0;
 	color: #5c6065;
@@ -35,23 +38,42 @@ p {
 /*****************************************************************************/
 
 #sidebar {
-	position: fixed;
-	width: 250px;
-	height: 100%;
+	
 	background-color: #333740;
 }
 
-#content {
-	margin: 0 0 0 250px;
-	padding: 20px;
+#nav-control, #content section {
+	padding: 15px;
+}
+
+@media only screen and (min-width: 640px) {
+	#sidebar {
+		position: fixed;
+		width: 250px;
+		height: 100%;
+	}
+
+	#content {
+		margin: 0 0 0 250px;
+		padding: 20px;
+	}
+
+	#content section {
+		padding-top: 10px;
+	}
 }
 
 /*****************************************************************************/
 /* MODULE
 /*****************************************************************************/
 
+
+
+
+
 /*Logo*/
 #logo {
+	margin-top: 5px;
 	padding: 10px;
 }
 
@@ -61,9 +83,13 @@ p {
 	}
 
 /*Nav*/
+
+#sidebar {
+	padding-bottom: 40px;
+}
+
 #sidebar nav {
 	background-color: #333740;
-
 }
 	#sidebar nav li {
 		list-style: none;
@@ -77,10 +103,40 @@ p {
 			background-color: #2c3036;
 			color: #7D7F85;
 			font-size: 14px;
+			transition: background-color 500ms ease 0s;
+			line-height: 1.6em;
 		}
 
 		#sidebar nav li a:hover {
 			background-color: #ED5951;
 			color: #ffffff;
 		}
+@media only screen and (min-width: 640px) {
+	#sidebar nav li a {
+		display: block;
+		padding: 10px 15px;
+		text-decoration: none;
+		background-color: #2c3036;
+		color: #7D7F85;
+		font-size: 14px;
+	}
+}
 
+/*Nav Control*/
+#nav-control {
+	
+}
+
+#nav-control a {
+	content: "";
+	background-size: 41px auto;
+	text-decoration: none;
+	display: inline-block;
+	height: 41px;
+	width: 41px;
+	background: transparent url("../img/toggle_minus.png") no-repeat left center;
+}
+
+#nav-control-toggle {
+
+}

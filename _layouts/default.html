@@ -11,7 +11,7 @@
 
         <!-- Custom CSS -->
         <link rel="stylesheet" href="/css/main.css">
-
+        <script language="javascript" type="text/javascript" src="js/main.js"></script>
     </head>
     <body>
         <div id="container">
@@ -29,8 +29,13 @@
             </nav>
           </div>
           <div id="content">
-            <h1>{{ site.name }}</h1>
-            {{ content }}
+            <div id="nav-control">
+              <a id="nav-control-toggle" href="#"></a>
+            </div>
+            <section>
+              <h1>{{ site.name }}</h1>
+              {{ content }}
+            </section>            
           </div>
         </div>
     </body>
