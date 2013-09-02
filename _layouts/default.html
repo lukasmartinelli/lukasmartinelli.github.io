@@ -14,28 +14,24 @@
 
     </head>
     <body>
-
-        <div class="container">
-          <div class="site">
-            <div class="header">
-              <h1 class="title">{{ site.name }}</h1>
-            </div>
-                {{ content }}
-            <div class="footer">
-              <div class="contact">
-                <p>
-                  Lukas Martinelli<br />
-                  me@lukasmartinelli.ch
-                </p>
-              </div>
-              <div class="contact">
-                <p>
-                  <a href="http://github.com/yourusername/">github.com/lukasmartinelli</a>
-                </p>
-              </div>
-            </div>
+        <div id="container">
+          <div id="sidebar">
+            <header id="logo">
+              <h1>lukasmartinelli</h1>
+            </header>
+            <nav>
+              <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">Blog</a></li>
+                <li><a href="">Portfolio</a></li>
+                <li><a href="">Contact</a></li>
+              </ul>
+            </nav>
           </div>
-        </div> <!-- /container -->
-
+          <div id="content">
+            <h1>{{ site.name }}</h1>
+            {{ content }}
+          </div>
+        </div>
     </body>
 </html>
