@@ -18,8 +18,9 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: "Georgia", "Times New Roman", Helvetica, Arial, sans-serif;
-	color: #444;
+	font-weight: normal;
 	font-style: normal;
+	color: #444;	
 	text-shadow: 0 1px 0 #eee;
 }
 
@@ -27,8 +28,16 @@ h2 {
 	font-size: 35px;
 	line-height: 40px;
 	font-style: italic;
-	font-weight: normal;
 	margin-bottom: 20px;
+}
+
+a {
+	color: #e86a4d;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
 }
 
 /*****************************************************************************/
@@ -41,7 +50,8 @@ h2 {
 	left: 0px;
 	width: 100%;
 	border-bottom: 8px solid rgba(40,40,40, .1);
-	/*opacity: 0.9;*/	
+	opacity: 0.9;
+	z-index: 50;
 }
 
 	#top header {
@@ -50,8 +60,12 @@ h2 {
 		background: -webkit-linear-gradient(top, #fff 0%,#fff 65%,#eee 100%);		
 	}
 
-section {
+#main {
 	padding-top: 100px;
+}
+
+footer {
+	padding: 30px 0;
 }
 
 /*****************************************************************************/
@@ -64,8 +78,6 @@ section {
 	position: relative;
 	width: 960px;
 	margin: 0 auto;
-	padding: 0;
-	display: block;
 }
 
 .container:after {
@@ -79,46 +91,40 @@ section {
 /*Branding*/
 
 div.branding {
-	padding-top: 10px;
 	float: left;
 	width: 460px;
+	padding-top: 10px;
 }
 
 .branding h1, .branding h2 {
 	display: inline-block;
 }
 
-.branding h1 {
-
-}
-
 .branding h2 {
 	font-size: 12px;
-	position: relative;
 	bottom: 3px;
-	font-style: italic;
 	color: #999;
 }
 
 /* Primary nav */
 
-nav {
+nav.nav-primary {
 	width: 460px;
 	float: left;
 }
 
-ul.nav-primary {
+.nav-primary ul {
 	margin: 30px 0 0 0;
 	float: right;
 }
 
-	ul.nav-primary li {
+	.nav-primary li {
 		float: left;
 		line-height: 18px;
 		list-style: none;
 	}
 
-	ul.nav-primary a {
+	.nav-primary a {
 		font-size: 11px;
 		padding: 0 20px 10px 0;
 		font-weight: bold;
@@ -126,6 +132,8 @@ ul.nav-primary {
 		text-decoration: none;
 		color: #444;
 	}
+
+/* Articles */
 
 article {
 	background: -webkit-linear-gradient(left, #f7f7f7 0%,#ffffff 4%,#ffffff 100%);
