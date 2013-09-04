@@ -57,11 +57,18 @@ a:hover {
 	#top header {
 		border-top: 3px solid #e86a4d;
 		border-bottom: 1px solid #d4d4d4;
-		background: -webkit-linear-gradient(top, #fff 0%,#fff 65%,#eee 100%);		
+		background: -webkit-linear-gradient(top, #fff 0%,#fff 65%,#eee 100%);
+		overflow: hidden;
 	}
 
 #main {
-	padding-top: 100px;
+	padding-top: 160px;
+}
+
+@media only screen and (min-width: 960px) {
+	#main {
+		padding-top: 100px;
+	}
 }
 
 footer {
@@ -76,23 +83,26 @@ footer {
 
 .container {
 	position: relative;
-	width: 960px;
 	margin: 0 auto;
+	padding: 0 20px;
 }
 
-.container:after {
-	content: "\0020";
-	display: block;
-	height: 0;
-	clear: both;
-	visibility: hidden;
+@media only screen and (min-width : 960px) {
+	.container {
+		width: 960px;
+	}
+}
+
+@media only screen and (min-width : 1224px) {
+	.container {
+		width: 1224px;
+	}
 }
 
 /*Branding*/
 
 div.branding {
 	float: left;
-	width: 460px;
 	padding-top: 10px;
 }
 
@@ -101,6 +111,7 @@ div.branding {
 }
 
 .branding h2 {
+	margin: 0;
 	font-size: 12px;
 	bottom: 3px;
 	color: #999;
@@ -109,13 +120,12 @@ div.branding {
 /* Primary nav */
 
 nav.nav-primary {
-	width: 460px;
-	float: left;
+	float: right;
+	margin-bottom: 20px;
 }
 
 .nav-primary ul {
-	margin: 30px 0 0 0;
-	float: right;
+	margin: 20px 0 0 0;
 }
 
 	.nav-primary li {
@@ -132,6 +142,16 @@ nav.nav-primary {
 		text-decoration: none;
 		color: #444;
 	}
+
+	.nav-primary li:last-child a {
+		padding-right: 0;
+	}
+
+@media only screen and (min-width: 960px) {
+	nav.nav-primary {
+		margin-bottom: 0;
+	}
+}
 
 /* Articles */
 
