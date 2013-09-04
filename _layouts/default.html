@@ -14,29 +14,33 @@
         <script language="javascript" type="text/javascript" src="js/main.js"></script>
     </head>
     <body>
-        <div id="container">
-          <div id="sidebar">
-            <header id="logo">
-              <h1>lukasmartinelli</h1>
-            </header>
-            <nav>
-              <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">Blog</a></li>
-                <li><a href="">Portfolio</a></li>
-                <li><a href="">Contact</a></li>
-              </ul>
-            </nav>
-          </div>
-          <div id="content">
-            <div id="nav-control">
-              <a id="nav-control-toggle" href="#"></a>
+        <div id="top">
+          <header>
+            <div class="container">
+              <div class="branding">
+                <h1>Blog</h1>
+                <h2>Life runs on code</h2>
+              </div> 
+              <nav>
+                <ul class="nav-primary">
+                  <li><a href="#">Blog</a></li>
+                  <li><a href="#">Archives</a></li>
+                  <li><a href="#">About</a></li>
+                  <li><a href="#">Portfolio</a></li>
+                  <li><a href="#">Contact</a></li>
+                </ul>
+              </nav>   
             </div>
-            <section>
-              <h1>{{ site.name }}</h1>
+            
+          </header>
+        </div>
+        <div id="container">
+          <section id="content">
+            <div class="container">
               {{ content }}
-            </section>            
-          </div>
+            </div>
+          </section>
+          <aside></aside>
         </div>
     </body>
 </html>
