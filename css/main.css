@@ -40,10 +40,16 @@ a:hover {
 	text-decoration: underline;
 }
 
+p {
+	margin: 0 0 20px 0;
+}
+
 /*****************************************************************************/
 /* LAYOUT
 /*****************************************************************************/
 
+/*	Because we want the top always to be permament and the content flow under the top,
+	we make it fixed, set it on top with z-index and set the opacity for a stylish effect */
 #top {
 	position: fixed;
 	top: 0px;
@@ -61,6 +67,7 @@ a:hover {
 		overflow: hidden;
 	}
 
+/* The navigation is normally longer on small devices, so the padding has to be increased so it does not collide */
 #main {
 	padding-top: 160px;
 }
@@ -71,8 +78,8 @@ a:hover {
 	}
 }
 
-footer {
-	padding: 30px 0;
+#bottom {
+	padding-top: 20px;
 }
 
 /*****************************************************************************/
@@ -81,6 +88,7 @@ footer {
 
 /*Container*/
 
+/* By default the container should always try to fill out everything */
 .container {
 	position: relative;
 	margin: 0 auto;
