@@ -28,7 +28,7 @@ h1, h2, h3, h4, h5, h6 {
 	a {
 		color: $color-dark;
 		&:hover {
-			color: $color-dark;
+			color: $color-highlight;
 			text-decoration: none;
 		}
 	}
@@ -53,4 +53,8 @@ a {
 
 p {
 	margin: 0 0 20px 0;
+}
+
+img {
+	max-width: 100%;
 }

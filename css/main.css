@@ -1,13 +1,14 @@
 .container {
   position: relative;
   margin: 0 auto;
-  padding: 0 20px; }
-  @media only screen and (min-width: 961px) and (max-width: 1023px) {
+  padding: 0 20px;
+  overflow: hidden; }
+  @media only screen and (min-width: 960px) {
     .container {
       width: 960px; } }
-  @media only screen and (min-width: 1024px) {
+  @media only screen and (min-width: 1224px) {
     .container {
-      width: 1024px; } }
+      width: 1224px; } }
 
 * {
   margin: 0;
@@ -30,7 +31,7 @@ h1, h2, h3, h4, h5, h6 {
   h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
     color: #444444; }
     h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
-      color: #444444;
+      color: #e86a4d;
       text-decoration: none; }
 
 h2 {
@@ -48,6 +49,9 @@ a {
 p {
   margin: 0 0 20px 0; }
 
+img {
+  max-width: 100%; }
+
 #top {
   position: fixed;
   top: 0px;
@@ -63,26 +67,43 @@ p {
     overflow: hidden; }
 
 #main {
-  padding-top: 160px; }
+  padding-top: 90px; }
+  @media only screen and (max-width: 430px) {
+    #main {
+      padding-top: 140px; } }
 
+#right {
+  display: none; }
+
+@media only screen and (min-width: 961px) {
+  #content {
+    background-color: rgba(40, 40, 40, 0.1);
+    margin-right: 20px;
+    width: 720px;
+    float: left; }
+
+  #right {
+    width: 220px;
+    float: left;
+    display: block; } }
+@media only screen and (min-width: 1224px) {
+  #content {
+    width: 984px; } }
 #bottom {
   padding-top: 20px; }
 
-/*Branding*/
 div.branding {
   float: left;
   padding-top: 10px; }
 
 .branding h1, .branding h2 {
   display: inline-block; }
-
 .branding h2 {
   margin: 0;
   font-size: 12px;
   bottom: 3px;
   color: #999; }
 
-/* Primary nav */
 #top-nav {
   float: right;
   margin-bottom: 20px; }
@@ -100,31 +121,30 @@ div.branding {
       text-decoration: none;
       color: #444; }
     #top-nav li:last-child a {
-      padding-rigth: 0; }
+      padding-right: 0; }
 
-@media only screen and (min-width: 960px) {
-  nav.nav-primary {
-    margin-bottom: 0; } }
-/* Articles */
 article {
   background: -webkit-linear-gradient(left, #f7f7f7 0%, white 4%, white 100%);
   box-shadow: 0px 0px 3px 0px #ccc;
   margin: 0 0 20px 0; }
+  article div.content {
+    padding: 30px 30px 10px 10px; }
+  article footer {
+    padding: 10px;
+    border-top: 1px solid #eee;
+    overflow: hidden; }
 
-article div.content {
-  padding: 30px 30px 10px 10px; }
+div.bio {
+  background: -webkit-linear-gradient(left, #f7f7f7 0%, white 4%, white 100%);
+  box-shadow: 0px 0px 3px 0px #ccc; }
+  div.bio div.description {
+    padding: 10px 20px; }
 
 footer {
   color: #999;
   font-size: 11px; }
-
-footer a {
-  color: #999; }
-
-article footer {
-  padding: 10px;
-  border-top: 1px solid #eee;
-  overflow: hidden; }
+  footer a {
+    color: #999; }
 
 .tags {
   float: left; }

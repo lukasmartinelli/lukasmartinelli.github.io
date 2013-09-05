@@ -3,38 +3,41 @@ $color-dark: #444;
 $color-highlight: #e86a4d;
 $color-border: #d4d4d4;
 
+$screen-tiny: 320px;
 $screen-small: 480px;
 $screen-medium: 960px;
-$screen-wide: 1024px;
+$screen-wide: 1224px;
 
 $padding-default: 20px;
 
-@mixin respond-to($media) {
-	@if $media == handhelds {
-		@media only screen and (max-width: $screen-small) { @content; }
+@mixin respond-to($min-width, $max-width: null) {
+	@if not $max-width {
+		@media only screen and (min-width: $min-width) { @content; }
 	}
-	@else if $media == medium-screens {
-		@media only screen and (min-width: $screen-medium + 1) and (max-width: $screen-wide - 1) { @content; }
+	@else {
+		@media only screen and (min-width: $min-width) and (max-width: $max-width) { @content; }
 	}
-	@else if $media == wide-screens {
-		@media only screen and (min-width: $screen-wide) { @content; }
-	}
+}
+
+@mixin shiny-box {
+	background: -webkit-linear-gradient(left, #f7f7f7 0%,#ffffff 4%,#ffffff 100%);
+	box-shadow: 0px 0px 3px 0px #ccc;	
 }
 
 .container {
 	position: relative;
 	margin: 0 auto;
 	padding: 0 $padding-default;
+	overflow: hidden;
 
-	@include respond-to(medium-screens) {
+	@include respond-to($screen-medium) {
 		width: $screen-medium;
 	}
 
-	@include respond-to(wide-screens) {
+	@include respond-to($screen-wide) {
 		width: $screen-wide;
 	}
 }
-
 
 @import "base.scss";
 @import "layout.scss";

@@ -2,29 +2,31 @@
 // Module rules
 // ========================================================================== 
 
-/*Branding*/
+// === Brainding === //
 
 div.branding {
 	float: left;
 	padding-top: 10px;
 }
 
-.branding h1, .branding h2 {
-	display: inline-block;
+.branding {
+	h1, h2 {
+		display: inline-block;
+	}
+
+	h2 {
+		margin: 0;
+		font-size: 12px;
+		bottom: 3px;
+		color: #999;
+	}
 }
 
-.branding h2 {
-	margin: 0;
-	font-size: 12px;
-	bottom: 3px;
-	color: #999;
-}
-
-/* Primary nav */
+// === Primary Navigation === //
 
 #top-nav {
 	float: right;
-	margin-bottom: 20px;
+	margin-bottom: $padding-default;
 	
 	ul {
 		margin: 20px 0 0 0;
@@ -45,43 +47,54 @@ div.branding {
 		}
 
 		&:last-child a {
-			padding-rigth: 0;
+			padding-right: 0;
 		}
 	}	
 
 }
 
-@media only screen and (min-width: 960px) {
-	nav.nav-primary {
-		margin-bottom: 0;
-	}
-}
-
-/* Articles */
+// === Article === //
 
 article {
-	background: -webkit-linear-gradient(left, #f7f7f7 0%,#ffffff 4%,#ffffff 100%);
-	box-shadow: 0px 0px 3px 0px #ccc;	
+	@include shiny-box;
 	margin: 0 0 20px 0;
-}
 
-	article div.content {
+	div.content {
 		padding: 30px 30px 10px 10px;
 	}
-
+	
 	footer {
-		color: #999;
-		font-size: 11px;
-	}
-
-	footer a {
-			color: #999;	
-	}
-
-	article footer {
 		padding: 10px;
 		border-top: 1px solid #eee;
 		overflow: hidden;
+	}
+
+}
+
+// === Right === //
+
+div.bio {	
+	@include shiny-box;
+	div.description {
+		padding: 10px $padding-default;
+	}
+}
+
+// === Footer === //
+
+footer {
+	color: #999;
+	font-size: 11px;
+
+	a {
+		color: #999;
+	}
+}
+
+	
+
+	article footer {
+		
 	}		
 
 .tags {

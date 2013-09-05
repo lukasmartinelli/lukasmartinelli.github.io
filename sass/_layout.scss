@@ -2,7 +2,7 @@
 // Layout rules
 // ========================================================================== 
 
-// === Top bar === //
+// === Top section === //
 
 // Because we want the top always to be permament and the content flow under the top,
 // we make it fixed and set it on top with z-index, the content should be slightly visible below
@@ -26,18 +26,48 @@
 
 // === Main section === //
 
-// The navigation is normally longer on small devices, so the padding has to be increased
-// so it does not collide
+$right-width: 220px;
+
 #main {
-	padding-top: 160px;
+	padding-top: 90px;
+	
+	// The navigation is too long to be on one line with the branding on small devices
+	// so it will break and the place required for the top is much bigger
+	// and therefore the padding has to be more
+	// we dont respond to very small devices that even have no place for the whole navigation
+	@media only screen and (max-width: 430px) {
+		padding-top: 140px;		
+	}
 }
 
-// === Sidebar === //
+// Create a bio version that is also readable on mobile versions later
+#right {
+	display: none;
+}
 
+@include respond-to($screen-medium + 1) {
+	#content {		
+		background-color: rgba(40,40,40, .1);
+		margin-right: $padding-default;
+		width: $screen-medium - $right-width - $padding-default;
+		float: left;
+	}
 
+	#right {
+		width: $right-width;
+		float: left;
+		display: block;
+	}
+}
+
+@include respond-to($screen-wide) {
+	#content {
+		width: $screen-wide - $right-width - $padding-default;
+	}
+}
 
 // === Bottom === //
 
 #bottom {
-	padding-top: 20px;
+	padding-top: $padding-default;
 }

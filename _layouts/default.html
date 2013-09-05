@@ -5,11 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>{{ page.title }}</title>
         <meta name="viewport" content="width=device-width">
-
-        <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
-
-        <!-- Custom CSS -->
         <link rel="stylesheet" href="/css/main.css">
     </head>
     <body>
@@ -18,14 +14,14 @@
           <section id="content">
             {{ content }}
           </section>
-          <aside id="sidebar">
+          <aside id="right">
             <div class="bio">
               <img src="http://placehold.it/220x260"></img>
               <div class="description">
                 <p>A custom bio widget is included, share a little about yourself or just use your logo if you're shy. :)</p>
               </div>
             </div>
-          </aside>
+          </aside>          
         </div>
         {% include bottom.html %}     
     </body>
