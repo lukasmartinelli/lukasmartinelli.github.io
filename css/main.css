@@ -87,8 +87,26 @@ p {
 	}
 }
 
+#content {
+	float:left;
+	width: 78%;
+}
+
+#sidebar {
+	float: right;
+	width: 20%;
+}
+
 #bottom {
 	padding-top: 20px;
+}
+
+#sidebar {
+	max-width: 220px;
+}
+
+#sidebar img {
+	max-width: 100%;
 }
 
 /*****************************************************************************/
@@ -102,6 +120,13 @@ p {
 	position: relative;
 	margin: 0 auto;
 	padding: 0 20px;
+	overflow: hidden;
+}
+
+@media only screen and (max-width: 768px) {
+	#sidebar {
+		display: none;
+	}
 }
 
 @media only screen and (min-width : 960px) {
@@ -203,4 +228,16 @@ article {
 
 .permalink {
 	float: right;
+}
+
+/* Bio */
+
+div.bio {
+	background: -webkit-linear-gradient(left, #f7f7f7 0%,#ffffff 4%,#ffffff 100%);
+	box-shadow: 0px 0px 3px 0px #ccc;	
+	overflow: hidden;
+}
+
+div.bio .description {
+	padding: 10px;
 }
