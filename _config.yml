@@ -2,3 +2,4 @@ name: Lukas Martinelli
 markdown: redcarpet
 pygments: true
 exclude: ['CNAME', 'Guardfile', 'README.md']
+paginate: 5

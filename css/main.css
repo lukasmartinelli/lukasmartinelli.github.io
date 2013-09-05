@@ -24,6 +24,15 @@ h1, h2, h3, h4, h5, h6 {
 	text-shadow: 0 1px 0 #eee;
 }
 
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+	color: #444;
+}
+
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+	color: #e86a4d;
+	text-decoration: none;
+}
+
 h2 {
 	font-size: 35px;
 	line-height: 40px;
@@ -166,23 +175,27 @@ nav.nav-primary {
 article {
 	background: -webkit-linear-gradient(left, #f7f7f7 0%,#ffffff 4%,#ffffff 100%);
 	box-shadow: 0px 0px 3px 0px #ccc;	
+	margin: 0 0 20px 0;
 }
 
 	article div.content {
 		padding: 30px 30px 10px 10px;
 	}
 
+	footer {
+		color: #999;
+		font-size: 11px;
+	}
+
+	footer a {
+			color: #999;	
+	}
+
 	article footer {
 		padding: 10px;
 		border-top: 1px solid #eee;
-		color: #999;
-		font-size: 11px;
 		overflow: hidden;
-	}
-
-		article footer a {
-			color: #999;	
-		}
+	}		
 
 .tags {
 	float: left;
