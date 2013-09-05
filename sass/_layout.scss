@@ -1,0 +1,43 @@
+// ==========================================================================
+// Layout rules
+// ========================================================================== 
+
+// === Top bar === //
+
+// Because we want the top always to be permament and the content flow under the top,
+// we make it fixed and set it on top with z-index, the content should be slightly visible below
+// through the opacity effect 
+#top {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	border-bottom: 8px solid rgba(40,40,40, .1);
+	opacity: 0.9;
+	z-index: 50;
+
+	header {
+		border-top: 3px solid $color-highlight;
+		border-bottom: 1px solid $color-border;
+		background: -webkit-linear-gradient(top, #fff 0%,#fff 65%,#eee 100%);
+		overflow: hidden;
+	}
+}
+
+// === Main section === //
+
+// The navigation is normally longer on small devices, so the padding has to be increased
+// so it does not collide
+#main {
+	padding-top: 160px;
+}
+
+// === Sidebar === //
+
+
+
+// === Bottom === //
+
+#bottom {
+	padding-top: 20px;
+}

@@ -1,0 +1,41 @@
+$color-light: #555;
+$color-dark: #444;
+$color-highlight: #e86a4d;
+$color-border: #d4d4d4;
+
+$screen-small: 480px;
+$screen-medium: 960px;
+$screen-wide: 1024px;
+
+$padding-default: 20px;
+
+@mixin respond-to($media) {
+	@if $media == handhelds {
+		@media only screen and (max-width: $screen-small) { @content; }
+	}
+	@else if $media == medium-screens {
+		@media only screen and (min-width: $screen-medium + 1) and (max-width: $screen-wide - 1) { @content; }
+	}
+	@else if $media == wide-screens {
+		@media only screen and (min-width: $screen-wide) { @content; }
+	}
+}
+
+.container {
+	position: relative;
+	margin: 0 auto;
+	padding: 0 $padding-default;
+
+	@include respond-to(medium-screens) {
+		width: $screen-medium;
+	}
+
+	@include respond-to(wide-screens) {
+		width: $screen-wide;
+	}
+}
+
+
+@import "base.scss";
+@import "layout.scss";
+@import "module.scss";

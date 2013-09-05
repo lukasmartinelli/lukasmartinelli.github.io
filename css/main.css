@@ -1,243 +1,133 @@
-/*****************************************************************************/
-/* BASE
-/*****************************************************************************/
+.container {
+  position: relative;
+  margin: 0 auto;
+  padding: 0 20px; }
+  @media only screen and (min-width: 961px) and (max-width: 1023px) {
+    .container {
+      width: 960px; } }
+  @media only screen and (min-width: 1024px) {
+    .container {
+      width: 1024px; } }
 
-/* Global Reset */
 * {
   margin: 0;
-  padding: 0;
-}
+  padding: 0; }
 
-html, body { height: 100%; }
+html, body {
+  height: 100%; }
 
 body {
-  background: #fff url('../img/bg.png');
+  background: white url("../img/bg.png");
   font: 14px/21px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #555;
-}
+  color: #555555; }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: "Georgia", "Times New Roman", Helvetica, Arial, sans-serif;
-	font-weight: normal;
-	font-style: normal;
-	color: #444;	
-	text-shadow: 0 1px 0 #eee;
-}
-
-h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-	color: #444;
-}
-
-h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
-	color: #e86a4d;
-	text-decoration: none;
-}
+  font-family: "Georgia", "Times New Roman", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  color: color-dark;
+  text-shadow: 0 1px 0 #eee; }
+  h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    color: #444444; }
+    h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+      color: #444444;
+      text-decoration: none; }
 
 h2 {
-	font-size: 35px;
-	line-height: 40px;
-	font-style: italic;
-	margin-bottom: 20px;
-}
+  font-size: 35px;
+  line-height: 40px;
+  font-style: italic;
+  margin-bottom: 20px; }
 
 a {
-	color: #e86a4d;
-	text-decoration: none;
-}
-
-a:hover {
-	text-decoration: underline;
-}
+  color: #e86a4d;
+  text-decoration: none; }
+  a:hover {
+    text-decoration: underline; }
 
 p {
-	margin: 0 0 20px 0;
-}
+  margin: 0 0 20px 0; }
 
-/*****************************************************************************/
-/* LAYOUT
-/*****************************************************************************/
-
-/*	Because we want the top always to be permament and the content flow under the top,
-	we make it fixed, set it on top with z-index and set the opacity for a stylish effect */
 #top {
-	position: fixed;
-	top: 0px;
-	left: 0px;
-	width: 100%;
-	border-bottom: 8px solid rgba(40,40,40, .1);
-	opacity: 0.9;
-	z-index: 50;
-}
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  border-bottom: 8px solid rgba(40, 40, 40, 0.1);
+  opacity: 0.9;
+  z-index: 50; }
+  #top header {
+    border-top: 3px solid #e86a4d;
+    border-bottom: 1px solid #d4d4d4;
+    background: -webkit-linear-gradient(top, white 0%, white 65%, #eeeeee 100%);
+    overflow: hidden; }
 
-	#top header {
-		border-top: 3px solid #e86a4d;
-		border-bottom: 1px solid #d4d4d4;
-		background: -webkit-linear-gradient(top, #fff 0%,#fff 65%,#eee 100%);
-		overflow: hidden;
-	}
-
-/* The navigation is normally longer on small devices, so the padding has to be increased so it does not collide */
 #main {
-	padding-top: 160px;
-}
-
-@media only screen and (min-width: 960px) {
-	#main {
-		padding-top: 100px;
-	}
-}
-
-#content {
-	float:left;
-	width: 78%;
-}
-
-#sidebar {
-	float: right;
-	width: 20%;
-}
+  padding-top: 160px; }
 
 #bottom {
-	padding-top: 20px;
-}
-
-#sidebar {
-	max-width: 220px;
-}
-
-#sidebar img {
-	max-width: 100%;
-}
-
-/*****************************************************************************/
-/* MODULE
-/*****************************************************************************/
-
-/*Container*/
-
-/* By default the container should always try to fill out everything */
-.container {
-	position: relative;
-	margin: 0 auto;
-	padding: 0 20px;
-	overflow: hidden;
-}
-
-@media only screen and (max-width: 768px) {
-	#sidebar {
-		display: none;
-	}
-}
-
-@media only screen and (min-width : 960px) {
-	.container {
-		width: 960px;
-	}
-}
-
-@media only screen and (min-width : 1224px) {
-	.container {
-		width: 1224px;
-	}
-}
+  padding-top: 20px; }
 
 /*Branding*/
-
 div.branding {
-	float: left;
-	padding-top: 10px;
-}
+  float: left;
+  padding-top: 10px; }
 
 .branding h1, .branding h2 {
-	display: inline-block;
-}
+  display: inline-block; }
 
 .branding h2 {
-	margin: 0;
-	font-size: 12px;
-	bottom: 3px;
-	color: #999;
-}
+  margin: 0;
+  font-size: 12px;
+  bottom: 3px;
+  color: #999; }
 
 /* Primary nav */
-
-nav.nav-primary {
-	float: right;
-	margin-bottom: 20px;
-}
-
-.nav-primary ul {
-	margin: 20px 0 0 0;
-}
-
-	.nav-primary li {
-		float: left;
-		line-height: 18px;
-		list-style: none;
-	}
-
-	.nav-primary a {
-		font-size: 11px;
-		padding: 0 20px 10px 0;
-		font-weight: bold;
-		text-transform: uppercase;
-		text-decoration: none;
-		color: #444;
-	}
-
-	.nav-primary li:last-child a {
-		padding-right: 0;
-	}
+#top-nav {
+  float: right;
+  margin-bottom: 20px; }
+  #top-nav ul {
+    margin: 20px 0 0 0; }
+  #top-nav li {
+    float: left;
+    line-height: 18px;
+    list-style: none; }
+    #top-nav li a {
+      font-size: 11px;
+      padding: 0 20px 10px 0;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #444; }
+    #top-nav li:last-child a {
+      padding-rigth: 0; }
 
 @media only screen and (min-width: 960px) {
-	nav.nav-primary {
-		margin-bottom: 0;
-	}
-}
-
+  nav.nav-primary {
+    margin-bottom: 0; } }
 /* Articles */
-
 article {
-	background: -webkit-linear-gradient(left, #f7f7f7 0%,#ffffff 4%,#ffffff 100%);
-	box-shadow: 0px 0px 3px 0px #ccc;	
-	margin: 0 0 20px 0;
-}
+  background: -webkit-linear-gradient(left, #f7f7f7 0%, white 4%, white 100%);
+  box-shadow: 0px 0px 3px 0px #ccc;
+  margin: 0 0 20px 0; }
 
-	article div.content {
-		padding: 30px 30px 10px 10px;
-	}
+article div.content {
+  padding: 30px 30px 10px 10px; }
 
-	footer {
-		color: #999;
-		font-size: 11px;
-	}
+footer {
+  color: #999;
+  font-size: 11px; }
 
-	footer a {
-			color: #999;	
-	}
+footer a {
+  color: #999; }
 
-	article footer {
-		padding: 10px;
-		border-top: 1px solid #eee;
-		overflow: hidden;
-	}		
+article footer {
+  padding: 10px;
+  border-top: 1px solid #eee;
+  overflow: hidden; }
 
 .tags {
-	float: left;
-}
+  float: left; }
 
 .permalink {
-	float: right;
-}
-
-/* Bio */
-
-div.bio {
-	background: -webkit-linear-gradient(left, #f7f7f7 0%,#ffffff 4%,#ffffff 100%);
-	box-shadow: 0px 0px 3px 0px #ccc;	
-	overflow: hidden;
-}
-
-div.bio .description {
-	padding: 10px;
-}
+  float: right; }

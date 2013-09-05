@@ -1,0 +1,56 @@
+// ==========================================================================
+// Base rules
+// ========================================================================== 
+
+// === Global Reset === //
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body { height: 100%; }
+
+body {
+  background: #fff url('../img/bg.png');
+  font: 14px/21px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: $color-light;
+}
+
+// === Headings === //
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Georgia", "Times New Roman", Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	font-style: normal;
+	color: color-dark;	
+	text-shadow: 0 1px 0 #eee;
+
+	a {
+		color: $color-dark;
+		&:hover {
+			color: $color-dark;
+			text-decoration: none;
+		}
+	}
+}
+
+h2 {
+	font-size: 35px;
+	line-height: 40px;
+	font-style: italic;
+	margin-bottom: 20px;
+}
+
+// === Links === //
+
+a {
+	color: $color-highlight;
+	text-decoration: none;
+	&:hover { text-decoration: underline; }
+}
+
+// === Text === //
+
+p {
+	margin: 0 0 20px 0;
+}

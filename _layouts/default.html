@@ -13,25 +13,7 @@
         <link rel="stylesheet" href="/css/main.css">
     </head>
     <body>
-        <div id="top">
-          <header>
-            <div class="container">
-              <div class="branding">
-                <h1>Blog</h1>
-                <h2>Life runs on code</h2>
-              </div> 
-              <nav class="nav-primary">
-                <ul>
-                  <li><a href="#">Blog</a></li>
-                  <li><a href="#">Archives</a></li>
-                  <li><a href="#">About</a></li>
-                  <li><a href="#">Portfolio</a></li>
-                  <li><a href="#">Contact</a></li>
-                </ul>
-              </nav> 
-            </div>           
-          </header>
-        </div>
+        {% include top.html %}
         <div id="main" class="container">
           <section id="content">
             {{ content }}
@@ -45,8 +27,6 @@
             </div>
           </aside>
         </div>
-        <footer id="bottom" class="container">
-          <p>Copyright <a href="lukasmartinelli.ch">Lukas Martinelli</a></p>
-        </footer>
+        {% include bottom.html %}     
     </body>
 </html>
