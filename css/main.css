@@ -87,6 +87,7 @@ footer {
     border-top: 3px solid #e86a4d;
     border-bottom: 1px solid #d4d4d4;
     background: -webkit-linear-gradient(top, white 0%, white 65%, #eeeeee 100%);
+    background: linear-gradient(to bottom, white 0%, white 65%, #eeeeee 100%);
     overflow: hidden; }
 
 /* ===Main section=== */
@@ -129,6 +130,9 @@ div.branding {
 #top-nav {
   float: right;
   margin: 1.42857em 0 0.71429em 0; }
+  @media only screen and (max-width: 30.71429em) {
+    #top-nav {
+      margin: 0.71429em 0 0.71429em 0; } }
   #top-nav li {
     float: left;
     line-height: 1.28571em;

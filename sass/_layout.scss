@@ -21,7 +21,7 @@
 	header {
 		border-top: 3px solid $color-highlight;
 		border-bottom: 1px solid $color-border;
-		background: -webkit-linear-gradient(top, #fff 0%,#fff 65%,#eee 100%);
+		@include background(linear-gradient(top, #fff 0%,#fff 65%,#eee 100%));
 		overflow: hidden;
 	}
 }
@@ -31,7 +31,7 @@
 #main {
 	margin-top: em(90, $default-font-size);
 	
-	// The navigation is too long to be on one line with the branding on small devices
+	// The navigation is too long to be on one row with the branding on small devices
 	// so it will break and the place required for the top is much bigger
 	// and therefore the padding has to be more
 	// we dont respond to very small devices that even have no place for the whole navigation
