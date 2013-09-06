@@ -1,18 +1,30 @@
 // ==========================================================================
 // Base rules
 // ========================================================================== 
+@import 'bourbon/bourbon';
 
-// === Global Reset === //
+//Has to be a numer instead of pixels because of the px-to-em converting function
+$base-font-size: 14;
+
+// === Globals === //
 * {
   margin: 0;
   padding: 0;
+}
+
+// Apply a natural box layout model to all elements
+// http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+*, *:before, *:after {
+	@include box-sizing(border-box);
 }
 
 html, body { height: 100%; }
 
 body {
   background: #fff url('../img/bg.png');
-  font: 14px/21px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: em($base-font-size);
+  line-height: em(21, $base-font-size);
+  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: $color-light;
 }
 
@@ -35,10 +47,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h2 {
-	font-size: 35px;
-	line-height: 40px;
+	font-size: em(35, $base-font-size);
+	line-height: em(40, 35);
 	font-style: italic;
-	margin-bottom: 20px;
+	margin-bottom: em(20, 35);
 }
 
 // === Links === //

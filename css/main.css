@@ -14,12 +14,19 @@
   margin: 0;
   padding: 0; }
 
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
 html, body {
   height: 100%; }
 
 body {
   background: white url("../img/bg.png");
-  font: 14px/21px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.875em;
+  line-height: 1.5em;
+  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #555555; }
 
 h1, h2, h3, h4, h5, h6 {
@@ -35,10 +42,10 @@ h1, h2, h3, h4, h5, h6 {
       text-decoration: none; }
 
 h2 {
-  font-size: 35px;
-  line-height: 40px;
+  font-size: 2.5em;
+  line-height: 1.14286em;
   font-style: italic;
-  margin-bottom: 20px; }
+  margin-bottom: 0.57143em; }
 
 a {
   color: #e86a4d;
