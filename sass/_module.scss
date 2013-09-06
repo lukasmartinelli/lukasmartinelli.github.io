@@ -70,10 +70,25 @@ article {
 /* ===Biography=== */
 
 .bio {	
+	overflow: hidden;
 	@include shiny-box;
 	
 	.description {
 		padding: $default-margin/2 $default-margin;
+	}
+
+	@media only screen and (max-width: $screen-break-right) {
+		.avatar {
+			padding: $default-margin 0 $default-margin $default-margin;
+			width: 30%;
+			float: left;
+		}
+
+		.description {
+			padding: $default-margin;
+			float: left;
+			width: 70%;
+		}
 	}	
 }
 

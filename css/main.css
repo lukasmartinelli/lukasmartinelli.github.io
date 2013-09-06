@@ -167,6 +167,7 @@ article {
 
 /* ===Biography=== */
 .bio {
+  overflow: hidden;
   background-color: #f7f7f7;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f7f7f7), color-stop(4%, white), color-stop(100%, white));
   background-image: -webkit-linear-gradient(right, #f7f7f7 0%, white 4%, white 100%);
@@ -174,6 +175,15 @@ article {
   box-shadow: 0 0 0.21429em 0 #cccccc; }
   .bio .description {
     padding: 0.71429em 1.42857em; }
+  @media only screen and (max-width: 54.85714em) {
+    .bio .avatar {
+      padding: 1.42857em 0 1.42857em 1.42857em;
+      width: 30%;
+      float: left; }
+    .bio .description {
+      padding: 1.42857em;
+      float: left;
+      width: 70%; } }
 
 /* ===Footer=== */
 footer {
