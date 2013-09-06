@@ -5,8 +5,12 @@ title: Welcome dear visitor
 
 {% for post in paginator.posts %}
 <article>
+	<header>
+		<div class="post-format">&nbsp;</div>
+		<time class="post-date" datetime="2011-10-18" pubdate="pubdate" title"October 18, 2011">Oct 18</time>
+		<h2><a href=" {{ post.url }}">{{ post.title }}</a></h2>	
+	</header>
 	<div class="content">
-		<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
 	  	<p>{{ post.excerpt }}</p>
   	</div>
   	<footer>

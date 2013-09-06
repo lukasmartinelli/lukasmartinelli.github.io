@@ -54,12 +54,40 @@ div.branding {
 
 article {
 	@include shiny-box;
-	margin: 0 0 $default-margin 0;
+	position: relative;
+	margin: 0 0 $default-margin 0;	
 
 	.content {
-		padding: $default-margin $default-margin 0 $default-margin;
+		padding: 0 $default-margin;
 	}
 	
+	header {
+		padding: $default-margin $default-margin 0 $default-margin;
+
+		.post-format {
+			width: em(40, $default-font-size);
+			height: em(40, $default-font-size);
+			left: em(-40, $default-font-size);
+			top: em(30, $default-font-size);
+			position: absolute;
+			background-color: $color-highlight;
+		}
+
+		.post-date {
+			font-size: em(12, $default-font-size);
+			text-transform: uppercase;
+			text-align: center;
+			line-height: em(26, $default-font-size);
+			color: #fff;
+			background-color: #ccc;
+			width: em(60, $default-font-size);
+			height: em(25, $default-font-size);
+			top: em(83, $default-font-size);
+			left: em(-60, $default-font-size);
+			position: absolute;
+		}
+	}
+
 	footer {
 		padding: $default-margin/2 $default-margin;
 		border-top: 1px solid #eee;
@@ -91,6 +119,7 @@ article {
 		}
 	}	
 }
+
 
 /* ===Footer=== */
 
