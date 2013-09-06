@@ -62,13 +62,13 @@ article {
 	}
 	
 	header {
-		padding: $default-margin $default-margin 0 $default-margin;
+		padding: em(50, $default-font-size) $default-margin 0 $default-margin;
 
 		.post-format {
 			width: em(40, $default-font-size);
 			height: em(40, $default-font-size);
-			left: em(-40, $default-font-size);
-			top: em(30, $default-font-size);
+			left: $default-margin;
+			top: 0em;
 			position: absolute;
 			background-color: $color-highlight;
 		}
@@ -82,10 +82,26 @@ article {
 			background-color: #ccc;
 			width: em(60, $default-font-size);
 			height: em(25, $default-font-size);
-			top: em(83, $default-font-size);
-			left: em(-60, $default-font-size);
+			left: em(71, $default-font-size);
+			top: 0em;
 			position: absolute;
 		}
+
+		@media only screen and (min-width: $screen-max-container) {
+			padding-top: $default-margin;
+
+			.post-format {
+				left: em(-40, $default-font-size);
+				top: em(30, $default-font-size);
+			}
+
+			.post-date {
+				top: em(83, $default-font-size);
+			left: em(-60, $default-font-size);
+			}
+		}
+
+		
 	}
 
 	footer {

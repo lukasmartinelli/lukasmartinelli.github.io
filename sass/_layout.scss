@@ -37,6 +37,7 @@
 #main {
 	margin-top: em(90, $default-font-size);
 	overflow: visible;
+	@include clearfix;
 	// Because the navigation is no longer fixed we no longer need the huge margin
 	@media only screen and (max-width: $screen-break-top) {
 		margin-top: $default-margin;		
