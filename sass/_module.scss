@@ -25,7 +25,7 @@ div.branding {
 	margin: $default-margin 0 $default-margin/2 0;
 
 	// When we have a whole row for our nav, we don't need such a big margin to the top	
-	@media only screen and (max-width: em(430, $default-font-size)) {
+	@media only screen and (max-width: $screen-break-right) {
 		margin: $default-margin/2 0 $default-margin/2 0;
 	}
 

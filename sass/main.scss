@@ -18,21 +18,9 @@ $color-highlight: #e86a4d;
 $color-border: #d4d4d4;
 $shadow: rgba(40,40,40, .1);
 
-$screen-tiny: em(320, $default-font-size);
-$screen-small: em(480, $default-font-size);
-$screen-medium: em(960, $default-font-size);
-$screen-wide: em(1224, $default-font-size);
-
-
-
-@mixin respond-to($min-width, $max-width: null) {
-	@if not $max-width {
-		@media only screen and (min-width: $min-width) { @content; }
-	}
-	@else {
-		@media only screen and (min-width: $min-width) and (max-width: $max-width) { @content; }
-	}
-}
+$screen-break-top: em(420, $default-font-size);
+$screen-break-right: em(768, $default-font-size);
+$screen-max-container: em(1224, $default-font-size);
 
 @mixin shiny-box {
 	@include linear-gradient(to left, #f7f7f7 0%, #fff 4%, #fff 100%);
@@ -49,5 +37,5 @@ $screen-wide: em(1224, $default-font-size);
 	padding: 0 $default-margin;
 	overflow: hidden;	
 	// Allow scaling the container until the supported wide screen
-	max-width: $screen-wide;
+	max-width: $screen-max-container;
 }

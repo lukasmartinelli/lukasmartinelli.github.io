@@ -26,7 +26,7 @@
 	}
 
 	// User shouldnt have a permament top on mobile devices, space is precious there
-	@media only screen and (max-width: em(430, $default-font-size)) {
+	@media only screen and (max-width: $screen-break-top) {
 		position: relative;
 
 	}
@@ -38,7 +38,7 @@
 	margin-top: em(90, $default-font-size);
 	
 	// Because the navigation is no longer fixed we no longer need the huge margin
-	@media only screen and (max-width: em(430, $default-font-size)) {
+	@media only screen and (max-width: $screen-break-top) {
 		margin-top: $default-margin;		
 	}
 }
@@ -47,7 +47,7 @@
 	background: $shadow;
 }
 
-@include respond-to($screen-medium) {
+@media only screen and (min-width: $screen-break-right) {
 	#content {
 		float: left;
 		width: 80%;

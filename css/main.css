@@ -89,21 +89,21 @@ footer {
     background: -webkit-linear-gradient(top, white 0%, white 65%, #eeeeee 100%);
     background: linear-gradient(to bottom, white 0%, white 65%, #eeeeee 100%);
     overflow: hidden; }
-  @media only screen and (max-width: 30.71429em) {
+  @media only screen and (max-width: 30em) {
     #top {
       position: relative; } }
 
 /* ===Main section=== */
 #main {
   margin-top: 6.42857em; }
-  @media only screen and (max-width: 30.71429em) {
+  @media only screen and (max-width: 30em) {
     #main {
       margin-top: 1.42857em; } }
 
 #content {
   background: rgba(40, 40, 40, 0.1); }
 
-@media only screen and (min-width: 68.57143em) {
+@media only screen and (min-width: 54.85714em) {
   #content {
     float: left;
     width: 80%; }
@@ -133,7 +133,7 @@ div.branding {
 #top-nav {
   float: right;
   margin: 1.42857em 0 0.71429em 0; }
-  @media only screen and (max-width: 30.71429em) {
+  @media only screen and (max-width: 54.85714em) {
     #top-nav {
       margin: 0.71429em 0 0.71429em 0; } }
   #top-nav li {
