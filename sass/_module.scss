@@ -24,7 +24,7 @@ div.branding {
 	float: right;
 	margin: $default-margin 0 $default-margin/2 0;
 
-	//When we have a whole row for our nav, we don't need such a big margin to the top	
+	// When we have a whole row for our nav, we don't need such a big margin to the top	
 	@media only screen and (max-width: em(430, $default-font-size)) {
 		margin: $default-margin/2 0 $default-margin/2 0;
 	}
@@ -56,8 +56,8 @@ article {
 	@include shiny-box;
 	margin: 0 0 $default-margin 0;
 
-	div.content {
-		padding: $default-margin;
+	.content {
+		padding: $default-margin $default-margin 0 $default-margin;
 	}
 	
 	footer {
@@ -69,10 +69,22 @@ article {
 
 /* ===Biography=== */
 
-div.bio {	
+.bio {	
 	@include shiny-box;
-	div.description {
+	
+	.description {
 		padding: $default-margin/2 $default-margin;
+	}	
+}
+
+/* ===Footer=== */
+
+footer {
+	color: $color-light;
+	font-size: em(11, $default-font-size);
+
+	a {
+		color: $color-light;
 	}
 
 	.tags { float: left; }

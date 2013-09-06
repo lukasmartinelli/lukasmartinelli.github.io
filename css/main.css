@@ -158,25 +158,32 @@ article {
   background-image: linear-gradient(to left,#f7f7f7 0%, white 4%, white 100%);
   box-shadow: 0 0 0.21429em 0 #cccccc;
   margin: 0 0 1.42857em 0; }
-  article div.content {
-    padding: 1.42857em; }
+  article .content {
+    padding: 1.42857em 1.42857em 0 1.42857em; }
   article footer {
     padding: 0.71429em 1.42857em;
     border-top: 1px solid #eee;
     overflow: hidden; }
 
 /* ===Biography=== */
-div.bio {
+.bio {
   background-color: #f7f7f7;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f7f7f7), color-stop(4%, white), color-stop(100%, white));
   background-image: -webkit-linear-gradient(right, #f7f7f7 0%, white 4%, white 100%);
   background-image: linear-gradient(to left,#f7f7f7 0%, white 4%, white 100%);
   box-shadow: 0 0 0.21429em 0 #cccccc; }
-  div.bio div.description {
+  .bio .description {
     padding: 0.71429em 1.42857em; }
-  div.bio .tags {
+
+/* ===Footer=== */
+footer {
+  color: #999999;
+  font-size: 0.78571em; }
+  footer a {
+    color: #999999; }
+  footer .tags {
     float: left; }
-  div.bio .permalink {
+  footer .permalink {
     float: right; }
 
 .container {
