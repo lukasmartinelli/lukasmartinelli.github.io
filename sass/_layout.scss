@@ -1,8 +1,10 @@
-// ==========================================================================
-// Layout rules
-// ========================================================================== 
+/* ===============
+   Layout Rules 
+   =============== */
 
-// === Top section === //
+@import 'bourbon/bourbon';
+
+/* ===Top section=== */
 
 // Because we want the top always to be permament and the content flow under the top,
 // we make it fixed and set it on top with z-index, the content should be slightly visible below
@@ -12,7 +14,7 @@
 	top: 0px;
 	left: 0px;
 	width: 100%;
-	border-bottom: 8px solid rgba(40,40,40, .1);
+	border-bottom: 8px solid $shadow;
 	opacity: 0.9;
 	z-index: 50;
 
@@ -24,50 +26,39 @@
 	}
 }
 
-// === Main section === //
-
-$right-width: 220px;
+/* ===Main section=== */
 
 #main {
-	padding-top: 90px;
+	margin-top: em(90, $default-font-size);
 	
 	// The navigation is too long to be on one line with the branding on small devices
 	// so it will break and the place required for the top is much bigger
 	// and therefore the padding has to be more
 	// we dont respond to very small devices that even have no place for the whole navigation
-	@media only screen and (max-width: 430px) {
-		padding-top: 140px;		
+	@media only screen and (max-width: em(430, $default-font-size)) {
+		margin-top: em(140, $default-font-size);		
 	}
 }
 
-// Create a bio version that is also readable on mobile versions later
-#right {
-	display: none;
+#content {
+	background: $shadow;
 }
 
-@include respond-to($screen-medium + 1) {
-	#content {		
-		background-color: rgba(40,40,40, .1);
-		margin-right: $padding-default;
-		width: $screen-medium - $right-width - $padding-default;
+@include respond-to($screen-medium) {
+	#content {
 		float: left;
+		width: 80%;
 	}
 
 	#right {
-		width: $right-width;
-		float: left;
-		display: block;
+		float: right;
+		width: 20%;
+		padding-left: $default-margin;
 	}
 }
 
-@include respond-to($screen-wide) {
-	#content {
-		width: $screen-wide - $right-width - $padding-default;
-	}
-}
-
-// === Bottom === //
+/* ===Bottom=== */
 
 #bottom {
-	padding-top: $padding-default;
-}
+	padding-top: $default-margin;
+}	

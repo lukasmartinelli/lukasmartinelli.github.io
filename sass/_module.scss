@@ -1,49 +1,41 @@
-// ==========================================================================
-// Module rules
-// ========================================================================== 
+/* ===============
+   Module Rules 
+   =============== */
 
-// === Brainding === //
+/* ===Branding=== */
 
 div.branding {
 	float: left;
-	padding-top: 10px;
-}
 
-.branding {
 	h1, h2 {
 		display: inline-block;
 	}
 
 	h2 {
 		margin: 0;
-		font-size: 12px;
-		bottom: 3px;
-		color: #999;
+		font-size: em(12, $default-font-size);
+		color: $color-medium;
 	}
 }
 
-// === Primary Navigation === //
+/* ===TopNav === */
 
 #top-nav {
 	float: right;
-	margin-bottom: $padding-default;
+	margin: $default-margin 0 $default-margin/2 0;
 	
-	ul {
-		margin: 20px 0 0 0;
-	}
-
 	li {
 		float: left;
-		line-height: 18px;
+		line-height: em(18, $default-font-size);
 		list-style: none;
 	
 		a {
-			font-size: 11px;
-			padding: 0 20px 10px 0;
+			font-size: em(11, $default-font-size);
+			padding: 0 $default-margin $default-margin/2 0;
 			font-weight: bold;
 			text-transform: uppercase;
 			text-decoration: none;
-			color: #444;
+			color: $color-dark;
 		}
 
 		&:last-child a {
@@ -53,54 +45,31 @@ div.branding {
 
 }
 
-// === Article === //
+/* ===Article=== */
 
 article {
 	@include shiny-box;
-	margin: 0 0 20px 0;
+	margin: 0 0 $default-margin 0;
 
 	div.content {
-		padding: 30px 30px 10px 10px;
+		padding: $default-margin;
 	}
 	
 	footer {
-		padding: 10px;
+		padding: $default-margin/2 $default-margin;
 		border-top: 1px solid #eee;
 		overflow: hidden;
 	}
-
 }
 
-// === Right === //
+/* ===Biography=== */
 
 div.bio {	
 	@include shiny-box;
 	div.description {
-		padding: 10px $padding-default;
+		padding: $default-margin/2 $default-margin;
 	}
-}
 
-// === Footer === //
-
-footer {
-	color: #999;
-	font-size: 11px;
-
-	a {
-		color: #999;
-	}
-}
-
-	
-
-	article footer {
-		
-	}		
-
-.tags {
-	float: left;
-}
-
-.permalink {
-	float: right;
+	.tags { float: left; }
+	.permalink { float: right; }
 }
