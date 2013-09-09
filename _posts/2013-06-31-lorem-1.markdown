@@ -8,7 +8,6 @@ categories: cloud
 published: true
 ---
 
-## Introduction
 If you're a developer who wants to create his personal blog or portfolio, you probably first think of a wordpress site. But wait a moment, why should you place a bloated cms system behind something that is not managed by a non-developer, but of a person how knows how to create webpages. You only loose power of creating the content you want and a lot of time to create and customize a theme. This is why static site generators got popular recently.
 
 ### About site generators
@@ -27,4 +26,5 @@ Create a repository that is named after this scheme:
 ```
 username/username.github.io
 ```
-![Create Jekyll Repository on Github](/_posts/github-create-jekyll-repo.png)
+
+![Create Jekyll Repository on Github](https://www.evernote.com/shard/s199/res/0738912d-463a-4bb8-8275-54c7ec8777ce/Image.png?search=jekyll&resizeSmall&width=692)
