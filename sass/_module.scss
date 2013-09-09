@@ -13,7 +13,7 @@ div.branding {
 
 	h2 {
 		margin: 0;
-		font-size: em(12, $default-font-size);
+		font-size: em(12);
 		color: $color-medium;
 	}
 }
@@ -31,11 +31,11 @@ div.branding {
 
 	li {
 		float: left;
-		line-height: em(18, $default-font-size);
+		line-height: em(18);
 		list-style: none;
 	
 		a {
-			font-size: em(11, $default-font-size);
+			font-size: em(11);
 			padding: 0 $default-margin $default-margin/2 0;
 			font-weight: bold;
 			text-transform: uppercase;
@@ -62,11 +62,11 @@ article {
 	}
 	
 	header {
-		padding: em(50, $default-font-size) $default-margin 0 $default-margin;
+		padding: em(50) $default-margin 0 $default-margin;
 
 		.post-format {
-			width: em(40, $default-font-size);
-			height: em(40, $default-font-size);
+			width: em(40);
+			height: em(40);
 			left: $default-margin;
 			top: 0em;
 			position: absolute;
@@ -74,15 +74,15 @@ article {
 		}
 
 		.post-date {
-			font-size: em(12, $default-font-size);
+			font-size: em(12);
 			text-transform: uppercase;
 			text-align: center;
-			line-height: em(26, $default-font-size);
+			line-height: em(26);
 			color: #fff;
 			background-color: #ccc;
-			width: em(60, $default-font-size);
-			height: em(25, $default-font-size);
-			left: em(71, $default-font-size);
+			width: em(60);
+			height: em(25);
+			left: em(71);
 			top: 0em;
 			position: absolute;
 		}
@@ -91,13 +91,13 @@ article {
 			padding-top: $default-margin;
 
 			.post-format {
-				left: em(-40, $default-font-size);
-				top: em(30, $default-font-size);
+				left: em(-40);
+				top: em(30);
 			}
 
 			.post-date {
-				top: em(83, $default-font-size);
-			left: em(-60, $default-font-size);
+				top: em(83);
+			left: em(-60);
 			}
 		}
 
@@ -141,7 +141,7 @@ article {
 
 footer {
 	color: $color-light;
-	font-size: em(11, $default-font-size);
+	font-size: em(11);
 
 	a {
 		color: $color-light;

@@ -1,8 +1,7 @@
 /* ===============
    Layout Rules 
    =============== */
-
-@import 'bourbon/bourbon';
+@import "compass/css3/images";
 
 /* ===Top section=== */
 
@@ -35,7 +34,7 @@
 /* ===Main section=== */
 
 #main {
-	margin-top: em(90, $default-font-size);
+	margin-top: em(90);
 	overflow: visible;
 	@include clearfix;
 	// Because the navigation is no longer fixed we no longer need the huge margin

@@ -1,8 +1,7 @@
 /* ===============
    Base Rules 
    =============== */
-   
-@import 'bourbon/bourbon';
+@import "compass/css3/box-sizing";
 
 /* ===Globals=== */
 
@@ -21,7 +20,7 @@ section, article, header, footer {  display: block; }
 body {
   background: #fff url('../img/bg.png');
   font-size: em($default-font-size);
-  line-height: em(21, $default-font-size);
+  line-height: em(21);
   font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: $color-medium;
 }
@@ -45,12 +44,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-	font-size: em(30, $default-font-size);
+	font-size: em(30);
 	line-height: em(55, 30)
 }
 
 h2 {
-	font-size: em(35, $default-font-size);
+	font-size: em(35);
 	line-height: em(40, 35);
 	font-style: italic;
 	margin-bottom: em(20, 35);
@@ -72,15 +71,4 @@ p {
 
 img {
 	max-width: 100%;
-}
-
-/* ===Footer=== */
-
-footer {
-	color: $color-light;
-	font-size: em(11, $default-font-size);
-
-	a {
-		color: $color-light;
-	}
 }
