@@ -3,6 +3,7 @@ layout: post
 title:  "Lorem ipsum"
 date:   2013-08-31 16:34:32
 tags: jekyll, webdesign
+categories: cloud
 ---
 
 You'll find this post in your `_posts` directory - edit this post and re-build (or run with the `-w` switch) to see your changes!

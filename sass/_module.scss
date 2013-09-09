@@ -2,6 +2,8 @@
    Module Rules 
    =============== */
 
+@import "compass/utilities/sprites";
+
 /* ===Branding=== */
 
 div.branding {
@@ -72,6 +74,8 @@ article {
 			position: absolute;
 			background-color: $color-highlight;
 		}
+
+
 
 		.post-date {
 			font-size: em(12);
@@ -150,3 +154,7 @@ footer {
 	.tags { float: left; }
 	.permalink { float: right; }
 }
+
+/* ===Icons === */
+@import "icon/*.png";
+@include all-icon-sprites;

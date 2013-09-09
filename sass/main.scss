@@ -8,6 +8,15 @@
 @import "compass/utilities/general/clearfix";
 @import "compass/css3/images";
 
+@mixin shiny-box {
+	@include background(linear-gradient(left, #f7f7f7 0%, #fff 4%, #fff 100%));
+	@include box-shadow(0 0 em(3) 0 #ccc);	
+}
+
+@function em($target, $context: $default-font-size) {
+    @return ($target / $context) * 1em;
+}
+
 //Has to be a numer instead of pixels because of the px-to-em converting function
 $default-font-size: 14;
 //This is the default margin between elements
@@ -24,15 +33,6 @@ $screen-break-top: em(420);
 $screen-break-right: em(768);
 $screen-max-container: em(1224);
 
-@mixin shiny-box {
-	@include background(linear-gradient(left, #f7f7f7 0%, #fff 4%, #fff 100%));
-	@include box-shadow(0 0 em(3) 0 #ccc);	
-}
-
-@function em($target, $context: $default-font-size) {
-    @return ($target / $context) * 1em;
-}
-
 @import "base.scss";
 @import "layout.scss";
 @import "module.scss";
@@ -41,7 +41,7 @@ $screen-max-container: em(1224);
 	position: relative;
 	margin: 0 auto;
 	padding: 0 $default-margin;
-	overflow: hidden;	
+	overflow: hidden;
 	// Allow scaling the container until the supported wide screen
 	max-width: $screen-max-container;
 }

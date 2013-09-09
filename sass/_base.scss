@@ -12,14 +12,14 @@
 	// http://www.paulirish.com/2012/box-sizing-border-box-ftw/
   @include box-sizing(border-box);
 }
-
+  
 html, body { height: 100%; }
 
 section, article, header, footer {  display: block; }
 
 body {
   background: #fff url('../img/bg.png');
-  font-size: em($default-font-size);
+  font-size: em($default-font-size, 16);
   line-height: em(21);
   font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: $color-medium;
