@@ -24,6 +24,7 @@ Now in this tutorial i want to show you the quickest way to get started with you
 ## Create Repository on GitHub
 
 Create a repository that is named after this scheme:
+```
 username/username.github.io
-
-
+```
+![Create Jekyll Repository on Github](/_posts/github-create-jekyll-repo.png)
