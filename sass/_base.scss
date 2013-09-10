@@ -45,14 +45,19 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
 	font-size: em(30);
-	line-height: em(55, 30)
+	line-height: em(55, 30);
 }
 
 h2 {
 	font-size: em(35);
 	line-height: em(40, 35);
-	font-style: italic;
 	margin-bottom: em(20, 35);
+}
+
+h3 {
+	font-size: em(28);
+	line-height: em(34, 28);
+	margin-bottom: em(8, 28);
 }
 
 /* ===Links=== */
