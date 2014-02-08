@@ -10,6 +10,8 @@ prose:
     - index.html
     - Guardfile
     - CNAME
+    - .gitignore
+    - config.rb
     - _config.yml
     - /_layouts
     - /_includes
