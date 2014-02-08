@@ -3,3 +3,16 @@ markdown: redcarpet
 pygments: true
 exclude: ['CNAME', 'Guardfile', 'README.md']
 paginate: 5
+prose:
+  siteurl: 'http://lukasmartinelli.ch'
+  media: 'media'
+  ignore:
+    - index.html
+    - Guardfile
+    - CNAME
+    - _config.yml
+    - /_layouts
+    - /_includes
+    - /img
+    - /sass
+    - /css
