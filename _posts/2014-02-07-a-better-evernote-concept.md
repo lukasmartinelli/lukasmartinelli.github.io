@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 ---
 
 I recently try to move away from US services that contain too much of my life's private information. Evernote has been the #1 reason that I finally managed to get organized: I dump everything into the green elephant's brain to access it later. I've become so dependant on it, that the thought someone could read or parse my evernote notes, makes me shudder
