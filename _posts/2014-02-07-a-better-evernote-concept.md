@@ -15,20 +15,30 @@ Evernote improves this workflow even more by cropping the picture and adjusting 
 
 If we take a step back we notice, that this isn't actually note taking, this is about organizing and labelling resources. We are actually adding metadata like a Date, Place, Name and Tags to a digital file.
 
+![Evernote flow for organizing paper work](/img/content/evernote_organizing_paper_work.png)
+
 ### Archiving the Web
 Evernote keeps everything i've read and liked on the web and makes it searchable.
 If I mark something on feedly it goes to Evernote, if I've read an interesting article on Pocket it goes to Evernote, if I've discovered an awesome website or article it goes to Evernote as well.
 
 We're collecting and referencing external resources and add metadata to it, so it is archived and we can go back to it to enhance the information even more.
 
+![Evernote flow to archive an image](/img/content/evernote_archive_website_flow.png)
+
 ### Actual Note Taking and alot of Edge Cases
 The more you add, the more useful Evernote becomes. I add everything that comes to my mind and might be useful for later to Evernote. Wether I am working on a project and have to take notes or studying and writing a quick outline of a lecture: I am creating actual content and enhance it with metadata.
+
+![Evernote writing text workflow](/img/content/evernote_writing_text_flow.png)
 
 ## A more generic Approach to Notetaking
 What Evernote provides and what we actually need, is a system that holds together all that loose information and enhances it with metadata.
 A note contains metadata and references actual written content and resources like files or websites. It actually would be better to not store the content in Evernote, but only to use it to hold all the strings together.
 
 ## What is a Note?
+A note is basically a metadata container with richt text and alot of external references.
+
+
+
 
 
 
