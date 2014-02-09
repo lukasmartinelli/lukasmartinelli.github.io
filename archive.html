@@ -2,6 +2,7 @@
 layout: default
 title: Archive
 ---
+<article>
 <h1 class="archive-header">Blog Archive</h1>
 {% for post in site.posts %}
   {% capture month %}{{ post.date | date: '%m%Y' }}{% endcapture %}
@@ -10,5 +11,6 @@ title: Archive
       {% if forloop.index != 1 %}</ul>{% endif %}
       <h3 class="sub-header">{{ post.date | date: '%B %Y' }}</h3><ul>
     {% endif %}
-  <li><span class="time">{{ post.date | date: "%d/%m/%Y" }}</span><a href="{{ post.url }}">{{ post.title }}</a></li>
+  <li><a href="{{ post.url }}">{{ post.title }}</a><small class="time">{{ post.date | date: "%d/%m/%Y" }}</small></li>
 {% endfor %}
+<article>
