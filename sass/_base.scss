@@ -56,9 +56,14 @@ h2 {
 }
 
 h3 {
-	font-size: em(26);
-	line-height: em(34, 26);
-	margin-bottom: em(8, 26);
+	font-size: em(24);
+	line-height: em(30, 24);
+	margin-bottom: em(8, 24);
+}
+
+h4 {
+    font-size: em(16);
+    line-height: (24, 16);
 }
 
 /* ===Links=== */
