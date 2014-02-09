@@ -32,8 +32,10 @@ The more you add, the more useful Evernote becomes. I add everything that comes 
 ### Overview
 ![Workflows with Evernote](/media/evernote_flows.png)
 
-### So what are notes
+### Notes with References instead of Embedded Content
 What Evernote provides and what we actually need, is a system that holds together all that loose information and enhances it with metadata.
 A note is just metadata with references to external resources like files or websites.
 
 A note is basically a metadata container with text remarks to external references.
+
+![Notes that use references instead of embedded content](/media/notes_with_references.png)
