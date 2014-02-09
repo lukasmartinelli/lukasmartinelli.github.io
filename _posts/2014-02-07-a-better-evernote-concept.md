@@ -8,9 +8,10 @@ categories: idea
 
 I recently try to move away from US services that contain too much of my life's private information. Evernote has been the #1 reason that I finally managed to get organized: I dump everything into the green elephant's brain to access it later. I've become so dependant on it, that the thought someone could read or parse my evernote notes, makes me shudder
 
-Sadly there are no viable opensource alternatives out there, that are as complete and easy to use as Evernote. That's why I want to create an open source solution for the problems Evernote and its competitors solve.
+Sadly there are no viable opensource alternatives out there, that were as complete and easy to use as Evernote. That's why I want to create an open source solution for the problems Evernote and its competitors solve.
 
 ## Problems Evernote solves
+Evernote is a huge toolset that can solve many problems,  I listed the three most used workflows Evernote users have.
 
 ### Organizing Paperwork
 A common task I find myself solving with Evernote is digitalizing and organizing paper work like invoices, business cards, letters, appointments etc.
