@@ -3,6 +3,7 @@ layout: post
 published: true
 tags: 
   - idea
+  - productivity
 categories: idea
 ---
 
