@@ -10,8 +10,8 @@ I recently try to move away from US services that contain too much of my life's 
 
 Sadly there are no viable opensource alternatives out there, that were as complete and easy to use as Evernote. That's why I want to create an open source solution for the problems Evernote and its competitors solve.
 
-## Problems Evernote solves
-Evernote is a huge toolset that can solve many problems,  I listed the three most used workflows Evernote users have.
+## Evernote Use Cases
+Evernote is a huge toolset that can solve many problems,  I listed the three most popular use cases Evernote users have.
 
 ### Organizing Paperwork
 A common task I find myself solving with Evernote is digitalizing and organizing paper work like invoices, business cards, letters, appointments etc.
@@ -29,23 +29,11 @@ We're collecting and referencing external resources and add metadata to it, so i
 ### Actual Note Taking and alot of Edge Cases
 The more you add, the more useful Evernote becomes. I add everything that comes to my mind and might be useful for later to Evernote. Wether I am working on a project and have to take notes or studying and writing a quick outline of a lecture: I am creating actual content and enhance it with metadata.
 
-## Overview
+### Overview
 ![Workflows with Evernote](/media/evernote_flows.png)
 
-## A more generic Approach to Notetaking
+### So what are notes
 What Evernote provides and what we actually need, is a system that holds together all that loose information and enhances it with metadata.
-A note contains metadata and references actual written content and resources like files or websites. It actually would be better to not store the content in Evernote, but only to use it to hold all the strings together.
+A note is just metadata with references to external resources like files or websites.
 
-## What is a Note?
-A note is basically a metadata container with richt text and alot of external references.
-
-
-
-
-
-
-
-
-
-
-Writing down information
+A note is basically a metadata container with text remarks to external references.
