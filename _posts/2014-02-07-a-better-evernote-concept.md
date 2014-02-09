@@ -36,7 +36,32 @@ The more you add, the more useful Evernote becomes. I add everything that comes 
 What Evernote provides and what we actually need, is a system that holds together all that loose information and enhances it with metadata.
 A note is just metadata with references to external resources like files or websites.
 
-### Notes with References instead of Embedded Content
+### Notes with References
 A note is basically just a metadata container with text remarks to external references.
 
 ![Notes that use references instead of embedded content](/media/notes_with_references.png)
+
+## Notes with Embedded References
+With the concept of references, you could also reference ressources embedded in the note. Please note that the rich text in the note is not mapped as a ressource, it is always directly in the note itself, for the sake of simplicity.
+
+The biggest problem of using references to external ressources is, that files can change their location. This is a very convincing reason to use embedded references but this would also make accessing these files for other services very impractical and increases the complexity of a syncing mechanism.
+
+## Concept of ressources
+Every ressource is addressed with an URI.
+For websites this will look very familiar.
+
+Now wether a user is on a phone or on it's computer, provided he does have access to a dropbox file, he can access that ressource.
+
+If you use the file uri file:// you can only access it if it s at that exact location of your computer.
+
+Supported schemas:
+Note
+Http
+Dropbox
+File
+Bittorrent Sync
+
+
+
+
+
