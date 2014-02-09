@@ -4,7 +4,7 @@ title: Archive
 ---
 <article>
     <header>
-        <h1 class="archive-header">Blog Archive</h1>
+        <h1 class="archive-header">Archive</h1>
     </header>
 <div class="content">
 {% for post in site.posts %}
@@ -12,7 +12,7 @@ title: Archive
   {% capture nmonth %}{{ post.next.date | date: '%m%Y' }}{% endcapture %}
     {% if month != nmonth %}
       {% if forloop.index != 1 %}</ul>{% endif %}
-      <h3 class="sub-header">{{ post.date | date: '%B %Y' }}</h3><ul>
+      <h3>{{ month | date:"%B" }} <small>{{ month | date:"%Y" }}</small></h3><ul>
     {% endif %}
   <li><a href="{{ post.url }}">{{ post.title }}</a>&nbsp;<small class="time">{{ post.date | date: "%d/%m/%Y" }}</small></li>
 {% endfor %}
