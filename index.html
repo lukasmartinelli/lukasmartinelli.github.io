@@ -6,16 +6,16 @@ title: Welcome dear visitor
 {% for post in paginator.posts %}
 <article>
 	<header>
-		<div class="post-format icon-{{ page.categories[0] }}">&nbsp;</div>
-        <time class="post-date" datetime="{{ page.date }}" pubdate="pubdate" title"{{ page.date | date: '%B %d, %Y' }}
+		<div class="post-format icon-{{ post.categories[0] }}">&nbsp;</div>
+		<time class="post-date" datetime="{{ post.date }}" pubdate="pubdate" title"{{ post.date | date: '%B %d, %Y' }}
 ">
-            {% assign d = page.date | date: "%-d" %} 
-            {% assign m = page.date | date: "%B" %} 
+            {% assign d = post.date | date: "%-d" %} 
+            {% assign m = post.date | date: "%B" %} 
 
             {% case m %}
               {% when 'April' or 'May' or 'June' or 'July' %}{{ m }}
               {% when 'September' %}Sept.
-              {% else %}{{ page.date | date: "%b" }}.
+              {% else %}{{ post.date | date: "%b" }}.
               {% endcase %}
             {% case d %}
               {% when '1' or '21' or '31' %}{{ d }}st
@@ -23,7 +23,7 @@ title: Welcome dear visitor
               {% when '3' or '23' %}{{ d }}rd
               {% else %}{{ d }}th
               {% endcase %}, 
-            {{ page.date | date: "%Y" }}
+            {{ post.date | date: "%Y" }}
         </time>
 		<h2><a href=" {{ post.url }}">{{ post.title }}</a></h2>	
 	</header>
