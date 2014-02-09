@@ -77,28 +77,29 @@ h3 {
 
 /* line 64, ../sass/_base.scss */
 h4 {
-  font-size: 1.14286em;
-  line-height: 24, 16;
+  font-size: 1em;
+  line-height: 24, 14;
+  font-weight: bold;
 }
 
 /* ===Links=== */
-/* line 71, ../sass/_base.scss */
+/* line 72, ../sass/_base.scss */
 a {
   color: #e86a4d;
   text-decoration: none;
 }
-/* line 74, ../sass/_base.scss */
+/* line 75, ../sass/_base.scss */
 a:hover {
   text-decoration: underline;
 }
 
 /* ===Text=== */
-/* line 79, ../sass/_base.scss */
+/* line 80, ../sass/_base.scss */
 p {
   margin: 0 0 1.42857em 0;
 }
 
-/* line 83, ../sass/_base.scss */
+/* line 84, ../sass/_base.scss */
 img {
   max-width: 100%;
 }
