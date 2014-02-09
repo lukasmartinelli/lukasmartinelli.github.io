@@ -8,23 +8,20 @@ title: Welcome dear visitor
 	<header>
 		<div class="post-format icon-{{ post.categories[0] }}">&nbsp;</div>
 		<time class="post-date" datetime="{{ post.date }}" pubdate="pubdate" title"{{ post.date | date: '%B %d, %Y' }}
-">
-            {% assign d = post.date | date: "%-d" %} 
-            {% assign m = post.date | date: "%B" %} 
-
-            {% case m %}
-              {% when 'April' or 'May' or 'June' or 'July' %}{{ m }}
-              {% when 'September' %}Sept.
-              {% else %}{{ post.date | date: "%b" }}.
-              {% endcase %}
-            {% case d %}
-              {% when '1' or '21' or '31' %}{{ d }}st
-              {% when '2' or '22' %}{{ d }}nd
-              {% when '3' or '23' %}{{ d }}rd
-              {% else %}{{ d }}th
-              {% endcase %}, 
-            {{ post.date | date: "%Y" }}
-        </time>
+">{% assign d = page.date | date: "%-d" %}
+{% assign m = page.date | date: "%B" %}
+{% case m %}
+  {% when 'April' or 'May' or 'June' or 'July' %}{{ m }}
+  {% when 'September' %}Sept.
+  {% else %}{{ page.date | date: "%b" }}.
+  {% endcase %}
+{% case d %}
+  {% when '1' or '21' or '31' %}{{ d }}st
+  {% when '2' or '22' %}{{ d }}nd
+  {% when '3' or '23' %}{{ d }}rd
+  {% else %}{{ d }}th
+  {% endcase %}, 
+{{ page.date | date: "%Y" }}</time>
 		<h2><a href=" {{ post.url }}">{{ post.title }}</a></h2>	
 	</header>
 	<div class="content">
