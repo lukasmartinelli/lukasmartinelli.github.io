@@ -14,7 +14,7 @@ title: Archive
       {% if forloop.index != 1 %}</ul>{% endif %}
       <h3 class="sub-header">{{ post.date | date: '%B %Y' }}</h3><ul>
     {% endif %}
-  <li><a href="{{ post.url }}">{{ post.title }}</a><small class="time">{{ post.date | date: "%d/%m/%Y" }}</small></li>
+  <li><a href="{{ post.url }}">{{ post.title }}</a>&nbsp;<small class="time">{{ post.date | date: "%d/%m/%Y" }}</small></li>
 {% endfor %}
 </div>
 <article>
