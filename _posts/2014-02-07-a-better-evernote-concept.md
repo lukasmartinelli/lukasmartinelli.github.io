@@ -62,7 +62,6 @@ Possible additions:
 - drive: Google Drive
 
 ### Examples
-![Ressource schemes on different clients with their containers](/media/ressources_schemes.png)
 
 #### File
 Absolute locations in a filesystem are probably the worts variant of references, but it is still possible. This won't work very good with different clients, as the users would need to have exactly the same directory structure.
@@ -78,3 +77,4 @@ Reference to Websites will always point to the same ressource location for all u
 
 #### Note
 If you choose to use notes with embedded resource, the note schema shows that the file is embedded in the note.
+![Ressource schemes on different clients with their containers](/media/ressources_schemes.png)
