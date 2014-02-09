@@ -9,6 +9,10 @@
 div.branding {
 	float: left;
 
+	a {
+		color: inherit; 
+	}
+
 	h1, h2 {
 		display: inline-block;
 		font-style: italic;
