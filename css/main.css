@@ -56,42 +56,43 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
 
 /* line 46, ../sass/_base.scss */
 h1 {
-  font-size: 2.14286em;
-  line-height: 1.83333em;
-}
-
-/* line 51, ../sass/_base.scss */
-h2 {
   font-size: 2.5em;
-  line-height: 1.14286em;
+  line-height: 1.57143em;
   margin-bottom: 0.57143em;
 }
 
-/* line 57, ../sass/_base.scss */
+/* line 52, ../sass/_base.scss */
+h2 {
+  font-size: 2.14286em;
+  line-height: 1.33333em;
+  margin-bottom: 0.33333em;
+}
+
+/* line 58, ../sass/_base.scss */
 h3 {
-  font-size: 2em;
-  line-height: 1.21429em;
-  margin-bottom: 0.28571em;
+  font-size: 1.85714em;
+  line-height: 1.30769em;
+  margin-bottom: 0.30769em;
 }
 
 /* ===Links=== */
-/* line 65, ../sass/_base.scss */
+/* line 66, ../sass/_base.scss */
 a {
   color: #e86a4d;
   text-decoration: none;
 }
-/* line 68, ../sass/_base.scss */
+/* line 69, ../sass/_base.scss */
 a:hover {
   text-decoration: underline;
 }
 
 /* ===Text=== */
-/* line 73, ../sass/_base.scss */
+/* line 74, ../sass/_base.scss */
 p {
   margin: 0 0 1.42857em 0;
 }
 
-/* line 77, ../sass/_base.scss */
+/* line 78, ../sass/_base.scss */
 img {
   max-width: 100%;
 }
@@ -344,12 +345,12 @@ footer .permalink {
   background: url('../img/icon-sb617ccc0e0.png') no-repeat;
 }
 
-/* line 60, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 60, ../../../.gem/ruby/2.1.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .icon-cloud {
   background-position: 0 -40px;
 }
 
-/* line 60, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 60, ../../../.gem/ruby/2.1.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .icon-web {
   background-position: 0 0;
 }
