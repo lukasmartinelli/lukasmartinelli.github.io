@@ -104,6 +104,16 @@ img {
   max-width: 100%;
 }
 
+/* line 88, ../sass/_base.scss */
+ul, ol {
+  margin-bottom: 20px;
+}
+
+/* line 89, ../sass/_base.scss */
+ul {
+  list-style: none outside;
+}
+
 /* ===============
    Layout Rules 
    =============== */
