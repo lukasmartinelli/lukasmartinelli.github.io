@@ -8,7 +8,7 @@ title: Welcome dear visitor
 	<header>
 		<div class="post-format icon-{{ post.categories[0] }}">&nbsp;</div>
 		<time class="post-date" datetime="{{ post.date }}" pubdate="pubdate" title"{{ post.date | date: '%B %d, %Y' }}
-">{{ page.date | date: "%-m/%-d/%y"}}</time>
+">{{ post.date | date: "%b %-d"}}</time>
 		<h2><a href=" {{ post.url }}">{{ post.title }}</a></h2>	
 	</header>
 	<div class="content">
@@ -21,7 +21,7 @@ title: Welcome dear visitor
   		{% endfor %}
 	  	</span>
 	  	<span class="permalink">
-	  		<a href="{{ page.url  }}">Permalink</a>
+	  		<a href="{{ post.url  }}">Permalink</a>
 	  	</span>
   	</footer>
 </article>
