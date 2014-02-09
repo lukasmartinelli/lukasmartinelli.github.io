@@ -23,12 +23,7 @@
             {{ content }}
           </section>
           <aside id="right">
-            <div class="bio">
-              <div class="avatar"><img src="http://placehold.it/250x260"></img></div>
-              <div class="description">
-                <p>A custom bio widget is included, share a little about yourself or just use your logo if you're shy. :)</p>
-              </div>
-            </div>
+            {% include bio.html %}
           </aside>          
         </div>
         {% include bottom.html %}
