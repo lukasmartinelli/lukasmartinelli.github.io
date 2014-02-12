@@ -112,7 +112,7 @@ To make a reference to a ressource inside Markdown you use the same syntax as fo
 
 Based on the schema concept above, we could now fetch that ressource and process it.
 
-#### Example
+### Example
 Example of a note with a short remark to a photo of an invoice.
 {% highlight yaml %}
 ---
@@ -130,10 +130,21 @@ For a notetaking solution it is important to have the notes (and ressources) ava
 For synchronizing the notes with each other I wan't to prevent a standard server-client setup, as the average notetaker doesn't always have a server at hand. That's why I want to use the Bit Torrent Sync API to synchronize the notes.
 As a conflict resolution strategy I would like to have an auto-merge approach like Version Control Systems have. This approach shouldn't be to difficult to implement, as the note structure is so simple.
 
-## Technology Stack
-...still researching
+## Editing Excperience
+The resulting HTML from Markdown is perfect for viewing your notes on any device.  The big problem is that casual users probably won't accept bare metal markdown editor like [Dillinger](http://dillinger.io/) or [StackEdit](https://stackedit.io/) even though they are absolutely lovely.
+What you need is a Visual Editor, because for notes you immediately want to see the end result. [Simplenote](http://simplenote.com/) and [Texts](http://www.texts.io/) are good examples for visual editors. What would also work is something like [Macchiato](http://getmacchiato.com/), which let's you edit real markdown but also give's you a visual hint.
 
+Perhaps most important is, that you always see the preview of your images of files, wether your viewing or editing the note.
 
+### Opensource Visual Editors
+Sadly there are no Open Source visual editors on the market (except for the Web, but those work with the HTML InlineEdit feature).
 
+So either one has to build something like that or use a baremetal markdown editor.
+
+#### Technical References
+**[HalloJs](http://hallojs.org/demo/markdown/):** Javascript editor that performs conversion of HTML into Markdown back and forth and is previewing it live.
+**[Mashable](http://mashable.com/2013/06/24/markdown-tools/ "Mashable Markdown Tools"):**On overview of Markdown tools and products
+**[MarkdownView](http://gun.io/blog/markdown-view-for-android/):** A Markdown viewer for Android
+**[EpicEditor](http://oscargodson.github.io/EpicEditor/):** Javascript MarkDown Dropin for websites.
 
 
