@@ -84,8 +84,20 @@ If you choose to use notes with embedded resource, the note schema shows that th
 For notetaking you don't need a high end text processor like word, but you still want some control over the text. Markdown seems perfect for the task, it can be customized to work perfectly with ressources and it has many greate open source editors readily available.
 
 #### Example
+{% highlight yaml %}
+---
+title: Invoice
+date: 2010-02-11 11:02:57
+geo: +48.8577, +002.295
+tags: invoice, finance
+---
+Remember to pay the bill!
+![Image from Dropbox](dropbox://Camera-Uploads/invoice.jpg)
+{% endhighlight %}
+
 ### Metadata
 To store the metadata associated with the note, im leaning torwards an approach that is used in Jekyll and is called [Front Matter](http://jekyllrb.com/docs/frontmatter/). Basically every file does have a YAML Header containing metadata.
+
 {% highlight yaml %}
 ---
 title: Invoice
