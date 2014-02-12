@@ -124,3 +124,16 @@ tags: invoice, finance
 Remember to pay the bill!
 ![Image from Dropbox](dropbox://Camera-Uploads/invoice.jpg)
 {% endhighlight %}
+
+### Synchronizing the note itself
+For a notetaking solution it is important to have the notes (and ressources) available on every device.
+For synchronizing the notes with each other I wan't to prevent a standard server-client setup, as the average notetaker doesn't always have a server at hand. That's why I want to use the Bit Torrent Sync API to synchronize the notes.
+As a conflict resolution strategy I would like to have an auto-merge approach like Version Control Systems have. This approach shouldn't be to difficult to implement, as the note structure is so simple.
+
+## Technology Stack
+...still researching
+
+
+
+
+
