@@ -86,7 +86,7 @@ You don't need a feature-rich text processor like word for notetaking, but you s
 ### Metadata
 To store the metadata associated with the note, I suggest an approach that is used in Jekyll and is called [Front Matter](http://jekyllrb.com/docs/frontmatter/). Front Matter means every file does have a YAML Header containing metadata.
 
-{% highlight markdown %}
+{% highlight yaml %}
 ---
 title: Invoice
 date: 2010-02-11 11:02:57
@@ -104,7 +104,7 @@ The question is what metadata belongs into the header. The creation date and tim
 ### Markdown and Ressources
 To make a reference to a ressource inside Markdown you use the same syntax as for embedding an Image (which is an external ressource):
 
-{% highlight markdown %}
+{% highlight bash %}
 ![Image from Dropbox](dropbox://Camera-Uploads/invoice.jpg)
 ![Pdf from Bittorrent Sync](//btsync://biqln05zbek134/letter.pdf)
 ![Website from Internet](http://blog.com/site.html)
@@ -114,7 +114,7 @@ Based on the schema concept above, we could now fetch that ressource and process
 
 #### Example
 Example of a note with a short remark to a photo of an invoice.
-{% highlight markdown %}
+{% highlight yaml %}
 ---
 title: Invoice
 date: 2010-02-11 11:02:57
