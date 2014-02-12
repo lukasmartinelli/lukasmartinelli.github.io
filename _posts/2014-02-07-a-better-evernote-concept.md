@@ -86,7 +86,7 @@ For notetaking you don't need a high end text processor like word, but you still
 #### Example
 ### Metadata
 To store the metadata associated with the note, im leaning torwards an approach that is used in Jekyll and is called [Front Matter](http://jekyllrb.com/docs/frontmatter/). Basically every file does have a YAML Header containing metadata.
-```yaml
+{% highlight yaml %}
 ---
 title: Invoice
 date: 2010-02-11 11:02:57
@@ -94,7 +94,7 @@ geo: +48.8577, +002.295
 tags: invoice, finance
 ---
 Lorem ipsum...and more Markdown
-```
+{% endhighlight %}
 
 ### Markdown and Ressources
 To make a reference to a ressource you use the same syntax as you would use to embedd an Image (also an external ressource):
