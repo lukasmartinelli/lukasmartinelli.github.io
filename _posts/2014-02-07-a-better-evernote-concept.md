@@ -110,3 +110,9 @@ Lorem ipsum...and more Markdown
 
 ### Markdown and Ressources
 To make a reference to a ressource you use the same syntax as you would use to embedd an Image (also an external ressource):
+
+{% highlight yaml %}
+![Image from Dropbox](dropbox://Camera-Uploads/invoice.jpg)
+![Pdf from Bittorrent Sync](//btsync://biqln05zbek134/letter.pdf)
+![Website from Internet](http://blog.com/site.html)
+{% endhighlight %}
