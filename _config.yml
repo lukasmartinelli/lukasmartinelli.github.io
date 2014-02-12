@@ -1,5 +1,6 @@
 name: Lukas Martinelli
 markdown: redcarpet
+safe: true
 pygments: true
 exclude: ['CNAME', 'Guardfile', 'README.md']
 paginate: 5
@@ -7,7 +8,7 @@ prose:
   media: 'media'
   ignore:
     - index.html
-    - Guardfile
+    - Gemfile
     - CNAME
     - .gitignore
     - config.rb
