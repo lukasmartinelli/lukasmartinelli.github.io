@@ -142,10 +142,10 @@ Sadly there are no Open Source visual editors on the market (except for the Web,
 So either one has to build something like that or use a baremetal markdown editor.
 
 #### Technical References
-- **[HalloJs](http://hallojs.org/demo/markdown/):** Javascript editor that performs conversion of HTML into Markdown back and forth and is previewing it live.
-- **[Mashable](http://mashable.com/2013/06/24/markdown-tools/ "Mashable Markdown Tools"): **On overview of Markdown tools and products
-- **[MarkdownView](http://gun.io/blog/markdown-view-for-android/):** A Markdown viewer for Android
-- **[EpicEditor](http://oscargodson.github.io/EpicEditor/):** Javascript MarkDown Dropin for websites.
-- **[HNotes](https://play.google.com/store/apps/details?id=com.hly.notes): **Android Rich Text notetaking App
+- [HalloJs](http://hallojs.org/demo/markdown/): Javascript editor that performs conversion of HTML into Markdown back and forth and is previewing it live.
+- [Mashable](http://mashable.com/2013/06/24/markdown-tools/ "Mashable Markdown Tools"): An overview of Markdown tools and products
+- [MarkdownView](http://gun.io/blog/markdown-view-for-android/): A Markdown viewer for Android
+- [EpicEditor](http://oscargodson.github.io/EpicEditor/): Javascript MarkDown Dropin for websites.
+- [HNotes](https://play.google.com/store/apps/details?id=com.hly.notes): Android Rich Text notetaking App
 
 
