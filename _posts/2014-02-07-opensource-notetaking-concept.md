@@ -30,9 +30,6 @@ We're collecting and referencing external resources and adding metadata to it, s
 ### Actual Note Taking and alot of Edge Cases
 The more you add, the more useful Evernote becomes. I add everything that comes to my mind and might be useful for later to Evernote. Wether I am working on a project and have to take notes or studying and writing a quick outline of a lecture: I am creating actual content and enhancing it with metadata.
 
-### Overview
-![Workflows with Evernote](/media/evernote_flows.png)
-
 ## What are notes?
 What we actually need, is a system that holds together all that loose information and enhances it with metadata.
 A note is just metadata with references to external resources like files or websites.
@@ -40,13 +37,13 @@ A note is just metadata with references to external resources like files or webs
 ### Notes with References to External Ressources
 A note is basically just a metadata container with text remarks to external references.
 
-![Notes that use references instead of embedded content](/media/notes_with_references.png)
+![Notes that use references instead of embedded content](/media/notes_references_concept.png)
 
 ## Notes with Ressources to Embedded Ressources
 With the concept of references, you could also reference ressources embedded in the note. Please note that the rich text in the note is not mapped as a ressource, it is always directly in the note itself, for the sake of simplicity.
 
 The biggest problem of using references to external ressources is, that files can change their location. This is a very convincing reason to use embedded references but this would also make accessing these files for other services very impractical and increases the complexity of a syncing mechanism.
-![Notes using references to embedded files](/media/embedded_notes.png)
+![Notes using references to embedded files](/media/notes_embedded_references_concept.png)
 
 ## Ressource Address Schema
 Every ressource is addressed with an URI.
@@ -78,7 +75,7 @@ Reference to Websites will always point to the same ressource location for all u
 
 #### Note
 If you choose to use notes with embedded resource, the note schema shows that the file is embedded in the note.
-![Ressource schemes on different clients with their containers](/media/ressources_schemes.png)
+![Ressource schemes on different clients with their containers](/media/notes_schemes_concept.png)
 
 ## Note Structure
 You don't need a feature-rich text processor like word for notetaking, but you still want some control over the text. Markdown is perfect for the task, it can be customized to work perfectly with the ressource concept defined above and it has many great open source editors already available.
@@ -147,5 +144,3 @@ So either one has to build something like that or use a baremetal markdown edito
 - [MarkdownView](http://gun.io/blog/markdown-view-for-android/): A Markdown viewer for Android
 - [EpicEditor](http://oscargodson.github.io/EpicEditor/): Javascript MarkDown Dropin for websites.
 - [HNotes](https://play.google.com/store/apps/details?id=com.hly.notes): Android Rich Text notetaking App
-
-
