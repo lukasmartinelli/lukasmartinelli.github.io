@@ -7,19 +7,17 @@ tags:
 categories: idea
 ---
 
-Because of the recent events I try to move away from US services that contain too much of my life's private information. Evernote has been the #1 reason that I finally managed to get organized: I dump everything into the green elephant's brain to access it later. I've become so dependant on it, that the thought someone could read or parse my evernote notes, makes me shudder.
+I switched over to Opensource software and have failed to find a viable alternative to a notetaking application like Evernote. That's why I want to create an open source solution for the problems Evernote and its competitors solve.
 
-Sadly there are no viable opensource alternatives out there yet, that are as complete and easy to use as Evernote. That's why I want to create an open source solution for the problems Evernote and its competitors solve.
-
-## Evernote Use Cases
-Evernote is a huge toolset that can solve many problems,  I listed the three most popular use cases Evernote users have below.
+## Notetaking Use Cases
+Evernote is a huge toolset that can solve many problems. I listed the three most popular use cases Evernote users have below.
 
 ### Organizing Paperwork
 A common task I find myself solving with Evernote is digitalizing and organizing paper work like invoices, business cards, letters, appointments etc.
 People who have been organized before the digital age, have put these papers into folders (the real ones) and labelled them properly. With the computer the next approach was to scan the papers and with the Smartphone I can simply take a photo and it is stored and cannot be forgotten.
 Evernote improves this workflow even more by cropping the picture and adjusting the contrast and brightness, so that it looks like a decent scan. You label the note and tag it appropriatly and voilà: you got organized.
 
-If we take a step back we notice, that this isn't actually note taking, this is about organizing and labelling resources. We are actually adding metadata like a Date, Place, Name and Tags to a digital file.
+If we take a step back we notice, that this isn't actually note taking: this is about organizing and labelling resources. We are actually adding metadata like a Date, Place, Name and Tags to a digital file.
 
 ### Archiving the Web
 Evernote keeps everything I've read and liked on the web and makes it searchable.
@@ -30,25 +28,50 @@ We're collecting and referencing external resources and adding metadata to it, s
 ### Actual Note Taking and alot of Edge Cases
 The more you add, the more useful Evernote becomes. I add everything that comes to my mind and might be useful for later to Evernote. Wether I am working on a project and have to take notes or studying and writing a quick outline of a lecture: I am creating actual content and enhancing it with metadata.
 
-## What are notes?
-What we actually need, is a system that holds together all that loose information and enhances it with metadata.
-A note is just metadata with references to external resources like files or websites.
+## Note Definition
+From the use cases above we see that what we actually need, is a system that holds together all that loose information that floats around, enhances it with metadata and makes it searchable.
+
+> A note is text and metadata with references to external ressources.
 
 ### Notes with References to External Ressources
 A note is basically just a metadata container with text remarks to external references.
 
+Let's say I'm researching opensource notetaking applications and I come around an interesting website. I write down a short remark and put it to the link. This link is a reference to a website on the web.
+If I write down an idea for a product or an article I might write down my thoughts and take a picture of a rough sketch I draw by hand. The photo goes into my Dropbox camera folder and I simply make a reference to it.
 ![Notes that use references instead of embedded content](/media/notes_references_concept.png)
 
-## Notes with Ressources to Embedded Ressources
-With the concept of references, you could also reference ressources embedded in the note. Please note that the rich text in the note is not mapped as a ressource, it is always directly in the note itself, for the sake of simplicity.
+#### Advantage
+- It is a very unique approach to the notetaking problem and makes it clear that notes are just metadata
+- It makes it very easy to just integrate with existing systems
+- It allows to only take care of the note itself, all other ressources are part of external systems we simply try to integrate with
+- Ressources are only existing at one place and can easily be changed, backed up or reorganized
 
-The biggest problem of using references to external ressources is, that files can change their location. This is a very convincing reason to use embedded references but this would also make accessing these files for other services very impractical and increases the complexity of a syncing mechanism.
+#### Disadvantage 
+The biggest problem of using references to external ressources is, that files can change their location and therefore a reference becomes invalid.
+
+#### Text
+The note contains rich text describing the references, one could even create an own file out of that and reference it inside the note. But this seems a bit overkill and for the sake of simplicity, the text is always part of the note.
+
+#### Solving problem of changing locations
+One idea to solve this problem partially is to create hashes of the referenced ressources. If the reference becomes invalid, we just search all the external ressource containers for hashes that match and automatically move the reference to the new location of the ressource.
+
+## Notes with References to Embedded Ressources
+With the concept of references, you could also reference ressources that are embedded in the note.
+
+So once I add something like a website or a photo, it is **copied** to the ressources section embedded in the note and a reference is made to that ressource.
+
 ![Notes using references to embedded files](/media/notes_embedded_references_concept.png)
+
+#### Advantage
+We don't have to take care how to access all these different ressources, as they are always embedded.
+#### Disadvantage
+- Now we actually duplicated the information, it exists on two places and if I edit the photo or decrease the resolution inside the note, I'm creating two different versions of the same content. If a ressource is embedded inside a ressource it makes it significantly harder to integrate with other applications.
+- Synchronizing notes is much more complicated as we're also syncing embedded files that can change now
 
 ## Ressource Address Schema
 Every ressource is addressed with an URI.
-Following URI Schemes are supported:
 
+Following URI Schemes are supported:
 - file: Absolute location in a file system
 - dropbox: Specifies location of a file in the user's Dropbox home directory 
 - btsync: File in a Bit Torrent Sync folder (adressed by secret)
@@ -59,7 +82,10 @@ Possible additions:
 - ftp: Location in a FTP folder
 - drive: Google Drive
 
-### Examples
+### Ressource Schemes and Ressource Containers
+The URI approach allows very easy integration of different ressource containers.  
+
+![Ressource schemes on different clients with their containers](/media/notes_schemes_concept.png)
 
 #### File
 Absolute locations in a filesystem are probably the worts variant of references, but it is still possible. This won't work very good with different clients, as the users would need to have exactly the same directory structure.
@@ -75,13 +101,15 @@ Reference to Websites will always point to the same ressource location for all u
 
 #### Note
 If you choose to use notes with embedded resource, the note schema shows that the file is embedded in the note.
-![Ressource schemes on different clients with their containers](/media/notes_schemes_concept.png)
 
 ## Note Structure
-You don't need a feature-rich text processor like word for notetaking, but you still want some control over the text. Markdown is perfect for the task, it can be customized to work perfectly with the ressource concept defined above and it has many great open source editors already available.
+
+You don't need a feature-rich text processor like Word for notetaking, but you still want some control over the text. Markdown is perfect for the task, it can be customized to work perfectly with the ressource concept defined above and it has many great open source editors already available.
 
 ### Metadata
-To store the metadata associated with the note, I suggest an approach that is used in Jekyll and is called [Front Matter](http://jekyllrb.com/docs/frontmatter/). Front Matter means every file does have a YAML Header containing metadata.
+To store the metadata associated with the note, I suggest an approach that is used in Jekyll and is called [Front Matter](http://jekyllrb.com/docs/frontmatter/).
+
+> Front Matter means every file has a YAML Header containing metadata.
 
 {% highlight yaml %}
 ---
@@ -109,20 +137,14 @@ To make a reference to a ressource inside Markdown you use the same syntax as fo
 
 Based on the schema concept above, we could now fetch that ressource and process it.
 
-### Example
-Example of a note with a short remark to a photo of an invoice.
-{% highlight yaml %}
----
-title: Invoice
-date: 2010-02-11 11:02:57
-geo: +48.8577, +002.295
-tags: invoice, finance
----
-Remember to pay the bill!
-![Image from Dropbox](dropbox://Camera-Uploads/invoice.jpg)
-{% endhighlight %}
+## Decoupled Data Directory
 
-### Synchronizing the note itself
+
+
+
+
+## Synchronizing
+
 For a notetaking solution it is important to have the notes (and ressources) available on every device.
 For synchronizing the notes with each other I wan't to prevent a standard server-client setup, as the average notetaker doesn't always have a server at hand. That's why I want to use the Bit Torrent Sync API to synchronize the notes.
 As a conflict resolution strategy I would like to have an auto-merge approach like Version Control Systems have. This approach shouldn't be to difficult to implement, as the note structure is so simple.
