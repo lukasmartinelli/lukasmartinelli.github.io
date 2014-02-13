@@ -139,6 +139,7 @@ To make a reference to a ressource inside Markdown you use the same syntax as fo
 Based on the schema concept above, we could now fetch that ressource and process it.
 
 ## Architecture
+The architecture should be very easy to integrate and **shouldn't require a server setup**.
 
 #### Decoupled Note Data Directory
 Synchronizing is a huge effort and a complicated process to deal with. That's why the application should be completly decoupled from a synchronizing service, it should just write to a data directory. This data directory is synchronized by external systems like Dropbox or Bit Torrent Sync or anything that has a file interface. This will make integration with other parties much easier.
@@ -158,24 +159,20 @@ The search index is not shared as this would be much more complicated. A long ru
 
 ![Decoupled architecture for Opensource Notetaking](/media/notes_architecture.png)
 
-## Synchronizing
+## Note Editor
+It is important that there are applications on all major devices. The resulting HTML from Markdown is perfect for viewing your notes on any device.
 
-For a notetaking solution it is important to have the notes (and ressources) available on every device.
-For synchronizing the notes with each other I wan't to prevent a standard server-client setup, as the average notetaker doesn't always have a server at hand. That's why I want to use the Bit Torrent Sync API to synchronize the notes.
+### Visual Editing
+My guess is, that casual users won't accept bare metal markdown editor like [Dillinger](http://dillinger.io/) or [StackEdit](https://stackedit.io/) even though they are absolutely lovely.
+What we need is a Visual Editor, because for notes you immediately want to see the end result like you're writing on a paper. While formatting is already expressed pretty well in Markdown, the most important thing is, that you always see the preview of your external ressources, wether your viewing or editing the note.
 
+#### Existing Visual Editors
+[Simplenote](http://simplenote.com/) and [Texts](http://www.texts.io/) are good examples for visual editors. What would also work is something like [Macchiato](http://getmacchiato.com/), which let's you edit real markdown but also give's you a visual hint.
 
-## Editing Excperience
-The resulting HTML from Markdown is perfect for viewing your notes on any device.  The big problem is that casual users probably won't accept bare metal markdown editor like [Dillinger](http://dillinger.io/) or [StackEdit](https://stackedit.io/) even though they are absolutely lovely.
-What you need is a Visual Editor, because for notes you immediately want to see the end result. [Simplenote](http://simplenote.com/) and [Texts](http://www.texts.io/) are good examples for visual editors. What would also work is something like [Macchiato](http://getmacchiato.com/), which let's you edit real markdown but also give's you a visual hint.
+#### Opensource Visual Editors
+Sadly there are no Open Source visual editors on the market. So either we have to build an editor like that or use a baremetal markdown editor.
 
-Perhaps most important is, that you always see the preview of your images of files, wether your viewing or editing the note.
-
-### Opensource Visual Editors
-Sadly there are no Open Source visual editors on the market (except for the Web, but those work with the HTML InlineEdit feature).
-
-So either one has to build something like that or use a baremetal markdown editor.
-
-#### Technical References
+#### Links
 - [HalloJs](http://hallojs.org/demo/markdown/): Javascript editor that performs conversion of HTML into Markdown back and forth and is previewing it live.
 - [Mashable](http://mashable.com/2013/06/24/markdown-tools/ "Mashable Markdown Tools"): An overview of Markdown tools and products
 - [MarkdownView](http://gun.io/blog/markdown-view-for-android/): A Markdown viewer for Android
