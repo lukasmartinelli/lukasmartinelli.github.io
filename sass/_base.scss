@@ -87,3 +87,31 @@ img {
 
 ul, ol { margin-bottom: 20px; }
 ul { list-style: none outside; }
+
+/* ===Blockquote=== */
+
+.highlight, blockquote { 
+  background-color: #f9f9f9;
+  padding: em(7) em(7) em(7) em(10);
+  border: 1px solid #ddd;
+  -moz-box-shadow: 3px 3px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 3px 3px rgba(0,0,0,0.1);
+  box-shadow: 3px 3px rgba(0,0,0,0.1);
+  margin: em(20) 0 em(20) 0;
+  overflow: hidden;
+}
+
+blockquote {
+    quotes: "\201C""\201D""\2018""\2019";
+
+  p { display: inline; }
+
+  &:before {
+      color: #ccc;
+      content: open-quote;
+      font-size: 4em;
+      line-height: 0.1em;
+      margin-right: 0.25em;
+      vertical-align: -0.4em;
+    }
+}

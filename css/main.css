@@ -114,6 +114,37 @@ ul {
   list-style: none outside;
 }
 
+/* ===Blockquote=== */
+/* line 93, ../sass/_base.scss */
+.highlight, blockquote {
+  background-color: #f9f9f9;
+  padding: 0.5em 0.5em 0.5em 0.71429em;
+  border: 1px solid #ddd;
+  -moz-box-shadow: 3px 3px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 3px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 3px rgba(0, 0, 0, 0.1);
+  margin: 1.42857em 0 1.42857em 0;
+  overflow: hidden;
+}
+
+/* line 104, ../sass/_base.scss */
+blockquote {
+  quotes: "\201C" "\201D" "\2018" "\2019";
+}
+/* line 107, ../sass/_base.scss */
+blockquote p {
+  display: inline;
+}
+/* line 109, ../sass/_base.scss */
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+
 /* ===============
    Layout Rules 
    =============== */
