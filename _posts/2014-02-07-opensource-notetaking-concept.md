@@ -178,3 +178,11 @@ Sadly there are no Open Source visual editors on the market. So either we have t
 - [MarkdownView](http://gun.io/blog/markdown-view-for-android/): A Markdown viewer for Android
 - [EpicEditor](http://oscargodson.github.io/EpicEditor/): Javascript MarkDown Dropin for websites.
 - [HNotes](https://play.google.com/store/apps/details?id=com.hly.notes): Android Rich Text notetaking App
+
+### Desktop
+The note editor for the desktop could either be a self hosted website or a normal desktop client.
+The self hosted variant is the comfortable approach as we only have to build it once, but I'm note sure wether users will accept that because for something essential as a notetaking program I want a very fast and slick program with good system integration and I'm not sure wether I can provide the same experience with a web app.
+
+## Summary
+This concept might be working or it might be not. I've written down alot of information in this post and it should serve as a very generic concept of my idea of an opensource notetaking application. I'm not sure how big the effort would be to build such a thing or wether users would like it, but I just wanted to share my idea.
+I'll keep you updated if I find something similar or take the courage to build a prototype.
