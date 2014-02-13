@@ -5,25 +5,25 @@ title: Welcome dear visitor
 
 {% for post in paginator.posts %}
 <article>
-	<header>
-		<div class="post-format icon-{{ post.categories[0] }}">&nbsp;</div>
-		<time class="post-date" datetime="{{ post.date }}" pubdate="pubdate" title"{{ post.date | date: '%B %d, %Y' }}
+    <header>        
+        <div class="post-format icon-{{ post.categories[0] }}">&nbsp;</div>
+        <time class="post-date" datetime="{{ post.date }}" pubdate="pubdate" title"{{ post.date | date: '%B %d, %Y' }}
 ">{{ post.date | date: "%b %-d"}}</time>
-		<h2><a href=" {{ post.url }}">{{ post.title }}</a></h2>	
-	</header>
-	<div class="content">
-	  	<p>{{ post.excerpt }}</p>
-  	</div>
-  	<footer>
-	  	<span class="tags">
-  		{% for tag in post.tags %}
-  			<a href="#" rel="tag">#{{tag}}</a>
-  		{% endfor %}
-	  	</span>
-	  	<span class="permalink">
-	  		<a href="{{ post.url  }}">Permalink</a>
-	  	</span>
-  	</footer>
+        <h1><a href=" {{ post.url }}">{{ post.title }}</a></h1> 
+    </header>
+    <div class="content">
+        {{ post.excerpt }}
+    </div>
+    <footer>
+        <span class="tags">
+        {% for tag in post.tags %}
+            <a href="#" rel="tag">#{{tag}}</a>
+        {% endfor %}
+        </span>
+        <span class="permalink">
+            <a href="{{ post.url  }}">Permalink</a>
+        </span>
+    </footer>
 </article>
 {% endfor %}
 

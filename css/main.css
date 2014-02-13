@@ -41,7 +41,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Georgia", "Times New Roman", Helvetica, Arial, sans-serif;
   font-weight: normal;
   font-style: normal;
-  color: color-dark;
+  color: #444444;
   text-shadow: 0 1px 0 #eee;
 }
 /* line 37, ../sass/_base.scss */
@@ -58,27 +58,27 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
 h1 {
   font-size: 2.5em;
   line-height: 1.57143em;
-  margin-bottom: 0.57143em;
+  margin-bottom: 0.28571em;
 }
 
 /* line 52, ../sass/_base.scss */
 h2 {
-  font-size: 2.14286em;
-  line-height: 1.33333em;
+  font-size: 2.28571em;
+  line-height: 1.25em;
   margin-bottom: 0.33333em;
 }
 
 /* line 58, ../sass/_base.scss */
 h3 {
-  font-size: 1.71429em;
-  line-height: 1.25em;
-  margin-bottom: 0.33333em;
+  font-size: 1.57143em;
+  line-height: 1.36364em;
+  margin-bottom: 0.36364em;
 }
 
 /* line 64, ../sass/_base.scss */
 h4 {
   font-size: 1em;
-  line-height: 24, 14;
+  line-height: 20, 14;
   font-weight: bold;
 }
 

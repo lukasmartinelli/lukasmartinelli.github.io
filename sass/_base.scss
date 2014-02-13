@@ -31,7 +31,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: "Georgia", "Times New Roman", Helvetica, Arial, sans-serif;
 	font-weight: normal;
 	font-style: normal;
-	color: color-dark;	
+	color: $color-dark;	
 	text-shadow: 0 1px 0 #eee;
 
 	a {
@@ -46,24 +46,24 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
 	font-size: em(35);
 	line-height: em(55, 35);
-    margin-bottom: em(20, 35);
+    margin-bottom: em(10, 35);
 }
 
 h2 {
-	font-size: em(30);
-	line-height: em(40, 30);
+	font-size: em(32);
+	line-height: em(40, 32);
 	margin-bottom: em(10, 30);
 }
 
 h3 {
-	font-size: em(24);
-	line-height: em(30, 24);
-	margin-bottom: em(8, 24);
+	font-size: em(22);
+	line-height: em(30, 22);
+	margin-bottom: em(8, 22);
 }
 
 h4 {
     font-size: em(14);
-    line-height: (24, 14);
+    line-height: (20, 14);
     font-weight: bold;
 }
 
