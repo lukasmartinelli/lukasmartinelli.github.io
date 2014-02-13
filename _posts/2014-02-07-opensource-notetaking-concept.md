@@ -140,21 +140,23 @@ Based on the schema concept above, we could now fetch that ressource and process
 
 ## Architecture
 
-#### Decoupled Data Directory
+#### Decoupled Note Data Directory
 Synchronizing is a huge effort and a complicated process to deal with. That's why the application should be completly decoupled from a synchronizing service, it should just write to a data directory. This data directory is synchronized by external systems like Dropbox or Bit Torrent Sync or anything that has a file interface. This will make integration with other parties much easier.
 
 #### Conflict Resolution
 Synchronizing Systems don't necessarily support automatic resolution of conflicts. Dropbox for example creates a special copy of the file that is marked as a conflict.
 The note editor might now resolve that conflict by using an auto-merge approach like Version Control Systems have. This approach shouldn't be to difficult to implement, as the note structure is very simple.
 
-#### ...
+#### App Domain
+The application consists of a note editor and a search indexer. The note editor will manage the note directory and process search queries, while the search indexer will index the notes and external ressources and write that to an index file.
+
+#### Search
+The realization of a search indexer in a decoupled system like this will probably the biggest challenge. One approach is that every indexer on each platform indexes everything he knows of:
+- All notes in the note dir
+- All currently accessible ressources that were referenced in the notes
+The search index is not shared as this would be much more complicated. A long running task like indexing might be a problem on devices like mobile phones.
 
 ![Decoupled architecture for Opensource Notetaking](/media/notes_architecture.png)
-
-
-
-
-
 
 ## Synchronizing
 
