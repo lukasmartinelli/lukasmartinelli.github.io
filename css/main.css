@@ -78,44 +78,43 @@ h3 {
 /* line 64, ../sass/_base.scss */
 h4 {
   font-size: 1.28571em;
-  line-height: 20, 18;
-  font-weight: bold;
+  line-height: 1.11111em;
 }
 
 /* ===Links=== */
-/* line 72, ../sass/_base.scss */
+/* line 71, ../sass/_base.scss */
 a {
   color: #e86a4d;
   text-decoration: none;
 }
-/* line 75, ../sass/_base.scss */
+/* line 74, ../sass/_base.scss */
 a:hover {
   text-decoration: underline;
 }
 
 /* ===Text=== */
-/* line 80, ../sass/_base.scss */
+/* line 79, ../sass/_base.scss */
 p {
   margin: 0 0 1.42857em 0;
 }
 
-/* line 84, ../sass/_base.scss */
+/* line 83, ../sass/_base.scss */
 img {
   max-width: 100%;
 }
 
-/* line 88, ../sass/_base.scss */
+/* line 87, ../sass/_base.scss */
 ul, ol {
   margin-bottom: 20px;
 }
 
-/* line 89, ../sass/_base.scss */
+/* line 88, ../sass/_base.scss */
 ul {
   list-style: none outside;
 }
 
 /* ===Blockquote=== */
-/* line 93, ../sass/_base.scss */
+/* line 92, ../sass/_base.scss */
 .highlight, blockquote {
   background-color: #f9f9f9;
   padding: 0.5em 0.5em 0.5em 0.71429em;
@@ -127,15 +126,15 @@ ul {
   overflow: hidden;
 }
 
-/* line 104, ../sass/_base.scss */
+/* line 103, ../sass/_base.scss */
 blockquote {
   quotes: "\201C" "\201D" "\2018" "\2019";
 }
-/* line 107, ../sass/_base.scss */
+/* line 106, ../sass/_base.scss */
 blockquote p {
   display: inline;
 }
-/* line 109, ../sass/_base.scss */
+/* line 108, ../sass/_base.scss */
 blockquote:before {
   color: #ccc;
   content: open-quote;
