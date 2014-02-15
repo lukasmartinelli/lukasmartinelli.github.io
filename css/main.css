@@ -115,6 +115,11 @@ ul {
 
 /* ===Blockquote=== */
 /* line 92, ../sass/_base.scss */
+.code {
+  background-color: #f9f9f9;
+}
+
+/* line 97, ../sass/_base.scss */
 .highlight, blockquote {
   background-color: #f9f9f9;
   padding: 0.5em 0.5em 0.5em 0.71429em;
@@ -126,15 +131,15 @@ ul {
   overflow: hidden;
 }
 
-/* line 103, ../sass/_base.scss */
+/* line 108, ../sass/_base.scss */
 blockquote {
   quotes: "\201C" "\201D" "\2018" "\2019";
 }
-/* line 106, ../sass/_base.scss */
+/* line 111, ../sass/_base.scss */
 blockquote p {
   display: inline;
 }
-/* line 108, ../sass/_base.scss */
+/* line 113, ../sass/_base.scss */
 blockquote:before {
   color: #ccc;
   content: open-quote;

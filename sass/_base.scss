@@ -89,6 +89,11 @@ ul { list-style: none outside; }
 
 /* ===Blockquote=== */
 
+.code {
+  background-color: #f9f9f9;
+
+}
+
 .highlight, blockquote { 
   background-color: #f9f9f9;
   padding: em(7) em(7) em(7) em(10);
