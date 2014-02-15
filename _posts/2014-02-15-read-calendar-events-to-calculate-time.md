@@ -2,8 +2,8 @@
 layout: post
 published: true
 tags: 
-  - python
-categories: code
+  - python, icalendar, productivity
+categories: python
 ---
 
 In the last learning phase I tried to use [Examtime](https://www.examtime.com/) to create my study plan, as it's calendar function let's you create a rough plan and estimate the time used for studying.
