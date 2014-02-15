@@ -30,7 +30,6 @@ The [iCalendar](http://icalendar.readthedocs.org/en/latest/) library makes parsi
 {% highlight python %}
 from icalendar import Calendar
 
-
 lectures = ['An1I', 'Math1I', 'Bsys1', 'CN1', 'EnglHTw', 'Prog1', 'ICTh']
 file = open('examtime_export.ics', 'rb')
 cal = Calendar.from_ical(file.read())
@@ -95,5 +94,4 @@ Math1I	45.5h
 TOTAL	274.5h
 {% endhighlight %}
 
-I created a Gist with the code if you're interested:
-https://gist.github.com/lukasmartinelli/9021795
+I created a [Gist](https://gist.github.com/lukasmartinelli/9021795) with the code in case you're interested.
