@@ -1,18 +1,16 @@
 ---
-title: Using Python to Parse iCalendar File
 layout: post
+title: Using Python to Parse iCalendar File
 published: true
 tags: 
   - "python, icalendar, productivity"
 categories: python
 ---
 
-In the last learning phase I tried to use [Examtime](https://www.examtime.com/) to create my study plan, as it's calendar function let's you create a rough plan and estimate the time used for studying.
-
-After the exam time I wanted to check how much time I've used for each lecture to prepare. So I wrote a small Python script and exported an `iCalendar` from Examtime.
-To calculate the used time I have to get all the calendar events and count their time together.
+In the last learning phase I tried to use [Examtime](https://www.examtime.com/) to create my study plan in a celandar. After the exam I wanted to check how much time I've used for each lecture to prepare. So I wrote a small Python script and exported an `iCalendar` from Examtime.
 
 ##Parsing the .ical
+To calculate the used time I have to get all the calendar events and count their time together.
 In the `iCal` format the `VEVENT` Block marks an event subcomponent with properties like start time `DTSTART` and end time `DTEND`.
 
 {% highlight bash %}
@@ -61,6 +59,7 @@ Now we have the data in a usable format.
  ...
 ]
 {% endhighlight %}
+##Calculating the used time
 We group the records by it's lecture name and simply yield the sum of the timedeltas.
 {% highlight python %}
 from itertools import groupby
