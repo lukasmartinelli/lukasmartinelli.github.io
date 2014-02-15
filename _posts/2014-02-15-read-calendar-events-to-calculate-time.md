@@ -1,8 +1,11 @@
 ---
 layout: post
 published: false
-tags: "python, icalendar"
+tags: 
+  - python
+  - icalendar
 category: code
+categories: code
 ---
 
 In the last learning phase I tried to use [Examtime](https://www.examtime.com/) to create my study plan, as it's calendar function let's you create a rough plan and estimate the time used for studying.
@@ -96,5 +99,3 @@ TOTAL	274.5h
 
 I created a Gist with the code if you're interested:
 https://gist.github.com/lukasmartinelli/9021795
-
-
