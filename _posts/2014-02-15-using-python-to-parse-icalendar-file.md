@@ -9,6 +9,8 @@ categories: python
 
 In the last learning phase I tried to use [Examtime](https://www.examtime.com/) to create my study plan in a celandar. After the exam I wanted to check how much time I've used for each lecture to prepare. So I wrote a small Python script and exported an `iCalendar` from Examtime.
 
+![Examtime Calendar](/media/examtime-calendar.png)
+
 ##Parsing the .ical
 To calculate the used time I have to get all the calendar events and count their time together.
 In the `iCal` format the `VEVENT` Block marks an event subcomponent with properties like start time `DTSTART` and end time `DTEND`.
