@@ -1,4 +1,5 @@
 ---
+title: An Opensource Notetaking Concept
 layout: post
 published: true
 tags: 
