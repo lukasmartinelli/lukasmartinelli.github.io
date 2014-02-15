@@ -391,24 +391,29 @@ footer .permalink {
 }
 
 /* ===Icons === */
-/* line 58, icon/*.png */
-.icon-sprite, .icon-cloud, .icon-idea, .icon-web {
-  background: url('../img/icon-s931ca53075.png') no-repeat;
+/* line 66, icon/*.png */
+.icon-sprite, .icon-cloud, .icon-idea, .icon-python, .icon-web {
+  background: url('../img/icon-s09accbb4d3.png') no-repeat;
 }
 
 /* line 60, ../../../.gem/ruby/2.1.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .icon-cloud {
-  background-position: 0 -80px;
+  background-position: 0 -120px;
 }
 
 /* line 60, ../../../.gem/ruby/2.1.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .icon-idea {
+  background-position: 0 -40px;
+}
+
+/* line 60, ../../../.gem/ruby/2.1.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.icon-python {
   background-position: 0 0;
 }
 
 /* line 60, ../../../.gem/ruby/2.1.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .icon-web {
-  background-position: 0 -40px;
+  background-position: 0 -80px;
 }
 
 /* line 40, ../sass/main.scss */
