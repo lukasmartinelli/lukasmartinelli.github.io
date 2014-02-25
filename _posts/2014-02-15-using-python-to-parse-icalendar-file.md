@@ -66,8 +66,9 @@ from operator import itemgetter
 from datetime import timedelta
 
 def time_per_lecture(events):
-    sorted_events = sorted(events, key=itemgetter(0))
-    for key, group in groupby(sorted_events, itemgetter(0)):
+    lecture_name = itemgetter(0)
+    sorted_events = sorted(events, key=lecture_name)
+    for key, group in groupby(sorted_events, lecture_name):
         yield (key, sum(map(itemgetter(1), group), timedelta()))
 {% endhighlight %}
 Now we have the `used_time` foreach lecture and the `total_time` and are done.
