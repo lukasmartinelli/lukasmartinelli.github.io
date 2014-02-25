@@ -48,9 +48,7 @@ The `lecturize` function searches for the lecture names in the event summary and
 {% highlight python %}
 def lecturize(event):
     summary = str(event['SUMMARY'])
-    for lecture in lectures:
-        if lecture in summary:
-            return lecture
+    return [lecture for lecture in lectures if lecture in summary]
 {% endhighlight %}
 Now we have the data in a usable format.
 {% highlight python %}
