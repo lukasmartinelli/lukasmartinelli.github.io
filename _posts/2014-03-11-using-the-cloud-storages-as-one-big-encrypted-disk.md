@@ -34,6 +34,9 @@ Now I'm amazed that there is no solution like this out there, but perhaps there 
 **Account Creation Wizard**
 A wizard that creates accounts for all known storage providers. You get a huge amount of free storage without the hassle of registering for all the sites yourself.
 
+**Dynamically change amount of allocated space**
+You can set a fixed amount of space that should be reserved for Cuckoo Drive on the cloud storage provider. This allows you to have space for your documents or shared folders on Dropbox and use it for Cuckoo Drive as well.
+
 **Synchronized folders or block device**
 One could also use a folder on the system, that is then kept up to date by the Cucko Sync process instead of using a device mapper.
 
