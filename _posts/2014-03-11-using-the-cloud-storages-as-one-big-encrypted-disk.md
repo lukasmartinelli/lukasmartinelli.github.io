@@ -1,6 +1,6 @@
 ---
 layout: post
-published: false
+published: true
 tags: 
   - idea
   - productivity
