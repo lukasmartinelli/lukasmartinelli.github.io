@@ -1,6 +1,10 @@
 ---
 layout: post
 published: false
+tags: 
+  - idea
+  - productivity
+categories: idea
 ---
 
 There are many cloud storages that give you an initial free capacity to store data. After that, if you want more space you have to pay for it. It  is convenient to store all your data at the same cloud storage for the ease of access. But then your hitting the free space limit pretty quickly and you start paying.
@@ -37,4 +41,4 @@ One could also use a folder on the system, that is then kept up to date by the C
 To write such an application is not such a trivial task. One has to take alot of factors into account, care about data integrity and know alot about encryption.
 
 **About the name**
-I thought of a Cuckoo that lays his eggs into foreign nests, except the eggs are protected by a very hard shell (encryption) that can't be broken.  
+I thought of a Cuckoo that lays his eggs into foreign nests, except the eggs are protected by a very hard shell (encryption) that can't be broken.
