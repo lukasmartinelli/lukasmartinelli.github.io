@@ -1,9 +1,12 @@
 ---
+title: Using several Cloud Storages as one big encrypted Disk
 layout: post
 published: true
 tags: 
   - idea
   - productivity
+  - cloud
+  - encryption
 categories: idea
 ---
 
