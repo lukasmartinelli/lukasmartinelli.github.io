@@ -1,6 +1,6 @@
 ---
-title: Using several Cloud Storages as one big encrypted Disk
 layout: post
+title: Using several Cloud Storages as one big encrypted Disk
 published: true
 tags: 
   - idea
@@ -31,6 +31,9 @@ The Cuckoo Drive is like a block device and acts as a normal drive for the user.
 ![Cuckoo Drive Concept](/media/cuckoodrive_concept.png)
 
 Now I'm amazed that there is no solution like this out there, but perhaps there is and I haven't found it.
+
+**Update**
+I found an [article](http://www.pcworld.com/article/2037131/supersize-your-free-cloud-storage-to-100gb-or-more.html "Supersize your free cloud storage to 100GB or more") that was published a little earlier that explains the idea even better.
 
 ## Additional remarks
 
