@@ -3,9 +3,11 @@ layout: post
 title: Using several Cloud Storages as one big encrypted Disk
 published: true
 tags:
+  - idea
+  - productivity
   - cloud
-  - architecture
-categories: python
+  - encryption
+categories: idea
 ---
 
 There are many cloud storages that give you an initial free capacity to store data. After that, if you want more space you have to pay for it. It  is convenient to store all your data at the same cloud storage for the ease of access. But then your hitting the free space limit pretty quickly and you start paying.

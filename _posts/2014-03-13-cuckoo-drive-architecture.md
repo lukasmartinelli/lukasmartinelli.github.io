@@ -3,11 +3,9 @@ layout: post
 title: Cuckoo Drive Architecture
 published: true
 tags:
-  - idea
-  - productivity
   - cloud
-  - encryption
-categories: idea
+  - architecture
+categories: python
 ---
 
 ## Cuckoo Drive is like a Filesystem
