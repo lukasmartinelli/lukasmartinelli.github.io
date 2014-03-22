@@ -1,6 +1,6 @@
 ---
 layout: post
-published: false
+published: true
 ---
 
 ## Cuckoo Drive is like a Filesystem
@@ -14,3 +14,8 @@ These filesystems are combined into one big superdrive. We now have abstracted t
 ![Cuckoo Drive Architecture](/media/cuckoo_drive_architecture.png)
 
 ## Concrete Implementation
+I don't want to deal with too many problems at one time, that is why the Cuckoo Drive consists out of many layers (where you can later plugin things like encryption and redundancy).
+One problem is, that we need many small files because most cloud storages have a maximum file size limit. It is also better to deal with many small files for caching and bandwidth reasons. But I don't want to deal constantly with the fact that one file actually consinsts of several smaller files, the PartedFS implementation will take care of this. For users it will look as if it is a single file, but behind the scenes they are splitted into many files.
+The MultiFS takes care of distributing the many files equally on many other remote filesystems.
+ 
+![Cuckoo Drive Implementation](/media/cuckoo_drive_implementation.png) 
