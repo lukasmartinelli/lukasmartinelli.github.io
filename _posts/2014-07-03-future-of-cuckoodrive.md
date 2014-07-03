@@ -24,13 +24,8 @@ time and made the task easier.
 
 ## One does not simply write a Distributed Filesystem
 While writing the filesystem I found myself solving problems, that a lot of
-people already are trying to solve (or have solved):
-- caching
-- encryption
-- compression
-- self-balancing
-- failure-tolerant
-- redundancy
+people already are trying to solve (or have solved) like caching,
+encryption, compression and redundancy.
 
 I don't want to reinvent the wheel and write yet another DFS (a bit like "Don't
 write your own Crypto"). Writing fileystems is hard and I don't think I'm up to
