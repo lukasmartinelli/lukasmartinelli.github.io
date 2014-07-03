@@ -8,7 +8,7 @@ tags:
 categories: idea
 ---
 
-Even though I have a working prototype for my [cloud storage filesystem](http://lukasmartinelli.ch/idea/2014/03/11/using-the-cloud-storages-as-one-big-encrypted-disk.html), I don't want to write yet another Distributed File System. Instead I could help others doing so, by providing a common API to consumer cloud providers.
+Even though I have a working prototype for my [cloud storage filesystem](http://lukasmartinelli.ch/idea/2014/03/11/using-the-cloud-storages-as-one-big-encrypted-disk.html), I don't want to write yet another [Distributed File System](http://en.wikipedia.org/wiki/Clustered_file_system#Distributed_file_systems). Instead I could help others doing so, by providing a common API to consumer cloud providers.
 
 ## A working prototype
 I sat down and wrote a working
