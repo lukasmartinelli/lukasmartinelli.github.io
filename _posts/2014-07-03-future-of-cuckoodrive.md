@@ -33,6 +33,7 @@ people already are trying to solve (or have solved):
 - self-balancing
 - failure-tolerant
 - redundancy
+
 ![One does not simply write a Distributed Filesystem](/media/one-does-not-simply-write-a-dfs.jpg)
 I don't want to reinvent the wheel and write yet another DFS (a bit like "Don't
 write your own Crypto"). Writing fileystems is hard and I don't think I'm up to
