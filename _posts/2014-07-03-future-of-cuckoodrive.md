@@ -24,7 +24,7 @@ I used the already described
 cture.html) and I am pretty happy with it. Using PyFilesystem saved me a lot of
 time and made the task easier.
 
-## One does not simply write a Distributed Filesystem
+### One does not simply write a Distributed Filesystem
 While writing the filesystem I found myself solving problems, that a lot of
 people already are trying to solve (or have solved) like caching, encryption,
 compression and redundancy.
