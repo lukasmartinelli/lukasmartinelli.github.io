@@ -25,10 +25,11 @@ cture.html) and I am pretty happy with it. Using PyFilesystem saved me a lot of
 time and made the task easier.
 
 ### One does not simply write a Distributed Filesystem
+![One does not simply write a Distributed Filesystem](/media/one-does-not-simply-write-a-dfs.jpg)
 While writing the filesystem I found myself solving problems, that a lot of
 people already are trying to solve (or have solved) like caching, encryption,
 compression and redundancy.
-![One does not simply write a Distributed Filesystem](/media/one-does-not-simply-write-a-dfs.jpg)
+
 I don't want to reinvent the wheel and write yet another DFS (a bit like "Don't
 write your own Crypto"). Writing fileystems is hard and I don't think I'm up to
 the task to do it. However, while hacking together the prototype I found many
