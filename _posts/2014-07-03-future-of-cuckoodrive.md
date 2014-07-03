@@ -26,6 +26,7 @@ time and made the task easier.
 
 ### One does not simply write a Distributed Filesystem
 ![One does not simply write a Distributed Filesystem](/media/one-does-not-simply-write-a-dfs.jpg)
+
 While writing the filesystem I found myself solving problems, that a lot of
 people already are trying to solve (or have solved) like caching, encryption,
 compression and redundancy.
