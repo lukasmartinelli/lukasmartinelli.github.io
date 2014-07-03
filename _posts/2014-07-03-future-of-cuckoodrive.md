@@ -2,11 +2,13 @@
 layout: post
 title: Future of Cuckoo Drive
 published: true
-tags:
+tags: 
   - idea
   - cloud
 categories: idea
 ---
+
+Even though I have a working prototype for my [cloud storage filesystem](http://lukasmartinelli.ch/idea/2014/03/11/using-the-cloud-storages-as-one-big-encrypted-disk.html), I don't want to write yet another Distributed File System. Instead I could help others doing so, by providing a common API to consumer cloud providers.
 
 ## A working prototype
 I sat down and wrote a working
@@ -24,9 +26,21 @@ time and made the task easier.
 
 ## One does not simply write a Distributed Filesystem
 While writing the filesystem I found myself solving problems, that a lot of
+<<<<<<< HEAD
 people already are trying to solve (or have solved) like caching,
 encryption, compression and redundancy.
+=======
+people already are trying to solve (or have solved):
 
+- caching
+- encryption
+- compression
+- self-balancing
+- failure-tolerant
+- redundancy
+>>>>>>> ade8be9ed1c4272e4eb168f9078d4a614b967f74
+
+![One does not simply write a Distributed Filesystem](/media/one-does-not-simply-write-a-dfs.jpg)
 I don't want to reinvent the wheel and write yet another DFS (a bit like "Don't
 write your own Crypto"). Writing fileystems is hard and I don't think I'm up to
 the task to do it. However, while hacking together the prototype I found many
