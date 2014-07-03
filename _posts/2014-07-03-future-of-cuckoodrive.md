@@ -27,6 +27,7 @@ time and made the task easier.
 ## One does not simply write a Distributed Filesystem
 While writing the filesystem I found myself solving problems, that a lot of
 people already are trying to solve (or have solved):
+
 - caching
 - encryption
 - compression
