@@ -35,28 +35,50 @@ Google Drive does not even have folders (only a specific folder mime-type), whic
 
 ## Listing files
 
-Provider     | Method and URL 
+Provider     | Method and URL                                     
 -------------|----------------------------------------------------
-Dropbox      | `GET /metadata/dropbox/{path to folder}?list=true`
-Google Drive | `GET /files/{folder id}/children`
-Box          | `GET /folders/{folder id}/items`
-One Drive    | `GET /{folder id}/files
-Sugar Sync   | `GET /folder/{folder id}/contents`
+Dropbox      | `GET /metadata/dropbox/{path to folder}?list=true` 
+Google Drive | `GET /files/{folder id}/children`                  
+Box          | `GET /folders/{folder id}/items`                
+One Drive    | `GET /{folder id}/files                    
+Sugar Sync   | `GET /folder/{folder id}/contents`                 
+
+We see that Dropbox does have a separate Metadata Ressource, which makes the separation between the file metadata and file data obvious (that is why you have to specify `list=true`). Like mentioned above Google Drive does not know about folders and therefore uses the File Ressource.
+Box, Sugar Sync and One Drive operate on a property of the Folder Ressource (items, files, contents, children).
+
+Provider     | Specify Fields | Paging 
+-------------|----------------|---------------------------
+Dropbox      | Not supported  | Not supported
+Google Drive | Include fields | Url Param `maxResults` and `pageToken`
+Box          | Include fields | Url Param `limit` and `offset`
+One Drive    | Not supported  | Not supported
+Sugar Sync   | Not supported  | Url Param `start` and `max`
+
+Paging is done by using tokens (Google Drive) or a given offset and limit (Box and Sugar Sync). One Drive and Dropbox lack the ability to do paging - which doesn't have to be bad, as you probably rarely store more 25'000 files in one folder.
+
+Google Drive and Box let you specify which fields of the listed Ressource you want included while the others just include everything.
 
 ## Download file
+
 Provider     | Method and URL                      | Partial download
--------------|-------------------------------------------------------------------
+-------------|-------------------------------------|-----------------------------
 Dropbox      | `GET /files/dropbox/{path to file}` | HTTP Range header
 Google Drive | `GET {download link}`               | HTTP Range header
 Box          | `GET /files/{file id}/content`      | Not supported
 One Drive    | `GET /{file id}/content`            | Not supported
 Sugar Sync   | `GET /file/{file id}`               | Not supported
 
-When using Google Drive, one has first to obtain the download link by issueing a metadata request:
-`GET /files/{file id}`. The response contains the download link. If the requested file is a Google Document it has to be exported into a file first.
+When using Google Drive, one has first to obtain the download link by issueing a metadata request: `GET /files/{file id}`. The response contains the download link. If the requested file is a Google Document it has to be exported into a file first.
 
-It seems that using the HTTP Range header for specifying partial downloads is best practice.
-Therefore Box, One Drive and Sugar Sync should implement this functionality immediately.  
+Provider     | Partial download  | Metadata included 
+-------------|-------------------|----------------------------------
+Dropbox      | HTTP Range header | HTTP `x-dropbox-metadata` header
+Google Drive | HTTP Range header | yes
+Box          | Not supported     | yes
+One Drive    | Not supported     | no
+Sugar Sync   | Not supported     | yes
+
+It seems that using the HTTP Range header for specifying partial downloads is best practice. Therefore Box, One Drive and Sugar Sync should implement this functionality.  
 
 ## Upload a file in a folder
 
