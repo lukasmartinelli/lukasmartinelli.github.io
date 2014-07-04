@@ -58,7 +58,7 @@ Paging is done by using tokens (Google Drive) or a given offset and limit (Box a
 
 Google Drive and Box let you specify which fields of the listed Ressource you want included while the others just include everything.
 
-## Download file
+## Download File
 
 Provider     | Method and URL                      | Partial download
 -------------|-------------------------------------|-----------------------------
@@ -70,17 +70,18 @@ Sugar Sync   | `GET /file/{file id}`               | Not supported
 
 When using Google Drive, one has first to obtain the download link by issueing a metadata request: `GET /files/{file id}`. The response contains the download link. If the requested file is a Google Document it has to be exported into a file first.
 
-Provider     | Partial download  | Metadata included 
--------------|-------------------|----------------------------------
-Dropbox      | HTTP Range header | HTTP `x-dropbox-metadata` header
-Google Drive | HTTP Range header | yes
-Box          | Not supported     | yes
-One Drive    | Not supported     | no
-Sugar Sync   | Not supported     | yes
+Provider     | Partial download  | Metadata included                   
+-------------|-------------------|-------------------------------------
+Dropbox      | HTTP Range header | HTTP `x-dropbox-metadata` header    
+Google Drive | HTTP Range header | Metadata request is required anyway 
+Box          | Not supported     | Not supported
+One Drive    | Not supported     | Not supported
+Sugar Sync   | Not supported     | Not supported
 
-It seems that using the HTTP Range header for specifying partial downloads is best practice. Therefore Box, One Drive and Sugar Sync should implement this functionality.  
+It seems that using the HTTP Range header for specifying partial downloads is best practice. Therefore Box, One Drive and Sugar Sync should implement this functionality. 
+Dropbox let's you include metadata about the file (even though metadata is a separate ressource, which is a bit inconsistent). Every provider returns the raw file data (without mixed metadata) so consumers don't have to worry about encoding.
 
-## Upload a file in a folder
+## Upload File
 
 Provider     | Method and URL 
 -------------|----------------------------------------------------
@@ -91,10 +92,19 @@ One Drive    | `PUT/POST /{folder id}/files/{file name}
 Sugar Sync   | `PUT /file/{existing file id}/data`
 
 Provider     | Request Body
--------------|---------------------------------------------------------------------------------------
-Dropbox      | File contents (UTF8)
-Google Drive | File contents (for media upload) or Metadata Part and File Part (for multipart uploads) 
+-------------|-----------------------------------------------------------------------
+Dropbox      | File contents
+Google Drive | File contents, Multipart 
 Box          | Filename, Parent ID, Timestamps or Filepart (for POST multipart upload)
 One Drive    | File contents or 
 Sugar Sync   | File contents
 
+Provider     | Metadata Response           | Partial upload
+-------------|-----------------------------------------------------------------------
+Dropbox      | Full metadata               | Chunked Upload
+Google Drive | Full metadata (unnecessary) | Three options
+Box          | Full metadata               | Not supported
+One Drive    | Partial metadata            | Not supported
+Sugar Sync   | Not supported               |
+
+The APIs differ quite a bit for uploading content.
