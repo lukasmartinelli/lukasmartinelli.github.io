@@ -21,22 +21,38 @@ One feature of a [**traditional filesystem**](http://en.wikipedia.org/wiki/File_
 - **File name** Identify a storage location by using path components like host, directory, name and type (through extension).
 - **Directory** A hierarchical filesystem is organized by having parent-child relationships between directories and subdirectories
 
-| Provider     | File Identifier     | File Type      | Hierarchy         |
-|--------------|---------------------|----------------|-------------------|
-| Dropbox      | Path                | File Extension | Path              |
-| Google Drive | File ID             | Mime-Type      | Parent ID         |
-| Box          | File and Folder ID. | File Extension | Parent ID         |
-| One Drive    | Path *or* Folder ID | File Extension | Parent ID         |
-| Sugar Sync   | File and Folder ID  | Mime-Type      | Path or Parent ID |
+Provider     | File Identifier     | File Type      | Hierarchy         
+-------------|---------------------|----------------|-------------------
+Dropbox      | Path                | File Extension | Path              
+Google Drive | File ID             | Mime-Type      | Parent ID         
+Box          | File and Folder ID. | File Extension | Parent ID         
+One Drive    | Path *or* Folder ID | File Extension | Parent ID         
+Sugar Sync   | File and Folder ID  | Mime-Type      | Parent ID
 
 Only Dropbox and One Drive have an API that comes close to a filesystem. The others work with the IDs of files or folder. Hierarchy is established by saving the Parent ID on the File Ressource. Children of a Parent ID can usually be requested through the Folder Ressource.
-Dropbox is a very good example in keeping the learning curve low, by mimicing a filesystem. One Drive stands out by giving the API consumer the choice, wheather he wants to use paths or IDs.
+Dropbox is a very good example in keeping the learning curve low, by mimicing a filesystem.
 Google Drive does not even have folders (only a specific folder mime-type), which makes Google Drive difficult to understand at first sight.
 
 ## Listing files
 
+| Provider     | Method and URL 
+|--------------|----------------------------------------------------
+| Dropbox      | `GET /metadata/dropbox/{path to folder}?list=true`
+| Google Drive | `GET /files/{folder id}/children`
+| Box          | `GET /folders/{folder id}/items`
+| One Drive    | `GET /{folder id}/files
+| Sugar Sync   | `GET /folder/{folder id}/contents`
 
-## Upload a file
+## Upload a file in a folder
+
+| Provider     | Method and URL 
+|--------------|----------------------------------------------------
+| Dropbox      | `PUT/POST /files_put/dropbox/{path to file}`
+| Google Drive | `POST /files?uploadType={ media | multipart | resumable }`
+| Box          | `POST /files/content`
+| One Drive    | `PUT/POST /{folder id}/files/{file name}
+| Sugar Sync   | `POST /folder/{parent folder id}`
+
 
 ### Dropbox
 
