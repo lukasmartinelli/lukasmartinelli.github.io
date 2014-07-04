@@ -52,8 +52,13 @@ This project is more oriented towards Cloud integration in common (like controll
 [**Storage Made Easy**](http://storagemadeeasy.com/personal_solution/)
 This is actually a bit like my initial proposal of Cuckoo Drive but is "an entry point to multiple clouds". Sadly this is not Opensource and you have to pay for the software.
 
+[**Cloud Elements Documents Hub**](http://www.cloud-elements.com/hubs/documents-hub/)
+I found this a bit later and it is exactly what we need. But it is not open source and it is not free (one has to [pay](http://www.cloud-elements.com/pricing/) for serious use). It will cost you $250 per month with 100 active accounts and then $0.50 per additional user (while you can only connect to 3 cloud providers). Sometimes I feel that every good idea is already monetized.
+
 **What is missing?**
-What is missing is a common API to end user cloud storages (like Dropbox, Google Drive, Box.net and all those). If I would provide such an API, the developers of those
+What is missing is a **common API to end user cloud storages** (like Dropbox, Google Drive, Box.net and all those) that is **opensource and free**.
+
+If I would provide such an API, the developers of those
 Distributed Fileystems could integrate it and actually create my [Cuckoo
 Drive](http://lukasmartinelli.ch/idea/2014/03/11/using-the-cloud-storages-as-on
 e-big-encrypted-disk.html) by themselves.
@@ -69,4 +74,3 @@ While doing research for this project, I encountered something called "Project H
 - [http://codecrafter.wordpress.com/2012/09/02/cloud-storage-aggregators/](http://codecrafter.wordpress.com/2012/09/02/cloud-storage-aggregators/)
 
 The most promising project at the moment seems to be [Syncany](https://www.syncany.org/). Their website looks awesome and there are quite a few people working on it.
-
