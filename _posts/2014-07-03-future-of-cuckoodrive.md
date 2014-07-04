@@ -63,13 +63,10 @@ rage adapters. I already have some knowledge of the various cloud storage APIs b
 research to be done.
 
 ## Cuckoo Drive and similar Projects
-While doing research for this project, I encountered something called "Project Hydra" from 2012, which had the same goal as Cuckoo Drive but failed.
-
-The man behind it made some very informative blog posts:
+While doing research for this project, I encountered something called "Project Hydra" from 2012, which had the same goal as Cuckoo Drive but failed. The man behind it made some very informative blog posts:
 
 - [http://codecrafter.wordpress.com/2012/09/01/14-cloud-storage-services-and-apis/](http://codecrafter.wordpress.com/2012/09/01/14-cloud-storage-services-and-apis/)
 - [http://codecrafter.wordpress.com/2012/09/02/cloud-storage-aggregators/](http://codecrafter.wordpress.com/2012/09/02/cloud-storage-aggregators/)
 
-The most promising project that looks very similar to Cuckoo Drive is [Syncany](https://www.syncany.org/). Their website looks awesome and there are quite a few people working on it.
-
+The most promising project at the moment seems to be [Syncany](https://www.syncany.org/). Their website looks awesome and there are quite a few people working on it.
 
