@@ -58,15 +58,17 @@ Distributed Fileystems could integrate it and actually create my [Cuckoo
 Drive](http://lukasmartinelli.ch/idea/2014/03/11/using-the-cloud-storages-as-on
 e-big-encrypted-disk.html) by themselves.
 I want to make it possible for Projects like [Bazil](http://bazil.org/) or [Syncany](https://www.syncany.org/) to do
-their thing without worrying about implementing cloud storage adapters. I already have some knowledge of the various cloud storage APIs but there is definitely more
+their thing without worrying about implementing cloud sto
+rage adapters. I already have some knowledge of the various cloud storage APIs but there is definitely more
 research to be done.
 
 ## Cuckoo Drive and similar Projects
 While doing research for this project, I encountered something called "Project Hydra" from 2012, which had the same goal as Cuckoo Drive but failed.
 
 The man behind it made some very informative blog posts:
-- http://codecrafter.wordpress.com/2012/09/01/14-cloud-storage-services-and-apis/
-- http://codecrafter.wordpress.com/2012/09/02/cloud-storage-aggregators/
+
+- [http://codecrafter.wordpress.com/2012/09/01/14-cloud-storage-services-and-apis/](http://codecrafter.wordpress.com/2012/09/01/14-cloud-storage-services-and-apis/)
+- [http://codecrafter.wordpress.com/2012/09/02/cloud-storage-aggregators/](http://codecrafter.wordpress.com/2012/09/02/cloud-storage-aggregators/)
 
 The most promising project that looks very similar to Cuckoo Drive is [Syncany](https://www.syncany.org/). Their website looks awesome and there are quite a few people working on it.
 
