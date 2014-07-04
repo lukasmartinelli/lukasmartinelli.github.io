@@ -53,11 +53,26 @@ This project is more oriented towards Cloud integration in common (like controll
 
 http://libcloud.apache.org/
 
-What is missing is a common API to end user cloud storages (like Dropbox, Google Drive, Box.net
-and all those). If I would provide such an API, the developers of those
+**Storage Made Easy**
+This is actually a bit like my initial proposal of Cuckoo Drive but is "an entry point to multiple clouds". Sadly this is not Opensource and you have to pay for the software.
+
+http://storagemadeeasy.com/personal_solution/
+
+**What is missing?**
+What is missing is a common API to end user cloud storages (like Dropbox, Google Drive, Box.net and all those). If I would provide such an API, the developers of those
 Distributed Fileystems could integrate it and actually create my [Cuckoo
 Drive](http://lukasmartinelli.ch/idea/2014/03/11/using-the-cloud-storages-as-on
 e-big-encrypted-disk.html) by themselves.
 I want to make it possible for Projects like [Bazil](http://bazil.org/) to do
 their thing without worrying about implementing cloud storage adapters. I already have some knowledge of the various cloud storage APIs but there is definitely more
 research to be done.
+
+## Cuckoo Drive and similar Projects
+While doing research for this project, I encountered something called "Project Hydra" from 2012, which had the same goal as Cuckoo Drive but failed.
+
+The man behind it made some very informative blog posts:
+- http://codecrafter.wordpress.com/2012/09/01/14-cloud-storage-services-and-apis/
+- http://codecrafter.wordpress.com/2012/09/02/cloud-storage-aggregators/
+
+The most promising project is probably [Syncany](https://www.syncany.org/).
+
