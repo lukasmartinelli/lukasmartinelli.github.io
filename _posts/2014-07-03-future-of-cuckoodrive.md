@@ -41,22 +41,16 @@ But there was the nice side effect of providing a **common API** to all those cl
 ## Providing one API to rule them all
 So I searched the web for a project that provides one common API for most of the cloud storage providers. 
 
-**SharpBox**
+[**SharpBox**](http://sharpbox.codeplex.com/)
 They have exactly the same goal as I described: They want the programmer to write the cloud storage access code only once and support multiple providers.
 This seems like a very cool project, altough limited to the .NET platform. They might be trying to do too much by also abstracting a Key-Value store.
 Sadly they only support a few storage providers (without GoogleDrive).
 
-http://sharpbox.codeplex.com/
-
-**Apache Libcloud**
+[**Apache Libcloud**](http://libcloud.apache.org/)
 This project is more oriented towards Cloud integration in common (like controlling virtual machines) but provide a storage API along the way. But the target providers are all commercial cloud storages (like Amazon or Rackspace) for businesses.
 
-http://libcloud.apache.org/
-
-**Storage Made Easy**
+[**Storage Made Easy**](http://storagemadeeasy.com/personal_solution/)
 This is actually a bit like my initial proposal of Cuckoo Drive but is "an entry point to multiple clouds". Sadly this is not Opensource and you have to pay for the software.
-
-http://storagemadeeasy.com/personal_solution/
 
 **What is missing?**
 What is missing is a common API to end user cloud storages (like Dropbox, Google Drive, Box.net and all those). If I would provide such an API, the developers of those
@@ -73,4 +67,7 @@ While doing research for this project, I encountered something called "Project H
 The man behind it made some very informative blog posts:
 - http://codecrafter.wordpress.com/2012/09/01/14-cloud-storage-services-and-apis/
 - http://codecrafter.wordpress.com/2012/09/02/cloud-storage-aggregators/
+
+The most promising project that looks very similar to Cuckoo Drive is [Syncany](https://www.syncany.org/). Their website looks awesome and there are quite a few people working on it.
+
 
