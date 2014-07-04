@@ -43,6 +43,26 @@ Box          | `GET /folders/{folder id}/items`
 One Drive    | `GET /{folder id}/files
 Sugar Sync   | `GET /folder/{folder id}/contents`
 
+## Download file
+Provider     | Method and URL 
+-------------|----------------------------------------------------
+Dropbox      | `GET /files/dropbox/{path to file}`
+Google Drive | `GET {download link}
+Box          | `GET /files/{file id}/content`
+One Drive    | `GET /{file id}/content
+Sugar Sync   | `GET /file/{file id}
+
+When using Google Drive, one has first to obtain the download link by issueing a metadata request:
+`GET /files/{file id}`. The response contains the download link. If the requested file is a Google Document it has to be exported into a file first.
+
+Provider     | Support for partial download
+-------------|----------------------------------------------------
+Dropbox      | Specify HTTP Range header
+Google Drive | Specify HTTP Range header
+Box          | Not possible
+One Drive    | 
+Sugar Sync   | Might be possible
+
 ## Upload a file in a folder
 
 Provider     | Method and URL 
