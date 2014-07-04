@@ -31,22 +31,33 @@ subproblems that have to be solved and they are also quite tricky.
 ![One does not simply write a Distributed Filesystem](/media/one-does-not-simply-write-a-dfs.jpg)
 
 ### Writing PyFilesystem Implementations for Cloud Storage Providers
-My current approach was writing a PyFilesystem implementation for each cloud
+My current approach was writing a ]PyFilesystem implementation](http://docs.pyfilesystem.org/en/latest/implementersguide.html) for each cloud
 storage provider. This is quite a tedious task and a bit repetitive as most
-of the cloud storages are not suited for implementing a filesystem directly
-(e.g. no concept of a filesystem path). But there was the nice side effect of
-providing a common API to all those cloud storages.
+of the cloud storages have similar concepts but use different APIs to express them.
+There is also some work to do, to work around the fact that providers like Google Drive have no idea what a path or a file is, they work more like a Key-Value store for documents.
+
+But there was the nice side effect of providing a **common API** to all those cloud storages, even though some features got lost or had to be emulated.
 
 ## Providing one API to rule them all
-So I searched the web and only found a solution ([Apache
-Libcloud](http://libcloud.apache.org/)) that provides a common API to
-commercial cloud storages (like Amazon or Rackspace). What is missing is a
-common API to end user cloud storages (like Dropbox, Google Drive, Box.net
+So I searched the web for a project that provides one common API for most of the cloud storage providers. 
+
+**SharpBox**
+They have exactly the same goal as I described: They want the programmer to write the cloud storage access code only once and support multiple providers.
+This seems like a very cool project, altough limited to the .NET platform. They might be trying to do too much by also abstracting a Key-Value store.
+Sadly they only support a few storage providers (without GoogleDrive).
+
+http://sharpbox.codeplex.com/
+
+**Apache Libcloud**
+This project is more oriented towards Cloud integration in common (like controlling virtual machines) but provide a storage API along the way. But the target providers are all commercial cloud storages (like Amazon or Rackspace) for businesses.
+
+http://libcloud.apache.org/
+
+What is missing is a common API to end user cloud storages (like Dropbox, Google Drive, Box.net
 and all those). If I would provide such an API, the developers of those
 Distributed Fileystems could integrate it and actually create my [Cuckoo
 Drive](http://lukasmartinelli.ch/idea/2014/03/11/using-the-cloud-storages-as-on
 e-big-encrypted-disk.html) by themselves.
 I want to make it possible for Projects like [Bazil](http://bazil.org/) to do
-their thing worrying about implementing cloud storage adapters. I already have
-some knowledge of the various cloud storage APIs but there is definitely more
+their thing without worrying about implementing cloud storage adapters. I already have some knowledge of the various cloud storage APIs but there is definitely more
 research to be done.
