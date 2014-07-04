@@ -35,71 +35,29 @@ Google Drive does not even have folders (only a specific folder mime-type), whic
 
 ## Listing files
 
-| Provider     | Method and URL 
-|--------------|----------------------------------------------------
-| Dropbox      | `GET /metadata/dropbox/{path to folder}?list=true`
-| Google Drive | `GET /files/{folder id}/children`
-| Box          | `GET /folders/{folder id}/items`
-| One Drive    | `GET /{folder id}/files
-| Sugar Sync   | `GET /folder/{folder id}/contents`
+Provider     | Method and URL 
+-------------|----------------------------------------------------
+Dropbox      | `GET /metadata/dropbox/{path to folder}?list=true`
+Google Drive | `GET /files/{folder id}/children`
+Box          | `GET /folders/{folder id}/items`
+One Drive    | `GET /{folder id}/files
+Sugar Sync   | `GET /folder/{folder id}/contents`
 
 ## Upload a file in a folder
 
-| Provider     | Method and URL 
-|--------------|----------------------------------------------------
-| Dropbox      | `PUT/POST /files_put/dropbox/{path to file}`
-| Google Drive | `POST /files?uploadType={ media | multipart | resumable }`
-| Box          | `POST /files/content`
-| One Drive    | `PUT/POST /{folder id}/files/{file name}
-| Sugar Sync   | `POST /folder/{parent folder id}`
+Provider     | Method and URL 
+-------------|----------------------------------------------------
+Dropbox      | `PUT/POST /files_put/dropbox/{path to file}`
+Google Drive | `POST /files?uploadType={ media, multipart or resumable }`
+Box          | `POST /files/content`
+One Drive    | `PUT/POST /{folder id}/files/{file name}
+Sugar Sync   | `PUT /file/{existing file id}/data`
 
+Provider     | Request Body
+-------------|---------------------------------------------------------------------------------------
+Dropbox      | File contents (UTF8)
+Google Drive | File contents (for media upload) or Metadata Part and File Part (for multipart uploads) 
+Box          | Filename, Parent ID, Timestamps or Filepart (for POST multipart upload)
+One Drive    | File contents or 
+Sugar Sync   | File contents
 
-### Dropbox
-
-
-
-### Box
-Box.net uses the multipart POST method to do uploads.
-
-```
-curl https://upload.box.com/api/2.0/files/content \
--H "Authorization: Bearer ACCESS_TOKEN" \
--F filename=@FILE_NAME \
--F parent_id=PARENT_FOLDER_ID
-```
-
-### Google Drive
-
-
-
-### Dropbox
-
-
-SSL only
-App folder permissions
-UTF-8 encoding
-
-```
-GET /files/<root>/<path>?rev=mostRecent
-Example:
-
-```
-
-## Download a file
-
-### Dropbox
-```
-https://api-content.dropbox.com/1/files_put/<root>/<path>?param=val
-
-```
-
-### Metadata
-```
-https://api.dropbox.com/1/metadata/<root>/<path>
-```
-
-## Fileops
-Copy
-Create
-Delete
-Move
