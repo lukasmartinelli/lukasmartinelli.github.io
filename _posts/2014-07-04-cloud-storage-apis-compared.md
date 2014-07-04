@@ -44,24 +44,19 @@ One Drive    | `GET /{folder id}/files
 Sugar Sync   | `GET /folder/{folder id}/contents`
 
 ## Download file
-Provider     | Method and URL 
--------------|----------------------------------------------------
-Dropbox      | `GET /files/dropbox/{path to file}`
-Google Drive | `GET {download link}
-Box          | `GET /files/{file id}/content`
-One Drive    | `GET /{file id}/content
-Sugar Sync   | `GET /file/{file id}
+Provider     | Method and URL                      | Partial download
+-------------|-------------------------------------------------------------------
+Dropbox      | `GET /files/dropbox/{path to file}` | HTTP Range header
+Google Drive | `GET {download link}`               | HTTP Range header
+Box          | `GET /files/{file id}/content`      | Not supported
+One Drive    | `GET /{file id}/content`            | Not supported
+Sugar Sync   | `GET /file/{file id}`               | Not supported
 
 When using Google Drive, one has first to obtain the download link by issueing a metadata request:
 `GET /files/{file id}`. The response contains the download link. If the requested file is a Google Document it has to be exported into a file first.
 
-Provider     | Support for partial download
--------------|----------------------------------------------------
-Dropbox      | Specify HTTP Range header
-Google Drive | Specify HTTP Range header
-Box          | Not possible
-One Drive    | 
-Sugar Sync   | Might be possible
+It seems that using the HTTP Range header for specifying partial downloads is best practice.
+Therefore Box, One Drive and Sugar Sync should implement this functionality immediately.  
 
 ## Upload a file in a folder
 
