@@ -53,7 +53,9 @@ This project is more oriented towards Cloud integration in common (like controll
 This is actually a bit like my initial proposal of Cuckoo Drive but is "an entry point to multiple clouds". Sadly this is not Opensource and you have to pay for the software.
 
 [**Cloud Elements Documents Hub**](http://www.cloud-elements.com/hubs/documents-hub/)
-I found this a bit later and it is exactly what we need. But it is not open source and it is not free (one has to [pay](http://www.cloud-elements.com/pricing/) for serious use). It will cost you $250 per month with 100 active accounts and then $0.50 per additional user (while you can only connect to 3 cloud providers). Sometimes I feel that every good idea is already monetized.
+I found this a bit later and it is exactly what we need. But it is not open source and it is not free (one has to [pay](http://www.cloud-elements.com/pricing/) for serious use). It will cost you $250 per month with 100 active accounts and then $0.50 per additional user (while you can only connect to 3 cloud providers). Sometimes I feel like every good idea is already monetized.
+
+![Cloud Elements Documents Hub Diagram](/media/documents_hub.png)
 
 **What is missing?**
 What is missing is a **common API to end user cloud storages** (like Dropbox, Google Drive, Box.net and all those) that is **opensource and free**.
