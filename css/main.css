@@ -197,7 +197,7 @@ blockquote:before {
   background: rgba(40, 40, 40, 0.1);
 }
 
-@media only screen and (min-width: 48em) {
+@media only screen and (min-width: 60em) {
   /* line 50, ../sass/_layout.scss */
   #content {
     float: left;
@@ -252,7 +252,7 @@ div.branding h2 {
   float: right;
   margin: 1.25em 0 0.625em 0;
 }
-@media only screen and (max-width: 48em) {
+@media only screen and (max-width: 60em) {
   /* line 34, ../sass/_module.scss */
   #top-nav {
     margin: 0.625em 0 0.625em 0;
@@ -296,7 +296,7 @@ article .content {
 }
 /* line 75, ../sass/_module.scss */
 article header {
-  padding: 3.125em 1.25em 0 1.25em;
+  padding: 4em 1.25em 0 1.25em;
 }
 /* line 78, ../sass/_module.scss */
 article header .post-format {
@@ -317,7 +317,7 @@ article header .post-date {
   background-color: #ccc;
   width: 4em;
   height: 1.5625em;
-  left: 4.4375em;
+  left: 5.25em;
   top: 0em;
   position: absolute;
 }
@@ -359,7 +359,7 @@ article footer {
 .bio .description {
   padding: 0.625em 1.25em;
 }
-@media only screen and (max-width: 48em) {
+@media only screen and (max-width: 60em) {
   /* line 136, ../sass/_module.scss */
   .bio .avatar {
     padding: 1.25em 0 1.25em 1.25em;
