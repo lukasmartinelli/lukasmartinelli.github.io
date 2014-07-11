@@ -108,3 +108,15 @@ One Drive    | Partial metadata            | Not supported
 Sugar Sync   | Not supported               |
 
 The APIs differ quite a bit for uploading content.
+Dropbox does not use a RESTful url for the uploading part (but otherwise uses the REST approach quite strict). Dropbox and google Drive provider methods to upload huge files in partial requests.
+Most of the Providers return the full metadata for the created object. This is a bit unnecessary for Google Drive as we already have the metadata, because we have to create an object in advance.
+
+## File Metadata
+
+Provider     | Size                     | Time    
+-------------|-----------------------------------------------------------------------
+Dropbox      | bytes                    | modified, client_mtime
+Google Drive | fileSize, quotaBytesUsed | createdDate, modifiedDate, modifiedByMeDate, lastViewedByMeDate, markedViewedByMeDate, sharedWithMeDate
+Box          | size                     | created_at, modified_at, trashed_at, purged_at, content_created_at, content_modified_at
+One Drive    | size                     | created_time, updated_time, client_updated_time
+Sugar Sync   | size                     | timeCreated, lastModified
