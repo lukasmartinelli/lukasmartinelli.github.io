@@ -120,3 +120,19 @@ Google Drive | fileSize, quotaBytesUsed | createdDate, modifiedDate, modifiedByM
 Box          | size                     | created_at, modified_at, trashed_at, purged_at, content_created_at, content_modified_at
 One Drive    | size                     | created_time, updated_time, client_updated_time
 Sugar Sync   | size                     | timeCreated, lastModified
+
+Provider     | Thumbnail                      | Hash          | Deleted
+-------------|--------------------------------------------------------------------
+Dropbox      | thumb_exists                   | hash          | is_deleted
+Google Drive | thumbnailLink, thumbnail.image | md5Checksum   | explicitlyTrashed
+Box          | Not supported                  | sha1          | item_status
+One Drive    | Not supported                  | Not supported | Not supported
+Sugar Sync   | Not supported                  | Not supported | Not supported
+
+Provider     | Support revisions | Image metadata         | Permissions
+-------------|--------------------------------------------------------------------
+Dropbox      | rev               | photo_info, video_info |
+Google Drive | headRevisionId    | imageMediaMetadata     | userPermissionm permissions, shared
+Box          | version_number    | Not supported          | shared_link, owned_by, permissions
+One Drive    | Not supported     | Not supported          | shared_with, access
+Sugar Sync   | versions          | image                  | publicLink
