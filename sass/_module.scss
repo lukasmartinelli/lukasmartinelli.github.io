@@ -71,9 +71,9 @@ article {
 	.content {
 		padding: 0 $default-margin;
 	}
-	
+
 	header {
-		padding: em(50) $default-margin 0 $default-margin;
+		padding: em(64) $default-margin 0 $default-margin;
 
 		.post-format {
 			width: em(64);
@@ -93,7 +93,7 @@ article {
 			background-color: #ccc;
 			width: em(64);
 			height: em(25);
-			left: em(71);
+			left: em(64 ) + $default-margin;
 			top: 0em;
 			position: absolute;
 		}
