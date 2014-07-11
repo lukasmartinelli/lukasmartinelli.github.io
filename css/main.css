@@ -231,40 +231,36 @@ div.branding a {
   color: inherit;
 }
 /* line 16, ../sass/_module.scss */
-div.branding h1 {
-  font-family: 'Lobster', cursive;
-}
-/* line 20, ../sass/_module.scss */
 div.branding h1, div.branding h2 {
+  font-family: "Share Tech", cursive;
   display: inline-block;
 }
-/* line 24, ../sass/_module.scss */
+/* line 21, ../sass/_module.scss */
 div.branding h2 {
-  font-style: italic;
   margin: 0;
   font-size: 0.8125em;
   color: #666666;
 }
 
 /* ===TopNav === */
-/* line 34, ../sass/_module.scss */
+/* line 30, ../sass/_module.scss */
 #top-nav {
   float: right;
   margin: 1.25em 0 0.625em 0;
 }
 @media only screen and (max-width: 60em) {
-  /* line 34, ../sass/_module.scss */
+  /* line 30, ../sass/_module.scss */
   #top-nav {
     margin: 0.625em 0 0.625em 0;
   }
 }
-/* line 43, ../sass/_module.scss */
+/* line 39, ../sass/_module.scss */
 #top-nav li {
   float: left;
   line-height: 1.125em;
   list-style: none;
 }
-/* line 48, ../sass/_module.scss */
+/* line 44, ../sass/_module.scss */
 #top-nav li a {
   font-size: 0.8125em;
   padding: 0 1.25em 0.625em 0;
@@ -273,13 +269,13 @@ div.branding h2 {
   text-decoration: none;
   color: #444444;
 }
-/* line 57, ../sass/_module.scss */
+/* line 53, ../sass/_module.scss */
 #top-nav li:last-child a {
   padding-right: 0;
 }
 
 /* ===Article=== */
-/* line 66, ../sass/_module.scss */
+/* line 62, ../sass/_module.scss */
 article {
   background: -moz-linear-gradient(left, #f7f7f7 0%, #ffffff 4%, #ffffff 100%);
   background: -webkit-linear-gradient(left, #f7f7f7 0%, #ffffff 4%, #ffffff 100%);
@@ -290,15 +286,15 @@ article {
   position: relative;
   margin: 0 0 1.25em 0;
 }
-/* line 71, ../sass/_module.scss */
+/* line 67, ../sass/_module.scss */
 article .content {
   padding: 0 1.25em;
 }
-/* line 75, ../sass/_module.scss */
+/* line 71, ../sass/_module.scss */
 article header {
   padding: 4em 1.25em 0 1.25em;
 }
-/* line 78, ../sass/_module.scss */
+/* line 74, ../sass/_module.scss */
 article header .post-format {
   width: 4em;
   height: 4em;
@@ -307,7 +303,7 @@ article header .post-format {
   position: absolute;
   background-color: #e86a4d;
 }
-/* line 87, ../sass/_module.scss */
+/* line 83, ../sass/_module.scss */
 article header .post-date {
   font-size: 16;
   text-transform: uppercase;
@@ -322,22 +318,22 @@ article header .post-date {
   position: absolute;
 }
 @media only screen and (min-width: 76.5em) {
-  /* line 75, ../sass/_module.scss */
+  /* line 71, ../sass/_module.scss */
   article header {
     padding-top: 1.25em;
   }
-  /* line 104, ../sass/_module.scss */
+  /* line 100, ../sass/_module.scss */
   article header .post-format {
     left: -4em;
     top: 1.25em;
   }
-  /* line 109, ../sass/_module.scss */
+  /* line 105, ../sass/_module.scss */
   article header .post-date {
     top: 5.3125em;
     left: -4em;
   }
 }
-/* line 118, ../sass/_module.scss */
+/* line 114, ../sass/_module.scss */
 article footer {
   padding: 0.625em 1.25em;
   border-top: 1px solid #eee;
@@ -345,7 +341,7 @@ article footer {
 }
 
 /* ===Biography=== */
-/* line 127, ../sass/_module.scss */
+/* line 123, ../sass/_module.scss */
 .bio {
   overflow: hidden;
   background: -moz-linear-gradient(left, #f7f7f7 0%, #ffffff 4%, #ffffff 100%);
@@ -355,18 +351,18 @@ article footer {
   -webkit-box-shadow: 0 0 0.1875em 0 #cccccc;
   box-shadow: 0 0 0.1875em 0 #cccccc;
 }
-/* line 131, ../sass/_module.scss */
+/* line 127, ../sass/_module.scss */
 .bio .description {
   padding: 0.625em 1.25em;
 }
 @media only screen and (max-width: 60em) {
-  /* line 136, ../sass/_module.scss */
+  /* line 132, ../sass/_module.scss */
   .bio .avatar {
     padding: 1.25em 0 1.25em 1.25em;
     width: 30%;
     float: left;
   }
-  /* line 142, ../sass/_module.scss */
+  /* line 138, ../sass/_module.scss */
   .bio .description {
     padding: 1.25em;
     float: left;
@@ -375,20 +371,20 @@ article footer {
 }
 
 /* ===Footer=== */
-/* line 153, ../sass/_module.scss */
+/* line 149, ../sass/_module.scss */
 footer {
   color: #999999;
   font-size: 0.875em;
 }
-/* line 157, ../sass/_module.scss */
+/* line 153, ../sass/_module.scss */
 footer a {
   color: #999999;
 }
-/* line 161, ../sass/_module.scss */
+/* line 157, ../sass/_module.scss */
 footer .tags {
   float: left;
 }
-/* line 162, ../sass/_module.scss */
+/* line 158, ../sass/_module.scss */
 footer .permalink {
   float: right;
 }
