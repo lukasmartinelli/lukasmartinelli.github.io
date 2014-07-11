@@ -57,6 +57,9 @@ I found this a bit later and it is exactly what we need. But it is not open sour
 
 ![Cloud Elements Documents Hub Diagram](/media/documents_hub.png)
 
+[**Kloudless**](https://developers.kloudless.com/)
+Integrates more providers than cloud Elements and is focused primarily on cloud storages. You pay $5 to $10 per 10k requests depending on your workload. It includes 10GB bandwidth after which $0.25 is charged per GB. They currently support 9 storage providers (Box, Bitcasa, ShareFile, OneDrive, GoogleDrive, Dropbox, SugarSync, Egnyte, Copy). This seems like the best solution that provides a common API.
+
 **What is missing?**
 What is missing is a **common API to end user cloud storages** (like Dropbox, Google Drive, Box.net and all those) that is **opensource and free**.
 
