@@ -13,14 +13,18 @@ div.branding {
 		color: inherit; 
 	}
 
+    h1 {
+        font-family: 'Lobster', cursive;
+    }
+
 	h1, h2 {
 		display: inline-block;
-		font-style: italic;
 	}
 
 	h2 {
+		font-style: italic;
 		margin: 0;
-		font-size: em(12);
+		font-size: em(13);
 		color: $color-medium;
 	}
 }
@@ -42,7 +46,7 @@ div.branding {
 		list-style: none;
 	
 		a {
-			font-size: em(11);
+			font-size: em(13);
 			padding: 0 $default-margin $default-margin/2 0;
 			font-weight: bold;
 			text-transform: uppercase;
@@ -72,24 +76,22 @@ article {
 		padding: em(50) $default-margin 0 $default-margin;
 
 		.post-format {
-			width: em(40);
-			height: em(40);
+			width: em(64);
+			height: em(64);
 			left: $default-margin;
 			top: 0em;
 			position: absolute;
 			background-color: $color-highlight;
 		}
 
-
-
 		.post-date {
-			font-size: em(12);
+			font-size: $default-font-size;
 			text-transform: uppercase;
 			text-align: center;
 			line-height: em(26);
 			color: #fff;
 			background-color: #ccc;
-			width: em(60);
+			width: em(64);
 			height: em(25);
 			left: em(71);
 			top: 0em;
@@ -100,13 +102,13 @@ article {
 			padding-top: $default-margin;
 
 			.post-format {
-				left: em(-40);
-				top: em(30);
+				left: em(-64);
+				top: em(20);
 			}
 
 			.post-date {
-				top: em(83);
-			left: em(-60);
+				top: em(64 + 20 + 1);
+			left: em(-64);
 			}
 		}
 
@@ -150,7 +152,7 @@ article {
 
 footer {
 	color: $color-light;
-	font-size: em(11);
+	font-size: em(14);
 
 	a {
 		color: $color-light;

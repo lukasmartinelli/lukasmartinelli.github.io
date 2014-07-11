@@ -19,19 +19,19 @@ section, article, header, footer {  display: block; }
 
 body {
   background: #fff url('../img/bg.png');
-  font-size: em($default-font-size, 16);
+  font-size: 1em;
   line-height: em(21);
-  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", Arial, sans-serif;
   color: $color-medium;
 }
 
 /* ===Headings=== */
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: "Georgia", "Times New Roman", Helvetica, Arial, sans-serif;
+	font-family: "Montserrat", Arial, serif;
 	font-weight: normal;
-	font-style: normal;
-	color: $color-dark;	
+    font-style: normal;
+	color: $color-dark;
 	text-shadow: 0 1px 0 #eee;
 
 	a {
@@ -44,9 +44,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-	font-size: em(35);
-	line-height: em(55, 35);
-    margin-bottom: em(10, 35);
+	font-size: em(36);
+	line-height: em(55, 36);
+    margin-bottom: em(10, 36);
 }
 
 h2 {
