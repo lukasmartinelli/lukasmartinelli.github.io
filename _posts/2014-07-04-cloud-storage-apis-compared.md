@@ -33,6 +33,18 @@ Only Dropbox and One Drive have an API that comes close to a filesystem. The oth
 Dropbox is a very good example in keeping the learning curve low, by mimicing a filesystem.
 Google Drive does not even have folders (only a specific folder mime-type), which makes Google Drive difficult to understand at first sight.
 
+## Authentication
+
+Everyone uses OAuth!
+
+Provider     | OAuth 1 | OAuth 2 |                    
+-------------|----------------------------------------------------
+Dropbox      | Yes     | Yes     |
+Google Drive | Yes     | Yes     |            
+Box          | No\*     | Yes     |
+One Drive    | No\*     | Yes
+Sugar Sync   | Ye
+
 ## Listing files
 
 Provider     | Method and URL                                     
@@ -58,6 +70,9 @@ Paging is done by using tokens (Google Drive) or a given offset and limit (Box a
 
 Google Drive and Box let you specify which fields of the listed Ressource you want included while the others just include everything.
 
+### Examples
+
+
 ## Download File
 
 Provider     | Method and URL                      | Partial download
@@ -80,6 +95,28 @@ Sugar Sync   | Not supported     | Not supported
 
 It seems that using the HTTP Range header for specifying partial downloads is best practice. Therefore Box, One Drive and Sugar Sync should implement this functionality. 
 Dropbox let's you include metadata about the file (even though metadata is a separate ressource, which is a bit inconsistent). Every provider returns the raw file data (without mixed metadata) so consumers don't have to worry about encoding.
+
+### Examples
+
+#### Dropbox
+
+**Request:**
+```
+curl https://api-content.dropbox.com/1/dropbox/document.pdf \
+-H "Authorization: Bearer {access token}"
+```
+**Response:**
+```
+HTTP/1.1 200 OK
+Content-Type: application/pdf
+Content-Length: 10506
+x-dropbox-metadata: {"revision"....
+}
+```
+
+#### Googledrive
+
+
 
 ## Upload File
 
@@ -108,3 +145,74 @@ One Drive    | Partial metadata            | Not supported
 Sugar Sync   | Not supported               |
 
 The APIs differ quite a bit for uploading content.
+Dropbox does not use a RESTful url for the uploading part (but otherwise uses the REST approach quite strict). Dropbox and google Drive provider methods to upload huge files in partial requests.
+Most of the Providers return the full metadata for the created object. This is a bit unnecessary for Google Drive as we already have the metadata, because we have to create an object in advance.
+
+## File Metadata
+
+Provider     | Size                     | Time    
+-------------|-----------------------------------------------------------------------
+Dropbox      | bytes                    | modified, client_mtime
+Google Drive | fileSize, quotaBytesUsed | createdDate, modifiedDate, modifiedByMeDate, lastViewedByMeDate, markedViewedByMeDate, sharedWithMeDate
+Box          | size                     | created_at, modified_at, trashed_at, purged_at, content_created_at, content_modified_at
+One Drive    | size                     | created_time, updated_time, client_updated_time
+Sugar Sync   | size                     | timeCreated, lastModified
+
+Provider     | Thumbnail                      | Hash          | Deleted
+-------------|--------------------------------------------------------------------
+Dropbox      | thumb_exists                   | hash          | is_deleted
+Google Drive | thumbnailLink, thumbnail.image | md5Checksum   | explicitlyTrashed
+Box          | Not supported                  | sha1          | item_status
+One Drive    | Not supported                  | Not supported | Not supported
+Sugar Sync   | Not supported                  | Not supported | Not supported
+
+Provider     | Support revisions | Image metadata         | Permissions
+-------------|--------------------------------------------------------------------
+Dropbox      | rev               | photo_info, video_info |
+Google Drive | headRevisionId    | imageMediaMetadata     | userPermissionm permissions, shared
+Box          | version_number    | Not supported          | shared_link, owned_by, permissions
+One Drive    | Not supported     | Not supported          | shared_with, access
+Sugar Sync   | versions          | image                  | publicLink
+
+## Status Codes
+
+
+### Examples
+Dropbox
+
+Authorize app to access
+```
+firefox https://www.dropbox.com/1/oauth2/authorize?client_id={public app key}&response_type=code
+```
+Request:
+```
+curl https://api.dropbox.com/1/oauth2/token \
+-d grant_type=authorization_code \
+-d code={auth code} \
+-u {app key}:{app secret}
+```
+
+```
+curl GET https://api-content.dropbox.com/1/files/auto/ \
+-H "Authorization: Bearer {access token}}" \
+```
+Googledrive
+
+```
+firefox https://accounts.google.com/o/oauth2/auth?client_id={public app key}&response_type=code&scope=https://www.googleapis.com/auth/drive&redirect_uri=urn:ietf:wg:oauth:2.0:oob
+```
+
+List files
+```
+curl GET https://api-content.dropbox.com/1/files/auto/ \
+-H "Authorization: Bearer {access token}}" \
+```
+
+curl GET https://accounts.google.com/o/oauth2/token \
+-d grant_type=authorization_code \
+-d code={auth code}
+-d client_id={app key}
+-d client_secret={app secret}
+-d redirect_uri=urn:ietf:wg:oauth:2.0:oob
+```
+
