@@ -18,12 +18,12 @@
 }
 
 //Has to be a numer instead of pixels because of the px-to-em converting function
-$default-font-size: 14;
+$default-font-size: 16;
 //This is the default margin between elements
 $default-margin: em(20);
 
 $color-light: #999;
-$color-medium: #555;
+$color-medium: #666;
 $color-dark: #444;
 $color-highlight: #e86a4d;
 $color-border: #d4d4d4;
@@ -43,5 +43,5 @@ $screen-max-container: em(1224);
 	padding: 0 $default-margin;
 	overflow: hidden;
 	// Allow scaling the container until the supported wide screen
-	max-width: $screen-max-container;
+	max-width: $screen-max-container
 }
