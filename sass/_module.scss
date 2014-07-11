@@ -13,16 +13,12 @@ div.branding {
 		color: inherit; 
 	}
 
-    h1 {
-        font-family: 'Lobster', cursive;
-    }
-
 	h1, h2 {
+        font-family: "Share Tech", cursive;
 		display: inline-block;
 	}
 
 	h2 {
-		font-style: italic;
 		margin: 0;
 		font-size: em(13);
 		color: $color-medium;
