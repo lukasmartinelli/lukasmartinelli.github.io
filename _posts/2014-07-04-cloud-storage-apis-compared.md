@@ -37,46 +37,13 @@ Google Drive does not even have folders (only a specific folder mime-type), whic
 
 Everyone uses OAuth!
 
-### Examples
-Dropbox
-
-Authorize app to access
-```
-firefox https://www.dropbox.com/1/oauth2/authorize?client_id={public app key}&response_type=code
-```
-Request:
-```
-curl https://api.dropbox.com/1/oauth2/token \
--d grant_type=authorization_code \
--d code={auth code} \
--u {app key}:{app secret}
-```
-
-```
-curl GET https://api-content.dropbox.com/1/files/auto/ \
--H "Authorization: Bearer {access token}}" \
-```
-Googledrive
-
-```
-firefox https://accounts.google.com/o/oauth2/auth?client_id={public app key}&response_type=code&scope=https://www.googleapis.com/auth/drive&redirect_uri=urn:ietf:wg:oauth:2.0:oob
-```
-
-List files
-```
-curl GET https://api-content.dropbox.com/1/files/auto/ \
--H "Authorization: Bearer {access token}}" \
-```
-
-curl GET https://accounts.google.com/o/oauth2/token \
--d grant_type=authorization_code \
--d code={auth code}
--d client_id={app key}
--d client_secret={app secret}
--d redirect_uri=urn:ietf:wg:oauth:2.0:oob
-```
-
-
+Provider     | OAuth 1 | OAuth 2 |                    
+-------------|----------------------------------------------------
+Dropbox      | Yes     | Yes     |
+Google Drive | Yes     | Yes     |            
+Box          | No\*     | Yes     |
+One Drive    | No\*     | Yes
+Sugar Sync   | Ye
 
 ## Listing files
 
@@ -208,3 +175,44 @@ One Drive    | Not supported     | Not supported          | shared_with, access
 Sugar Sync   | versions          | image                  | publicLink
 
 ## Status Codes
+
+
+### Examples
+Dropbox
+
+Authorize app to access
+```
+firefox https://www.dropbox.com/1/oauth2/authorize?client_id={public app key}&response_type=code
+```
+Request:
+```
+curl https://api.dropbox.com/1/oauth2/token \
+-d grant_type=authorization_code \
+-d code={auth code} \
+-u {app key}:{app secret}
+```
+
+```
+curl GET https://api-content.dropbox.com/1/files/auto/ \
+-H "Authorization: Bearer {access token}}" \
+```
+Googledrive
+
+```
+firefox https://accounts.google.com/o/oauth2/auth?client_id={public app key}&response_type=code&scope=https://www.googleapis.com/auth/drive&redirect_uri=urn:ietf:wg:oauth:2.0:oob
+```
+
+List files
+```
+curl GET https://api-content.dropbox.com/1/files/auto/ \
+-H "Authorization: Bearer {access token}}" \
+```
+
+curl GET https://accounts.google.com/o/oauth2/token \
+-d grant_type=authorization_code \
+-d code={auth code}
+-d client_id={app key}
+-d client_secret={app secret}
+-d redirect_uri=urn:ietf:wg:oauth:2.0:oob
+```
+
