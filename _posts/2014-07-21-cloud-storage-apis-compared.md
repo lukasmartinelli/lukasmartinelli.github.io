@@ -21,13 +21,13 @@ One feature of a [**traditional filesystem**](http://en.wikipedia.org/wiki/File_
 - **File name** Identify a storage location by using path components like host, directory, name and type (through extension).
 - **Directory** A hierarchical filesystem is organized by having parent-child relationships between directories and subdirectories
 
-Provider     | File Identifier     | File Type      | Hierarchy
--------------|---------------------|----------------|----------
-Dropbox      | Path                | File Extension | Path
-Google Drive | File ID             | Mime-Type      | Parent ID
-Box          | File and Folder ID. | File Extension | Parent ID
-One Drive    | Path *or* Folder ID | File Extension | Parent ID
-Sugar Sync   | File and Folder ID  | Mime-Type      | Parent ID
+Provider                                                         | File Identifier     | File Type      | Hierarchy
+-----------------------------------------------------------------|---------------------|----------------|----------
+![Dropbox](media/cloudstorage/dropbox.png) Dropbox               | Path                | File Extension | Path
+![Google Drive](media/cloudstorage/googledrive.png) Google Drive | File ID             | Mime-Type      | Parent ID
+![Box](media/cloudstorage/box.png) Box                           | File and Folder ID. | File Extension | Parent ID
+![One Drive](media/cloudstorage/onedrive.png) One Drive          | Path *or* Folder ID | File Extension | Parent ID
+![Sugar Sync](media/cloudstorage/sugarsync.png) Sugar Sync       | File and Folder ID  | Mime-Type      | Parent ID
 
 Only Dropbox and One Drive have an API that comes close to a filesystem. The others work with the IDs of files or folder. Hierarchy is established by saving the Parent ID on the File Ressource. Children of a Parent ID can usually be requested through the Folder Ressource.
 Dropbox is a very good example in keeping the learning curve low by mimicing a filesystem.
