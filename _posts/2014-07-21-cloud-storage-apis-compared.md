@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Comparison of Cloud Storage HTTP APIs
-tags:
+tags: 
   - cloud
   - architecture
   - api
 categories: cloud
-published: false
+published: true
 ---
 
 I will compare and review the different APIs of end user cloud storage providers. I will only look at the HTTP API aspect, not how this API is implemented for various languages.
