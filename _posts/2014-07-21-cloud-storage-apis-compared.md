@@ -23,11 +23,11 @@ One feature of a [**traditional filesystem**](http://en.wikipedia.org/wiki/File_
 
 Provider                                                         | File Identifier     | File Type      | Hierarchy
 -----------------------------------------------------------------|---------------------|----------------|----------
-![Dropbox](media/cloudstorage/dropbox.png) Dropbox               | Path                | File Extension | Path
-![Google Drive](media/cloudstorage/googledrive.png) Google Drive | File ID             | Mime-Type      | Parent ID
-![Box](media/cloudstorage/box.png) Box                           | File and Folder ID. | File Extension | Parent ID
-![One Drive](media/cloudstorage/onedrive.png) One Drive          | Path *or* Folder ID | File Extension | Parent ID
-![Sugar Sync](media/cloudstorage/sugarsync.png) Sugar Sync       | File and Folder ID  | Mime-Type      | Parent ID
+![Dropbox](/media/cloudstorage/dropbox.png) Dropbox               | Path                | File Extension | Path
+![Google Drive](/media/cloudstorage/googledrive.png) Google Drive | File ID             | Mime-Type      | Parent ID
+![Box](/media/cloudstorage/box.png) Box                           | File and Folder ID. | File Extension | Parent ID
+![One Drive](/media/cloudstorage/onedrive.png) One Drive          | Path *or* Folder ID | File Extension | Parent ID
+![Sugar Sync](/media/cloudstorage/sugarsync.png) Sugar Sync       | File and Folder ID  | Mime-Type      | Parent ID
 
 Only Dropbox and One Drive have an API that comes close to a filesystem. The others work with the IDs of files or folder. Hierarchy is established by saving the Parent ID on the File Ressource. Children of a Parent ID can usually be requested through the Folder Ressource.
 Dropbox is a very good example in keeping the learning curve low by mimicing a filesystem.
