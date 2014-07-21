@@ -158,14 +158,8 @@ They normally use a moving version number.
 Dropbox, Google Drive and Sugar Sync know based on the mime type of a ressource that it is an image and provide you with information (width, height, encoding) about it.
 Everyone implements permissions but this is highly dependent of the provider. One can say however that everyone offers you to share the file via a public link.
 
-## Common denominator
-If one would write an middleware to provide a common interface for those APIs (like [kloudless](https://developers.kloudless.com/) or [Cloud Elements](https://console.cloud-elements.com/elements/api-docs/#!/documents/storage_GET)) we have to choose the lowest common denominator for the APIs.
-
-This means that only the most basic form of the features can be used and only features that can be emulated should be implemented.
-The access should be with IDs because this seems to be the dominant use case.
-
 ## Conclusion
-All cloud storage APIs are doing a good job. They are all trying hard to help you as a developer to understand their concepts (through examples or documentation). Alot of the core operations are basically the same just with different naming of the attributes and parameters. I personally think that Box provides the most elegant API, Dropbox is the easiest one to use and Google Drive has all the features you want.
+All cloud storage APIs are doing a good job. They are all trying hard to help you as a developer to understand their concepts (through examples or documentation). Alot of the core operations are basically the same just with different naming of the attributes and parameters (sad that no standard evolved yet). I personally think that Box provides the most elegant API, Dropbox is the easiest one to use and Google Drive has all the features you want.
 
 ### Dropbox
 I am really fond of the Dropbox API because using a path instead of an ID proved to be easier to use
@@ -174,13 +168,18 @@ Dropbox uses ressources but is not that consistent about it (`/files_put` or `/c
 The API of Dropbox is feature rich but still easy to use.
 
 ### Google Drive
-Google Drive exposes alot of metadata and supports even more features and actions than Dropbox does. It provides excellent documentation as well. The API however is not that easy to use because there are alot of counter-intuitive things (no folder ressource, listing files by using a query, create ressource first before uploading content to it, Google Docs/Spreadsheets are not downloadable).
+Google Drive exposes alot of metadata and supports even more features (three different way to upload file content!) and actions than Dropbox does. It provides excellent documentation as well. The API however is not that easy to use because there are alot of counter-intuitive things (no folder ressource, listing files by using a query, create ressource first before uploading content to it, Google Docs/Spreadsheets are not downloadable).
 
 ### Box
-The Box API makes everything right. They provide a well structured REST API that looks like one would expect a Cloud Storage API to look like. They don't provide all the features Dropbox and Google Drive do but this is not really a problem because the basic and most used operations are all there.
+The Box API makes everything right. They provide a well structured and elegant REST API that behaves like you expect it. They don't provide all the features Dropbox and Google Drive do but this is not really a problem because the basic and most used operations are all there.
 
 ### One Drive
-One Drive has a spartanic documentation und only provides a minimal set of features. This is not necessarily bad as it makes it easy to grasp the structure at one glance. The file and folder IDs look a bit confusing at first sight (`file.a6b2a7e8f2515e5e.A6B2A7E8F2515E5E!184`). To directly compete with the others One Drive needs to implement more features but it is a solid API one can easily use today. 
+One Drive has a spartanic documentation und only provides a minimal set of features. This is not necessarily bad as it makes it easy to grasp the structure at one glance. The file and folder IDs look a bit confusing at first sight (`file.a6b2a7e8f2515e5e.A6B2A7E8F2515E5E!184`). To directly compete with the others One Drive needs to implement more features but it has a solid API one can easily use today. 
 
 ### Sugar Sync
-Sugar Sync has a very similar API to Box and this is a good thing! Their product is not all about storage which you see reflected in the API. They explicitely rely on XML which might put off many of nowadays JSON purists. But they have a very good documentation and solid set of features.
+Sugar Sync has a very similar API to Box and this is a good thing! Their product is not all about storage which and you can see that reflected in their API. They explicitely rely on XML which might put off many of nowadays JSON purists. But they have a very good documentation and solid set of features.
+
+## Common denominator
+If one would write an middleware to provide a common interface for those APIs (like [kloudless](https://developers.kloudless.com/) or [Cloud Elements](https://console.cloud-elements.com/elements/api-docs/#!/documents/storage_GET)) we have to choose the lowest common denominator for the APIs.
+
+This means that only the most basic form of the features can be used and only features that can be emulated should be implemented. I'll probably write more about that in a later post.
