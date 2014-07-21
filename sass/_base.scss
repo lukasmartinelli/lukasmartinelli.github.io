@@ -138,6 +138,11 @@ table {
         padding: $default-margin / 2;
         border-bottom: 1px solid #E86A4D;
     }
+
+    //Align images on line with text
+    img {
+        vertical-align: middle;
+    }
 }
 
 @media screen and (max-width: 600px) {
