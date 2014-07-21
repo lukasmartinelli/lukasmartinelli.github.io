@@ -42,12 +42,12 @@
 	}
 }
 
-#content {
+#content, #comments {
 	background: $shadow;
 }
 
 @media only screen and (min-width: $screen-break-right) {
-	#content {
+	#content, #comments {
 		float: left;
 		width: 80%;
 	}
