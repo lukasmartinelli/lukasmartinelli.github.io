@@ -52,7 +52,7 @@ Provider                                                          | Method and U
 ![Dropbox](/media/cloudstorage/dropbox.png) Dropbox               | `GET /metadata/dropbox/{path to folder}?list=true`
 ![Google Drive](/media/cloudstorage/googledrive.png) Google Drive | `GET /files/{folder id}/children`
 ![Box](/media/cloudstorage/box.png) Box                           | `GET /folders/{folder id}/items`
-![One Drive](/media/cloudstorage/onedrive.png) One Drive          | `GET /{folder id}/files
+![One Drive](/media/cloudstorage/onedrive.png) One Drive          | `GET /{folder id}/files`
 ![Sugar Sync](/media/cloudstorage/sugarsync.png) Sugar Sync       | `GET /folder/{folder id}/contents`
 
 We see that Dropbox does have a separate Metadata Ressource, which makes the separation between the file metadata and file data obvious. Like mentioned above Google Drive does not know about folders and therefore uses the File Ressource to access folders.
@@ -101,7 +101,7 @@ Provider                                                          | Method and U
 ![Dropbox](/media/cloudstorage/dropbox.png) Dropbox               | `PUT/POST /files_put/dropbox/{path to file}`
 ![Google Drive](/media/cloudstorage/googledrive.png) Google Drive | `POST /files?uploadType={ media, multipart or resumable }`
 ![Box](/media/cloudstorage/box.png) Box                           | `POST /files/content`
-![One Drive](/media/cloudstorage/onedrive.png) One Drive          | `PUT/POST /{folder id}/files/{file name}
+![One Drive](/media/cloudstorage/onedrive.png) One Drive          | `PUT/POST /{folder id}/files/{file name}`
 ![Sugar Sync](/media/cloudstorage/sugarsync.png) Sugar Sync       | `PUT /file/{existing file id}/data`
 
 Provider                                                          | Request Body
@@ -129,7 +129,7 @@ Most of the Providers return the full metadata for the created object. This is a
 Provider                                                          | Size                        | Time
 ------------------------------------------------------------------|-----------------------------|-----------------------------------------------------------------------
 ![Dropbox](/media/cloudstorage/dropbox.png) Dropbox               | `bytes`                     | `modified`, `client_mtime`
-![Google Drive](/media/cloudstorage/googledrive.png) Google Drive | `fileSize`, `quotaBytesUsed`| `createdDate`, `modifiedDate`, `modifiedByMeDate`, `lastViewedByMeDate`, markedViewedByMeDate, sharedWithMeDate
+![Google Drive](/media/cloudstorage/googledrive.png) Google Drive | `fileSize`, `quotaBytesUsed`| `createdDate`, `modifiedDate`, `modifiedByMeDate`, `lastViewedByMeDate`, `markedViewedByMeDate`, `sharedWithMeDate`
 ![Box](/media/cloudstorage/box.png) Box                           | `size`                      | `created_at`, `modified_at`, `trashed_at`, `purged_at`, `content_created_at`, `content_modified_at`
 ![One Drive](/media/cloudstorage/onedrive.png) One Drive          | `size`                      | `created_time`, `updated_time`, `client_updated_time`
 ![Sugar Sync](/media/cloudstorage/sugarsync.png) Sugar Sync       | `size`                      | `timeCreated`, `lastModified`
@@ -146,13 +146,13 @@ Provider                                                          | Thumbnail   
 
 Some providers expose the hashes, which makes the developers life a bit easier because he can compare hashes instead of timestamps. One Drive and Sugar Sync do not have the notion of a deleted ressource, while the others let you request deleted ressources until they are finaly purged.
 
-Provider                                                          | Support revisions | Image metadata         | Permissions
-------------------------------------------------------------------|-------------------|------------------------|-----------------------
-![Dropbox](/media/cloudstorage/dropbox.png) Dropbox               | rev               | photo_info, video_info |
-![Google Drive](/media/cloudstorage/googledrive.png) Google Drive | headRevisionId    | imageMediaMetadata     | userPermissionm permissions, shared
-![Box](/media/cloudstorage/box.png) Box                           | version_number    | Not supported          | shared_link, owned_by, permissions
-![One Drive](/media/cloudstorage/onedrive.png) One Drive          | Not supported     | Not supported          | shared_with, access
-![Sugar Sync](/media/cloudstorage/sugarsync.png) Sugar Sync       | versions          | image                  | publicLink
+Provider                                                          | Support revisions   | Image metadata             | Permissions
+------------------------------------------------------------------|---------------------|----------------------------|-----------------------
+![Dropbox](/media/cloudstorage/dropbox.png) Dropbox               | `rev`               | `photo_info`, `video_info` |
+![Google Drive](/media/cloudstorage/googledrive.png) Google Drive | `headRevisionId`    | `imageMediaMetadata`       | `userPermission`, `permissions`, `shared`
+![Box](/media/cloudstorage/box.png) Box                           | `version_number`    | Not supported              | `shared_link`, `owned_by`, `permissions`
+![One Drive](/media/cloudstorage/onedrive.png) One Drive          | Not supported       | Not supported              | `shared_with`, `access`
+![Sugar Sync](/media/cloudstorage/sugarsync.png) Sugar Sync       | `versions`          | `image`                    | `publicLink`
 
 Some kind of versioning is common among the providers (as usual with the exception of One Drive).
 They normally use a moving version number.
