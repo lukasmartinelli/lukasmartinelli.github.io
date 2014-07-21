@@ -119,3 +119,40 @@ blockquote {
       vertical-align: -0.4em;
     }
 }
+
+/* ===Table=== */
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    background: #333; color: #fff;
+    text-rendering: optimizeLegibility;
+    border-radius: 5px;
+
+    th {
+        font-weight: 600;
+        border-bottom: 2px solid #6678B1;
+    }
+
+    th, td {
+        padding: $default-margin / 2;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    table {
+        thead { display: none; }
+        tbody td {
+            display: block;
+        }
+        td:first-child {
+            background: #666;
+            color: #fff;
+        }
+        tbody td:before {
+            content: attr(data-th);
+            font-weight: bold;
+            display: inline-block;
+            width: 6rem;
+        }
+    }
+}
