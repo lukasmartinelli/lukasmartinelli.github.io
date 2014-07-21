@@ -72,13 +72,13 @@ Google Drive and Box let you specify which fields of the listed Ressource you wa
 
 ## Download File
 
-Provider                                                          | Method and URL                      | Partial download
-------------------------------------------------------------------|-------------------------------------|------------------
-![Dropbox](/media/cloudstorage/dropbox.png) Dropbox               | `GET /files/dropbox/{path to file}` | HTTP Range header
-![Google Drive](/media/cloudstorage/googledrive.png) Google Drive | `GET {download link}`               | HTTP Range header
-![Box](/media/cloudstorage/box.png) Box                           | `GET /files/{file id}/content`      | Not supported
-![One Drive](/media/cloudstorage/onedrive.png) One Drive          | `GET /{file id}/content`            | Not supported
-![Sugar Sync](/media/cloudstorage/sugarsync.png) Sugar Sync       | `GET /file/{file id}`               | Not supported
+Provider                                                          | Method and URL
+------------------------------------------------------------------|-------------------------------------
+![Dropbox](/media/cloudstorage/dropbox.png) Dropbox               | `GET /files/dropbox/{path to file}`
+![Google Drive](/media/cloudstorage/googledrive.png) Google Drive | `GET {download link}`
+![Box](/media/cloudstorage/box.png) Box                           | `GET /files/{file id}/content`
+![One Drive](/media/cloudstorage/onedrive.png) One Drive          | `GET /{file id}/content`
+![Sugar Sync](/media/cloudstorage/sugarsync.png) Sugar Sync       | `GET /file/{file id}`
 
 When using Google Drive, one has first to obtain the download link by issueing a metadata request: `GET /files/{file id}`. The response contains the download link. If the requested file is a Google Document it has to be exported into a file first.
 It seems that using the HTTP Range header for specifying partial downloads is best practice.
@@ -104,24 +104,18 @@ Provider                                                          | Method and U
 ![One Drive](/media/cloudstorage/onedrive.png) One Drive          | `PUT/POST /{folder id}/files/{file name}`
 ![Sugar Sync](/media/cloudstorage/sugarsync.png) Sugar Sync       | `PUT /file/{existing file id}/data`
 
-Provider                                                          | Request Body
-------------------------------------------------------------------|-----------------------------------------------------------------------
-![Dropbox](/media/cloudstorage/dropbox.png) Dropbox               | File contents
-![Google Drive](/media/cloudstorage/googledrive.png) Google Drive | File contents, Multipart
-![Box](/media/cloudstorage/box.png) Box                           | Filename, Parent ID, Timestamps or Filepart (for POST multipart upload)
-![One Drive](/media/cloudstorage/onedrive.png) One Drive          | File contents
-![Sugar Sync](/media/cloudstorage/sugarsync.png) Sugar Sync       | File contents
-
-Provider                                                          | Metadata Response           | Partial upload
-------------------------------------------------------------------|-----------------------------|-----------------------------------------
-![Dropbox](/media/cloudstorage/dropbox.png) Dropbox               | Full metadata               | Chunked Upload
-![Google Drive](/media/cloudstorage/googledrive.png) Google Drive | Full metadata (unnecessary) | Three options
-![Box](/media/cloudstorage/box.png) Box                           | Full metadata               | Not supported
-![One Drive](/media/cloudstorage/onedrive.png) One Drive          | Partial metadata            | Not supported
-![Sugar Sync](/media/cloudstorage/sugarsync.png) Sugar Sync       | Not supported               | Not supported
-
 The APIs differ quite a bit for uploading content.
-Dropbox does not use a RESTful url for the uploading part (but otherwise uses the REST approach quite strict). Dropbox and google Drive provider methods to upload huge files in partial requests.
+Dropbox does not use a RESTful url for the uploading part (but otherwise uses the REST approach quite strict). 
+
+Provider                                                          | Metadata Response           | Partial upload | Request Body
+------------------------------------------------------------------|-----------------------------|----------------|-----------------------------------------------------------------------
+![Dropbox](/media/cloudstorage/dropbox.png) Dropbox               | Full metadata               | Chunked Upload | File contents
+![Google Drive](/media/cloudstorage/googledrive.png) Google Drive | Full metadata (unnecessary) | Three options  | File contents, Multipart
+![Box](/media/cloudstorage/box.png) Box                           | Full metadata               | Not supported  | Filename, Parent ID, Timestamps or Filepart (for POST multipart upload)
+![One Drive](/media/cloudstorage/onedrive.png) One Drive          | Partial metadata            | Not supported  | File contents
+![Sugar Sync](/media/cloudstorage/sugarsync.png) Sugar Sync       | Not supported               | Not supported  | File contents
+
+Dropbox and Google Drive provider methods to upload huge files in partial requests.
 Most of the Providers return the full metadata for the created object. This is a bit unnecessary for Google Drive as we already have the metadata, because we have to create an object in advance.
 
 ## File Metadata
