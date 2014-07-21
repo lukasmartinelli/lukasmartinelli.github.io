@@ -2,6 +2,8 @@ name: Lukas Martinelli's Dev Blog
 description: I blog about tech, oss, web, js, c#, ideas, python
 url: http://lukasmartinelli.ch
 markdown: redcarpet
+redcarpet:
+  extensions: ["fenced_code_blocks", "tables"]
 safe: true
 pygments: true
 exclude: ['CNAME', 'Guardfile', 'README.md']
