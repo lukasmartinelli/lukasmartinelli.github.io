@@ -35,15 +35,15 @@ Google Drive does not even have folders (only a specific folder mime-type), whic
 
 ## Authentication
 
-Everyone uses OAuth!
+The good news is that everyone uses OAuth 2 nowadays!
 
 Provider     | OAuth 1 | OAuth 2 |                    
--------------|----------------------------------------------------
+-------------|--------------------
 Dropbox      | Yes     | Yes     |
 Google Drive | Yes     | Yes     |            
-Box          | No\*     | Yes     |
-One Drive    | No\*     | Yes
-Sugar Sync   | Ye
+Box          | No\*    | Yes     |
+One Drive    | No\*    | Yes     |
+Sugar Sync   | Yes     | Yes     |
 
 ## Listing files
 
@@ -55,7 +55,7 @@ Box          | `GET /folders/{folder id}/items`
 One Drive    | `GET /{folder id}/files                    
 Sugar Sync   | `GET /folder/{folder id}/contents`                 
 
-We see that Dropbox does have a separate Metadata Ressource, which makes the separation between the file metadata and file data obvious (that is why you have to specify `list=true`). Like mentioned above Google Drive does not know about folders and therefore uses the File Ressource.
+We see that Dropbox does have a separate Metadata Ressource, which makes the separation between the file metadata and file data obvious. Like mentioned above Google Drive does not know about folders and therefore uses the File Ressource to access folders.
 Box, Sugar Sync and One Drive operate on a property of the Folder Ressource (items, files, contents, children).
 
 Provider     | Specify Fields | Paging 
@@ -66,12 +66,9 @@ Box          | Include fields | Url Param `limit` and `offset`
 One Drive    | Not supported  | Not supported
 Sugar Sync   | Not supported  | Url Param `start` and `max`
 
-Paging is done by using tokens (Google Drive) or a given offset and limit (Box and Sugar Sync). One Drive and Dropbox lack the ability to do paging - which doesn't have to be bad, as you probably rarely store more 25'000 files in one folder.
+Paging is done by using tokens (Google Drive) or a given offset and limit (Box and Sugar Sync). One Drive and Dropbox lack the ability to do paging - which doesn't have to be bad, as you probably rarely store more 25'000 files (the Dropbox response limit) in one folder.
 
 Google Drive and Box let you specify which fields of the listed Ressource you want included while the others just include everything.
-
-### Examples
-
 
 ## Download File
 
@@ -84,6 +81,7 @@ One Drive    | `GET /{file id}/content`            | Not supported
 Sugar Sync   | `GET /file/{file id}`               | Not supported
 
 When using Google Drive, one has first to obtain the download link by issueing a metadata request: `GET /files/{file id}`. The response contains the download link. If the requested file is a Google Document it has to be exported into a file first.
+It seems that using the HTTP Range header for specifying partial downloads is best practice. Therefore Box, One Drive and Sugar Sync should implement this functionality.
 
 Provider     | Partial download  | Metadata included                   
 -------------|-------------------|-------------------------------------
@@ -93,7 +91,7 @@ Box          | Not supported     | Not supported
 One Drive    | Not supported     | Not supported
 Sugar Sync   | Not supported     | Not supported
 
-It seems that using the HTTP Range header for specifying partial downloads is best practice. Therefore Box, One Drive and Sugar Sync should implement this functionality. 
+
 Dropbox let's you include metadata about the file (even though metadata is a separate ressource, which is a bit inconsistent). Every provider returns the raw file data (without mixed metadata) so consumers don't have to worry about encoding.
 
 ### Examples
@@ -174,6 +172,13 @@ Box          | version_number    | Not supported          | shared_link, owned_b
 One Drive    | Not supported     | Not supported          | shared_with, access
 Sugar Sync   | versions          | image                  | publicLink
 
+## Conclusion
+I am really fond of the Dropbox API because using a path instead of an ID proved to be easier to use
+as a developer. However accessing a ressource via its ID makes more sense from a REST standpoint of view.
+
+The One Drive API is very slick and does not have most of the features the other APIs provide.
+Everyone except One Drive does a fantastic job in documentation.
+
 ## Status Codes
 
 
@@ -215,4 +220,3 @@ curl GET https://accounts.google.com/o/oauth2/token \
 -d client_secret={app secret}
 -d redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
-
