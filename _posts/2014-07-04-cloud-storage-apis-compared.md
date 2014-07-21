@@ -30,7 +30,7 @@ One Drive    | Path *or* Folder ID | File Extension | Parent ID
 Sugar Sync   | File and Folder ID  | Mime-Type      | Parent ID
 
 Only Dropbox and One Drive have an API that comes close to a filesystem. The others work with the IDs of files or folder. Hierarchy is established by saving the Parent ID on the File Ressource. Children of a Parent ID can usually be requested through the Folder Ressource.
-Dropbox is a very good example in keeping the learning curve low, by mimicing a filesystem.
+Dropbox is a very good example in keeping the learning curve low by mimicing a filesystem.
 Google Drive does not even have folders (only a specific folder mime-type), which makes Google Drive difficult to understand at first sight.
 
 ## Authentication
@@ -56,7 +56,7 @@ One Drive    | `GET /{folder id}/files
 Sugar Sync   | `GET /folder/{folder id}/contents`                 
 
 We see that Dropbox does have a separate Metadata Ressource, which makes the separation between the file metadata and file data obvious. Like mentioned above Google Drive does not know about folders and therefore uses the File Ressource to access folders.
-Box, Sugar Sync and One Drive operate on a property of the Folder Ressource (items, files, contents, children).
+Box, Sugar Sync and One Drive operate on a property of the Folder Ressource (`items`, `files`, `contents`, `children`).
 
 Provider     | Specify Fields | Paging 
 -------------|----------------|---------------------------
@@ -66,7 +66,7 @@ Box          | Include fields | Url Param `limit` and `offset`
 One Drive    | Not supported  | Not supported
 Sugar Sync   | Not supported  | Url Param `start` and `max`
 
-Paging is done by using tokens (Google Drive) or a given offset and limit (Box and Sugar Sync). One Drive and Dropbox lack the ability to do paging - which doesn't have to be bad, as you probably rarely store more 25'000 files (the Dropbox response limit) in one folder.
+Paging is done by using tokens (Google Drive) or a given offset and limit (Box and Sugar Sync). One Drive and Dropbox lack the ability to do paging. Dropbox does not allow you to list more than 25k ressources.
 
 Google Drive and Box let you specify which fields of the listed Ressource you want included while the others just include everything.
 
@@ -81,7 +81,7 @@ One Drive    | `GET /{file id}/content`            | Not supported
 Sugar Sync   | `GET /file/{file id}`               | Not supported
 
 When using Google Drive, one has first to obtain the download link by issueing a metadata request: `GET /files/{file id}`. The response contains the download link. If the requested file is a Google Document it has to be exported into a file first.
-It seems that using the HTTP Range header for specifying partial downloads is best practice. Therefore Box, One Drive and Sugar Sync should implement this functionality.
+It seems that using the HTTP Range header for specifying partial downloads is best practice.
 
 Provider     | Partial download  | Metadata included                   
 -------------|-------------------|-------------------------------------
@@ -91,30 +91,7 @@ Box          | Not supported     | Not supported
 One Drive    | Not supported     | Not supported
 Sugar Sync   | Not supported     | Not supported
 
-
 Dropbox let's you include metadata about the file (even though metadata is a separate ressource, which is a bit inconsistent). Every provider returns the raw file data (without mixed metadata) so consumers don't have to worry about encoding.
-
-### Examples
-
-#### Dropbox
-
-**Request:**
-```
-curl https://api-content.dropbox.com/1/dropbox/document.pdf \
--H "Authorization: Bearer {access token}"
-```
-**Response:**
-```
-HTTP/1.1 200 OK
-Content-Type: application/pdf
-Content-Length: 10506
-x-dropbox-metadata: {"revision"....
-}
-```
-
-#### Googledrive
-
-
 
 ## Upload File
 
@@ -156,6 +133,8 @@ Box          | size                     | created_at, modified_at, trashed_at, p
 One Drive    | size                     | created_time, updated_time, client_updated_time
 Sugar Sync   | size                     | timeCreated, lastModified
 
+Dropbox does not provide all the time information that might be interesting. Google Drive provides alot of information about time related actions (they have to be explicitely included in a metadata request though). Box differntiates between actions performed on the content or on the metadata.
+
 Provider     | Thumbnail                      | Hash          | Deleted
 -------------|--------------------------------------------------------------------
 Dropbox      | thumb_exists                   | hash          | is_deleted
@@ -163,6 +142,8 @@ Google Drive | thumbnailLink, thumbnail.image | md5Checksum   | explicitlyTrashe
 Box          | Not supported                  | sha1          | item_status
 One Drive    | Not supported                  | Not supported | Not supported
 Sugar Sync   | Not supported                  | Not supported | Not supported
+
+Some providers expose the hashes, which makes the developers life a bit easier because he can compare hashes instead of timestamps. One Drive and Sugar Sync do not have the notion of a deleted ressource, while the others let you request deleted ressources until they are finaly purged.
 
 Provider     | Support revisions | Image metadata         | Permissions
 -------------|--------------------------------------------------------------------
@@ -172,51 +153,34 @@ Box          | version_number    | Not supported          | shared_link, owned_b
 One Drive    | Not supported     | Not supported          | shared_with, access
 Sugar Sync   | versions          | image                  | publicLink
 
+Some kind of versioning is common among the providers (as usual with the exception of One Drive).
+They normally use a moving version number.
+Dropbox, Google Drive and Sugar Sync know based on the mime type of a ressource that it is an image and provide you with information (width, height, encoding) about it.
+Everyone implements permissions but this is highly dependent of the provider. One can say however that everyone offers you to share the file via a public link.
+
+## Common denominator
+If one would write an middleware to provide a common interface for those APIs (like [kloudless](https://developers.kloudless.com/) or [Cloud Elements](https://console.cloud-elements.com/elements/api-docs/#!/documents/storage_GET)) we have to choose the lowest common denominator for the APIs.
+
+This means that only the most basic form of the features can be used and only features that can be emulated should be implemented.
+The access should be with IDs because this seems to be the dominant use case.
+
 ## Conclusion
+All cloud storage APIs are doing a good job. They are all trying hard to help you as a developer to understand their concepts (through examples or documentation). Alot of the core operations are basically the same just with different naming of the attributes and parameters. I personally think that Box provides the most elegant API, Dropbox is the easiest one to use and Google Drive has all the features you want.
+
+### Dropbox
 I am really fond of the Dropbox API because using a path instead of an ID proved to be easier to use
-as a developer. However accessing a ressource via its ID makes more sense from a REST standpoint of view.
+as a developer. However accessing a ressource via its ID makes more sense from a RESTful standpoint.
+Dropbox uses ressources but is not that consistent about it (`/files_put` or `/commit_chunked_upload`).
+The API of Dropbox is feature rich but still easy to use.
 
-The One Drive API is very slick and does not have most of the features the other APIs provide.
-Everyone except One Drive does a fantastic job in documentation.
+### Google Drive
+Google Drive exposes alot of metadata and supports even more features and actions than Dropbox does. It provides excellent documentation as well. The API however is not that easy to use because there are alot of counter-intuitive things (no folder ressource, listing files by using a query, create ressource first before uploading content to it, Google Docs/Spreadsheets are not downloadable).
 
-## Status Codes
+### Box
+The Box API makes everything right. They provide a well structured REST API that looks like one would expect a Cloud Storage API to look like. They don't provide all the features Dropbox and Google Drive do but this is not really a problem because the basic and most used operations are all there.
 
+### One Drive
+One Drive has a spartanic documentation und only provides a minimal set of features. This is not necessarily bad as it makes it easy to grasp the structure at one glance. The file and folder IDs look a bit confusing at first sight (`file.a6b2a7e8f2515e5e.A6B2A7E8F2515E5E!184`). To directly compete with the others One Drive needs to implement more features but it is a solid API one can easily use today. 
 
-### Examples
-Dropbox
-
-Authorize app to access
-```
-firefox https://www.dropbox.com/1/oauth2/authorize?client_id={public app key}&response_type=code
-```
-Request:
-```
-curl https://api.dropbox.com/1/oauth2/token \
--d grant_type=authorization_code \
--d code={auth code} \
--u {app key}:{app secret}
-```
-
-```
-curl GET https://api-content.dropbox.com/1/files/auto/ \
--H "Authorization: Bearer {access token}}" \
-```
-Googledrive
-
-```
-firefox https://accounts.google.com/o/oauth2/auth?client_id={public app key}&response_type=code&scope=https://www.googleapis.com/auth/drive&redirect_uri=urn:ietf:wg:oauth:2.0:oob
-```
-
-List files
-```
-curl GET https://api-content.dropbox.com/1/files/auto/ \
--H "Authorization: Bearer {access token}}" \
-```
-
-curl GET https://accounts.google.com/o/oauth2/token \
--d grant_type=authorization_code \
--d code={auth code}
--d client_id={app key}
--d client_secret={app secret}
--d redirect_uri=urn:ietf:wg:oauth:2.0:oob
-```
+### Sugar Sync
+Sugar Sync has a very similar API to Box and this is a good thing! Their product is not all about storage which you see reflected in the API. They explicitely rely on XML which might put off many of nowadays JSON purists. But they have a very good documentation and solid set of features.
