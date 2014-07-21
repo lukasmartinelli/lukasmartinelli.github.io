@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Comparison of Cloud Storage HTTP APIs
-tags: 
+tags:
   - cloud
   - architecture
   - api
@@ -21,12 +21,12 @@ One feature of a [**traditional filesystem**](http://en.wikipedia.org/wiki/File_
 - **File name** Identify a storage location by using path components like host, directory, name and type (through extension).
 - **Directory** A hierarchical filesystem is organized by having parent-child relationships between directories and subdirectories
 
-Provider     | File Identifier     | File Type      | Hierarchy         
--------------|---------------------|----------------|-------------------
-Dropbox      | Path                | File Extension | Path              
-Google Drive | File ID             | Mime-Type      | Parent ID         
-Box          | File and Folder ID. | File Extension | Parent ID         
-One Drive    | Path *or* Folder ID | File Extension | Parent ID         
+Provider     | File Identifier     | File Type      | Hierarchy
+-------------|---------------------|----------------|----------
+Dropbox      | Path                | File Extension | Path
+Google Drive | File ID             | Mime-Type      | Parent ID
+Box          | File and Folder ID. | File Extension | Parent ID
+One Drive    | Path *or* Folder ID | File Extension | Parent ID
 Sugar Sync   | File and Folder ID  | Mime-Type      | Parent ID
 
 Only Dropbox and One Drive have an API that comes close to a filesystem. The others work with the IDs of files or folder. Hierarchy is established by saving the Parent ID on the File Ressource. Children of a Parent ID can usually be requested through the Folder Ressource.
@@ -37,29 +37,29 @@ Google Drive does not even have folders (only a specific folder mime-type), whic
 
 The good news is that everyone uses OAuth 2 nowadays!
 
-Provider     | OAuth 1 | OAuth 2 |                    
--------------|--------------------
-Dropbox      | Yes     | Yes     |
-Google Drive | Yes     | Yes     |            
-Box          | No\*    | Yes     |
-One Drive    | No\*    | Yes     |
-Sugar Sync   | Yes     | Yes     |
+Provider     | OAuth 1 | OAuth 2
+-------------|---------|--------
+Dropbox      | Yes     | Yes
+Google Drive | Yes     | Yes
+Box          | No\*    | Yes
+One Drive    | No\*    | Yes
+Sugar Sync   | Yes     | Yes
 
 ## Listing files
 
-Provider     | Method and URL                                     
--------------|----------------------------------------------------
-Dropbox      | `GET /metadata/dropbox/{path to folder}?list=true` 
-Google Drive | `GET /files/{folder id}/children`                  
-Box          | `GET /folders/{folder id}/items`                
-One Drive    | `GET /{folder id}/files                    
-Sugar Sync   | `GET /folder/{folder id}/contents`                 
+Provider     | Method and URL
+-------------|---------------------------------------------------
+Dropbox      | `GET /metadata/dropbox/{path to folder}?list=true`
+Google Drive | `GET /files/{folder id}/children`
+Box          | `GET /folders/{folder id}/items`
+One Drive    | `GET /{folder id}/files
+Sugar Sync   | `GET /folder/{folder id}/contents`
 
 We see that Dropbox does have a separate Metadata Ressource, which makes the separation between the file metadata and file data obvious. Like mentioned above Google Drive does not know about folders and therefore uses the File Ressource to access folders.
 Box, Sugar Sync and One Drive operate on a property of the Folder Ressource (`items`, `files`, `contents`, `children`).
 
-Provider     | Specify Fields | Paging 
--------------|----------------|---------------------------
+Provider     | Specify Fields | Paging
+-------------|----------------|---------------------------------------
 Dropbox      | Not supported  | Not supported
 Google Drive | Include fields | Url Param `maxResults` and `pageToken`
 Box          | Include fields | Url Param `limit` and `offset`
@@ -73,7 +73,7 @@ Google Drive and Box let you specify which fields of the listed Ressource you wa
 ## Download File
 
 Provider     | Method and URL                      | Partial download
--------------|-------------------------------------|-----------------------------
+-------------|-------------------------------------|------------------
 Dropbox      | `GET /files/dropbox/{path to file}` | HTTP Range header
 Google Drive | `GET {download link}`               | HTTP Range header
 Box          | `GET /files/{file id}/content`      | Not supported
@@ -83,10 +83,10 @@ Sugar Sync   | `GET /file/{file id}`               | Not supported
 When using Google Drive, one has first to obtain the download link by issueing a metadata request: `GET /files/{file id}`. The response contains the download link. If the requested file is a Google Document it has to be exported into a file first.
 It seems that using the HTTP Range header for specifying partial downloads is best practice.
 
-Provider     | Partial download  | Metadata included                   
--------------|-------------------|-------------------------------------
-Dropbox      | HTTP Range header | HTTP `x-dropbox-metadata` header    
-Google Drive | HTTP Range header | Metadata request is required anyway 
+Provider     | Partial download  | Metadata included
+-------------|-------------------|------------------------------------
+Dropbox      | HTTP Range header | HTTP `x-dropbox-metadata` header
+Google Drive | HTTP Range header | Metadata request is required anyway
 Box          | Not supported     | Not supported
 One Drive    | Not supported     | Not supported
 Sugar Sync   | Not supported     | Not supported
@@ -95,7 +95,7 @@ Dropbox let's you include metadata about the file (even though metadata is a sep
 
 ## Upload File
 
-Provider     | Method and URL 
+Provider     | Method and URL
 -------------|----------------------------------------------------
 Dropbox      | `PUT/POST /files_put/dropbox/{path to file}`
 Google Drive | `POST /files?uploadType={ media, multipart or resumable }`
@@ -106,13 +106,13 @@ Sugar Sync   | `PUT /file/{existing file id}/data`
 Provider     | Request Body
 -------------|-----------------------------------------------------------------------
 Dropbox      | File contents
-Google Drive | File contents, Multipart 
+Google Drive | File contents, Multipart
 Box          | Filename, Parent ID, Timestamps or Filepart (for POST multipart upload)
-One Drive    | File contents or 
+One Drive    | File contents
 Sugar Sync   | File contents
 
 Provider     | Metadata Response           | Partial upload
--------------|-----------------------------------------------------------------------
+-------------|-----------------------------|-----------------------------------------
 Dropbox      | Full metadata               | Chunked Upload
 Google Drive | Full metadata (unnecessary) | Three options
 Box          | Full metadata               | Not supported
@@ -125,8 +125,8 @@ Most of the Providers return the full metadata for the created object. This is a
 
 ## File Metadata
 
-Provider     | Size                     | Time    
--------------|-----------------------------------------------------------------------
+Provider     | Size                     | Time
+-------------|--------------------------|--------------------------------------------------------------------------------------------------------
 Dropbox      | bytes                    | modified, client_mtime
 Google Drive | fileSize, quotaBytesUsed | createdDate, modifiedDate, modifiedByMeDate, lastViewedByMeDate, markedViewedByMeDate, sharedWithMeDate
 Box          | size                     | created_at, modified_at, trashed_at, purged_at, content_created_at, content_modified_at
@@ -136,7 +136,7 @@ Sugar Sync   | size                     | timeCreated, lastModified
 Dropbox does not provide all the time information that might be interesting. Google Drive provides alot of information about time related actions (they have to be explicitely included in a metadata request though). Box differntiates between actions performed on the content or on the metadata.
 
 Provider     | Thumbnail                      | Hash          | Deleted
--------------|--------------------------------------------------------------------
+-------------|--------------------------------|---------------|-------------------
 Dropbox      | thumb_exists                   | hash          | is_deleted
 Google Drive | thumbnailLink, thumbnail.image | md5Checksum   | explicitlyTrashed
 Box          | Not supported                  | sha1          | item_status
@@ -146,7 +146,7 @@ Sugar Sync   | Not supported                  | Not supported | Not supported
 Some providers expose the hashes, which makes the developers life a bit easier because he can compare hashes instead of timestamps. One Drive and Sugar Sync do not have the notion of a deleted ressource, while the others let you request deleted ressources until they are finaly purged.
 
 Provider     | Support revisions | Image metadata         | Permissions
--------------|--------------------------------------------------------------------
+-------------|-------------------|------------------------|-----------------------
 Dropbox      | rev               | photo_info, video_info |
 Google Drive | headRevisionId    | imageMediaMetadata     | userPermissionm permissions, shared
 Box          | version_number    | Not supported          | shared_link, owned_by, permissions
@@ -174,7 +174,7 @@ Google Drive exposes alot of metadata and supports even more features (three dif
 The Box API makes everything right. They provide a well structured and elegant REST API that behaves like you expect it. They don't provide all the features Dropbox and Google Drive do but this is not really a problem because the basic and most used operations are all there.
 
 ### One Drive
-One Drive has a spartanic documentation und only provides a minimal set of features. This is not necessarily bad as it makes it easy to grasp the structure at one glance. The file and folder IDs look a bit confusing at first sight (`file.a6b2a7e8f2515e5e.A6B2A7E8F2515E5E!184`). To directly compete with the others One Drive needs to implement more features but it has a solid API one can easily use today. 
+One Drive has a spartanic documentation und only provides a minimal set of features. This is not necessarily bad as it makes it easy to grasp the structure at one glance. The file and folder IDs look a bit confusing at first sight (`file.a6b2a7e8f2515e5e.A6B2A7E8F2515E5E!184`). To directly compete with the others One Drive needs to implement more features but it has a solid API one can easily use today.
 
 ### Sugar Sync
 Sugar Sync has a very similar API to Box and this is a good thing! Their product is not all about storage which and you can see that reflected in their API. They explicitely rely on XML which might put off many of nowadays JSON purists. But they have a very good documentation and solid set of features.
