@@ -122,19 +122,21 @@ blockquote {
 
 /* ===Table=== */
 table {
-    margin: 0 auto;
     border-collapse: collapse;
-    background: #333; color: #fff;
     text-rendering: optimizeLegibility;
-    border-radius: 5px;
+    text-align: left;
+    margin-bottom: $default-margin;
+    width: 100%;
 
     th {
+        background: #E86A4D;
+        color: #fff;
         font-weight: 600;
-        border-bottom: 2px solid #6678B1;
     }
 
     th, td {
         padding: $default-margin / 2;
+        border-bottom: 1px solid #E86A4D;
     }
 }
 
@@ -145,14 +147,14 @@ table {
             display: block;
         }
         td:first-child {
-            background: #666;
+            background: #E86A4D;
             color: #fff;
         }
         tbody td:before {
             content: attr(data-th);
             font-weight: bold;
             display: inline-block;
-            width: 6rem;
+            width: 10rem;
         }
     }
 }
