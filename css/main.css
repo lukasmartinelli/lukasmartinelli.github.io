@@ -149,6 +149,49 @@ blockquote:before {
   vertical-align: -0.4em;
 }
 
+/* ===Table=== */
+/* line 124, ../sass/_base.scss */
+table {
+  border-collapse: collapse;
+  text-rendering: optimizeLegibility;
+  text-align: left;
+  margin-bottom: 1.25em;
+  width: 100%;
+}
+/* line 131, ../sass/_base.scss */
+table th {
+  background: #E86A4D;
+  color: #fff;
+  font-weight: 600;
+}
+/* line 137, ../sass/_base.scss */
+table th, table td {
+  padding: 0.625em;
+  border-bottom: 1px solid #E86A4D;
+}
+
+@media screen and (max-width: 600px) {
+  /* line 145, ../sass/_base.scss */
+  table thead {
+    display: none;
+  }
+  /* line 146, ../sass/_base.scss */
+  table tbody td {
+    display: block;
+  }
+  /* line 149, ../sass/_base.scss */
+  table td:first-child {
+    background: #E86A4D;
+    color: #fff;
+  }
+  /* line 153, ../sass/_base.scss */
+  table tbody td:before {
+    content: attr(data-th);
+    font-weight: bold;
+    display: inline-block;
+    width: 10rem;
+  }
+}
 /* ===============
    Layout Rules 
    =============== */
@@ -390,25 +433,30 @@ footer .permalink {
 }
 
 /* ===Icons === */
-/* line 64, icon/*.png */
-.icon-sprite, .icon-idea, .icon-python, .icon-web {
-  background-image: url('../img/icon-s4b4d3e2277.png');
+/* line 72, icon/*.png */
+.icon-sprite, .icon-cloud, .icon-idea, .icon-python, .icon-web {
+  background-image: url('../img/icon-s7f064f9918.png');
   background-repeat: no-repeat;
 }
 
 /* line 84, ../../../.gem/ruby/2.1.0/gems/compass-core-1.0.0.alpha.19/stylesheets/compass/utilities/sprites/_base.scss */
-.icon-idea {
+.icon-cloud {
   background-position: 0 0;
 }
 
 /* line 84, ../../../.gem/ruby/2.1.0/gems/compass-core-1.0.0.alpha.19/stylesheets/compass/utilities/sprites/_base.scss */
-.icon-python {
+.icon-idea {
   background-position: 0 -64px;
 }
 
 /* line 84, ../../../.gem/ruby/2.1.0/gems/compass-core-1.0.0.alpha.19/stylesheets/compass/utilities/sprites/_base.scss */
-.icon-web {
+.icon-python {
   background-position: 0 -128px;
+}
+
+/* line 84, ../../../.gem/ruby/2.1.0/gems/compass-core-1.0.0.alpha.19/stylesheets/compass/utilities/sprites/_base.scss */
+.icon-web {
+  background-position: 0 -192px;
 }
 
 /* line 40, ../sass/main.scss */
