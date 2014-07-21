@@ -3,17 +3,17 @@ layout: default
 ---
 
 <article>
-	<header>		
+	<header>
 		<div class="post-format icon-{{ page.categories[0] }}">&nbsp;</div>
 		<time class="post-date" datetime="{{ page.date }}" pubdate="pubdate" title"{{ page.date | date: '%B %d, %Y' }}
 ">{{ page.date | date: "%b %-d"}}</time>
-		<h1><a href=" {{ page.url }}">{{ page.title }}</a></h1>	
+		<h1><a href=" {{ page.url }}">{{ page.title }}</a></h1>
 	</header>
 	<div class="content">
 	  	{{ content }}
-  	</div>
-  	<footer>
-	  	<span class="tags">
+	</div>
+	<footer>
+ 	<span class="tags">
   		{% for tag in page.tags %}
   			<a href="#" rel="tag">#{{tag}}</a>
   		{% endfor %}
@@ -23,4 +23,4 @@ layout: default
 	  	</span>
   	</footer>
 </article>
-
+{% include comments.html %}
