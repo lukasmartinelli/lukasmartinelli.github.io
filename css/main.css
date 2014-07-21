@@ -1,7 +1,7 @@
 /* DOCUMENT INFORMATION
 	- Version/Date: v0.1/2013
 	- Client: Lukas Martinelli
-	- Author: Lukas Martinelli   
+	- Author: Lukas Martinelli
 */
 /* ===============
    Base Rules 
@@ -387,8 +387,21 @@ article footer {
   overflow: hidden;
 }
 
+/* ===Comments=== */
+/* line 122, ../sass/_module.scss */
+.comments {
+  background: -moz-linear-gradient(left, #f7f7f7 0%, #ffffff 4%, #ffffff 100%);
+  background: -webkit-linear-gradient(left, #f7f7f7 0%, #ffffff 4%, #ffffff 100%);
+  background: linear-gradient(to right, #f7f7f7 0%, #ffffff 4%, #ffffff 100%);
+  -moz-box-shadow: 0 0 0.1875em 0 #cccccc;
+  -webkit-box-shadow: 0 0 0.1875em 0 #cccccc;
+  box-shadow: 0 0 0.1875em 0 #cccccc;
+  margin: 0 0 1.25em 0;
+  padding: 0 1.25em;
+}
+
 /* ===Biography=== */
-/* line 123, ../sass/_module.scss */
+/* line 130, ../sass/_module.scss */
 .bio {
   overflow: hidden;
   background: -moz-linear-gradient(left, #f7f7f7 0%, #ffffff 4%, #ffffff 100%);
@@ -398,18 +411,18 @@ article footer {
   -webkit-box-shadow: 0 0 0.1875em 0 #cccccc;
   box-shadow: 0 0 0.1875em 0 #cccccc;
 }
-/* line 127, ../sass/_module.scss */
+/* line 134, ../sass/_module.scss */
 .bio .description {
   padding: 0.625em 1.25em;
 }
 @media only screen and (max-width: 60em) {
-  /* line 132, ../sass/_module.scss */
+  /* line 139, ../sass/_module.scss */
   .bio .avatar {
     padding: 1.25em 0 1.25em 1.25em;
     width: 30%;
     float: left;
   }
-  /* line 138, ../sass/_module.scss */
+  /* line 145, ../sass/_module.scss */
   .bio .description {
     padding: 1.25em;
     float: left;
@@ -418,20 +431,20 @@ article footer {
 }
 
 /* ===Footer=== */
-/* line 149, ../sass/_module.scss */
+/* line 156, ../sass/_module.scss */
 footer {
   color: #999999;
   font-size: 0.875em;
 }
-/* line 153, ../sass/_module.scss */
+/* line 160, ../sass/_module.scss */
 footer a {
   color: #999999;
 }
-/* line 157, ../sass/_module.scss */
+/* line 164, ../sass/_module.scss */
 footer .tags {
   float: left;
 }
-/* line 158, ../sass/_module.scss */
+/* line 165, ../sass/_module.scss */
 footer .permalink {
   float: right;
 }

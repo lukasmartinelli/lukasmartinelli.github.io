@@ -1,7 +1,7 @@
 /* DOCUMENT INFORMATION
 	- Version/Date: v0.1/2013
 	- Client: Lukas Martinelli
-	- Author: Lukas Martinelli   
+	- Author: Lukas Martinelli
 */
 
 @import "compass/css3/box-shadow";
@@ -10,7 +10,7 @@
 
 @mixin shiny-box {
 	@include background(linear-gradient(left, #f7f7f7 0%, #fff 4%, #fff 100%));
-	@include box-shadow(0 0 em(3) 0 #ccc);	
+	@include box-shadow(0 0 em(3) 0 #ccc);
 }
 
 @function em($target, $context: $default-font-size) {
