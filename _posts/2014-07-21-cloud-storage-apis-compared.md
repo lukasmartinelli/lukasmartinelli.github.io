@@ -83,41 +83,42 @@ Provider                                                          | Method and U
 When using Google Drive, one has first to obtain the download link by issueing a metadata request: `GET /files/{file id}`. The response contains the download link. If the requested file is a Google Document it has to be exported into a file first.
 It seems that using the HTTP Range header for specifying partial downloads is best practice.
 
-Provider     | Partial download  | Metadata included
--------------|-------------------|------------------------------------
-Dropbox      | HTTP Range header | HTTP `x-dropbox-metadata` header
-Google Drive | HTTP Range header | Metadata request is required anyway
-Box          | Not supported     | Not supported
-One Drive    | Not supported     | Not supported
-Sugar Sync   | Not supported     | Not supported
+
+Provider                                                          | Partial download  | Metadata included
+------------------------------------------------------------------|-------------------|------------------------------------
+![Dropbox](/media/cloudstorage/dropbox.png) Dropbox               | HTTP Range header | HTTP `x-dropbox-metadata` header
+![Google Drive](/media/cloudstorage/googledrive.png) Google Drive | HTTP Range header | Metadata request is required anyway
+![Box](/media/cloudstorage/box.png) Box                           | Not supported     | Not supported
+![One Drive](/media/cloudstorage/onedrive.png) One Drive          | Not supported     | Not supported
+![Sugar Sync](/media/cloudstorage/sugarsync.png) Sugar Sync       | Not supported     | Not supported
 
 Dropbox let's you include metadata about the file (even though metadata is a separate ressource, which is a bit inconsistent). Every provider returns the raw file data (without mixed metadata) so consumers don't have to worry about encoding.
 
 ## Upload File
 
-Provider     | Method and URL
--------------|----------------------------------------------------
-Dropbox      | `PUT/POST /files_put/dropbox/{path to file}`
-Google Drive | `POST /files?uploadType={ media, multipart or resumable }`
-Box          | `POST /files/content`
-One Drive    | `PUT/POST /{folder id}/files/{file name}
-Sugar Sync   | `PUT /file/{existing file id}/data`
+Provider                                                          | Method and URL
+------------------------------------------------------------------|----------------------------------------------------
+![Dropbox](/media/cloudstorage/dropbox.png) Dropbox               | `PUT/POST /files_put/dropbox/{path to file}`
+![Google Drive](/media/cloudstorage/googledrive.png) Google Drive | `POST /files?uploadType={ media, multipart or resumable }`
+![Box](/media/cloudstorage/box.png) Box                           | `POST /files/content`
+![One Drive](/media/cloudstorage/onedrive.png) One Drive          | `PUT/POST /{folder id}/files/{file name}
+![Sugar Sync](/media/cloudstorage/sugarsync.png) Sugar Sync       | `PUT /file/{existing file id}/data`
 
-Provider     | Request Body
--------------|-----------------------------------------------------------------------
-Dropbox      | File contents
-Google Drive | File contents, Multipart
-Box          | Filename, Parent ID, Timestamps or Filepart (for POST multipart upload)
-One Drive    | File contents
-Sugar Sync   | File contents
+Provider                                                          | Request Body
+------------------------------------------------------------------|-----------------------------------------------------------------------
+![Dropbox](/media/cloudstorage/dropbox.png) Dropbox               | File contents
+![Google Drive](/media/cloudstorage/googledrive.png) Google Drive | File contents, Multipart
+![Box](/media/cloudstorage/box.png) Box                           | Filename, Parent ID, Timestamps or Filepart (for POST multipart upload)
+![One Drive](/media/cloudstorage/onedrive.png) One Drive          | File contents
+![Sugar Sync](/media/cloudstorage/sugarsync.png) Sugar Sync       | File contents
 
-Provider     | Metadata Response           | Partial upload
--------------|-----------------------------|-----------------------------------------
-Dropbox      | Full metadata               | Chunked Upload
-Google Drive | Full metadata (unnecessary) | Three options
-Box          | Full metadata               | Not supported
-One Drive    | Partial metadata            | Not supported
-Sugar Sync   | Not supported               |
+Provider                                                          | Metadata Response           | Partial upload
+------------------------------------------------------------------|-----------------------------|-----------------------------------------
+![Dropbox](/media/cloudstorage/dropbox.png) Dropbox               | Full metadata               | Chunked Upload
+![Google Drive](/media/cloudstorage/googledrive.png) Google Drive | Full metadata (unnecessary) | Three options
+![Box](/media/cloudstorage/box.png) Box                           | Full metadata               | Not supported
+![One Drive](/media/cloudstorage/onedrive.png) One Drive          | Partial metadata            | Not supported
+![Sugar Sync](/media/cloudstorage/sugarsync.png) Sugar Sync       | Not supported               | Not supported
 
 The APIs differ quite a bit for uploading content.
 Dropbox does not use a RESTful url for the uploading part (but otherwise uses the REST approach quite strict). Dropbox and google Drive provider methods to upload huge files in partial requests.
@@ -125,33 +126,33 @@ Most of the Providers return the full metadata for the created object. This is a
 
 ## File Metadata
 
-Provider     | Size                     | Time
--------------|--------------------------|--------------------------------------------------------------------------------------------------------
-Dropbox      | bytes                    | modified, client_mtime
-Google Drive | fileSize, quotaBytesUsed | createdDate, modifiedDate, modifiedByMeDate, lastViewedByMeDate, markedViewedByMeDate, sharedWithMeDate
-Box          | size                     | created_at, modified_at, trashed_at, purged_at, content_created_at, content_modified_at
-One Drive    | size                     | created_time, updated_time, client_updated_time
-Sugar Sync   | size                     | timeCreated, lastModified
+Provider                                                          | Size                        | Time
+------------------------------------------------------------------|-----------------------------|-----------------------------------------------------------------------
+![Dropbox](/media/cloudstorage/dropbox.png) Dropbox               | `bytes`                     | `modified`, `client_mtime`
+![Google Drive](/media/cloudstorage/googledrive.png) Google Drive | `fileSize`, `quotaBytesUsed`| `createdDate`, `modifiedDate`, `modifiedByMeDate`, `lastViewedByMeDate`, markedViewedByMeDate, sharedWithMeDate
+![Box](/media/cloudstorage/box.png) Box                           | `size`                      | `created_at`, `modified_at`, `trashed_at`, `purged_at`, `content_created_at`, `content_modified_at`
+![One Drive](/media/cloudstorage/onedrive.png) One Drive          | `size`                      | `created_time`, `updated_time`, `client_updated_time`
+![Sugar Sync](/media/cloudstorage/sugarsync.png) Sugar Sync       | `size`                      | `timeCreated`, `lastModified`
 
 Dropbox does not provide all the time information that might be interesting. Google Drive provides alot of information about time related actions (they have to be explicitely included in a metadata request though). Box differntiates between actions performed on the content or on the metadata.
 
-Provider     | Thumbnail                      | Hash          | Deleted
--------------|--------------------------------|---------------|-------------------
-Dropbox      | thumb_exists                   | hash          | is_deleted
-Google Drive | thumbnailLink, thumbnail.image | md5Checksum   | explicitlyTrashed
-Box          | Not supported                  | sha1          | item_status
-One Drive    | Not supported                  | Not supported | Not supported
-Sugar Sync   | Not supported                  | Not supported | Not supported
+Provider                                                          | Thumbnail                          | Hash            | Deleted
+------------------------------------------------------------------|------------------------------------|-----------------|-------------------
+![Dropbox](/media/cloudstorage/dropbox.png) Dropbox               | `thumb_exists`                     | `hash`          | `is_deleted`
+![Google Drive](/media/cloudstorage/googledrive.png) Google Drive | `thumbnailLink`, `thumbnail.image` | `md5Checksum`   | `explicitlyTrashed`
+![Box](/media/cloudstorage/box.png) Box                           | Not supported                      | `sha1`          | `item_status`
+![One Drive](/media/cloudstorage/onedrive.png) One Drive          | Not supported                      | Not supported   | Not supported
+![Sugar Sync](/media/cloudstorage/sugarsync.png) Sugar Sync       | Not supported                      | Not supported   | Not supported
 
 Some providers expose the hashes, which makes the developers life a bit easier because he can compare hashes instead of timestamps. One Drive and Sugar Sync do not have the notion of a deleted ressource, while the others let you request deleted ressources until they are finaly purged.
 
-Provider     | Support revisions | Image metadata         | Permissions
--------------|-------------------|------------------------|-----------------------
-Dropbox      | rev               | photo_info, video_info |
-Google Drive | headRevisionId    | imageMediaMetadata     | userPermissionm permissions, shared
-Box          | version_number    | Not supported          | shared_link, owned_by, permissions
-One Drive    | Not supported     | Not supported          | shared_with, access
-Sugar Sync   | versions          | image                  | publicLink
+Provider                                                          | Support revisions | Image metadata         | Permissions
+------------------------------------------------------------------|-------------------|------------------------|-----------------------
+![Dropbox](/media/cloudstorage/dropbox.png) Dropbox               | rev               | photo_info, video_info |
+![Google Drive](/media/cloudstorage/googledrive.png) Google Drive | headRevisionId    | imageMediaMetadata     | userPermissionm permissions, shared
+![Box](/media/cloudstorage/box.png) Box                           | version_number    | Not supported          | shared_link, owned_by, permissions
+![One Drive](/media/cloudstorage/onedrive.png) One Drive          | Not supported     | Not supported          | shared_with, access
+![Sugar Sync](/media/cloudstorage/sugarsync.png) Sugar Sync       | versions          | image                  | publicLink
 
 Some kind of versioning is common among the providers (as usual with the exception of One Drive).
 They normally use a moving version number.
