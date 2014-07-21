@@ -21,8 +21,8 @@ One feature of a [**traditional filesystem**](http://en.wikipedia.org/wiki/File_
 - **File name** Identify a storage location by using path components like host, directory, name and type (through extension).
 - **Directory** A hierarchical filesystem is organized by having parent-child relationships between directories and subdirectories
 
-Provider                                                         | File Identifier     | File Type      | Hierarchy
------------------------------------------------------------------|---------------------|----------------|----------
+Provider                                                          | File Identifier     | File Type      | Hierarchy
+------------------------------------------------------------------|---------------------|----------------|----------
 ![Dropbox](/media/cloudstorage/dropbox.png) Dropbox               | Path                | File Extension | Path
 ![Google Drive](/media/cloudstorage/googledrive.png) Google Drive | File ID             | Mime-Type      | Parent ID
 ![Box](/media/cloudstorage/box.png) Box                           | File and Folder ID. | File Extension | Parent ID
@@ -37,34 +37,34 @@ Google Drive does not even have folders (only a specific folder mime-type), whic
 
 The good news is that everyone uses OAuth 2 nowadays!
 
-Provider     | OAuth 1 | OAuth 2
--------------|---------|--------
-Dropbox      | Yes     | Yes
-Google Drive | Yes     | Yes
-Box          | No\*    | Yes
-One Drive    | No\*    | Yes
-Sugar Sync   | Yes     | Yes
+Provider                                                          | OAuth 1 | OAuth 2
+------------------------------------------------------------------|---------|--------
+![Dropbox](/media/cloudstorage/dropbox.png) Dropbox               | Yes     | Yes
+![Google Drive](/media/cloudstorage/googledrive.png) Google Drive | Yes     | Yes
+![Box](/media/cloudstorage/box.png) Box                           | No\*    | Yes
+![One Drive](/media/cloudstorage/onedrive.png) One Drive          | No\*    | Yes
+![Sugar Sync](/media/cloudstorage/sugarsync.png) Sugar Sync       | Yes     | Yes
 
 ## Listing files
 
-Provider     | Method and URL
--------------|---------------------------------------------------
-Dropbox      | `GET /metadata/dropbox/{path to folder}?list=true`
-Google Drive | `GET /files/{folder id}/children`
-Box          | `GET /folders/{folder id}/items`
-One Drive    | `GET /{folder id}/files
-Sugar Sync   | `GET /folder/{folder id}/contents`
+Provider                                                          | Method and URL
+------------------------------------------------------------------|---------------------------------------------------
+![Dropbox](/media/cloudstorage/dropbox.png) Dropbox               | `GET /metadata/dropbox/{path to folder}?list=true`
+![Google Drive](/media/cloudstorage/googledrive.png) Google Drive | `GET /files/{folder id}/children`
+![Box](/media/cloudstorage/box.png) Box                           | `GET /folders/{folder id}/items`
+![One Drive](/media/cloudstorage/onedrive.png) One Drive          | `GET /{folder id}/files
+![Sugar Sync](/media/cloudstorage/sugarsync.png) Sugar Sync       | `GET /folder/{folder id}/contents`
 
 We see that Dropbox does have a separate Metadata Ressource, which makes the separation between the file metadata and file data obvious. Like mentioned above Google Drive does not know about folders and therefore uses the File Ressource to access folders.
 Box, Sugar Sync and One Drive operate on a property of the Folder Ressource (`items`, `files`, `contents`, `children`).
 
-Provider     | Specify Fields | Paging
--------------|----------------|---------------------------------------
-Dropbox      | Not supported  | Not supported
-Google Drive | Include fields | Url Param `maxResults` and `pageToken`
-Box          | Include fields | Url Param `limit` and `offset`
-One Drive    | Not supported  | Not supported
-Sugar Sync   | Not supported  | Url Param `start` and `max`
+Provider                                                          | Specify Fields | Paging
+------------------------------------------------------------------|----------------|---------------------------------------
+![Dropbox](/media/cloudstorage/dropbox.png) Dropbox               | Not supported  | Not supported
+![Google Drive](/media/cloudstorage/googledrive.png) Google Drive | Include fields | Url Param `maxResults` and `pageToken`
+![Box](/media/cloudstorage/box.png) Box                           | Include fields | Url Param `limit` and `offset`
+![One Drive](/media/cloudstorage/onedrive.png) One Drive          | Not supported  | Not supported
+![Sugar Sync](/media/cloudstorage/sugarsync.png) Sugar Sync       | Not supported  | Url Param `start` and `max`
 
 Paging is done by using tokens (Google Drive) or a given offset and limit (Box and Sugar Sync). One Drive and Dropbox lack the ability to do paging. Dropbox does not allow you to list more than 25k ressources.
 
@@ -72,13 +72,13 @@ Google Drive and Box let you specify which fields of the listed Ressource you wa
 
 ## Download File
 
-Provider     | Method and URL                      | Partial download
--------------|-------------------------------------|------------------
-Dropbox      | `GET /files/dropbox/{path to file}` | HTTP Range header
-Google Drive | `GET {download link}`               | HTTP Range header
-Box          | `GET /files/{file id}/content`      | Not supported
-One Drive    | `GET /{file id}/content`            | Not supported
-Sugar Sync   | `GET /file/{file id}`               | Not supported
+Provider                                                          | Method and URL                      | Partial download
+------------------------------------------------------------------|-------------------------------------|------------------
+![Dropbox](/media/cloudstorage/dropbox.png) Dropbox               | `GET /files/dropbox/{path to file}` | HTTP Range header
+![Google Drive](/media/cloudstorage/googledrive.png) Google Drive | `GET {download link}`               | HTTP Range header
+![Box](/media/cloudstorage/box.png) Box                           | `GET /files/{file id}/content`      | Not supported
+![One Drive](/media/cloudstorage/onedrive.png) One Drive          | `GET /{file id}/content`            | Not supported
+![Sugar Sync](/media/cloudstorage/sugarsync.png) Sugar Sync       | `GET /file/{file id}`               | Not supported
 
 When using Google Drive, one has first to obtain the download link by issueing a metadata request: `GET /files/{file id}`. The response contains the download link. If the requested file is a Google Document it has to be exported into a file first.
 It seems that using the HTTP Range header for specifying partial downloads is best practice.
