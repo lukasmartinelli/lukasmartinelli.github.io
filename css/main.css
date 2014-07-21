@@ -169,22 +169,26 @@ table th, table td {
   padding: 0.625em;
   border-bottom: 1px solid #E86A4D;
 }
+/* line 143, ../sass/_base.scss */
+table img {
+  vertical-align: middle;
+}
 
 @media screen and (max-width: 600px) {
-  /* line 145, ../sass/_base.scss */
+  /* line 150, ../sass/_base.scss */
   table thead {
     display: none;
   }
-  /* line 146, ../sass/_base.scss */
+  /* line 151, ../sass/_base.scss */
   table tbody td {
     display: block;
   }
-  /* line 149, ../sass/_base.scss */
+  /* line 154, ../sass/_base.scss */
   table td:first-child {
     background: #E86A4D;
     color: #fff;
   }
-  /* line 153, ../sass/_base.scss */
+  /* line 158, ../sass/_base.scss */
   table tbody td:before {
     content: attr(data-th);
     font-weight: bold;
