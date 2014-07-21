@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Comparison of Cloud Storage HTTP APIs
-tags: 
+tags:
   - cloud
   - architecture
   - api
-categories: web
+categories: cloud
 published: false
 ---
 
