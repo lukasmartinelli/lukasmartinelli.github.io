@@ -112,14 +112,29 @@ This will install everything needed. You can also specify to use the CoreOS alph
 After `coreos-install` has succeeded stop the instance and afterwards detach the ISO.
 If we restart the VM it now uses the newly created disk as a boot image. Connect to the web console to inspect the state and you should be prompted with a login.
 
-### Connect and be happy
-Because you added your Github keys you should be able to connect for any of your machines you used with Github before or if you've explicitely specified an SSH key you an also use that. You find the IP of your machine under the NIC section if you click on your running instance.
+### Connect
+Because you added your Github keys you should be able to connect for any of your machines you used with Github before or if you've explicitely specified an SSH key you an also use that. You find the IP of your machine under the NIC section if you click on your running instance. If you specified a user in the cloud config you should connect with this user.
 ```
 ssh deploy@188.164.131.234
 ```
+Otherwise use the `core` user.
+```
+ssh core@188.164.131.234
+```
 
-If you are not happy with your cloud config you can tweak it at `/var/lib/coreos-install/userdata`. If everything is set, stop the VM and select the quick actions of your stopped VM.
+If you are not happy with your cloud config you can tweak it at `/var/lib/coreos-install/userdata`.
 
+## Create a template
+If everything is set, stop the VM. Now go to Storage and select the disk of your stopped VM. In the quick actions you can now select `Create template`.
 
-Let's create a new VM with that existing image in order to test.
-Now you have a usable template to kickstart your  CoreOS vms.
+![Add additional storage](/media/cloudstack/template-from-disk.png)
+
+Again, select `Other (64bit)` and don't check `Password Enabled` unless you've installed the [necessary scripts](https://cloudstack.apache.org/docs/en-US/Apache_CloudStack/4.0.2/html/Admin_Guide/add-password-management-to-templates.html). Now you have a usable template to kickstart your CoreOS VM.
+
+![Add additional storage](/media/cloudstack/create-template-from-disk.png)
+
+## Conclusion
+Now that you have installed CoreOS you should dive deeper into its documentation. It quickly get's clear that you need to provide a better way to configure the cloud config instead of SSHint into the machine and configure it by hand. You could for example use a [config drive](http://coreos.com/docs/cluster-management/setup/cloudinit-config-drive/) that you manage yourself.
+
+Perhaps I will create a general usable template for CloudStack so that you don't have to go through the process.
+
