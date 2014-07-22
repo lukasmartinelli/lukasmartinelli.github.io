@@ -46,84 +46,80 @@ Make sure to select at least 512 MB Ram to boot the image. I've tried with 360 M
 
 ![Select instance size](/media/cloudstack/create-instance-compute.png)
 
-The disk size you choose now is for the root image we install CoreOS too. Because CoreOS is a very slick operating system 5GB does suffice.
+The disk size you choose now is for the root image we install CoreOS too. Because CoreOS is a very slim operating system 5GB does suffice.
 
 ![Add additional storage](/media/cloudstack/create-instance-data-disk.png)
+
+Now select your instance network. You need access to the servers of CoreOS to pull down the image, so you have to connect to network with access to the internet.
+
 ![Select instance network](/media/cloudstack/create-instance-network.png)
+
+Set a good hostname and ramp up the VM!
+
 ![Review and start instance](/media/cloudstack/create-instance-review.png)
 
-Check network connectivity because you need internet access to download
-the CoreOS production image.
-Now you have to create a cloud config and therefore login via SSH.
-Because you can't paste something in the web console.
+Now connect with the web console (because you won't get SSH with the CoreOS image) and check network connectivity.
 
-To login via SSH I first tried to find out or set the password for
-the current `core` user. They only allow authentication via SSH keys which is
-great from a security perspective but makes the installation work a bit more
-complicated.
+### Installing to Disk
 
-We need to create a cloud config and include our SSH key there.
-Because we cannot paste something in the web console and I don't trust myself
-typing a SSH fingerprint by hand the best method is to use your Github keys!
+This step is analogous to what is [described in the CoreOS docs](https://coreos.com/docs/running-coreos/bare-metal/installing-to-disk/). Because we've booted the CoreOS image we have everything needed to install CoreOS to disk.
 
-First create a `cloud-config.yaml` file:
+Now the first thing we have to do is creating a cloud config. This is executed at first start and if you don't create one you won't be able to login in via the web console or connect via SSH. [Cloud config](http://coreos.com/docs/cluster-management/setup/cloudinit-cloud-config/) is the CoreOS version of [cloud init](http://cloudinit.readthedocs.org/en/latest/) (used by OpenStack and AWS) and only implements a subset cloud init's functionalities.
+
+In the cloud config you have to define how you want to authenticate.
+
+### Use your Github SSH keys to authenticate
+
+Sadly you can't paste something in the web console! I don't want to type a whole SSH fingerprint into the console so the quickest and most comfortable option is to simply import your SSH fingerprints of your Github Account.
+
+Create a `cloud-config.yaml` file:
 ```
 #cloud-config
 
 users:
-  - name: <user name>
-    coreos-ssh-import-github: <your github username>
+  - name: deploy
+    coreos-ssh-import-github: lukasmartinelli
+```
+The first line `#cloud-config` is required even though it is a comment. Don't leave it out. Below `users` you can define the users to create on the system (I always use a special `deploy` user) and set the `coreos-ssh-import-github` option along with your Github username.
+
+### Configure SSH fingerprint
+
+Afterwards I wanted to restrict access to a single SSH fingerprint and this proved to be quite difficult because again, you can't simply paste the fingerprint.
+You also cannot set the password for the `core` user with `passwd` and connect via SSH because you can only authenticate via SSH (which is
+great from a security perspective but makes the installation work a bit more
+complicated).
+
+If you're web console supports copy and paste this is not a problem for you but I ended up so desperate, that I booted a Finnix Rescue ISO, downloaded the [CoreOS installation script](https://raw.github.com/coreos/init/master/bin/coreos-install) and connected with SSH to propertly configure my `cloud-config.yaml`.
+
+You could also create a Gist, paste your SSH key there and use `curl` to get the SSH fingerprint on your server.
+
+But now create a `cloud-config.yaml` file:
+```
+#cloud-config
+
+ssh_authorized_keys:
+  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDPF+tdQM.....Xds3 me@lukasmartinelli.ch
 ```
 
-Now let's bootstrap the installation on `/dev/sda`:
+### Install with coreos-install
+Now let's bootstrap the installation on the attached disk `/dev/sda`:
 ```
 sudo coreos-install -d /dev/sda -C beta -c cloud-config.yaml
 ```
+This will install everything needed. You can also specify to use the CoreOS alpha channel with `-C alpha`.
 
-Now we stop the instance and detach the ISO.
-If we restart the VM it uses the newly created disk as a boot image.
-Let's connect with the web console to inspect the state: You should be prompted with a login.
+### Detach and reboot
+After `coreos-install` has succeeded stop the instance and afterwards detach the ISO.
+If we restart the VM it now uses the newly created disk as a boot image. Connect to the web console to inspect the state and you should be prompted with a login.
 
-Because you added your Github keys you should be able to connect for any of your machines you
-used with Github before.
-
+### Connect and be happy
+Because you added your Github keys you should be able to connect for any of your machines you used with Github before or if you've explicitely specified an SSH key you an also use that. You find the IP of your machine under the NIC section if you click on your running instance.
 ```
-ssh lukasmartinelli@<ip>
-```
-
-Now this somehow did not work for me :)
-So i use a method where I manually generate a hashed password.
-```
-openssl passwd -1 > cloud-config.yaml
+ssh deploy@188.164.131.234
 ```
 
-And now I edit my cloud-config.yaml to look like this:
-```
-#cloud-config
+If you are not happy with your cloud config you can tweak it at `/var/lib/coreos-install/userdata`. If everything is set, stop the VM and select the quick actions of your stopped VM.
 
-users:
-  - name: <user name>
-    passwd: <hashed password>
-```
-
-This is a very complicated method of doing things, you can also boot a live ISO image of ubuntu where you can
-probably ssh in and install CoreOS like this.
-
-Now we stop the instance and detach the ISO.
-If we restart the VM it uses the newly created disk as a boot image.
-Let's connect with the web console to inspect the state: You should be prompted with a login.
-
-Login via SSH and type in your password:
-
-```
-ssh lukasmartinelli@<ip>
-```
-
-This did not work either so I used a CentOS live image where at least I could ssh into and paste my
-SSH fingerprint.
-I used a Finnix rescue live image because this was one of the few live ISOs available at my provider.
-
-Now you should stop the image.
 
 Let's create a new VM with that existing image in order to test.
 Now you have a usable template to kickstart your  CoreOS vms.
