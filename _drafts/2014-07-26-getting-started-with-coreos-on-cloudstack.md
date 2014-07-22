@@ -129,12 +129,13 @@ If everything is set, stop the VM. Now go to Storage and select the disk of your
 
 ![Add additional storage](/media/cloudstack/template-from-disk.png)
 
-Again, select `Other (64bit)` and don't check `Password Enabled` unless you've installed the [necessary scripts](https://cloudstack.apache.org/docs/en-US/Apache_CloudStack/4.0.2/html/Admin_Guide/add-password-management-to-templates.html). Now you have a usable template to kickstart your CoreOS VM.
+Again, select `Other (64bit)` and don't check `Password Enabled` unless you've installed the [necessary scripts](https://cloudstack.apache.org/docs/en-US/Apache_CloudStack/4.0.2/html/Admin_Guide/add-password-management-to-templates.html).
 
 ![Add additional storage](/media/cloudstack/create-template-from-disk.png)
 
+Now you have a usable template to kickstart your new CoreOS VMs.
+
 ## Conclusion
-Now that you have installed CoreOS you should dive deeper into its documentation. It quickly get's clear that you need to provide a better way to configure the cloud config instead of SSHint into the machine and configure it by hand. You could for example use a [config drive](http://coreos.com/docs/cluster-management/setup/cloudinit-config-drive/) that you manage yourself.
+Now that you have installed CoreOS you should dive deeper into [its documentation](http://coreos.com/docs/). It quickly get's clear that you need to provide a better way to configure the cloud config instead of SSHint into the machine and configure it by hand. You could for example use a [config drive](http://coreos.com/docs/cluster-management/setup/cloudinit-config-drive/) that you manage yourself.
 
 Perhaps I will create a general usable template for CloudStack so that you don't have to go through the process.
-
