@@ -98,6 +98,8 @@ ssh_authorized_keys:
   - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDPF+tdQM.....Xds3 me@lukasmartinelli.ch
 ```
 
+You can find more information about adding users in the [offical CoreOS documentation](https://coreos.com/docs/cluster-management/setup/adding-users/).
+
 ### Install with coreos-install
 Now let's bootstrap the installation on the attached disk `/dev/sda`:
 
