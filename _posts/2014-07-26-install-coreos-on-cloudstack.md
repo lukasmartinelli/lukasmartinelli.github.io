@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Install CoreOS on CloudStack
-tags:
+tags: 
   - cloud
   - coreos
   - cloudstack
@@ -9,6 +9,7 @@ tags:
 categories: cloud
 published: true
 ---
+
 [Docker](https://www.docker.com/) is amazing and a project that brings Docker to its logical conclusion is [CoreOS](https://coreos.com/), a very light-weight Linux distribution, where all applications are installed and run using Docker.
 I wanted to try out CoreOS on a [Apache Cloud Stack](https://cloudstack.apache.org/) based IAAS provider. While CoreOS provides many [different installation methods](https://coreos.com/docs/running-coreos/platforms), they missed out on CloudStack.
 
@@ -80,13 +81,17 @@ Create a `cloud-config.yaml` file:
 users:
   - name: deploy
     coreos-ssh-import-github: lukasmartinelli
+    groups:
+      - sudo
+      - docker
 ```
 
 The first line `#cloud-config` is required so don't leave it out. Below `users` you can define the users to create on the system (I always use a special `deploy` user) and set the `coreos-ssh-import-github` option along with your Github user name.
+If you need root access for your CoreOS installation, you should add your user to the `sudo` group below `groups`.
 
 You can also restrict access to a single SSH Key and then login with the `core` user:
 
-```
+```yaml
 #cloud-config
 
 ssh_authorized_keys:
