@@ -240,6 +240,11 @@ $red: #f98262;
         }
     }
 
+    .education img {
+        float: right;
+        margin-left: $default-margin;
+    }
+
     label {
         font-size: 1.3em;
         position: absolute;
@@ -272,12 +277,18 @@ $red: #f98262;
             p {
                 max-height: 200px;
                 color: $color-medium;
-                transition: color 0.3s linear 0.3s;
+                transition: color 0.1s linear 0.1s;
             }
          }
     }
 }
 
+/* ===Image Gallery=== */
+a.gallery img {
+    border: 4px solid $color-highlight;
+    margin-right: $default-margin;
+    margin-bottom: $default-margin;
+}
 /* ===Footer=== */
 
 footer {

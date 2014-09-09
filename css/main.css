@@ -529,6 +529,11 @@ article footer {
   overflow: hidden;
 }
 /* line 243, ../sass/_module.scss */
+.timeline .education img {
+  float: right;
+  margin-left: 1.25em;
+}
+/* line 248, ../sass/_module.scss */
 .timeline label {
   font-size: 1.3em;
   position: absolute;
@@ -537,20 +542,20 @@ article footer {
   top: 20px;
   transition: transform 0.2s linear;
 }
-/* line 252, ../sass/_module.scss */
+/* line 257, ../sass/_module.scss */
 .timeline .radio {
   display: none;
 }
-/* line 257, ../sass/_module.scss */
+/* line 262, ../sass/_module.scss */
 .timeline .radio:checked + .relative label {
   cursor: auto;
   transform: translateX(42px);
 }
-/* line 261, ../sass/_module.scss */
+/* line 266, ../sass/_module.scss */
 .timeline .radio:checked + .relative .circle {
   background: #e86a4d;
 }
-/* line 266, ../sass/_module.scss */
+/* line 271, ../sass/_module.scss */
 .timeline .radio:checked ~ .content {
   max-height: 400px;
   border-color: #e86a4d;
@@ -558,28 +563,36 @@ article footer {
   transform: translateX(20px);
   transition: max-height 0.4s linear, border-color 0.5s linear, transform 0.2s linear;
 }
-/* line 272, ../sass/_module.scss */
+/* line 277, ../sass/_module.scss */
 .timeline .radio:checked ~ .content p {
   max-height: 200px;
   color: #666;
-  transition: color 0.3s linear 0.3s;
+  transition: color 0.1s linear 0.1s;
+}
+
+/* ===Image Gallery=== */
+/* line 287, ../sass/_module.scss */
+a.gallery img {
+  border: 4px solid #e86a4d;
+  margin-right: 1.25em;
+  margin-bottom: 1.25em;
 }
 
 /* ===Footer=== */
-/* line 283, ../sass/_module.scss */
+/* line 294, ../sass/_module.scss */
 footer {
   color: #999;
   font-size: 0.875em;
 }
-/* line 287, ../sass/_module.scss */
+/* line 298, ../sass/_module.scss */
 footer a {
   color: #999;
 }
-/* line 291, ../sass/_module.scss */
+/* line 302, ../sass/_module.scss */
 footer .tags {
   float: left;
 }
-/* line 292, ../sass/_module.scss */
+/* line 303, ../sass/_module.scss */
 footer .permalink {
   float: right;
 }
