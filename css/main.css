@@ -461,11 +461,18 @@ article footer {
   margin-top: -10px;
   top: 50%;
   left: -158px;
-  font-size: 0.95em;
   line-height: 20px;
   position: absolute;
+  font-size: 16;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.625em;
+  color: #fff;
+  background-color: #ccc;
+  padding-left: 0.625em;
+  padding-right: 0.625em;
 }
-/* line 180, ../sass/_module.scss */
+/* line 187, ../sass/_module.scss */
 .timeline .circle {
   margin-top: -10px;
   top: 50%;
@@ -479,7 +486,7 @@ article footer {
   display: block;
   position: absolute;
 }
-/* line 194, ../sass/_module.scss */
+/* line 201, ../sass/_module.scss */
 .timeline .content {
   max-height: 20px;
   padding: 50px 20px 0;
@@ -488,7 +495,7 @@ article footer {
   border-style: solid;
   position: relative;
 }
-/* line 203, ../sass/_module.scss */
+/* line 209, ../sass/_module.scss */
 .timeline .content:before, .timeline .content:after {
   content: "";
   width: 0;
@@ -498,21 +505,21 @@ article footer {
   pointer-events: none;
   right: 100%;
 }
-/* line 213, ../sass/_module.scss */
+/* line 219, ../sass/_module.scss */
 .timeline .content:before {
   border-right-color: inherit;
   border-width: 20px;
   top: 50%;
   margin-top: -20px;
 }
-/* line 220, ../sass/_module.scss */
+/* line 226, ../sass/_module.scss */
 .timeline .content:after {
   border-right-color: #fff;
   border-width: 17px;
   top: 50%;
   margin-top: -17px;
 }
-/* line 227, ../sass/_module.scss */
+/* line 233, ../sass/_module.scss */
 .timeline .content p {
   max-height: 0;
   color: transparent;
@@ -521,58 +528,58 @@ article footer {
   hyphens: auto;
   overflow: hidden;
 }
-/* line 237, ../sass/_module.scss */
+/* line 243, ../sass/_module.scss */
 .timeline label {
   font-size: 1.3em;
   position: absolute;
-  z-index: 100;
+  z-index: 40;
   cursor: pointer;
   top: 20px;
   transition: transform 0.2s linear;
 }
-/* line 246, ../sass/_module.scss */
+/* line 252, ../sass/_module.scss */
 .timeline .radio {
   display: none;
 }
-/* line 251, ../sass/_module.scss */
+/* line 257, ../sass/_module.scss */
 .timeline .radio:checked + .relative label {
   cursor: auto;
   transform: translateX(42px);
 }
-/* line 255, ../sass/_module.scss */
+/* line 261, ../sass/_module.scss */
 .timeline .radio:checked + .relative .circle {
   background: #e86a4d;
 }
-/* line 260, ../sass/_module.scss */
+/* line 266, ../sass/_module.scss */
 .timeline .radio:checked ~ .content {
-  max-height: 180px;
+  max-height: 400px;
   border-color: #e86a4d;
   margin-right: 20px;
   transform: translateX(20px);
   transition: max-height 0.4s linear, border-color 0.5s linear, transform 0.2s linear;
 }
-/* line 266, ../sass/_module.scss */
+/* line 272, ../sass/_module.scss */
 .timeline .radio:checked ~ .content p {
   max-height: 200px;
-  color: #e86a4d;
+  color: #666;
   transition: color 0.3s linear 0.3s;
 }
 
 /* ===Footer=== */
-/* line 277, ../sass/_module.scss */
+/* line 283, ../sass/_module.scss */
 footer {
   color: #999;
   font-size: 0.875em;
 }
-/* line 281, ../sass/_module.scss */
+/* line 287, ../sass/_module.scss */
 footer a {
   color: #999;
 }
-/* line 285, ../sass/_module.scss */
+/* line 291, ../sass/_module.scss */
 footer .tags {
   float: left;
 }
-/* line 286, ../sass/_module.scss */
+/* line 292, ../sass/_module.scss */
 footer .permalink {
   float: right;
 }

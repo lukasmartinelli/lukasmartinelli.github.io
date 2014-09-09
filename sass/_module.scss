@@ -172,9 +172,16 @@ $red: #f98262;
         margin-top: -10px;
         top: 50%;
         left: -158px;
-        font-size: 0.95em;
         line-height: 20px;
         position: absolute;
+        font-size: $default-font-size;
+        text-transform: uppercase;
+        text-align: center;
+        line-height: em(26);
+        color: #fff;
+        background-color: #ccc;
+        padding-left: $default-margin/2;
+        padding-right: $default-margin/2;
     }
 
     .circle {
@@ -197,7 +204,6 @@ $red: #f98262;
         border-color: transparent;
         border-width: 2px;
         border-style: solid;
-        //border-radius: 0.5em;
         position: relative;
 
         &:before, &:after {
@@ -232,12 +238,12 @@ $red: #f98262;
             hyphens: auto;
             overflow: hidden;
         }
-}
+    }
 
     label {
         font-size: 1.3em;
         position: absolute;
-        z-index: 100;
+        z-index: 40;
         cursor: pointer;
         top: 20px;
         transition: transform 0.2s linear;
@@ -258,14 +264,14 @@ $red: #f98262;
         }
 
         & ~ .content {
-            max-height: 180px;
+            max-height: 400px;
             border-color: $color-highlight;
             margin-right: 20px;
             transform: translateX(20px);
             transition: max-height 0.4s linear, border-color 0.5s linear, transform 0.2s linear;
             p {
                 max-height: 200px;
-                color: $color-highlight;
+                color: $color-medium;
                 transition: color 0.3s linear 0.3s;
             }
          }
