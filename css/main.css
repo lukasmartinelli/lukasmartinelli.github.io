@@ -570,8 +570,65 @@ article footer {
   transition: color 0.1s linear 0.1s;
 }
 
+@media screen and (max-width: 767px) {
+  /* line 287, ../sass/_module.scss */
+  .timeline {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: none;
+  }
+  /* line 292, ../sass/_module.scss */
+  .timeline li {
+    margin: 50px 0;
+  }
+  /* line 296, ../sass/_module.scss */
+  .timeline label {
+    width: 85%;
+    font-size: 1.1em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: block;
+    transform: translateX(18px);
+  }
+  /* line 305, ../sass/_module.scss */
+  .timeline .content {
+    padding-top: 45px;
+    border-color: #e86a4d;
+  }
+  /* line 309, ../sass/_module.scss */
+  .timeline .content:before, .timeline .content:after {
+    border: solid transparent;
+    bottom: 100%;
+  }
+  /* line 314, ../sass/_module.scss */
+  .timeline .content:before {
+    border-bottom-color: inherit;
+    border-width: 17px;
+    top: -16px;
+    left: 50px;
+    margin-left: -17px;
+  }
+  /* line 321, ../sass/_module.scss */
+  .timeline .content:after {
+    border-bottom-color: #fff;
+    border-width: 20px;
+    top: -20px;
+    left: 50px;
+    margin-left: -20px;
+  }
+  /* line 328, ../sass/_module.scss */
+  .timeline .content p {
+    font-size: 0.9em;
+    line-height: 1.4;
+  }
+  /* line 334, ../sass/_module.scss */
+  .timeline .circle, .timeline .date {
+    display: none;
+  }
+}
 /* ===Image Gallery=== */
-/* line 287, ../sass/_module.scss */
+/* line 341, ../sass/_module.scss */
 a.gallery img {
   border: 4px solid #e86a4d;
   margin-right: 1.25em;
@@ -579,20 +636,20 @@ a.gallery img {
 }
 
 /* ===Footer=== */
-/* line 294, ../sass/_module.scss */
+/* line 348, ../sass/_module.scss */
 footer {
   color: #999;
   font-size: 0.875em;
 }
-/* line 298, ../sass/_module.scss */
+/* line 352, ../sass/_module.scss */
 footer a {
   color: #999;
 }
-/* line 302, ../sass/_module.scss */
+/* line 356, ../sass/_module.scss */
 footer .tags {
   float: left;
 }
-/* line 303, ../sass/_module.scss */
+/* line 357, ../sass/_module.scss */
 footer .permalink {
   float: right;
 }
