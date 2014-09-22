@@ -269,7 +269,7 @@ table img {
 }
 
 /* ===============
-   Module Rules 
+   Module Rules
    =============== */
 /* ===Branding=== */
 /* line 9, ../sass/_module.scss */
@@ -489,7 +489,7 @@ footer .permalink {
 /* ===Icons === */
 /* line 72, icon/*.png */
 .icon-sprite, .icon-cloud, .icon-idea, .icon-python, .icon-web {
-  background-image: url('../img/icon-s7f064f9918.png');
+  background-image: url('../img/icon-sb5de989533.png');
   background-repeat: no-repeat;
 }
 
