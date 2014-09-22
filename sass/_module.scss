@@ -1,5 +1,5 @@
 /* ===============
-   Module Rules 
+   Module Rules
    =============== */
 
 @import "compass/utilities/sprites";
@@ -10,7 +10,7 @@ div.branding {
 	float: left;
 
 	a {
-		color: inherit; 
+		color: inherit;
 	}
 
 	h1, h2 {
@@ -31,7 +31,7 @@ div.branding {
 	float: right;
 	margin: $default-margin 0 $default-margin/2 0;
 
-	// When we have a whole row for our nav, we don't need such a big margin to the top	
+	// When we have a whole row for our nav, we don't need such a big margin to the top
 	@media only screen and (max-width: $screen-break-right) {
 		margin: $default-margin/2 0 $default-margin/2 0;
 	}
@@ -40,7 +40,7 @@ div.branding {
 		float: left;
 		line-height: em(18);
 		list-style: none;
-	
+
 		a {
 			font-size: em(13);
 			padding: 0 $default-margin $default-margin/2 0;
@@ -62,7 +62,7 @@ div.branding {
 article {
 	@include shiny-box;
 	position: relative;
-	margin: 0 0 $default-margin 0;	
+	margin: 0 0 $default-margin 0;
 
 	.content {
 		padding: 0 $default-margin;
@@ -108,7 +108,7 @@ article {
 			}
 		}
 
-		
+
 	}
 
 	footer {
@@ -127,10 +127,10 @@ article {
 
 /* ===Biography=== */
 
-.bio {	
+.bio {
 	overflow: hidden;
 	@include shiny-box;
-	
+
 	.description {
 		padding: $default-margin/2 $default-margin;
 	}
@@ -147,7 +147,7 @@ article {
 			float: left;
 			width: 70%;
 		}
-	}	
+	}
 }
 
 /* ===Image Gallery=== */
