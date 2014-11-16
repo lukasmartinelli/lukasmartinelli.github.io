@@ -1,13 +1,14 @@
 ---
 layout: post
 title: PHP Denial of Service Attack Revisited
-tags:
+tags: 
   - security
   - php
   - dos
 categories: web
 published: true
 ---
+
 In 2011 the Chaos Computer Club [revealed a major complexity attack vulnerability](http://events.ccc.de/congress/2011/Fahrplan/attachments/2007_28C3_Effective_DoS_on_web_application_platforms.pdf)
 that works across all major languages. PHP addressed the vulnerability
 for forms but nowadays every web application uses a JSON API, which is still
@@ -30,14 +31,13 @@ If the hash table implementation uses open addressing, a colliding key
 is checked against all elements in the linked list (to see whether the key
 is a duplicate).
 
-This means that if you insert `n` elements you check
-`(n-1) * (n-2)/2` elements in the linked list which is a complexity
-of `O(n²)`
+If you insert `n` elements you check `1+2+3+..+(n-1)` elements for equality
+(a complexity of `O(n²)`).
 
 <img style="max-width:350px" src="/media/hash-collisions.gif" alt="Hash Collisions animation" />
 
 If you want to know more about how this works in PHP you should definitely read
-[this very informative blog post](http://nikic.github.io/2011/12/28/Supercolliding-a-PHP-array.html).
+[this informative blog post](http://nikic.github.io/2011/12/28/Supercolliding-a-PHP-array.html).
 
 ## Using POST data as attack
 
@@ -47,8 +47,8 @@ PHP stores all POST fields in the $POST map for easy access.
 <?php echo $_POST ["param"]; ?>
 ```
 
-If you send a POST request like below to the above PHP page, you will already cause `5` collisions. If you send `2^16` keys you will keep an i7 core busy
-for 30 seconds.
+The POST request below targeted at the PHP page above, will already cause `5` collisions. 
+If you send `2^16` keys you keep an i7 core busy for 30 seconds.
 
 ```bash
 curl --data "4vq=key1&4wP2=key2&5Uq=key3&5VP=key4&64q=key5" http://example.com/form.php
@@ -57,8 +57,8 @@ curl --data "4vq=key1&4wP2=key2&5Uq=key3&5VP=key4&64q=key5" http://example.com/f
 While in most languages (e.g [Python](http://bugs.python.org/issue13703)) the hash function has been modified accordingly to prevent such attacks, PHP [addressed this vulnerability](http://svn.php.net/viewvc?view=revision&revision=321038)
 by simply introducing a `max_input_vars` directive in the `php.ini` config file.
 
-By default this directive is set to 1000, so you cannot send more than a
-thousand form fields in one request. A thousand collisions are not that bad, in fact it is only a slowdown of 1:3 compared to a normal request.
+By default this directive is set to 1000, which means that you cannot send more than a
+thousand form fields in one request. A thousand collisions is not really a problem because it is only a slowdown of 1:3 compared to a normal request.
 
 ## Using JSON APIs as attack
 
