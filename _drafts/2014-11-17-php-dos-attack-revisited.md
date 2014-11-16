@@ -41,7 +41,7 @@ If you want to know more about how this works in PHP you should definitely read
 
 ## Using POST data as attack
 
-PHP stores all POST fields in the $POST map.
+PHP stores all POST fields in the $POST map for easy access.
 
 ```php
 <?php echo $_POST ["param"]; ?>
@@ -54,8 +54,8 @@ for 30 seconds.
 curl --data "4vq=key1&4wP2=key2&5Uq=key3&5VP=key4&64q=key5" http://example.com/form.php
 ```
 
-While in most languages (e.g [Python](http://bugs.python.org/issue13703) the hash function has been modified accordingly to prevent such attacks, PHP [addressed this vulnerability](http://svn.php.net/viewvc?view=revision&revision=321038)
-by introducing a `max_input_vars` directive in the `php.ini` config file.
+While in most languages (e.g [Python](http://bugs.python.org/issue13703)) the hash function has been modified accordingly to prevent such attacks, PHP [addressed this vulnerability](http://svn.php.net/viewvc?view=revision&revision=321038)
+by simply introducing a `max_input_vars` directive in the `php.ini` config file.
 
 By default this directive is set to 1000, so you cannot send more than a
 thousand form fields in one request. A thousand collisions are not that bad, in fact it is only a slowdown of 1:3 compared to a normal request.
@@ -65,7 +65,7 @@ thousand form fields in one request. A thousand collisions are not that bad, in 
 As the web evolved to a net of APIs we are perhaps forgetting that PHP
 is still vulnerable to Hash Collision attacks everywhere where user input and an array is used.
 
-Web APIs typically support JSON and therefor use the `json_decode` method of the standard PHP library. This will by default parse all the Keys in a JSON file into the PHP map, causing many insertion collisions.
+Web APIs typically support JSON and therefor use the `json_decode` method of the standard PHP library. This will by default parse all the Keys in a JSON file into the PHP map, causing many collisions.
 
 Below is a very simple API that returns the name and email of the
 sender.
@@ -95,10 +95,10 @@ This is a [known vulnerability](https://web.nvd.nist.gov/view/vuln/detail?vulnId
 
 ## Tests
 
-I plotted the time used for `json_decode` and it gives you a nice quadratic
+I plotted the time used for `json_decode` and it results in a scary quadratic
 function. The outliers happening after `2^16` keys are happening because
-a different hash mask is when the array grows beyond 2^16 elements and our
-collisions are precomputed for a 16Bit hash mask.
+a different hash mask is when the array grows beyond `2^16` elements and our
+collisions are precomputed to cause collisions for a 16 Bit hash mask.
 
 ![CPU usage during the tests](/media/json_decode_time.png)
 
@@ -115,6 +115,7 @@ You see that while the attacker barely does anything apart from sending the post
 
 ## Try it yourself
 
-I put everything on the Github repo:
-https://bitbucket.org/the_hash_crowd/php-dos-attack
+I put the testing scripts and sample pages into a github repository.
+I even added a few thousand self colliding keys.
 
+[https://github.com/lukasmartinelli/php-dos-attack](https://github.com/lukasmartinelli/php-dos-attack)
