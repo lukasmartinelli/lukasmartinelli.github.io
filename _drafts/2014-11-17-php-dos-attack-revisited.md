@@ -28,7 +28,6 @@ Operation  | Average Case | Worst Case
 
 If the hash table implementation uses open addressing, a colliding key
 is checked against all elements in the linked list.
-
 If you insert `n` elements you check `1+2+3+..+(n-1)` elements for equality
 (a complexity of `O(n²)`).
 
@@ -62,7 +61,7 @@ By default this directive is set to 1000, which means that you cannot send more 
 As the web evolved to a net of APIs we are perhaps forgetting that PHP
 is still vulnerable to Hash Collision attacks everywhere where user input and an array is used.
 
-Web APIs typically support JSON and therefor use the `json_decode` method of the standard PHP library. This will by default parse all the Keys in a JSON file into the PHP map, causing many collisions.
+Web APIs typically support JSON and therefore use the `json_decode` method of the standard PHP library. This will by default parse all the keys in a JSON file into the PHP map, causing many collisions.
 
 Below is a very simple API that returns the name and email of the
 sender.
@@ -77,7 +76,7 @@ echo json_encode($response);
 ?>
 ```
 
-If we send this API a rigged JSON request, we have the same effect
+If we send this API a modified JSON request, we have the same effect
 as with the POST parameters.
 
 ```bash
@@ -99,8 +98,8 @@ collisions are precomputed to cause collisions for a 16 Bit hash mask.
 
 ![CPU usage during the tests](/media/json_decode_time.png)
 
-If we host the `api.php` on a real server and make some attacks, we can
-see that you get the same effect with a JSON api. The plateau of the function occurs because the webserver is limited to 30s max proccessing time per request.
+If we host the JSON API sample above on a real server and make some attacks, we get the same effect.
+The plateau of the function occurs because the Apache webserver is limited to 30s proccessing time per request.
 
 ![CPU usage during the tests](/media/api_time.png)
 
@@ -116,10 +115,10 @@ It is interesting that parsing xml does not use a hash map internally.
 
 Operation for 2^16 elements  | Average Case [s]| Worst Case [s]
 -----------------------------|-----------------|---------------
-**Insert into array**        | 0.0239019393920 | 37.62498283386
-**Deserializing JSON**       | 0.0125000476837 | 36.51837182045
-**Deserializing PHP Object** | 0.0123610496521 | 30.02556109428
-**Parsing XML**              | 0.0004470348358 | 0.000726938247
+Insert into array            | 0.0239019393920 | 37.62498283386
+Deserializing JSON           | 0.0125000476837 | 36.51837182045
+Deserializing PHP Object     | 0.0123610496521 | 30.02556109428
+Parsing XML                  | 0.0004470348358 | 0.000726938247
 
 I am sure there are alot of other cases where user data is used together with a hash table.
 
