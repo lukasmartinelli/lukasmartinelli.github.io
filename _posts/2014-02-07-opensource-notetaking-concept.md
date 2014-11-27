@@ -1,6 +1,6 @@
 ---
-title: An Opensource Notetaking Concept
 layout: post
+title: An Opensource Notetaking Concept
 published: true
 tags: 
   - idea
@@ -187,3 +187,5 @@ The self hosted variant is the comfortable approach as we only have to build it 
 ## Summary
 This concept might be working or it might be not. I've written down alot of information in this post and it should serve as a very generic concept of my idea of an opensource notetaking application. I'm not sure how big the effort would be to build such a thing or wether users would like it, but I just wanted to share my idea.
 I'll keep you updated if I find something similar or take the courage to build a prototype.
+
+**EDIT:** I found a very cool project called [Laverna](https://github.com/Laverna/laverna) which comes pretty close to what I had in mind.
