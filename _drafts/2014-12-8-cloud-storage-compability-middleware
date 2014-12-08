@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Cloud Storage Middleware
-tags:
+tags: 
   - api
   - web
   - cloud
@@ -9,4 +9,19 @@ categories: cloud
 published: false
 ---
 
-I already outlied this a bit in lala ladida 
+If you want to access files on Dropbox or Google Drive you need to use their APIs. But even though they all do exactly the same thing, their APIs all differ. I want to solve this problem by providing a **common API to end user cloud storages** that is **opensource and free**.
+
+## Existing solutions
+
+There are already commercial solutions for this problem:
+
+- [Storage Made Easy](http://storagemadeeasy.com/personal_solution/)
+- [Cloud Elements Documents Hub](http://www.cloud-elements.com/hubs/documents-hub/)
+- [Kloudless](https://developers.kloudless.com/)
+
+There are also solutions that are either platform specific (like SharpBox) or targeted towards commercial cloud storages (Apache projects):
+
+- [SharpBox](http://sharpbox.codeplex.com/)
+- [Apache Libcloud](http://libcloud.apache.org/)
+- [Apache jClouds](https://jclouds.apache.org/)
+
