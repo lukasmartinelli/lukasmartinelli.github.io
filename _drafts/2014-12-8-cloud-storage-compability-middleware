@@ -27,5 +27,13 @@ There are also solutions that are either platform specific (like SharpBox) or ta
 - [Apache Libcloud](http://libcloud.apache.org/)
 - [Apache jClouds](https://jclouds.apache.org/)
 
+## Consumers
+
+I searched the web to find already existing projects that can benefit from a middleware like this:
+
+[**Syncany**](https://www.syncany.org/)
+Synchronizes files to any kind of storage and is written in Java. Syncany could immediately support all major cloud storages by writing one plugin.
+
+
 
 
