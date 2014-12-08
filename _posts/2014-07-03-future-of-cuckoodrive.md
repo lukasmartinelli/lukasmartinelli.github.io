@@ -31,7 +31,7 @@ subproblems that have to be solved and they are also quite tricky.
 ![One does not simply write a Distributed Filesystem](/media/one-does-not-simply-write-a-dfs.jpg)
 
 ### Writing PyFilesystem Implementations for Cloud Storage Providers
-My current approach was writing a ]PyFilesystem implementation](http://docs.pyfilesystem.org/en/latest/implementersguide.html) for each cloud
+My current approach was writing a [PyFilesystem implementation](http://docs.pyfilesystem.org/en/latest/implementersguide.html) for each cloud
 storage provider. This is quite a tedious task and a bit repetitive as most
 of the cloud storages have similar concepts but use different APIs to express them.
 There is also some work to do, to work around the fact that providers like Google Drive have no idea what a path or a file is, they work more like a Key-Value store for documents.
