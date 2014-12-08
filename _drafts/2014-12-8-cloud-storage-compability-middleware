@@ -11,6 +11,8 @@ published: false
 
 If you want to access files on Dropbox or Google Drive you need to use their APIs. But even though they all do exactly the same thing, their APIs all differ. I want to solve this problem by providing a **common API to end user cloud storages** that is **opensource and free**.
 
+This is a follow up to my earlier post on [the future of Cuckoo Drive](http://lukasmartinelli.ch/idea/2014/07/03/future-of-cuckoodrive.html).
+
 ## Existing solutions
 
 There are already commercial solutions for this problem:
@@ -24,4 +26,6 @@ There are also solutions that are either platform specific (like SharpBox) or ta
 - [SharpBox](http://sharpbox.codeplex.com/)
 - [Apache Libcloud](http://libcloud.apache.org/)
 - [Apache jClouds](https://jclouds.apache.org/)
+
+
 
