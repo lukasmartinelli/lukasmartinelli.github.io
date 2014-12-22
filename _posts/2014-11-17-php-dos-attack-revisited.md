@@ -14,6 +14,8 @@ that works across all major languages. PHP addressed the vulnerability
 for forms but nowadays every web application uses a JSON API, which is still
 vulnerable to complexity attacks.
 
+You can try out some simple attacks yourself at [https://github.com/lukasmartinelli/php-dos-attack](https://github.com/lukasmartinelli/php-dos-attack).
+
 ## How it works
 
 [Hash Tables](https://en.wikipedia.org/wiki/Hash_table) are optimized to be
