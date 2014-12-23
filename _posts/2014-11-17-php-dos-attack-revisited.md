@@ -89,8 +89,6 @@ curl -v -X POST \
  http://example.com/api.php
 ```
 
-This is a [known vulnerability](https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2009-1271) but has not been fixed until today!
-
 ## Tests
 
 I plotted the time used for `json_decode` and it results in a scary quadratic
