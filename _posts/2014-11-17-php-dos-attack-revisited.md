@@ -118,8 +118,3 @@ Deserializing PHP Object     | 0.0123610496521 | 30.02556109428
 Parsing XML                  | 0.0004470348358 | 0.000726938247
 
 I am sure there are alot of other cases where user data is used together with a hash table.
-
-## Counter Measures
-
-- Reduce maximum request size
-- Reduce [max_input_time](http://php.net/manual/en/info.configuration.php#ini.max-input-time)
