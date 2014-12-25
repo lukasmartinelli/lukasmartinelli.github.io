@@ -11,10 +11,7 @@ published: true
 
 In 2011 the Chaos Computer Club [revealed a major complexity attack vulnerability](http://events.ccc.de/congress/2011/Fahrplan/attachments/2007_28C3_Effective_DoS_on_web_application_platforms.pdf)
 that works across all major languages. PHP addressed the vulnerability
-for forms but nowadays every web application uses a JSON API, which is still
-vulnerable to complexity attacks.
-
-You can try out some simple attacks yourself at [https://github.com/lukasmartinelli/php-dos-attack](https://github.com/lukasmartinelli/php-dos-attack).
+for forms but never really fixed it. Nowadays every web application uses a JSON API, which is still vulnerable to complexity attacks.
 
 ## How it works
 
@@ -122,9 +119,7 @@ Parsing XML                  | 0.0004470348358 | 0.000726938247
 
 I am sure there are alot of other cases where user data is used together with a hash table.
 
-## Try it yourself
+## Counter Measures
 
-I put the testing scripts and sample pages into a github repository.
-I even added a few thousand self colliding keys.
-
-[https://github.com/lukasmartinelli/php-dos-attack](https://github.com/lukasmartinelli/php-dos-attack)
+- Reduce maximum request size
+- Reduce [max_input_time](http://php.net/manual/en/info.configuration.php#ini.max-input-time)
