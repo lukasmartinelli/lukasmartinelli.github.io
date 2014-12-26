@@ -21,14 +21,13 @@ that all collide with each other, we suddenly get really bad performance.
 
 Operation  | Average Case | Worst Case
 -----------|--------------|------------
-**search** | `O(1)`       | `O(n²)`
-**insert** | `O(1)`       | `O(n²)`
-**delete** | `O(1)`       | `O(n²)`
+**search** | `O(1)`       | `O(n)`
+**insert** | `O(1)`       | `O(n)`
+**delete** | `O(1)`       | `O(n)`
 
 If the hash table implementation uses open addressing, a colliding key
 is checked against all elements in the linked list.
-If you insert `n` elements you check `1+2+3+..+(n-1)` elements for equality
-(a complexity of `O(n²)`).
+If you insert `n` elements you check `1+2+3+..+(n-1)` elements for equality and therefore you have a complexity of `O(n²)`.
 
 <img style="max-width:350px" src="/media/hash-collisions.gif" alt="Hash Collisions animation" />
 
