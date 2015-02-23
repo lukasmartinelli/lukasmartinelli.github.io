@@ -11,10 +11,7 @@ published: true
 
 In 2011 the Chaos Computer Club [revealed a major complexity attack vulnerability](http://events.ccc.de/congress/2011/Fahrplan/attachments/2007_28C3_Effective_DoS_on_web_application_platforms.pdf)
 that works across all major languages. PHP addressed the vulnerability
-for forms but nowadays every web application uses a JSON API, which is still
-vulnerable to complexity attacks.
-
-You can try out some simple attacks yourself at [https://github.com/lukasmartinelli/php-dos-attack](https://github.com/lukasmartinelli/php-dos-attack).
+for forms but never really fixed it. Nowadays every web application uses a JSON API, which is still vulnerable to complexity attacks.
 
 ## How it works
 
@@ -24,14 +21,13 @@ that all collide with each other, we suddenly get really bad performance.
 
 Operation  | Average Case | Worst Case
 -----------|--------------|------------
-**search** | `O(1)`       | `O(n²)`
-**insert** | `O(1)`       | `O(n²)`
-**delete** | `O(1)`       | `O(n²)`
+**search** | `O(1)`       | `O(n)`
+**insert** | `O(1)`       | `O(n)`
+**delete** | `O(1)`       | `O(n)`
 
 If the hash table implementation uses open addressing, a colliding key
 is checked against all elements in the linked list.
-If you insert `n` elements you check `1+2+3+..+(n-1)` elements for equality
-(a complexity of `O(n²)`).
+If you insert `n` elements you check `1+2+3+..+(n-1)` elements for equality and therefore you have a complexity of `O(n²)`.
 
 <img style="max-width:350px" src="/media/hash-collisions.gif" alt="Hash Collisions animation" />
 
@@ -121,10 +117,3 @@ Deserializing PHP Object     | 0.0123610496521 | 30.02556109428
 Parsing XML                  | 0.0004470348358 | 0.000726938247
 
 I am sure there are alot of other cases where user data is used together with a hash table.
-
-## Try it yourself
-
-I put the testing scripts and sample pages into a github repository.
-I even added a few thousand self colliding keys.
-
-[https://github.com/lukasmartinelli/php-dos-attack](https://github.com/lukasmartinelli/php-dos-attack)
