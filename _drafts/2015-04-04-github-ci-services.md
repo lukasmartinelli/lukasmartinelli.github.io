@@ -4,9 +4,8 @@ title: Github Continous Integration Services
 tags:
   - data
   - github
-  - api
-  - coreos
-categories: web
+  - ci
+categories: cloud
 published: true
 ---
 I analyzed 370 million files of [614k Github repos](https://github.com/lukasmartinelli/repostruct/tree/master/repos)
