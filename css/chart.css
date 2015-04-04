@@ -1,0 +1,69 @@
+.legend ul {
+    list-style: none;
+}
+
+.legend ul li {
+    display: block;
+    padding-left: 30px;
+    position: relative;
+    margin-bottom: 4px;
+    border-radius: 5px;
+    padding: 2px 8px 2px 28px;
+    cursor: default;
+    -webkit-transition: background-color 200ms ease-in-out;
+    -moz-transition: background-color 200ms ease-in-out;
+    -o-transition: background-color 200ms ease-in-out;
+    transition: background-color 200ms ease-in-out;
+}
+
+.legend ul li span {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 100%;
+    border-radius: 2px;
+}
+
+.chart canvas {
+    float: left;
+    max-height: 400px;
+    width: 80%;
+}
+
+.chart-section {
+    text-align: center;
+    float: left;
+    padding: 0.5rem;
+}
+
+.chart .legend {
+    float: right;
+    padding-right: 2rem;
+}
+
+#legend-languages {
+    float: none;
+    padding: 2rem;
+}
+
+#legend-languages ul li {
+    display: inline-block;
+}
+
+@media (max-width: 700px) {
+    .chart canvas {
+        float: none;
+        max-height: 300px;
+        width: 100%;
+    }
+
+    .chart .legend {
+        float: none;
+    }
+
+    ul.bar-legend li, ul.stackedbar-legend li {
+        display: inline-block;
+    }
+}
