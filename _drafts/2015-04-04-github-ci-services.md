@@ -9,9 +9,9 @@ tags:
 categories: web
 published: true
 ---
-I analyzed the files of [614k Github repos](https://github.com/lukasmartinelli/repostruct/tree/master/repos)
+I analyzed 370 million files of [614k Github repos](https://github.com/lukasmartinelli/repostruct/tree/master/repos)
 to find out which Continous Integration services developers use.
-The dataset is available at the [repostruct](https://github.com/lukasmartinelli/repostruct) Github Repository.
+The dataset is available at the [repostruct Github Repository](https://github.com/lukasmartinelli/repostruct).
 
 **tldr:** Travis has won the game but there are still alot of projects that don't use CI at all.
 
@@ -261,6 +261,31 @@ document.getElementById('ci-integration-legend').appendChild(legendHolder.firstC
     createLegend('legend-languages', goChart);
 })();
 </script>
+
+## Findings
+
+- Travis owns the CI market for Open Source projects.
+  No one has even close the numbers Travis has across all languages.
+- Users of dynamic languages use CI services the most.
+  Projects written in Javascript, Python, Ruby or PHP use CI services in 30% of the projects.
+- Java developers don't use CI services that much. Perhaps this is because they rely on custom
+  builds with Jenkyins or Teamcity.
+- AppVeyor is the only CI service that can compete with travis, at least on a language basis.
+  AppVeyor has a little market share in Javascript, Python, C++, C and C# projects.
+  I guess due to the fact that they offer Windows based builds.
+- C# projects have not yet arrived the age of CI.
+- Projects with native code like C++, C or Objective-C don't use CI as often but they are
+also not as bad as I thought they would be. Approximately 20% of projects use CI there.
+- The go community is the most interesting. They use alot of services and drone.io and wercker
+  start to gain traction among those projects.
+  The are also **exemplary** in their usage of CI
+
+AppVeyor has good changes of becoming the next big player after travis.
+Focusing on the .NET world will help them alot because this is a space where people haven't
+heard about CI yet.
+
+CircleCI is quite young and it might therefore be that I don't have enought data about them.
+But from what it looks they are still in the beginnings.
 
 I looked for CI integrations that make use of specific config files:
 
