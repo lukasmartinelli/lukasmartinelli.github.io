@@ -11,9 +11,11 @@ published: true
 ---
 I analyzed 370 million files of [614k Github repos](https://github.com/lukasmartinelli/repostruct/tree/master/repos)
 to find out which Continous Integration services developers use.
+I looked at public Github repos that were recorded in the [GHTorrent dataset
+of 2015-01-29](http://ghtorrent.org/downloads.html) and are **not forks** of other projects.
 The dataset is available at the [repostruct Github Repository](https://github.com/lukasmartinelli/repostruct).
 
-**tldr:** Travis has won the game but there are still alot of projects that don't use CI at all.
+> **tldr:** Travis has won the game but there are still alot of projects that don't use CI at all.
 
 <link rel="stylesheet" href="/css/chart.css">
 <script src="//cdn.jsdelivr.net/chart.js/1.0.2/Chart.min.js"></script>
@@ -273,71 +275,78 @@ document.getElementById('ci-integration-legend').appendChild(legendHolder.firstC
   is not as important.
 - Java developers use CI services in only 10% of projects. That is as bad as C programmers.
   For a language with the most mature tooling this is astonishing.
-  Perhaps this is because they rely on custom builds with Jenkins or Teamcity.
+  Perhaps this is because they rely on custom builds with [Jenkins](https://jenkins-ci.org/)
+  or [Teamcity](https://www.jetbrains.com/teamcity/).
 - C# projects have not yet arrived the age of CI (less than 5%).
-- Projects with native code like C++ or Objective-C don't use CI as often but they are
-  better than Java. Approximately 15% of projects use CI.  They are also more willing to use other CI services than Travis.
+- Projects with native code like C++ or Objective-C don't use CI as often but surprisingly more often
+  than Java. Approximately 15% of projects use CI. They are also more willing to use other CI services than Travis.
 - The Go community is the most interesting. They use alot of services and Drone.io and Wercker
   start to gain traction among those projects. The are also exemplary
   in their usage of CI (40% of projects!)
 - AppVeyor is the only CI service that can compete with travis, at least on a language basis.
   AppVeyor has some market share in Javascript, Python, C++, C and C# projects
   due the fact that they offer Windows based builds.
-
-[Travis](https://travis-ci.org/) is the **#1** for Open Source CI integration and it
-seems unlikely that will change in the future.
-
-[AppVeyor](http://www.appveyor.com/) is well positioned with it's Windows based builds and they might get significant market share in
-languages where platforms matter like C++, C and C#.
-These languages still have some room to grow because they don't have a high CI usage yet (especially C#).
-
-[Drone](http://drone.io/) is mostly used by Go developers. No wonder as it is based on Docker and Go.
-
-Close to no one uses [SensioLabs](https://sensiolabs.com/) or [Solano](https://www.solanolabs.com/).
-
-[Wercker](http://wercker.com/) and [CircleCI](https://circleci.com/) are new kids on the block and
-therefore might be a bit underrepresented in this analysis.
-I think it will be tough for them to compete with Travis.  They need to convince the users creating new repositories.
-Looking at the Go community where most projects are very new, we see that Travis alternatives are used more.
+- [Travis](https://travis-ci.org/) is the **#1** for Open Source CI integration and it
+  seems unlikely that will change in the future.
+- [AppVeyor](http://www.appveyor.com/) is well positioned with it's Windows based builds and they might get significant market share in
+  languages where platforms matter like C++, C and C#.
+   These languages still have some room to grow because they don't have a high CI usage yet (especially C#).
+- [Drone](http://drone.io/) is mostly used by Go developers. No wonder as it is based on Docker and Go.
+- Close to no one uses [SensioLabs](https://sensiolabs.com/) or [Solano](https://www.solanolabs.com/).
+- [Wercker](http://wercker.com/) and [CircleCI](https://circleci.com/) are new kids on the block and
+   therefore might be a bit underrepresented in this analysis.
+   I think it will be tough for them to compete with Travis.  They need to convince the users creating new repositories.
+   Looking at the Go community where most projects are very new, we see that Travis alternatives are used more.
 
 There is still room for more CI services, but given that not all Projects on Github
 are of serious nature more than 50% of projects are unlikely to use CI.
-**My guess is that Travis will remain the big player for Open Source projects in the future followed by AppVeyor.
-The others will have a little share of the projects with special requirements even
-though they might have better features than Travis.**
+
+> My guess is that Travis will remain the big player for Open Source projects in the future followed by AppVeyor.
+The others will have a little share of the projects even though they have better features than Travis.
+
+## Numbers
+
+This is simply an educated guess. I would be very happy if the people working at those
+Companies could confirm them.
+
+CI Platform | Repos
+------------|-----------
+Travis      | 200'000+
+AppVeyor    | 50'000+
+CircleCI    | 5'000+
+Wercker     | 5'000+
+Drone.io    | 1'000+
+
+Please note that if Projects don't use a configuration file I cannot relate them to a CI Platform.
 
 ## Data Quality
 
 **Conclusion**: The data gathered is pretty accurate, perhaps not down to the number but the
-distribution of CI integration services is correct.
+distribution ratio of CI integration services is correct.
 
-I looked at public Github repos that were recorded in the [GHTorrent dataset
-of 2015-01-29](http://ghtorrent.org/downloads.html) and are **not forks** of another project.
+I verified the results with results from Google Search and Github Code search.
+The results differ but the ratio stays the same (Probably because I didn't get
+the whole Github dataset).
+If you scale Google Search with `0.3` and `1.5` and the Github search with `0.4` you get the same results.
 
-One way to do the analysis I did alot cheaper and faster is by simply
-searching with the Github search, however I found that it is not quite accurate
-but helps to verify the results.
+Github has much more records for `.travis.yml` and `appveyor.yml` than I found.
+Reasons might be:
 
-The results differ but still relate.
-If you scale Google Search with `0.3` and `1.5` and the Github search with `0.4`
-you get the same results.
+- Github Code search includes forks
+- A repository can have multiple CI config files (alot of Javascript people have the
+  `node_modules` folder checked in)
 
-However Github has much more records for `.travis.yml` and `appveyor.yml` than I found,
-I think this is because alot of people have several config files per repositories
-(alot of Javascript people have the `node_modules` folders checked in) or forked these projects
-alot or perhaps they have alot of users in languages I did not analyze.
+CI config file    | repostruct   | Google Search  | Google Search (intitle)  | Github (in path)
+------------------|--------------|----------------|--------------------------|-----------------
+`.travis.yml`     | 15'6597      | 388'000        | 69'200                   | 4'044'062
+`appveyor.yml`    | 5'950        | 6'780          | 1'270                    | 54'741
+`.drone.yml`      | 878          | 2'720          | 626                      | 1'084
+`circle.yml`      | 1'702        | 8'510          | 1'150                    | 4'725
+`wercker.yml`     | 1'828        | 5'010          | 764                      | 4'999
+`solano.yml`      | 21           | 277            | 6                        | 26
+`.sensiolabs.yml` | 9            | 3'040          | 7                        | 31
+`.scrutinizer.yml`| 3'877        | 9'290          | 3'010                    | 13'550
 
-CI config file    | repostruct  | Google Search | Google Search (intitle) | Github (in path)
-------------------|-------------|---------------|-------------------------|-----------------
-`.travis.yml`     | 156597      | 388000        | 69200                   | 4044062
-`appveyor.yml`    | 5950        | 6780          | 1270                    | 54741
-`.drone.yml`      | 878         | 2720          | 626                     | 1084
-`circle.yml`      | 1702        | 8510          | 1150                    | 4725
-`wercker.yml`     | 1828        | 5010          | 764                     | 4999
-`solano.yml`      | 21          | 277           | 6                       | 26
-`.sensiolabs.yml` | 9           | 3040          | 7                       | 31
-`.scrutinizer.yml`| 3877        | 9290          | 3010                    | 13550
-
-- **[Google Search](https://www.google.ch/search?q=.travis.yml+site:github.com)** with `site:github.com intitle:.travis.yml`
+- **[Google Search](https://www.google.ch/search?q=.travis.yml+site:github.com)** with `site:github.com .travis.yml`
 - **[Google Search](https://www.google.ch/search?q=intitle:.travis.yml+site:github.com)** with `site:github.com intitle:.travis.yml`
 - **[Github Code Search](https://github.com/search?utf8=%E2%9C%93&q=.travis.yml+in%3Apath&type=Code&ref=searchresults)** with `.travis.yml in:path`
