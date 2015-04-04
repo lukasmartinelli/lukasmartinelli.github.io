@@ -277,17 +277,17 @@ document.getElementById('ci-integration-legend').appendChild(legendHolder.firstC
   Perhaps this is because they rely on custom builds with [Jenkins](https://jenkins-ci.org/)
   or [Teamcity](https://www.jetbrains.com/teamcity/).
 - C# projects have not yet arrived the age of CI (less than 5%).
-- Projects with native code like C++ or Objective-C don't use CI as often but surprisingly more often
+- Projects with native code like C++ or Objective-C don't use CI as often, but surprisingly more often
   than Java. Approximately 15% of projects use CI. They are also more willing to use other CI services than Travis.
 - The Go community is the most interesting. They use alot of services and Drone.io and Wercker
-  start to gain traction among those projects. The are also exemplary
+  start to gain traction among those projects. Go programmers are also exemplary
   in their usage of CI (40% of projects!)
 - AppVeyor is the only CI service that can compete with travis, at least on a language basis.
   AppVeyor has some market share in Javascript, Python, C++, C and C# projects
   due the fact that they offer Windows based builds.
 - [Travis](https://travis-ci.org/) is the **#1** for Open Source CI integration and it
   seems unlikely that will change in the future.
-- [AppVeyor](http://www.appveyor.com/) is well positioned with it's Windows based builds and they might get significant market share in
+- [AppVeyor](http://www.appveyor.com/) is well positioned with its Windows based builds and they might get significant market share in
   languages where platforms matter like C++, C and C#.
    These languages still have some room to grow because they don't have a high CI usage yet (especially C#).
 - [Drone](http://drone.io/) is mostly used by Go developers. No wonder as it is based on Docker and Go.
@@ -298,7 +298,7 @@ document.getElementById('ci-integration-legend').appendChild(legendHolder.firstC
    Looking at the Go community where most projects are very new, we see that Travis alternatives are used more.
 
 There is still room for more CI services, but given that not all Projects on Github
-are of serious nature more than 50% of projects are unlikely to use CI.
+are of serious nature, more than 50% of projects are unlikely to use CI.
 
 > My guess is that Travis will remain the big player for Open Source projects in the future followed by AppVeyor.
 The others will have a little share of the projects even though they have better features than Travis.
