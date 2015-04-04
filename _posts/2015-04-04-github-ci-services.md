@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Github Continous Integration Services
+title: Which Languages use CI Services on Github?
 tags:
   - data
   - github
@@ -324,7 +324,7 @@ Please note that if Projects don't use a configuration file I cannot relate them
 distribution ratio of CI integration services is correct.
 
 I verified the results with results from Google Search and Github Code search.
-The results differ but the ratio stays the same (Probably because I didn't get
+The results differ, but the ratio stays the same (Probably because I didn't get
 the whole Github dataset).
 If you scale Google Search with `0.3` and `1.5` and the Github search with `0.4` you get the same results.
 
@@ -349,3 +349,8 @@ CI config file    | repostruct   | Google Search  | Google Search (intitle)  | G
 - **[Google Search](https://www.google.ch/search?q=.travis.yml+site:github.com)** with `site:github.com .travis.yml`
 - **[Google Search](https://www.google.ch/search?q=intitle:.travis.yml+site:github.com)** with `site:github.com intitle:.travis.yml`
 - **[Github Code Search](https://github.com/search?utf8=%E2%9C%93&q=.travis.yml+in%3Apath&type=Code&ref=searchresults)** with `.travis.yml in:path`
+
+## Thanks
+
+Thanks to [@m_st](https://twitter.com/m_st) and [@sfkeller](https://twitter.com/sfkeller) for providing
+the monster server for analyzing the results.
