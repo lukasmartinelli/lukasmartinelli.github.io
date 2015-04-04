@@ -20,14 +20,6 @@ The dataset is available at the [repostruct Github Repository](https://github.co
 <script src="//cdn.jsdelivr.net/chart.js/1.0.2/Chart.min.js"></script>
 <script src="/js/Chart.StackedBar.js"></script>
 
-## CI Integration across Languages
-
-<div class="chart">
-<canvas id="ci-integration-chart" style="height: 500px;"></canvas>
-<div class="legend" id="ci-integration-legend"></div>
-</div>
-<br clear="all" />
-
 <script>
 
 window.createLegend = function(legendId, chart) {
@@ -162,46 +154,6 @@ window.createDoughnutChart = function(chartId, lang) {
 };
 </script>
 
-<script>
-(function() {
-var datasets = [];
-for (var key in window.githubIntegrationData) {
-    if (window.githubIntegrationData.hasOwnProperty(key)) {
-        var provider = window.githubIntegrationData[key];
-        var valuesArray = [];
-        for (var seriesKey in provider.data) {
-            if(provider.data.hasOwnProperty(seriesKey)) {
-                valuesArray.push(provider.data[seriesKey])
-            }
-        }
-        datasets.push({
-            label: key,
-            fillColor: provider.color,
-            highlightFill: provider.highlight,
-            data: valuesArray
-        });
-    }
-}
-
-var data = {
-    labels: ["Javascript", "Java", "Python", "Ruby", "PHP", "C++", "Objective-C", "Go", "C#", "C"],
-    datasets: datasets
-};
-
-var ctx = document.getElementById("ci-integration-chart").getContext("2d");
-var chart = new Chart(ctx).StackedBar(data, {
-     barShowStroke: false,
-});
-var legendHolder = document.createElement('div');
-legendHolder.innerHTML = chart.generateLegend();
-document.getElementById('ci-integration-legend').appendChild(legendHolder.firstChild);
-
-})();
-
-</script>
-
-## Languages
-
 <div class="chart">
 <div class="legend" id="legend-languages"></div>
 </div>
@@ -246,6 +198,52 @@ document.getElementById('ci-integration-legend').appendChild(legendHolder.firstC
 <canvas style="width: 200px; height: 180px;" id="chart-c"></canvas>
 </div>
 <br clear="all" />
+
+## CI Integration across Languages
+
+<div class="chart">
+<canvas id="ci-integration-chart" style="height: 500px;"></canvas>
+<div class="legend" id="ci-integration-legend"></div>
+</div>
+<br clear="all" />
+
+<script>
+(function() {
+var datasets = [];
+for (var key in window.githubIntegrationData) {
+    if (window.githubIntegrationData.hasOwnProperty(key)) {
+        var provider = window.githubIntegrationData[key];
+        var valuesArray = [];
+        for (var seriesKey in provider.data) {
+            if(provider.data.hasOwnProperty(seriesKey)) {
+                valuesArray.push(provider.data[seriesKey])
+            }
+        }
+        datasets.push({
+            label: key,
+            fillColor: provider.color,
+            highlightFill: provider.highlight,
+            data: valuesArray
+        });
+    }
+}
+
+var data = {
+    labels: ["Javascript", "Java", "Python", "Ruby", "PHP", "C++", "Objective-C", "Go", "C#", "C"],
+    datasets: datasets
+};
+
+var ctx = document.getElementById("ci-integration-chart").getContext("2d");
+var chart = new Chart(ctx).StackedBar(data, {
+     barShowStroke: false,
+});
+var legendHolder = document.createElement('div');
+legendHolder.innerHTML = chart.generateLegend();
+document.getElementById('ci-integration-legend').appendChild(legendHolder.firstChild);
+
+})();
+
+</script>
 
 <script>
 (function() {
