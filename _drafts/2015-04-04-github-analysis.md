@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Github CI Integration
+title: Github Continous Integration Services
 tags:
   - data
   - github
@@ -9,30 +9,17 @@ tags:
 categories: web
 published: true
 ---
+I analyzed the files of [614k Github repos](https://github.com/lukasmartinelli/repostruct/tree/master/repos)
+to find out which Continous Integration services developers use.
+The dataset is available at the [repostruct](https://github.com/lukasmartinelli/repostruct) Github Repository.
+
+**tldr:** Travis has won the game but there are still alot of projects that don't use CI at all.
+
 <link rel="stylesheet" href="/css/chart.css">
 <script src="//cdn.jsdelivr.net/chart.js/1.0.2/Chart.min.js"></script>
 <script src="/js/Chart.StackedBar.js"></script>
 
-I analyzed the files of 614k Github repos. One thing I wanted to find out
-is how many people use Continous Integration and which services do they use.
-[repostruct](https://github.com/lukasmartinelli/repostruct) Github Repository.
-
-tldr: Travis has won the game but there are still alot of projects that
-don't use CI at all.
-
-## CI Integration
-
-I can only detect CI integrations that make use of specific config files:
-- AppVeyor
-- CircleCI
-- Drone
-- SensioLabs
-- Solano
-- Travis
-- Wercker
-
-While analyzing I find out that close to no one uses SensioLabs and Solano so I excluded
-them in the charts.
+## CI Integration across Languages
 
 <div class="chart">
 <canvas id="ci-integration-chart" style="height: 500px;"></canvas>
@@ -275,17 +262,18 @@ document.getElementById('ci-integration-legend').appendChild(legendHolder.firstC
 })();
 </script>
 
-## Static Analysis Tools
+I looked for CI integrations that make use of specific config files:
 
-Even though Scrutinizer support PHP, Ruby and Python it is mostly popular among PHP developers.
-I could not check how many people use [Code Climate](http://codeclimate.com) another popular static analysis service because
-there are no config files in the repo.
+- [AppVeyor](http://www.appveyor.com/)
+- [CircleCI](https://circleci.com/)
+- [Drone](http://drone.io/)
+- [SensioLabs](https://sensiolabs.com/)
+- [Solano](https://www.solanolabs.com/)
+- [Travis](https://travis-ci.org/)
+- [Wercker](http://wercker.com/)
 
-Language       | Repositories
----------------|--------------
-**Python**     | 56
-**PHP**        | 3612
-**Javascript** | 203
+While analyzing I find out that close to no one uses SensioLabs and Solano so I excluded
+them in the charts.
 
 ## Data Quality
 
@@ -306,8 +294,7 @@ you get pretty much the same results.
 However Github records much more records for `.travis.yml` and `appveyor.yml` than I found,
 I think this is because alot of people have several config files per repositories
 (alot of Javascript people have the `node_modules` folders checked in) or forked these projects
-alot.
-And for travis I can imagine that it is simply because I only analyzed a set of languages.
+alot or perhaps they have alot of users in languages I did not analyze.
 
 CI config file    | repostruct  | Google Search | Google Search (intitle) | Github (in path)
 ------------------|-------------|---------------|-------------------------|-----------------
