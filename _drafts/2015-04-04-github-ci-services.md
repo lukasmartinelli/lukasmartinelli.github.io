@@ -267,38 +267,44 @@ document.getElementById('ci-integration-legend').appendChild(legendHolder.firstC
 - Travis owns the CI market for Open Source projects.
   No one has even close the numbers Travis has across all languages.
 - Users of dynamic languages use CI services the most.
-  Projects written in Javascript, Python, Ruby or PHP use CI services in 30% of the projects.
-- Java developers don't use CI services that much. Perhaps this is because they rely on custom
-  builds with Jenkyins or Teamcity.
+  Projects written in Javascript, Ruby or PHP use CI services in 30% of the projects.
+- Pythonistas use CI less than their dynamic companions (only 20%).
+  Perhaps this might be because Python is used alot for scriping where testing
+  is not as important.
+- Java developers use CI services in only 10% of projects. That is as bad as C programmers.
+  For a language with the most mature tooling this is astonishing.
+  Perhaps this is because they rely on custom builds with Jenkins or Teamcity.
+- C# projects have not yet arrived the age of CI (less than 5%).
+- Projects with native code like C++ or Objective-C don't use CI as often but they are
+  better than Java. Approximately 15% of projects use CI.  They are also more willing to use other CI services than Travis.
+- The Go community is the most interesting. They use alot of services and Drone.io and Wercker
+  start to gain traction among those projects. The are also exemplary
+  in their usage of CI (40% of projects!)
 - AppVeyor is the only CI service that can compete with travis, at least on a language basis.
-  AppVeyor has a little market share in Javascript, Python, C++, C and C# projects.
-  I guess due to the fact that they offer Windows based builds.
-- C# projects have not yet arrived the age of CI.
-- Projects with native code like C++, C or Objective-C don't use CI as often but they are
-also not as bad as I thought they would be. Approximately 20% of projects use CI there.
-- The go community is the most interesting. They use alot of services and drone.io and wercker
-  start to gain traction among those projects.
-  The are also **exemplary** in their usage of CI
+  AppVeyor has some market share in Javascript, Python, C++, C and C# projects
+  due the fact that they offer Windows based builds.
 
-AppVeyor has good changes of becoming the next big player after travis.
-Focusing on the .NET world will help them alot because this is a space where people haven't
-heard about CI yet.
+[Travis](https://travis-ci.org/) is the **#1** for Open Source CI integration and it
+seems unlikely that will change in the future.
 
-CircleCI is quite young and it might therefore be that I don't have enought data about them.
-But from what it looks they are still in the beginnings.
+[AppVeyor](http://www.appveyor.com/) is well positioned with it's Windows based builds and they might get significant market share in
+languages where platforms matter like C++, C and C#.
+These languages still have some room to grow because they don't have a high CI usage yet (especially C#).
 
-I looked for CI integrations that make use of specific config files:
+[Drone](http://drone.io/) is mostly used by Go developers. No wonder as it is based on Docker and Go.
 
-- [AppVeyor](http://www.appveyor.com/)
-- [CircleCI](https://circleci.com/)
-- [Drone](http://drone.io/)
-- [SensioLabs](https://sensiolabs.com/)
-- [Solano](https://www.solanolabs.com/)
-- [Travis](https://travis-ci.org/)
-- [Wercker](http://wercker.com/)
+Close to no one uses [SensioLabs](https://sensiolabs.com/) or [Solano](https://www.solanolabs.com/).
 
-While analyzing I find out that close to no one uses SensioLabs and Solano so I excluded
-them in the charts.
+[Wercker](http://wercker.com/) and [CircleCI](https://circleci.com/) are new kids on the block and
+therefore might be a bit underrepresented in this analysis.
+I think it will be tough for them to compete with Travis.  They need to convince the users creating new repositories.
+Looking at the Go community where most projects are very new, we see that Travis alternatives are used more.
+
+There is still room for more CI services, but given that not all Projects on Github
+are of serious nature more than 50% of projects are unlikely to use CI.
+**My guess is that Travis will remain the big player for Open Source projects in the future followed by AppVeyor.
+The others will have a little share of the projects with special requirements even
+though they might have better features than Travis.**
 
 ## Data Quality
 
@@ -312,11 +318,11 @@ One way to do the analysis I did alot cheaper and faster is by simply
 searching with the Github search, however I found that it is not quite accurate
 but helps to verify the results.
 
-Now the results have different numbers but still relate.
+The results differ but still relate.
 If you scale Google Search with `0.3` and `1.5` and the Github search with `0.4`
-you get pretty much the same results.
+you get the same results.
 
-However Github records much more records for `.travis.yml` and `appveyor.yml` than I found,
+However Github has much more records for `.travis.yml` and `appveyor.yml` than I found,
 I think this is because alot of people have several config files per repositories
 (alot of Javascript people have the `node_modules` folders checked in) or forked these projects
 alot or perhaps they have alot of users in languages I did not analyze.
@@ -335,6 +341,3 @@ CI config file    | repostruct  | Google Search | Google Search (intitle) | Gith
 - **[Google Search](https://www.google.ch/search?q=.travis.yml+site:github.com)** with `site:github.com intitle:.travis.yml`
 - **[Google Search](https://www.google.ch/search?q=intitle:.travis.yml+site:github.com)** with `site:github.com intitle:.travis.yml`
 - **[Github Code Search](https://github.com/search?utf8=%E2%9C%93&q=.travis.yml+in%3Apath&type=Code&ref=searchresults)** with `.travis.yml in:path`
-
-
-
