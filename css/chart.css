@@ -1,3 +1,9 @@
+
+.content ul {
+    list-style-type: square;
+    padding-left: 2rem;
+}
+
 .legend ul {
     list-style: none;
 }
