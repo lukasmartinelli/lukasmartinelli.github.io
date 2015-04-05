@@ -263,8 +263,8 @@ document.getElementById('ci-integration-legend').appendChild(legendHolder.firstC
 
 ## Findings
 
-- Travis owns the CI market for Open Source projects.
-  No one has even close the numbers Travis has across all languages.
+### Languages
+
 - Users of dynamic languages use CI services the most.
   Projects written in Javascript, Ruby or PHP use CI services in 30% of the projects.
 - Pythonistas use CI less than their dynamic companions (only 20%).
@@ -283,8 +283,11 @@ document.getElementById('ci-integration-legend').appendChild(legendHolder.firstC
 - AppVeyor is the only CI service that can compete with travis, at least on a language basis.
   AppVeyor has some market share in Javascript, Python, C++, C and C# projects
   due the fact that they offer Windows based builds.
+
+### Services
+
 - [Travis](https://travis-ci.org/) is the **#1** for Open Source CI integration and it
-  seems unlikely that will change in the future.
+  seems unlikely that will change in the future. No one has even close the numbers Travis has across all languages.
 - [AppVeyor](http://www.appveyor.com/) is well positioned with its Windows based builds and they might get significant market share in
   languages where platforms matter like C++, C and C#.
    These languages still have some room to grow because they don't have a high CI usage yet (especially C#).
@@ -293,7 +296,9 @@ document.getElementById('ci-integration-legend').appendChild(legendHolder.firstC
 - [Wercker](http://wercker.com/) and [CircleCI](https://circleci.com/) are new kids on the block and
    therefore might be a bit underrepresented in this analysis.
    I think it will be tough for them to compete with Travis.  They need to convince the users creating new repositories.
-   Looking at the Go community where most projects are very new, we see that Travis alternatives are used more.
+   Looking at the Go community where most projects are very new, we see that Travis alternatives have a better chance.
+
+### Conclusion
 
 There is still room for more CI services, but given that not all Projects on Github
 are of serious nature, more than 50% of projects are unlikely to use CI.
@@ -303,8 +308,8 @@ The others will have a little share of the projects even though they have better
 
 ## Numbers
 
-This is simply an educated guess. I would be very happy if the people working at those
-Companies could confirm them.
+This is simply an educated guess how many Open Source repositories use which servies.
+I would be very happy if the people working at those Companies could confirm them.
 
 CI Platform | Repos
 ------------|-----------
