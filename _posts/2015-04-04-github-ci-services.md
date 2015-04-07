@@ -16,6 +16,10 @@ The dataset is available at the [repostruct Github Repository](https://github.co
 
 > **tldr:** Travis has won the game but there are still alot of projects that don't use CI at all.
 
+Codeship doesn't appear in this analysis even though it is a major player.
+This is because there is no config file I can look for in the repository.
+
+
 <link rel="stylesheet" href="/css/chart.css">
 <script src="//cdn.jsdelivr.net/chart.js/1.0.2/Chart.min.js"></script>
 <script src="/js/Chart.StackedBar.js"></script>
