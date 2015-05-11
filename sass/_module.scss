@@ -59,15 +59,7 @@ div.branding {
 
 /* ===Article=== */
 
-article {
-	@include shiny-box;
-	position: relative;
-	margin: 0 0 $default-margin 0;
-
-	.content {
-		padding: 0 $default-margin;
-	}
-
+article.post {
     ul {
         padding-left: 1em;
     }
@@ -81,6 +73,16 @@ article {
             left:-5px;
         }
     }
+}
+
+article {
+	@include shiny-box;
+	position: relative;
+	margin: 0 0 $default-margin 0;
+
+	.content {
+		padding: 0 $default-margin;
+	}
 
 	header {
 		padding: em(64) $default-margin 0 $default-margin;
