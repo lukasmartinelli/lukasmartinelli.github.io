@@ -5,30 +5,46 @@ tags:
   - coreos
   - fleet
   - docker
+  - aws
 categories: cloud
 published: true
 ---
 
-A simple guide how to create stateful service with CoreOS fleet
-and AWS volumes.
+A simple guide how to create stateful service with [CoreOS fleet](https://coreos.com/using-coreos/clustering/) and [AWS volumes](https://aws.amazon.com/ebs/).
+If you need to run a stateful service which does not need to be highly available
+this guide will get you up to speed.
 
-```
-touch influxdb@.service
-ln -s influxdb@.service influxdb@vol-bfdcbfa8.service
-fleetctl list-machines | grep vol-bfdcbfa8
-fleetctl start influxdb@vol-bfdcbfa8.service
-```
+The goal is to setup a Postgres container writing to an AWS EBS volume.
+If one host goes down we can mount the EBS volume to a different host
+and restart the Postgres container. While this is not highly available it is
+fault tolerant and easy to manage because not many components are involved.
+
+Below you see a visualization of the Postgres
+container `postgres@vol-5afc0745` running on `core1`.
+The EBS volume `vol-5afc0745` is attached to `core1` as `/dev/xvdb`.
+Once `core1` goes down we need to reattach `vol-5afc0745` to
+`core2` and restart `postgres@vol-5afc0745`.
+
+![Docker volume migration](/media/docker_volume_migration.gif)
 
 ## Create the Service
 
-We want to create a stateful Postgres service using the
-official postgres image. An introduction about creating services
-with Systemd and Fleet can be found [here](https://coreos.com/docs/launching-containers/launching/getting-started-with-systemd/).
+We will be using the [official postgres image](https://registry.hub.docker.com/_/postgres/)
+in our service file.  This container mounts `/data/postgres` to the Postgres data directory
+and therefore requires the `data-postgres.mount` unit being activated.
+It also cannot run together with other Postgres instances because there exists
+only one `/data/postgres` mountpoint.
+
+Because our service is not stateless we cannot schedule it on
+every machine. The fleet `MachineMetadata` directive allows us
+to constrain the possible hosts a service is allowed to run.
+Using the fleet templating feature we restrict this service to run
+only on hosts with the Metadata key `postgres` matching the service prefix.
 
 I stripped out useful timeouts from the service file below to make
 it more readable.
 
-```
+```bash
 [Unit]
 Description=PostgreSQL
 After=docker.service
@@ -38,7 +54,7 @@ Requires=docker.service
 ExecStartPre=/usr/bin/docker pull postgres:9.4
 ExecStart=/usr/bin/docker run --name postgres-%i \
 -v /data/postgres:/var/lib/postgresql/data \
--e POSTGRES_PASSWORD=a325haxh8ys \
+-e POSTGRES_PASSWORD=axti31lxb4123xhqaef355hh8ys \
 -p 5432:5432 \
 -t postgres:9.4
 
@@ -47,36 +63,39 @@ MachineMetadata="postgres=%i"
 Conflicts=postgres*
 ```
 
-This container mounts `/data/postgres` and therefore is not stateless.
-It also cannot run together with other Postgres instances because there exists
-only one `/data/postgres` mountpoint.
+Now we need to create a templated unit. I like to use soft links
+to easily reschedule the services.
+This templated unit now runs only on EC2 hosts where the
+volume `vol-5afc0745` has been attached to.
 
-A simple pattern how to schedule stateful services on CoreOS
-using the Fleet templating feature.
-
-Because our service is not stateless we cannot schedule it on
-every machine. The fleet `MachineMetadata` directive allows us
-to constrain the possible hosts a service is allowed to run.
-
-A good pattern is to use the name of the application as Metadata key
-and then the dependent ressource as value.
-
-```
+```bash
+ln -s postgres@.service postgres@vol-5afc0745.service
 ```
 
 ## Create a Volume
 
-In AWS create an empty volume in your availability zone.  
+In AWS create an empty volume in your availability zone.
+
+![AWS create volume](/media/create_volume.png)
+
 Attach it as `/dev/xvdb` to the running CoreOS instance.
+
+![AWS attach volume](/media/attach_volume.png)
 
 ## Format Volume
 
-On the coreos instance check whether the volume has been mounted with `lsblk`.
+On the CoreOS instance check whether the volume has been mounted with `lsblk`.
 You should seee `/dev/xvdb` with an empty mountpoint.
 
-Now format the volume. I like BTRFS alot so I use that.
-
+```bash
+NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+xvdb    202:16   0   50G  0 disk
 ```
+
+Now format the volume with the filesystem of your choice.
+For this example I will [use BTRFS](http://www.palepurple.co.uk/filesystem-magic-aws-ebs-volumes-btrfs).
+
+```bash
 mkfs.btrfs -L PostgreSQL /dev/xvdb
 ```
 
@@ -84,8 +103,8 @@ Now power down the CoreOS node because we are going to modify the cloud config f
 
 ## Modify Cloud Config
 
-This is advised against but because I don't want my stateful service to go
-down at random I turn off CoreOs automatic updates.
+Because we don't want our stateful service on which other services might depend on
+to go down at random we turn off CoreOs automatic updates.
 
 ```yaml
 coreos:
@@ -93,7 +112,9 @@ coreos:
     reboot-strategy: off
 ```
 
-Now add a mount service.
+Now that we formated `/dev/xvdb` we need to mount it at startup.
+The unit needs to be called `data-postgres.mount` according to the
+path it is mounted to.
 
 ```yaml
   units:
@@ -106,7 +127,8 @@ Now add a mount service.
         Type=btrfs
 ```
 
-Now modify the Metadata to register the volume.
+Now modify the Metadata to let the fleet scheduler know
+that the volume has been attached.
 
 ```yaml
   fleet:
@@ -116,91 +138,54 @@ Now modify the Metadata to register the volume.
 Now start the Machine and ssh into it after it is ready.
 Check whether the `data-postgres.mount` service is up and running.
 
-```
+```bash
 systemctl status data-postgres.mount
 ```
 
-## Start the service:w
+If you execute `lsblk` you should see your `/dev/xvdb` correctly mounted
+to `/data/postgres`.
 
-When should you do it:
-
-What this is not:
-- Fault tolerant
-- Highly Available
-
-
-This is not a guide to build fault tolerant and highly available stateful services
-but a pattern to setup non critical infrastructure.
-
-Alot of non cloud native stateful applications are very hard to scale vertically.
-Setting up a Postgres Cluster usually requires alot of work and if you want all of
-that in the wonderful world of CoreOS it is even more work.
-
-If you schedule a fleet unit on the cluster you set restrictions
-on machine metadata where to schedule the container.
-
-But you can also template the restrictions and therefore create
-services that are bound to a single host.
-
-If you are running CoreOS on AWS 
-
-I am very excited about EFS. This could make it even easier.
-
-## How to schedule a cluster
-
-Clustering is mostly very unique to the relevant services.
-In Postgres it is really hard while for Redis and MongoDB it
-is somewhat easier.
-
-I will show you how to do it for the example of influxdb.
-
-You could also use a machine id.
-
-## Attach Disks
-
-```
-ssh core@123.61.23.14
-lsblk
-mkfs.btrfs /dev/xvdb
+```bash
+NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+xvdb    202:16   0   50G  0 disk /data/postgres
 ```
 
+## Run Service
 
-## System Metrics
+Now start the PostgreSQL service and watch it startup successfully.
 
-In addition to collecting logs you also want to be informed about the state of your cluster.
-
-
-```
-[Unit]
-Description=InfluxDB
-After=docker.service
-Requires=docker.service
-
-[Service]
-User=core
-EnvironmentFile=/etc/environment
-TimeoutStartSec=10m
-Restart=always
-RestartSec=10s
-ExecStartPre=-/usr/bin/docker kill %p-%i
-ExecStartPre=-/usr/bin/docker rm -f %p-%i
-ExecStartPre=/usr/bin/docker pull tutum/influxdb
-ExecStart=/usr/bin/docker run --name %p-%i \
--v /data/influxdb:/data -m 2048m \
--p 8083:8083 \
--p 8086:8086 \
--p 8090:8090 \
--p 8099:8099 \
--e PRE_CREATE_DB=dreicloud \
--t tutum/influxdb
-ExecStartPost=/usr/bin/etcdctl set /dreicloud/influxdb/host ${COREOS_PRIVATE_IPV4}:8086
-ExecStop=/usr/bin/docker stop -t 2 %p-%i
-ExecStopPost=/usr/bin/etcdctl rm /dreicloud/influxdb/host
-
-[X-Fleet]
-MachineMetadata="data=%i"
+```bash
+fleetctl start postgres@vol-5afc0745
+fleetctl journal --follow postgres@vol-5afc0745
 ```
 
-Fleet can also be restricted to schedule a unit always to th same machine. However this is not the same.
+You might want to register the PostgreSQL server into etcd
+so other services can query it.
 
+```bash
+ExecStartPost=/usr/bin/etcdctl set /postgres/host ${COREOS_PRIVATE_IPV4}
+ExecStartPost=/usr/bin/etcdctl set /postgres/port 5432
+ExecStopPost=/usr/bin/etcdctl rm --recursive /postgres
+```
 
+## Use Service
+
+If you have other apps using your stateful service you can now
+query the information from etcd.
+
+Below is an example of a Django container connecting to our postgres service.
+
+```
+ExecStart=/bin/sh -c 'docker run --rm -m 256m --name django-app \
+-e DB_NAME=django_app \
+-e DB_USER=postgres \
+-e DB_PASSWORD=axti31lxb4123xhqaef355hh8ys \
+-e DB_HOST=$(etcdctl get /dreicloud/postgres/host) \
+-e DB_PORT=$(etcdctl get /dreicloud/postgres/port) \
+-p 6001:8000 -t random/django-app:latest'
+```
+
+## Next steps
+
+You now know the basics of creating stateful service on CoreOS. It will be interesting to improve this design once AWS EFS will come out. You might also
+create automatic attaching of EBS volumes instead of doing it by hand.
