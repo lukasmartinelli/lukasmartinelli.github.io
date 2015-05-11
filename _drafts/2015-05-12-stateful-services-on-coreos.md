@@ -11,7 +11,7 @@ categories: cloud
 published: true
 ---
 
-A simple guide how to create stateful service with [CoreOS fleet](https://coreos.com/using-coreos/clustering/) and [AWS volumes](https://aws.amazon.com/ebs/).
+A simple guide how to create a stateful service with [CoreOS fleet](https://coreos.com/using-coreos/clustering/) and [AWS volumes](https://aws.amazon.com/ebs/).
 If you need to run a stateful service which does not need to be highly available
 this guide will get you up to speed.
 
