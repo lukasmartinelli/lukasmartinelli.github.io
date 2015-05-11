@@ -68,6 +68,20 @@ article {
 		padding: 0 $default-margin;
 	}
 
+    ul {
+        padding-left: 1em;
+    }
+
+    ul li {
+        text-indent:-5px;
+
+        &:before {
+            content:"-";
+            position:relative;
+            left:-5px;
+        }
+    }
+
 	header {
 		padding: em(64) $default-margin 0 $default-margin;
 
