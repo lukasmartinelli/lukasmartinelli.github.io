@@ -38,7 +38,6 @@ will resolve to `vol-5afc0745`.
 We are using the [official postgres image](https://registry.hub.docker.com/_/postgres/).
 This container mounts `/data/postgres` to the PostgreSQL data directory
 and therefore requires the `data-postgres.mount` unit being activated.
-
 We prevent the unit from being collocated with other PostgreSQL instances
 with the `Conflicts` option because there exists
 only one `/data/postgres` mountpoint.
@@ -145,7 +144,7 @@ that the volume has been attached.
 
 ```yaml
   fleet:
-    metadata: postgres=vol-c65cfad5
+    metadata: postgres=vol-5afc0745
 ```
 
 Now start the Machine and ssh into it after it is ready.
@@ -161,6 +160,14 @@ to `/data/postgres`.
 ```bash
 NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
 xvdb    202:16   0   50G  0 disk /data/postgres
+```
+
+Check if the metadata is set correctly with `fleetctl list-machines`.
+You should see your machine with the attached volume name as metadata.
+
+```bash
+MACHINE         IP              METADATA
+8886bfe9...     10.0.1.72       vol-5afc0745
 ```
 
 ## Run Service
@@ -195,7 +202,7 @@ Using the docker image `dreipol/ops-tools` you can use the excellent [pgcli](htt
 to connect to your PostgreSQL server.
 
 ```
-pgcli -h 10.0.0.230 -U postgres 
+pgcli -h 10.0.0.230 -U postgres
 ```
 
 If you don't like the terminal you can use my [pgstudio container](link to pgstudio) for a graphical interface.
@@ -212,13 +219,13 @@ If you have other apps using your stateful service you can now
 query the information from etcd.  Below is an example of a Django container connecting to our PostgreSQL server.
 
 ```bash
-ExecStart=/bin/sh -c 'docker run --rm -m 256m --name django-app \
+docker run --rm -m 256m --name django-app \
 -e DB_NAME=django_app \
 -e DB_USER=postgres \
 -e DB_PASSWORD=axti31lxb4123xhqaef355hh8ys \
 -e DB_HOST=$(etcdctl get /dreicloud/postgres/host) \
 -e DB_PORT=$(etcdctl get /dreicloud/postgres/port) \
--p 6001:8000 -t random/django-app:latest'
+-p 6001:8000 -t random/django-app:latest
 ```
 
 ## Conclusion
