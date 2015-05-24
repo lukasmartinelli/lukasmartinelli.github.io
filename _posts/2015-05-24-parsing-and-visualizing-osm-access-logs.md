@@ -15,6 +15,8 @@ published: true
 their tile map server from 2014 until today.
 In this article I will show you how to parse the access logs with Bash and Python and visualize the data with CartoDB.
 
+Thanks to [@sfkeller](https://twitter.com/sfkeller) and [@mrothh](https://twitter.com/mrothh) for their help.
+
 ## OSM Views over Time
 
 All OSM tile requests per day at zoom level 18 aggregated over the period of 2014 Q1 until 2015 Q1.
@@ -202,7 +204,4 @@ SELECT * FROM requests_over_time_switzerland_2015_q1
 ## Conclusion
 
 The OSM access logs have alot of interesting datapoints that only wait to be analyzed. The prepartion is dirty work but displaying the data
-in CartoDB is a breeze.
-
-Thanks to [@sfkeller](https://twitter.com/sfkeller) and [@mrothh](https://twitter.com/mrothh) for their help.
-Stay tuned for further analysis.
+in CartoDB is a breeze. Stay tuned for further analysis.
