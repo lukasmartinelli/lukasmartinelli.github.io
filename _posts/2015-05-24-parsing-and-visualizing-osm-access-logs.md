@@ -17,17 +17,18 @@ In this article I will show you how to parse the access logs with Bash and Pytho
 
 Thanks to [@sfkeller](https://twitter.com/sfkeller) and [@mrothh](https://twitter.com/mrothh) for their help.
 
-## OSM Views over Time
-
-All OSM tile requests per day at zoom level 18 aggregated over the period of 2014 Q1 until 2015 Q1.
-
-<iframe width='100%' height='520' frameborder='0' src='https://lukasmartinelli.cartodb.com/viz/bbfdbfe6-f280-11e4-b096-0e4fddd5de28/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
-
 ## Total OSM Views
 
 All OSM tile access logs at zoom level 18 aggregated over the period of 2014.
 
 <iframe width='100%' height='520' frameborder='0' src='https://lukasmartinelli.cartodb.com/viz/65bddab0-ef6c-11e4-86e6-0e018d66dc29/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+
+## OSM Views over Time
+
+All OSM tile requests per day at zoom level 18 aggregated over the period of 2014 Q1 until 2015 Q1.
+Somehow this does not work with the latest versions of Firefox. Try Chrome if you do not see any animation.
+
+<iframe width='100%' height='520' frameborder='0' src='https://lukasmartinelli.cartodb.com/viz/bbfdbfe6-f280-11e4-b096-0e4fddd5de28/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
 ## Tile Coordinates
 
