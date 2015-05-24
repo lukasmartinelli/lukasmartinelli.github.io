@@ -178,8 +178,6 @@ When uploading make sure you have a header row in your CSV. If you call the coor
 
 ![CartoDB Dataset Screenshot](/media/cartodb_dataset_screenshot.png)
 
-Because there would be too many rows for each dataset we split up the datasets into quarters.
-
 ### Create Heatmap
 Now that the dirty prepartion is over let's get to the fun part.
 
@@ -187,21 +185,6 @@ Creating a Heatmap with CartoDB is quite simple.
 Select the heatmap template and choose the `date` column as time dimension.
 
 ![Create CartoDB heatmap](/media/heatmap_wizard.png)
-
-Because we want to display all our quarters we need to join them
-in the SQL pane of the map view.
-
-```sql
-SELECT * FROM requests_over_time_switzerland_2014_q1
-UNION ALL
-SELECT * FROM requests_over_time_switzerland_2014_q2
-UNION ALL
-SELECT * FROM requests_over_time_switzerland_2014_q3
-UNION ALL
-SELECT * FROM requests_over_time_switzerland_2014_q4
-UNION ALL
-SELECT * FROM requests_over_time_switzerland_2015_q1
-```
 
 ## Conclusion
 
