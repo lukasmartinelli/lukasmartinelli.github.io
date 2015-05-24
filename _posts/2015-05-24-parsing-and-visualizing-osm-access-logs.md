@@ -32,7 +32,7 @@ Somehow this does not work with the latest versions of Firefox. Try Chrome if yo
 
 ## Tile Coordinates
 
-To understand tiling in OpenStreetMap or Google Maps works you best take look
+To understand how tiling in OpenStreetMap or Google Maps works you best take look
 at [this visualization from Maptiler](http://www.maptiler.org/google-maps-coordinates-tile-bounds-projection/)
 and the [Google Maps API Docs](https://developers.google.com/maps/documentation/javascript/maptypes#TileCoordinates).
 
@@ -49,7 +49,7 @@ The coordinates in the example below use `(x,y,zoom)` as format. The index alway
 Download all the access logs from the OSM server.
 
 ```bash
-wget -r -l1 -N --no-parent http://planet.openstreetmap.org/tile_logs
+wget -nH -A xz -m http://planet.openstreetmap.org/tile_logs
 ```
 
 Now extract the logs (you need to install the [XZ Utils](http://tukaani.org/xz/) first).
