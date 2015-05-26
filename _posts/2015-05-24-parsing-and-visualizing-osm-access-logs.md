@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Parsing and Visualizing OSM Access Logs
-tags:
+tags: 
   - osm
   - gis
   - python
@@ -11,9 +11,12 @@ categories: python
 published: true
 ---
 
+
 [OpenStreetMap](https://www.openstreetmap.org/) now provides public access to the access logs of
 their tile map server from 2014 until today.
 In this article I will show you how to parse the access logs with Bash and Python and visualize the data with CartoDB.
+
+Prof. Stefan Keller documented the early findings from this analysis [on the Geometa Lab Blog](http://geometalab.tumblr.com/post/119834678622/analyzing-openstreetmap-standard-map-usage-early).
 
 Many thanks to [Matt Amos](https://github.com/zerebubuth) for making the log files accessible and
 to [@sfkeller](https://twitter.com/sfkeller) and [@mrothh](https://twitter.com/mrothh) for their help.
