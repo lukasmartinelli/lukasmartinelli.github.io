@@ -12,7 +12,8 @@ published: true
 ---
 
 Building realtime apps on top of [GitHub](http://github.com) is kind of a pain
-because GitHub only provides a plain HTTP API to it's public events.
+because GitHub only provides a [plain HTTP API](https://developer.github.com/v3/activity/events/)
+to it's public events.
 This is why I built the [GitHub Realtime Relay (GHRR)](http://ghrr.gq)
 which polls all public events and then relays them directly via websockets.
 This is probably the simplest way to create a realtime application on top of GitHub.
