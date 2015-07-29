@@ -1,39 +1,57 @@
 ---
 layout: post
-title: Github Realtime Relay with Nodejs 
-tags: 
-  - node 
-  - web 
-  - api 
+title: Github Realtime Relay Introduction
+tags:
+  - node
+  - web
+  - api
   - realtime
+  - github
 categories: web
 published: false
 ---
 
-Github provides a public stream api. 
+Receive all GitHub events close to realtime with [socket.io](http://socket.io/) from the [Github Realtime Relay](http://ghrr.gq).
 
-Twitter provides developers with good options regarding realtime applications
-with it's realtime streaming API.
-Github only provides a plain HTTP api. This means as a developer you have to
-poll to get all the latest application updates and you also have to deal
-with things like cache invalidation and duplicates in the events.
+Building realtime applications on top of GitHub is kind of a pain
+because GitHub only provides a plain HTTP API it's public events.
+This is why I built the [GitHub Realtime Relay (GHRR)](http://ghrr.gq)
+which polls all public events and then relays them directly via websockets.
 
-To make this easier and save you API calls I created open github realtime
-relay. A service that polls for you and broadcasts the emit via socket.io
-in realtime to your application.
+This is probably the simplest way to create a realtime application on top of Github.
 
-The code is a very simple node application that just pool periodically 
-removes the duplicates and streams the events to you.
+Head over to [GitHub](https://github.com/lukasmartinelli/ghrr) for instructions
+how to use http://ghrr.gq or continue reading.
 
-We also allow CORS headers so that you can connect from any web app
-and so easily create new services wihtout having a service
+## Usage Example
 
-An example of such an application is the management console itself.
+To get started all you need is an HTML file.
+We pull in the socket.io-client library and listen for events
+of type [PushEvent](https://developer.github.com/v3/activity/events/types/#pushevent) and append them to a list.
+
+![Screenshot of static website listening on GHRR socket](/media/screenshot_ghhr_static_site.png)
 
 
-Very simple connect example:
-
-```javascript
-
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Github Events</title>
+    <script src="http://cdn.jsdelivr.net/socket.io-client/1.2.0/socket.io.js"></script>
+    <script>
+      var url = 'http://ghrr.gq:80/events';
+      var socket = io(url);
+      socket.on('pushevent', function(event) {
+        var logItem = '<li>' + event.actor.login + 'pushed code to ' + event.repo.name + '</li>';
+        document.getElementById("eventlog").innerHTML += logItem;
+      });
+    </script>
+  </head>
+  <body>
+    <ul id="eventlog"></ul>
+  </body>
+</html>
 ```
 
+And that's it. Because we support [CORS](http://www.html5rocks.com/en/tutorials/cors/) you are able to access the public websocket from anywhere.
