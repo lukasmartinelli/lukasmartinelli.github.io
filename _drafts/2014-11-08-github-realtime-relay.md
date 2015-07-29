@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Github Realtime Relay Introduction
+title: Github Realtime Relay
 tags:
   - node
   - web
@@ -8,29 +8,26 @@ tags:
   - realtime
   - github
 categories: web
-published: false
+published: true
 ---
 
-Receive all GitHub events close to realtime with [socket.io](http://socket.io/) from the [Github Realtime Relay](http://ghrr.gq).
-
-Building realtime applications on top of GitHub is kind of a pain
-because GitHub only provides a plain HTTP API it's public events.
+Building realtime apps on top of [GitHub](http://github.com) is kind of a pain
+because GitHub only provides a plain HTTP API to it's public events.
 This is why I built the [GitHub Realtime Relay (GHRR)](http://ghrr.gq)
 which polls all public events and then relays them directly via websockets.
+This is probably the simplest way to create a realtime application on top of GitHub.
 
-This is probably the simplest way to create a realtime application on top of Github.
+![Screenshot of GHRR app](/media/screenshot_ghrr_app.png)
 
 Head over to [GitHub](https://github.com/lukasmartinelli/ghrr) for instructions
-how to use http://ghrr.gq or continue reading.
+how to use [http://ghrr.gq](http://ghrr.gq) or continue reading.
 
 ## Usage Example
 
 To get started all you need is an HTML file.
-We pull in the socket.io-client library and listen for events
-of type [PushEvent](https://developer.github.com/v3/activity/events/types/#pushevent) and append them to a list.
-
-![Screenshot of static website listening on GHRR socket](/media/screenshot_ghhr_static_site.png)
-
+We pull in the [socket.io client](screenshot_ghrr_app.png), listen for
+[push events](https://developer.github.com/v3/activity/events/types/#pushevent)
+and append them to a list.
 
 ```html
 <!DOCTYPE html>
@@ -53,5 +50,7 @@ of type [PushEvent](https://developer.github.com/v3/activity/events/types/#pushe
   </body>
 </html>
 ```
+
+![Screenshot of static website listening on GHRR socket](/media/screenshot_ghhr_static_site.png)
 
 And that's it. Because we support [CORS](http://www.html5rocks.com/en/tutorials/cors/) you are able to access the public websocket from anywhere.
