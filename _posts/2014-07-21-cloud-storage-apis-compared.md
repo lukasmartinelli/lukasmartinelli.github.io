@@ -112,7 +112,7 @@ Provider                                                          | Metadata Res
 ![Dropbox](/media/cloudstorage/dropbox.png) Dropbox               | Full metadata               | Chunked Upload | File contents
 ![Google Drive](/media/cloudstorage/googledrive.png) Google Drive | Full metadata (unnecessary) | Three options  | File contents, Multipart
 ![Box](/media/cloudstorage/box.png) Box                           | Full metadata               | Not supported  | Filename, Parent ID, Timestamps or Filepart (for POST multipart upload)
-![One Drive](/media/cloudstorage/onedrive.png) One Drive          | Partial metadata            | Not supported  | File contents
+![One Drive](/media/cloudstorage/onedrive.png) One Drive          | Partial metadata            | Not supported  | File contents, Multipart
 ![Sugar Sync](/media/cloudstorage/sugarsync.png) Sugar Sync       | Not supported               | Not supported  | File contents
 
 Dropbox and Google Drive provider methods to upload huge files in partial requests.
