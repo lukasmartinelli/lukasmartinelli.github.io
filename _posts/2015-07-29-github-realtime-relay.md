@@ -18,7 +18,7 @@ This is why I built the [GitHub Realtime Relay (GHRR)](http://ghrr.gq)
 which polls all public events and then relays them directly via websockets.
 This is probably the simplest way to create a realtime application on top of GitHub.
 
-![Screenshot of GHRR app](/media/screenshot_ghrr_app.png)
+![Screenshot of GHRR app](/media/animated_screenshot_ghrr.gif)
 
 Head over to [GitHub](https://github.com/lukasmartinelli/ghrr) for instructions
 how to use [http://ghrr.gq](http://ghrr.gq) or continue reading.
