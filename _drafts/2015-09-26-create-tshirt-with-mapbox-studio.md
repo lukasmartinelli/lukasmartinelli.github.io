@@ -15,6 +15,7 @@ In summer of 2015 a good friend and I did a
 across the Balkan states.
 The entire tour was GPS tracked and as a special memory of this
 experience I wanted to create a T-shirt out of the data of our journey.
+You can find the project on [Github](https://github.com/lukasmartinelli/biketour/tree/master/mapbox).
 
 ## Result
 
@@ -57,7 +58,7 @@ in your style project.
 Make the base layer of your map transparent.
 If you cannot make it transparent (e.g. if your base layer is your water body)
 then assign white color for features you want to make transparent later
-in the image post processing step.
+in the image post-processing step.
 
 ```css
 Map {
@@ -100,10 +101,10 @@ Choose the highest possible resolution `600ppi` and the `PNG` format.
 ![Mapbox good basemaps for T-shirts](/media/mapbox_export.png)
 
 
-### Post Processing with GIMP / Photoshop
+### Post-processing with GIMP / Photoshop
 
 Now make sure that your map background and edges are transparent.
-In my case I [chose white as the base layer color and then replaced white with an alpha
+In my case I [chose white as the base layer color and then replaced white with the alpha
 channel](http://docs.gimp.org/en/plug-in-colortoalpha.html).
 If your map is transparent it will also be possible to print it on different
 T-shirt colors.
@@ -113,11 +114,11 @@ T-shirt colors.
 Alot of parameters depend on your T-shirt manufacturer.
 Most online printing services allow you to upload a high resolution image
 and preview the result in the browser.
-
 I used the swiss T-shirt printing service [Mc Shirt](http://www.mcshirt.ch/) but there
 are [alot of providers](http://www.printaholic.com/our-reviews/t-shirts/)
 out there: just do a quick Google search.
-I am quite happy with the print result although the T-shirt quality does feel a bit lousy.
+
+I am quite happy with the print result and service although the T-shirt quality does feel a bit lousy.
 
 <img style="width: 53%;" src="/media/mcshirt_create_with_map.png" alt="Shirt editor preview">
 <img style="width: 45.5%;" src="/media//real_shirt.jpg" alt="Real shirt">
