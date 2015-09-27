@@ -4,9 +4,7 @@ title: Create a T-Shirt with Mapbox Studio
 published: true
 tags:
   - idea
-  - python
   - cartography
-  - gis
   - geojson
   - mapbox
 categories: gis
@@ -103,7 +101,7 @@ is visible.
 ```css
 #track {
     line-color: #d92e26;
-    line-width: 4;   
+    line-width: 4;
     line-join: round;
     line-cap: round;
 }
@@ -136,8 +134,6 @@ channel](http://docs.gimp.org/en/plug-in-colortoalpha.html).
 If your map is transparent it will also be possible to print it on different
 T-shirt colors.
 
-![Mapbox good basemaps for T-shirts](/media/small_transparent_border.png)
-
 ### Create the T-shirt
 
 Alot of parameters depend on your T-shirt manufacturer.
@@ -150,9 +146,8 @@ Now find a T-shirt printing service and upload your image.
 I used mc-shirt but this is because I was limited to order from Switzerland.
 I am sure there are much better services, just do a quick google search.
 
-![Mapbox good basemaps for T-shirts](/media/mcshirt_create_with_map.png)
-
-
+<img style="width: 53%;" src="/media/mcshirt_create_with_map.png" alt="Shirt editor preview">
+<img style="width: 46%;" src="/media//real_shirt.jpg" alt="Real shirt">
 
 ### Collect the Data
 
