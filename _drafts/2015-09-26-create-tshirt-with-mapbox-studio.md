@@ -37,8 +37,7 @@ The print quality is surprisingly good. The colors don't match exactly though.
 
 You don't want too many features printed on your chest. Choose a base map with good contrast
 and customize it to show only the features you want.
-Especially the stylistic base maps will probably yield good results while anything with
-height textures and satellites images will be more difficult.
+Especially the stylistic base maps will probably yield good results.
 
 ![Mapbox good basemaps for T-shirts](/media/mapbox_good_basemap_tshirt.png)
 
@@ -52,34 +51,24 @@ Create a new source and import your data. You can import GPX traces or in my cas
 I used [GeoJson](http://geojson.org/) files.
 Just make sure you have enough attributes to style the data later.
 
-![Custom source](/media/mapbox_studio_custom_source.png)
-
-In the style project you now have to combine the two source.
+In the style project you now have to combine the two sources.
 In `Layers > Change Source` enter the Mapbox id of your basemap layer followed
-by the id of your custom source layer.
-
-![](/media/mapbox_multiple_sources.png)
-
-In your style projects you should now see the layers of both sources.
+by the id of your custom source layer. You should now see the layers of both sources
+in your style project.
 
 ## Adapt Styles
 
 Now start customizing your map styles.
 You should remove any clutter on the map you don't want to see.
-
-[CartoCSS supports filters](https://www.mapbox.com/guides/cartocss-in-studio/#text-comparison-filters)
+CartoCSS supports [filters](https://www.mapbox.com/guides/cartocss-in-studio/#text-comparison-filters)
 to explicitely hide or show feature layers.
-
-
-In my case I only wanted to show countries I actually travelled and wanted to hide a few labels.
+In my case I wanted to show only countries I actually travelled and hide the rest.
 
 ```css
 #country-name {
-    text-face-name: @sans_bold;
-    text-fill: #6161b9;
-    text-size: 16;
-    text-name: ''; // Hide the label by default
+    text-name: ''; // Hide the label for all countries
 
+    // Show label for specific countries
     [ADM0_A3='CHE'] { text-name: [NAME]; }
     [ADM0_A3='ITA'] { text-name: [NAME]; }}
 }
@@ -95,28 +84,7 @@ you can optimize the position of the labels by hand.
 }
 ```
 
-I also wanted to show my track. Make it thick enough and in a color that it
-is visible.
-
-```css
-#track {
-    line-color: #d92e26;
-    line-width: 4;
-    line-join: round;
-    line-cap: round;
-}
-```
-
-And I also wanted to display all places we camped.
-
-```css
-#timeline[marker-symbol='campsite'] {
-    marker-file: url(maki/campsite.svg);
-    marker-fill: #810e09;
-    marker-width: 25;
-    marker-allow-overlap: true;
-}
-```
+You should make the base layer of your map transparent. If you cannot then make
 
 ### Export image
 
@@ -148,24 +116,3 @@ I am sure there are much better services, just do a quick google search.
 
 <img style="width: 53%;" src="/media/mcshirt_create_with_map.png" alt="Shirt editor preview">
 <img style="width: 46%;" src="/media//real_shirt.jpg" alt="Real shirt">
-
-### Collect the Data
-
-I used the free and open source [GPSLogger for Android](http://code.mendhak.com/gpslogger/)
-to record GPX traces of the tour and update an API endpoint so my friends and family
-could follow me during the tour.
-
-http://biketour.lukasmartinelli.ch/
-
-I also pulled in my tweets and displayed them on the map through Twitter's location API.
-While a webmap is a cool thing, I wanted to create something more memorable out of it.
-And just printing the webmap on a t-shirt would not cut it.
-
-![Biketour Webmap](/media/biketour_webmap.png)
-
-## Choose a baselayer
-
-You don't want to meany features on a T-Shirt. Good styles to start from are black and white
-or have single colors. In my case I took the tilemill geography example.
-
-## Import the Data
