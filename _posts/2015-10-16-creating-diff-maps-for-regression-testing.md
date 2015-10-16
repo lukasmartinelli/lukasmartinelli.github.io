@@ -12,8 +12,8 @@ categories: gis
 ---
 
 If you are working on a web map it is difficult to see what changes a
-line of CartoCSS can cause. With visual regression
-testing you can create a diff between versions and ensure quality.
+line of [CartoCSS](http://wiki.openstreetmap.org/wiki/CartoCSS) can cause.
+With visual regression testing you can create a diff between versions and ensure quality.
 
 At [Geometa Lab](http://www.ifs.hsr.ch/Geometa-Lab.12520.0.html) we are currently building
 [Mapbox Streets compatible vector tiles](https://github.com/geometalab/osm2vectortiles/)
@@ -221,8 +221,8 @@ They should now appear in the *data* section
 You can preview the raster MBTiles in your browser and look through all the
 changes you made on all zoom levels.
 
-## Conslusion
+## Conclusion
 
 Ensuring quality of your maps is not that hard and tools like
-tilelive make it really easy to extract and compare tiles.
-For the greatest benefit you can include visual regression into your CI workflow.
+[tilelive](https://github.com/mapbox/tilelive) make it really easy to extract and compare tiles.
+For greater benefit you should include visual regression into your CI workflow.
