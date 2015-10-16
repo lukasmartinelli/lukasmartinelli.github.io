@@ -212,10 +212,9 @@ or upload it to Mapbox.
 
 ## Upload to Mapbox
 
-Upload your raster MBTiles to Mapbox
+Upload your raster MBTiles to Mapbox.
 You can use the [mapbox-upload](https://github.com/mapbox/mapbox-upload) script
 to upload the MBTiles programmatically.
-
 The raster map should now appear in the *data* section and you can browse the diffs.
 
 ![Mapbox data view](/media/mapbox_data_view.png)
