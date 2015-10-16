@@ -28,44 +28,37 @@ Assume we apply a few changes to the OSM Bright 2 style.
 We change the labels to German, make the forests a bit darker and greener
 and change the width of main roads at lower zoom levels.
 
-**Original:**
-
-```css
-@name: '[name_en]';
-
-#landuse::overlay {
-    opacity: 0.1;
-    [class='wood'] { polygon-fill: #6a4; polygon-gamma: 0.5; }
-}
-
-#road, #bridge, #tunnel {
-  [class='main'][zoom>=13] { line-width:2.5; }
-}
-```
-
-**Change:**
-
-```css
-@name: '[name_de]';
-
-#landuse::overlay {
-    opacity: 0.2;
-    [class='wood'] { polygon-fill: #34810e; polygon-gamma: 0.9; }
-}
-
-#road, #bridge, #tunnel {
-  [class='main'][zoom>=13] { line-width:4; }
-}
-```
+<img style="width: 49%;" src="/media/osm_bright_original.png">
+<img style="width: 49.5%;" src="/media/osm_bright_changed.png">
 
 Now we can compare the maps by eye side by side or we can use
 visual regression testing to highlight the changes even more
-and without human intervention.
+and without human intervention because looking at more subtle changes
+than these make it hard to visualize what actually happened and what impact the changes have.
 
-Look at more subtle changes than these make it hard to visualize what actually happened and what impact the changes have.
+[LeafletJS](http://leafletjs.com/) creator [Vladimir Agafonkin](https://twitter.com/mourner)
+recently open sourced the [pixelmatch](https://github.com/mapbox/pixelmatch) library for pixel-level image comparison for visual regression tests.
 
-<img style="width: 49%;" src="/media/osm_bright_original.png">
-<img style="width: 49.5%;" src="/media/osm_bright_changed.png">
+```bash
+npm install -g pixelmatch
+```
+
+Now we generate the diff between the two images.
+
+```
+pixelmatch image_v1.png image_v2.png diff.png 0.005 1
+```
+
+We see that quite many pixels have changed.
+
+```bash
+match: 10ms
+different pixels: 26065
+error: 14.44%
+```
+
+<img style="width: 49%;" src="/media/osm_bright_diff.png">
+<img style="width: 49%;" src="/media/osm_bright_animation.gif">
 
 ## Requirements
 
@@ -97,16 +90,6 @@ tl copy mapbox://morgenkaffee.9c069ced files://./tiles_v2
 
 
 ## Compare the changes
-
-[LeafletJS](http://leafletjs.com/) creator [Vladimir Agafonkin](https://twitter.com/mourner)
-recently open sourced the  library for pixel-level image comparison for visual regression tests.
-
-We use the [pixelmatch](https://github.com/mapbox/pixelmatch) utility from Mapbox
-to compare the changes between `v1` and `v2`.
-
-```bash
-npm install pixelmatch
-```
 
 Compare two images and write the output diff to a new file.
 
