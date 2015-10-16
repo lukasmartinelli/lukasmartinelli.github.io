@@ -82,7 +82,7 @@ of the main roads (visible as yellow shade).
 Install the necessary tilelive packages.
 
 ```
-npm install tl tilelive-mapbox tilelive-file tilejson mbtiles
+npm install -g tl tilelive-mapbox tilelive-file tilejson mbtiles
 ```
 
 Export the Mapbox API access token.
@@ -197,12 +197,14 @@ THRESHOLD=0.01 ANTIALIASING=2 ./create_diffs.sh tiles_v1 tiles_v2
 Now we can create a new raster map out of the diff tiles.
 Copy the tiles into MBTiles.
 
-```
-npm install mbtiles
+```bash
+tl copy file://./diff mbtiles://./diffs.mbtiles
 ```
 
+And for the GIFs as well.
+
 ```bash
-tl copy file://./diffs mbtiles://./diffs.mbtiles
+tl copy file://./gif  mbtiles://./gifs.mbtiles
 ```
 
 Now you can serve the MBTiles yourself with [tileserver-php](https://github.com/klokantech/tileserver-php/)
@@ -210,11 +212,11 @@ or upload it to Mapbox.
 
 ## Upload to Mapbox
 
-Upload your raster MBTiles to Mapbox.
+Upload your raster MBTiles to Mapbox
+You can use the [mapbox-upload](https://github.com/mapbox/mapbox-upload) script
+to upload the MBTiles programmatically.
 
-![Upload raster MBTiles to Mapbox](/media/mapbox_upload_file.png)
-
-They should now appear in the *data* section
+The raster map should now appear in the *data* section and you can browse the diffs.
 
 ![Mapbox data view](/media/mapbox_data_view.png)
 
