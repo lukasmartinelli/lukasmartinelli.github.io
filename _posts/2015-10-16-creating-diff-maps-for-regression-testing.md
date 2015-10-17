@@ -66,11 +66,6 @@ Browse animated GIFs where the different tiles are the GIF frames.
 
 Browse the visual difference between the generated tiles.
 
-We can now detect the change from English labels to German labels where
-the names were different and that all wood lands are rendered differently.
-Streets appear to stay the same on zoom level 12 except the color
-of the main roads (visible as yellow shade).
-
 ![OSM Bright visual diff](/media/osm_bright_visual_diff.gif)
 
 
