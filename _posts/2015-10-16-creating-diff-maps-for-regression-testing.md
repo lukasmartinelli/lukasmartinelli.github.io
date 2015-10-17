@@ -31,11 +31,8 @@ and change the width of main roads at lower zoom levels.
 <img style="width: 49%;" src="/media/osm_bright_original.png">
 <img style="width: 49.5%;" src="/media/osm_bright_changed.png">
 
-Now we can compare the maps by eye side by side or we can use
-visual regression testing to highlight the changes even more
-and without human intervention because looking at more subtle changes
-than these make it hard to visualize what actually happened and what impact the changes have.
-
+With subtle changes it is difficult to detect what actually happened and
+what impact the changes have.
 [LeafletJS](http://leafletjs.com/) creator Vladimir Agafonkin
 recently open sourced the [pixelmatch](https://github.com/mapbox/pixelmatch) library for pixel-level image comparison for visual regression tests.
 Now we generate the diff between the two images.
