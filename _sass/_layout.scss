@@ -1,13 +1,12 @@
 /* ===============
-   Layout Rules 
+   Layout Rules
    =============== */
-@import "compass/css3/images";
-@import "compass/utilities/general/clearfix";
+
 /* ===Top section=== */
 
-// Because we want the top always to be permament and the content flow under the top,
-// we make it fixed and set it on top with z-index, the content should be slightly visible below
-// through the opacity effect 
+// Because we want the top always to be permament and the content flow 
+// under the top, // we make it fixed and set it on top with z-index,
+// the content should be slightly visible below through the opacity effect
 #top {
 	position: fixed;
 	top: 0px;
@@ -20,11 +19,12 @@
 	header {
 		border-top: 3px solid $color-highlight;
 		border-bottom: 1px solid $color-border;
-		@include background(linear-gradient(top, #fff 0%,#fff 65%,#eee 100%));
+        background: linear-gradient(to bottom, #ffffff 0%, #ffffff 65%, #eeeeee 100%);
 		overflow: hidden;
 	}
 
-	// User shouldnt have a permament top on mobile devices, space is precious there
+	// User shouldnt have a permament top on mobile devices
+    // as space is precious there
 	@media only screen and (max-width: $screen-break-top) {
 		position: relative;
 
@@ -38,7 +38,7 @@
 	overflow: visible;
 	// Because the navigation is no longer fixed we no longer need the huge margin
 	@media only screen and (max-width: $screen-break-top) {
-		margin-top: $default-margin;		
+		margin-top: $default-margin;
 	}
 }
 
@@ -64,4 +64,4 @@
 #bottom {	
 	clear: both;
 	padding-top: $default-margin;
-}	
+}
