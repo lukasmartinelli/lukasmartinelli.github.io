@@ -171,7 +171,7 @@ a.gallery img {
 }
 
 /* ===CV=== */
-article.cv {
+.cv {
     padding-bottom: $default-margin;
 
     header {
@@ -180,11 +180,41 @@ article.cv {
 }
 
 /* ===Archive=== */
-article.archive {
+.archive {
     padding-bottom: $default-margin;
 
     header {
         padding-top: $default-margin;
+    }
+}
+
+/* ===Projects=== */
+
+.projects {
+	@include shiny-box;
+	position: relative;
+	margin: 0 0 $default-margin 0;
+
+	.content {
+		padding: 0 $default-margin;
+	}
+
+	header {
+        padding: $default-margin;
+    }
+}
+
+.project {
+    @include clearfix;
+
+    header {
+        @include clearfix;
+
+        h3 span {
+            display: block;
+            float: left;
+        }
+        .github-stars { float: right; }
     }
 }
 
