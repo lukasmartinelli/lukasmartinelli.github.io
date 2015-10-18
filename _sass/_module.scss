@@ -2,8 +2,6 @@
    Module Rules
    =============== */
 
-@import "compass/utilities/sprites";
-
 /* ===Branding=== */
 
 div.branding {
@@ -205,5 +203,16 @@ footer {
 }
 
 /* ===Icons === */
-@import "icon/*.png";
-@include all-icon-sprites;
+// Can no longer generate these without compass
+// so they are hand made for now
+
+.icon-sprite, .icon-cloud, .icon-gis, .icon-idea, .icon-python, .icon-web {
+  background-image: url('../img/icon-se270bbf41a.png');
+  background-repeat: no-repeat;
+}
+
+.icon-cloud { background-position: 0 0; }
+.icon-gis { background-position: 0 -64px; }
+.icon-idea { background-position: 0 -128px; }
+.icon-python { background-position: 0 -192px; }
+.icon-web { background-position: 0 -256px; }
