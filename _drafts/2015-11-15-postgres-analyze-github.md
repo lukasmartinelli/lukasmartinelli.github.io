@@ -44,13 +44,13 @@ Below is an example record of a repository.
 }
 ```
 
-The download is split up into several 1GB files.
+Download the source data (~13GB).
 
 ```bash
 wget https://s3-eu-west-1.amazonaws.com/repostruct/repos.json.gz
 ```
 
-Extract the gzipped files. This will result in ~100 GB uncompressed files.
+Extract the gzipped files. This will result in a ~100 GB uncompressed file.
 
 ```bash
 gunzip repos.json.gz
