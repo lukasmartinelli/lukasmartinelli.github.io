@@ -47,13 +47,13 @@ Below is an example record of a repository.
 The download is split up into several 1GB files.
 
 ```bash
-wget https://s3-eu-west-1.amazonaws.com/repostruct/repos_{1..11}.json.gz
+wget https://s3-eu-west-1.amazonaws.com/repostruct/repos.json.gz
 ```
 
 Extract the gzipped files. This will result in ~100 GB uncompressed files.
 
 ```bash
-gunzip repos_{1..11}.json.gz
+gunzip repos.json.gz
 ```
 
 ## Import JSON data into PostgreSQL
@@ -91,7 +91,7 @@ you can use specific arguments or set environment variables.
 ./pgfutter --table repos --db repostruct \
   --port 5432 --host localhost \
   --user repo_analysis --pass awes0me \
-  json repos_{1..11}.json
+  json repos.json
 ```
 
 ## Create Views for Querying
@@ -109,7 +109,8 @@ Four our case we will use a view to make working with the data easier.
 Let's create an unique index on the repository name embedded in the `data` JSON field.
 
 ```sql
-CREATE UNIQUE INDEX ON import.repos((data->'metdata'->>'repo'))
+CREATE UNIQUE INDEX ON import.repos((data->'metadata'->>'repo'))
+CREATE INDEX ON import.repos((data->'metadata'->'language_statistics'->0->>0))
 ```
 
 We flatten they array structure of filepaths into records.
@@ -192,7 +193,8 @@ SELECT
   COUNT(CASE WHEN f.filepath = 'readme.txt' THEN 1 ELSE 0 END) as txt
 FROM public.filepaths f
 INNER JOIN public.repos r ON r.repo = f.repo
+WHERE f.filepath like 'readme.%'
 GROUP BY r.primary_language
 );
-``` 
+```
 
