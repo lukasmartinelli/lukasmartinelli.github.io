@@ -30,10 +30,10 @@ The easiest way to get started is using a XP VM image from the [Modern.IE projec
 
 Open the file with PX-Axis and select the dimensions you want to export.
 To export the data into CSV it is best to omit the aggregated values and
-focus on a single dimension (in this case population of swiss people and foreigners).
+focus on a single dimension.
 
-![Open file with PX-Axis](/media/choose_dimensions.png)
-![View of file in PX-Axis](/media/px_axis_file.png)
+![Open file with PX-Axis](/media/focus_single_dimension.png)
+![View of file in PX-Axis](/media/single_dimension_px_axis.png)
 
 ## Export as CSV
 
@@ -43,61 +43,7 @@ Use `File` > `Save as` to open the export wizard. Switch to the `Convert` tab an
 
 ## Clean up CSV
 
-Now you have the data available in CSV format but you usually want to extract distinct dimensions
-of the data and skip the aggregates.
+Because we've selected only a single dimension we can now delete the first dimension column
+and have a valid CSV file that we can use in other programs.
 
-![Skip aggregates](/media/skip_take.png)
-
-I use a small Python script to only extract the data of the communities (and skip district and canton aggregates). Make sure the data is saved as UTF-8 in order to use it.
-
-```python
-import csv
-import sys
-
-
-def extract_values(reader):
-
-    def parse_row(community, nationality, row):
-        parts = community.split(' ')
-        community_id = parts[0]
-        community_name = " ".join(parts[1:])
-        return [community_id, community_name, nationality] + row[4:]
-
-    def skip():
-        next(reader)
-
-    def parse_header_row():
-        header_row = next(reader)
-        additional_fields = ['community_id', 'community_name', 'nationality']
-        return additional_fields + header_row[4:]
-
-    yield parse_header_row()
-    for row in reader:
-        is_community = len(row) > 1 and row[1].startswith('......')
-        if is_community:
-            community = row[1].replace('......', '')
-
-            skip()
-            yield parse_row(community, 'Switzerland', next(reader))
-            skip()
-            yield parse_row(community, 'Foreign', next(reader))
-
-
-if __name__ == '__main__':
-    args = docopt(__doc__, version='0.1')
-
-    with open(args.get('<csv_file>')) as csv_file:
-        reader = csv.reader(csv_file, delimiter='\t', quotechar='"')
-        writer = csv.writer(sys.stdout, delimiter='\t', quotechar='"')
-
-        for row in extract_values(reader):
-            writer.writerow(row)
-
-```
-
-## Resulting CSV File
-
-You now have a CSV file you can use in other programs and languages or also import into a database.
-
-![Cleaned CSV file](/media/cleaned_csv_file.png)
-
+![Valid CSV file](/media/valid_csv_file.png)
