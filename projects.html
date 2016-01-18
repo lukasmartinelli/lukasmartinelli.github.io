@@ -91,6 +91,30 @@ title: Projects Lukas Martinelli
         <article class="project">
           <header>
             <h3>
+              <span>hadolint</span>
+              <iframe class="github-stars" src="https://ghbtns.com/github-btn.html?user=lukasmartinelli&repo=hadolint&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+            </h3>
+          </header>
+          <div class="content">
+            <p>A smarter Dockerfile linter that helps you build <a href="https://docs.docker.com/engine/articles/dockerfile_best-practices/">best practice Docker images</a>.
+            The linter is parsing the Dockerfile into an AST and performs rules on top of the AST.
+            It additionally is using the famous <a href="https://github.com/koalaman/shellcheck">Shellcheck</a> to lint the Bash
+            code inside <code>RUN</code> instructions.</p>
+          </div>
+          <footer>
+            <span class="tags">
+              <a href="#" rel="tag">#haskell</a>
+              <a href="#" rel="tag">#docker</a>
+              <a href="#" rel="tag">#linting</a>
+              <a href="#" rel="tag">#ast</a>
+              <a href="#" rel="tag">#parser</a>
+            </span>
+          </footer>
+        </article>
+
+        <article class="project">
+          <header>
+            <h3>
               <span>redis-pipe</span>
               <iframe class="github-stars" src="https://ghbtns.com/github-btn.html?user=lukasmartinelli&repo=redis-pipe&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
             </h3>
@@ -105,6 +129,29 @@ title: Projects Lukas Martinelli
               <a href="#" rel="tag">#golang</a>
               <a href="#" rel="tag">#redis</a>
               <a href="#" rel="tag">#cli</a>
+            </span>
+          </footer>
+        </article>
+
+        <article class="project">
+          <header>
+            <h3>
+              <span>py14</span>
+              <iframe class="github-stars" src="https://ghbtns.com/github-btn.html?user=lukasmartinelli&repo=py14&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+            </h3>
+          </header>
+          <div class="content">
+           <p>This is a little experiment that shows how far you can go with the
+C++ 14 <code>auto</code> return type and templates.
+C++14 has such powerful type deduction that it is possible to transpile
+Python into C++ without worrying about the missing type annotations in python. Only a small subset of Python is working and you will encounter many bugs. The goal is to showcase the power of C++14 templates and not to create a fully functional transpiler.</p>
+          </div>
+          <footer>
+            <span class="tags">
+              <a href="#" rel="tag">#python</a>
+              <a href="#" rel="tag">#compiler</a>
+              <a href="#" rel="tag">#ast</a>
+              <a href="#" rel="tag">#c++</a>
             </span>
           </footer>
         </article>
@@ -134,23 +181,21 @@ title: Projects Lukas Martinelli
         <article class="project">
           <header>
             <h3>
-              <span>hadolint</span>
-              <iframe class="github-stars" src="https://ghbtns.com/github-btn.html?user=lukasmartinelli&repo=hadolint&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+              <span>hwk</span>
+              <iframe class="github-stars" src="https://ghbtns.com/github-btn.html?user=lukasmartinelli&repo=hwk&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
             </h3>
           </header>
           <div class="content">
-            <p>A smarter Dockerfile linter that helps you build <a href="https://docs.docker.com/engine/articles/dockerfile_best-practices/">best practice Docker images</a>.
-            The linter is parsing the Dockerfile into an AST and performs rules on top of the AST.
-            It additionally is using the famous <a href="https://github.com/koalaman/shellcheck">Shellcheck</a> to lint the Bash
-            code inside <code>RUN</code> instructions.</p>
+            <p><strong>hwk</strong> tries to demonstrate how a modern Haskell based stream manipulation tool could look like.
+            It is similar to tools like <strong>awk</strong> or <strong>sed</strong>.
+            <code>hwk</code> allows compact command sequences that operate on a list of strings. Because Haskell is lazy and has a powerful arsenal of functions, there is no need to invent another DSL and hopefully
+            push people into using functional goodness. <code>hwk</code> also provides a method to store small functions for
+            reuse in environment variables.</p>
           </div>
           <footer>
             <span class="tags">
               <a href="#" rel="tag">#haskell</a>
-              <a href="#" rel="tag">#docker</a>
-              <a href="#" rel="tag">#linting</a>
-              <a href="#" rel="tag">#ast</a>
-              <a href="#" rel="tag">#parser</a>
+              <a href="#" rel="tag">#pipes</a>
             </span>
           </footer>
         </article>
@@ -178,28 +223,6 @@ title: Projects Lukas Martinelli
               <a href="#" rel="tag">#postgres</a>
               <a href="#" rel="tag">#javascript</a>
               <a href="#" rel="tag">#css</a>
-            </span>
-          </footer>
-        </article>
-
-        <article class="project">
-          <header>
-            <h3>
-              <span>hwk</span>
-              <iframe class="github-stars" src="https://ghbtns.com/github-btn.html?user=lukasmartinelli&repo=hwk&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
-            </h3>
-          </header>
-          <div class="content">
-            <p><strong>hwk</strong> tries to demonstrate how a modern Haskell based stream manipulation tool could look like.
-            It is similar to tools like <strong>awk</strong> or <strong>sed</strong>.
-            <code>hwk</code> allows compact command sequences that operate on a list of strings. Because Haskell is lazy and has a powerful arsenal of functions, there is no need to invent another DSL and hopefully
-            push people into using functional goodness. <code>hwk</code> also provides a method to store small functions for
-            reuse in environment variables.</p>
-          </div>
-          <footer>
-            <span class="tags">
-              <a href="#" rel="tag">#haskell</a>
-              <a href="#" rel="tag">#pipes</a>
             </span>
           </footer>
         </article>
