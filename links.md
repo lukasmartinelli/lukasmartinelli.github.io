@@ -3,7 +3,11 @@ layout: page
 title: Links
 ---
 
-### 14th Februar 2016
+## 15th February 2016
+- [How to Distribute Binaries for OS X Using Homebrew](http://octavore.com/posts/2016/02/15/distributing-go-apps-os-x)
+- [Awesome PostgreSQL tooling list](https://github.com/dhamaniasad/awesome-postgres)
+
+### 14th February 2016
 
 - [Go Report Card - Analyze Go projects](https://goreportcard.com/)
 - [LogDNA - Free logging similar to Papertrail](https://logdna.com/)
