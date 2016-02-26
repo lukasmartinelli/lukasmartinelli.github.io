@@ -1,7 +1,7 @@
 name: Lukas Martinelli's Blog
 description: I blog about tech, oss, python, web, js, c#, ideas
 url: http://lukasmartinelli.ch
-markdown: redcarpet
+markdown: kramdown
 redcarpet:
   extensions: ["fenced_code_blocks", "tables"]
 safe: true
