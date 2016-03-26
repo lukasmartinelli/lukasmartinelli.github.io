@@ -5,7 +5,7 @@ markdown: kramdown
 redcarpet:
   extensions: ["fenced_code_blocks", "tables"]
 safe: true
-pygments: true
+highlighter: true
 exclude: ['CNAME', 'Guardfile', 'README.md']
 prose:
   media: 'media'
