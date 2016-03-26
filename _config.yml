@@ -7,7 +7,6 @@ redcarpet:
 safe: true
 pygments: true
 exclude: ['CNAME', 'Guardfile', 'README.md']
-paginate: 50
 prose:
   media: 'media'
   ignore:
