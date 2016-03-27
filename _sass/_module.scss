@@ -232,6 +232,16 @@ footer {
 	.permalink { float: right; }
 }
 
+/* ===Code Highlighting=== */
+
+.highlight {
+  overflow-x: auto;
+
+  @media only screen and (max-width: em(800)) {
+    font-size: 0.8em;
+  }
+}
+
 /* ===Icons === */
 // Can no longer generate these without compass
 // so they are hand made for now
