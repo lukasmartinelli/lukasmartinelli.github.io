@@ -4,12 +4,12 @@
 
 /* ===Top section=== */
 
-// Because we want the top always to be permament and the content flow 
+// Because we want the top always to be permament and the content flow
 // under the top, // we make it fixed and set it on top with z-index,
 // the content should be slightly visible below through the opacity effect
 #top {
-	position: fixed;
-	top: 0px;
+    position: fixed;
+    top: 0px;
 	left: 0px;
 	width: 100%;
 	border-bottom: 8px solid $shadow;
@@ -35,6 +35,7 @@
 
 #main {
 	margin-top: em(90);
+    @include clearfix;
 	overflow: visible;
 	// Because the navigation is no longer fixed we no longer need the huge margin
 	@media only screen and (max-width: $screen-break-top) {
@@ -61,7 +62,7 @@
 
 /* ===Bottom=== */
 
-#bottom {	
+#bottom {
 	clear: both;
 	padding-top: $default-margin;
 }
