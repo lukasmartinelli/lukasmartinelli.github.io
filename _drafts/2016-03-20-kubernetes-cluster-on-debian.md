@@ -134,6 +134,10 @@ WantedBy=multi-user.target
 EOF
 ```
 
+```
+etcdctl set /coreos.com/network/config '{ "Network": "10.1.0.0/16" }'
+```
+
 ```bash
 systemctl start flanneld
 ```
