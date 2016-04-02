@@ -11,11 +11,41 @@ tags:
 categories: gis
 ---
 
-Approximate global noise pollution with OSM data and very simple noise model.
+Visualization of noise pollution for the entire world based on top of OSM data. Search for your city
+and check for the noisy places.
 Using global street, landuse and building data from [OpenStreetMap](https://openstreetmap.org)
 we can approximate where noise pollution might happen.
 We use a very simple noise model inspired by [noise pollution concept of Cities Skylines](http://www.skylineswiki.com/Pollution#Noise_pollution).
 
+The [GitHub repository to render global noise pollution data is Open Source](https://github.com/lukasmartinelli/osm-noise-pollution) if you want to repeat the process
+or create something similar.
+
+<iframe src="https://ghbtns.com/github-btn.html?user=lukasmartinelli&repo=osm-noise-pollution&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px" style="margin-bottom:25px;"></iframe>
+
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.16.0/mapbox-gl.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.16.0/mapbox-gl.css' rel='stylesheet' />
+
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.0.0/mapbox-gl-geocoder.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.0.0/mapbox-gl-geocoder.css' type='text/css' />
+
+<div id='map' style="width: 100%; height: 500px;"></div>
+
+<br/>
+
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoibW9yZ2Vua2FmZmVlIiwiYSI6IjIzcmN0NlkifQ.0LRTNgCc-envt9d5MzR75w';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/morgenkaffee/cimi6phf0007wcem3cyr9cl3o',
+    center: [8.538961,47.372476],
+zoom: 13.7
+});
+
+map.addControl(new mapboxgl.Navigation());
+map.addControl(new mapboxgl.Geocoder());
+</script>
+
+## How does it work?
 
 In the model we add a buffer to **noisy objects**. This is the area that is probably affected by noise. Very noisy objects get a high buffer and less noisy objects a smaller buffer.
 
@@ -33,10 +63,7 @@ In order for this to work we make several assumptions:
 For OSM features that match this criterias we assign a buffer and remove the overlapping parts which results
 in a simple approximation of noise pollution.
 
-![Noise map of Zurich](https://api.mapbox.com/styles/v1/morgenkaffee/cimi6phf0007wcem3cyr9cl3o/static/8.538961,47.372476,13.71,0.00,0.00/900x600?access_token=pk.eyJ1IjoibW9yZ2Vua2FmZmVlIiwiYSI6IjIzcmN0NlkifQ.0LRTNgCc-envt9d5MzR75w)
-
-
-## Noise Levels
+### Noise Levels
 
 The noise pollution areas are divided into three noise level.
 
@@ -101,4 +128,3 @@ traffic volume and all the other fancy stuff - but it is simple enough to be app
 | `sporty=[baseball,soccer,..]` | `40m` | `60m`  | `80m`
 
 These values are implemented in the vector tile data source in `src/vector-datasource/data.yml`.
-
