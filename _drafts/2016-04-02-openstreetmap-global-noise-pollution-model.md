@@ -17,35 +17,13 @@ Using global street, landuse and building data from [OpenStreetMap](https://open
 we can approximate where noise pollution might happen.
 We use a very simple noise model inspired by [noise pollution concept of Cities Skylines](http://www.skylineswiki.com/Pollution#Noise_pollution).
 
-The [GitHub repository to render global noise pollution data is Open Source](https://github.com/lukasmartinelli/osm-noise-pollution) if you want to repeat the process
-or create something similar.
+Take a look [at the full screen map](/maps/noise-pollution.html) and explore some cities and their noise visualizations.
 
-<iframe src="https://ghbtns.com/github-btn.html?user=lukasmartinelli&repo=osm-noise-pollution&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px" style="margin-bottom:25px;"></iframe>
-
-<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.16.0/mapbox-gl.js'></script>
-<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.16.0/mapbox-gl.css' rel='stylesheet' />
-
-<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.0.0/mapbox-gl-geocoder.js'></script>
-<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.0.0/mapbox-gl-geocoder.css' type='text/css' />
-
-<div id='map' style="width: 100%; height: 500px;"></div>
-
-<br/>
-
-<script>
-mapboxgl.accessToken = 'pk.eyJ1IjoibW9yZ2Vua2FmZmVlIiwiYSI6IjIzcmN0NlkifQ.0LRTNgCc-envt9d5MzR75w';
-var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/morgenkaffee/cimi6phf0007wcem3cyr9cl3o',
-    center: [8.538961,47.372476],
-zoom: 13.7
-});
-
-map.addControl(new mapboxgl.Navigation());
-map.addControl(new mapboxgl.Geocoder());
-</script>
+<iframe src="/maps/noise-pollution.html" frameborder="0" scrolling="0" width="100%" height="540px" style="margin-bottom:25px;"></iframe>
 
 ## How does it work?
+
+Check out the [GitHub repository for the code and styles](https://github.com/lukasmartinelli/osm-noise-pollution).
 
 In the model we add a buffer to **noisy objects**. This is the area that is probably affected by noise. Very noisy objects get a high buffer and less noisy objects a smaller buffer.
 
