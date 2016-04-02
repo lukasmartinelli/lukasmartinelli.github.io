@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=utf-8 />
+  <title>OSM Global Noise Pollution</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+  <style>
+    body { margin:0; padding:0; }
+    #map { position:absolute; top:0; bottom:0; width:100%; }
+    #github-button { position: absolute; top: 15px; left: 270px; z-index: 1000; }
+  </style>
+
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.16.0/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.16.0/mapbox-gl.css' rel='stylesheet' />
+
+  <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.0.0/mapbox-gl-geocoder.js'></script>
+  <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.0.0/mapbox-gl-geocoder.css' type='text/css' />
+</head>
+<body>
+  <iframe id="github-button" src="https://ghbtns.com/github-btn.html?user=lukasmartinelli&repo=osm-noise-pollution&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+
+  <div id='map'></div>
+  <script>
+  mapboxgl.accessToken = 'pk.eyJ1IjoibW9yZ2Vua2FmZmVlIiwiYSI6IjIzcmN0NlkifQ.0LRTNgCc-envt9d5MzR75w';
+  var map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/morgenkaffee/cimi6phf0007wcem3cyr9cl3o',
+      center: [8.538961,47.372476],
+  zoom: 13.7
+  });
+
+  map.addControl(new mapboxgl.Navigation());
+  map.addControl(new mapboxgl.Geocoder());
+  </script>
+</body>
+</html>
