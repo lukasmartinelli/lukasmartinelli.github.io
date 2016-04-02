@@ -29,17 +29,17 @@ In the model we add a buffer to **noisy objects**. This is the area that is prob
 
 In order for this to work we make several assumptions:
 
-1. Highways, trunks, primary and secondary roads are noisy. Normal street or service roads are not
-2. Railways are noisy
-3. Retail and industrial zones always have a noisy base limit
-4. All shops and food places (especially restaurants) are noisy
-5. Most party and event buildings are noisy (except some shady places)
-6. Most leisure buildings are noisy
-7. Some sport buildings are noisy
-8. Some tourism buildings are noisy
+1. Highways, trunks, primary and secondary roads are noisy, normal street or service roads are not.
+2. Railways are noisy.
+3. Retail and industrial zones always have a noise base limit.
+4. All shops and food places (especially restaurants) are noisy.
+5. Most party and event buildings are noisy (except some shady places).
+6. Most leisure buildings are noisy.
+7. Some sport buildings are noisy.
+8. Some tourism buildings are noisy.
 
-For OSM features that match this criterias we assign a buffer and remove the overlapping parts which results
-in a simple approximation of noise pollution.
+For OSM features that match these criterias we assign a buffer and remove the overlapping parts (otherwise the
+vector tile size would explode). This results in a simple approximation of noise pollution for cool data visualizations.
 
 ### Noise Levels
 
@@ -67,42 +67,43 @@ traffic volume and all the other fancy stuff - but it is simple enough to be app
 
 ### Railways
 
-| Tag                           | L1    | L2    | L3
-|-------------------------------|-------|-------|---------
-| `rail=[rail,narrow_gauge,..]` | `30m` | `60m` | `100m`
-| `rail=[light_rail,tram,..]`   |       | `30m` | `60m`
+| Tag                                        | L1    | L2    | L3
+|--------------------------------------------|-------|-------|---------
+| `rail=[rail, narrow_gauge, preserved]`       | `30m` | `60m` | `100m`
+| `rail=[light_rail, tram, funicular, monorail]`|       | `30m` | `60m`
 
 ### Industrial and Retail Zones
 
-| Tag               | L1  | L2   | L3   |
-|-------------------|-----|------|------|
+| Tag                 | L1  | L2   | L3   |
+|---------------------|-----|------|------|
 | `landuse=industrial`|     | `50m` | `100m` |
 | `landuse=retail`    |     | `70m` | `180m` |
 
 ### Shops and Food
 
-| Tag                         | L1  | L2    | L3
-|-----------------------------|-----|-------|--------
-| `shop=[any]`                |     | `30m` | `65m`
-| `amenity=[bar,bbq,cafe,..]` |     | `35m` | `75m`
+| Tag                                                                              | L1  | L2    | L3
+|----------------------------------------------------------------------------------|-----|-------|--------
+| `shop=[any]`                                                                     |     | `30m` | `65m`
+| `amenity=[bar, bbq, cafe, biergarten, fast_food, food_court, ice_cream, pub, restaurant]`|     | `35m` | `75m`
 
 ### Party
 
-| Tag                                    | L1    | L2    | L3
-|----------------------------------------|-------|-------|--------
-| `amenity=[cinema,casino,nightclub,..]` | `40m` | `70m` | `150m`
+| Tag                                                                            | L1    | L2    | L3
+|--------------------------------------------------------------------------------|-------|-------|--------
+| `amenity=[cinema, casino, nightclub, gambling, stripclub, theatre, community_centre` | `40m` | `70m` | `150m`
 
 
 ### Leisure
 
-| Tag                             | L1    | L2     | L3
-|---------------------------------|-------|--------|-------
-| `leisure=[beach_resort,zoo,..]` | `35m` | `55m`  | `75m`
+| Tag                                                    | L1    | L2     | L3
+|--------------------------------------------------------|-------|--------|-------
+| `leisure=[beach_resort, swimming_area, water_park`       | `35m` | `55m`  | `75m`
+| `tourism=[camp_site, museum, picnic_site, theme_park, zoo` | `35m` | `55m`  | `75m`
 
 ### Sport
 
-| Tag                           | L1    | L2     | L3
-|-------------------------------|-------|--------|-------
-| `sporty=[baseball,soccer,..]` | `40m` | `60m`  | `80m`
+| Tag                                                                                              | L1    | L2     | L3
+|--------------------------------------------------------------------------------------------------|-------|--------|-------
+| `sport=[american_football, baseball, beachvolleyball, bmx, canadian_football, cockfighting, cricket, dog_racing, field_hockey, horse_racing, ice_hockey, ice_skating, obstacle_course, rc_car, rugby_league, rugby_union, shooting, soccer, volleyball, tennis, water_ski]` | `40m` | `60m`  | `80m`
 
 These values are implemented in the vector tile data source in `src/vector-datasource/data.yml`.
