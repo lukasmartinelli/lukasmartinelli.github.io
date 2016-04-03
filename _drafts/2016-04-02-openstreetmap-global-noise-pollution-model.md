@@ -42,7 +42,46 @@ In order for this to work we make several assumptions:
 For OSM features that match these criterias we assign a buffer and remove the overlapping parts (otherwise the
 vector tile size would explode). This results in a simple approximation of noise pollution for cool data visualizations.
 
-### Noise Levels
+## Cities
+
+Let's take a look at some specific cities because they are the most interesting with lots of OSM data.
+[Take a look at your city in the map](/maps/noise-pollution.html) and tell me whether the data visualization it resembles some reality.
+
+### Paris
+
+Paris has a lot of shops in the center that emit a medium level of noise.
+The rails leading to the different rail stations are all hubs of noise
+in the city. The motorways leading around and into the city are also especially visible.
+
+![Paris Noise Pollution](/media/noise_maps/paris.png)
+
+### Zurich
+
+The railway stations at Hardbrücke and Hauptbahnhof are the main source of high noise in the city.
+You can also see the many shops that make Zurich a noisy place. The clubbing scene at Langstrasse and Limmatquai is also clearly visible.
+
+![Zurich Noise Pollution](/media/noise_maps/zurich.png)
+
+### New York
+
+The subway is not responsible for any noise because it is underground and there are actually no overland
+railways in the data set inside New York. Most noise is coming from the big roads in the center and the shops around it.
+There is also a lot of industrial noise around the Brookylin Navy Yard, Steinway and Hunts Point.
+It is really cool how Central Park seems to be a noise free zone.
+
+![New York Noise Pollution](/media/noise_maps/newyork.png)
+
+### Stockholm
+
+Stockholm has a lot of noise from the railways (like Arlanda Express). The old town and vicinity around
+the Stockholm Central rail station contain a lot of small noisy shops. South of Humlegården park
+there seem to be many clubs lighting up the noise map. Industrial noise is mostly coming from Djurgårdsstaden
+and especially Hjorthagen.
+
+![Stockholm Noise Pollution](/media/noise_maps/stockholm.png)
+
+
+## Details
 
 The noise pollution areas are divided into three noise level.
 
@@ -107,4 +146,7 @@ traffic volume and all the other fancy stuff - but it is simple enough to be app
 |--------------------------------------------------------------------------------------------------|-------|--------|-------
 | `sport=[american_football, baseball, beachvolleyball, bmx, canadian_football, cockfighting, cricket, dog_racing, field_hockey, horse_racing, ice_hockey, ice_skating, obstacle_course, rc_car, rugby_league, rugby_union, shooting, soccer, volleyball, tennis, water_ski]` | `40m` | `60m`  | `80m`
 
-These values are implemented in the vector tile data source in `src/vector-datasource/data.yml`.
+## Conclusion
+
+It is astonishing what you can do with [OpenStreetMap](http://www.openstreetmap.org/). While this noise approximation is
+just a hacky visualization and not a real analysis it demonstrates how you can create global data visualizations on top of OSM and Mapbox GL.
