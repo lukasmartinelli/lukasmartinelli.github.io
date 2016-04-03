@@ -24,6 +24,7 @@ Take a look [at the full screen map](/maps/noise-pollution.html) and explore som
 ## How does it work?
 
 Check out the [GitHub repository for the code and styles](https://github.com/lukasmartinelli/osm-noise-pollution).
+You can [download the vector tiles](https://github.com/lukasmartinelli/osm-noise-pollution/releases/download/v1.0/noise_pollution.mbtiles) from GitHub as well.
 
 In the model we add a buffer to **noisy objects**. This is the area that is probably affected by noise. Very noisy objects get a high buffer and less noisy objects a smaller buffer.
 
