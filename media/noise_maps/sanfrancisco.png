@@ -1,0 +1,13 @@
+--2016-04-03 19:50:16--  https://api.mapbox.com/styles/v1/morgenkaffee/cimi6phf0007wcem3cyr9cl3o/static/-122.431295,37.762892,11.69,0.00,0.00/900x600?access_token=pk.eyJ1IjoibW9yZ2Vua2FmZmVlIiwiYSI6IjIzcmN0NlkifQ.0LRTNgCc-envt9d5MzR75w
+Resolving api.mapbox.com... 52.85.172.96, 52.85.172.99, 52.85.172.103, ...
+Connecting to api.mapbox.com|52.85.172.96|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 135978 (133K) [image/png]
+Saving to: '900x600?access_token=pk.eyJ1IjoibW9yZ2Vua2FmZmVlIiwiYSI6IjIzcmN0NlkifQ.0LRTNgCc-envt9d5MzR75w'
+
+     0K .......... .......... .......... .......... .......... 37%  952K 0s
+    50K .......... .......... .......... .......... .......... 75%  779K 0s
+   100K .......... .......... .......... ..                   100%  611K=0.2s
+
+2016-04-03 19:50:19 (779 KB/s) - '900x600?access_token=pk.eyJ1IjoibW9yZ2Vua2FmZmVlIiwiYSI6IjIzcmN0NlkifQ.0LRTNgCc-envt9d5MzR75w' saved [135978/135978]
+
