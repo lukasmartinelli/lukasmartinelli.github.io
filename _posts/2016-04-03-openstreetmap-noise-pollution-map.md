@@ -64,10 +64,10 @@ You can also see the many shops that make Zurich a noisy place. The clubbing sce
 
 ### New York
 
-The subway is not responsible for any noise because it is underground and there are actually no overland
-railways in the data set inside New York. Most noise is coming from the big roads in the center and the shops around it.
-There is also a lot of industrial noise around the Brookylin Navy Yard, Steinway and Hunts Point.
+The subway is not responsible for any noise because it is underground.
 It is really cool how Central Park seems to be a noise free zone.
+Most noise is coming from the big roads in the center and the shops around it.
+There is also a lot of industrial noise around the Brookylin Navy Yard, Steinway and Hunts Point.
 
 ![New York Noise Pollution](/media/noise_maps/newyork.png)
 
