@@ -9,6 +9,7 @@ tags:
   - sql
   - vectortiles
 categories: gis
+image: /media/noise_maps/zurich.png
 ---
 
 Visualization of noise pollution for the entire world based on top of OSM data. Search for your city
