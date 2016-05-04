@@ -132,7 +132,7 @@ and writes the tiles with the added coordinates to `stdout`.
 cat tiles-2015-05-21.csv | ./calc_coords.py
 ```
 
-You can look at the full script [here](https://github.com/lukasmartinelli/map-trends/blob/master/calc_coords.py).
+You can look at the full script [here](https://gist.github.com/lukasmartinelli/b89ed70143db1bcd5616ec7ad046bfb4#file-calc_coords-py).
 
 ## Visualize Tile Access over Time
 
@@ -159,7 +159,7 @@ def in_switzerland(coords):
     return lat < NORTH and lat > SOUTH and lng > WEST and lng < EAST
 ```
 
-You can look at the full script [here](https://github.com/lukasmartinelli/map-trends/blob/master/filter_switzerland.py).
+You can look at the full script [here](https://gist.github.com/lukasmartinelli/b89ed70143db1bcd5616ec7ad046bfb4#file-filter_switzerland-py).
 
 Now we can extract all swiss access logs.
 
