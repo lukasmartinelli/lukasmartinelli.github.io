@@ -34,7 +34,7 @@
 /* ===Main section=== */
 
 #main {
-	margin-top: em(90);
+	margin-top: em(140);
     @include clearfix;
 	overflow: visible;
 	// Because the navigation is no longer fixed we no longer need the huge margin
@@ -48,16 +48,6 @@
 }
 
 @media only screen and (min-width: $screen-break-right) {
-	#content {
-		float: left;
-		width: 80%;
-	}
-
-	#right {
-		float: right;
-		width: 20%;
-		padding-left: $default-margin;
-	}
 }
 
 #content-blog, #content-projects {

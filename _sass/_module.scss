@@ -27,12 +27,7 @@ div.branding {
 
 #top-nav {
 	float: right;
-	margin: $default-margin 0 $default-margin/2 0;
-
-	// When we have a whole row for our nav, we don't need such a big margin to the top
-	@media only screen and (max-width: $screen-break-right) {
-		margin: $default-margin/2 0 $default-margin/2 0;
-	}
+	padding: $default-margin/2;
 
 	li {
 		float: left;
@@ -56,6 +51,9 @@ div.branding {
 }
 
 /* ===Article=== */
+
+#content-blog, #content-project {
+}
 
 article.post {
     ul, ol {
@@ -143,25 +141,36 @@ article {
 
 /* ===Biography=== */
 .bio {
-	overflow: hidden;
-	@include shiny-box;
+	h1 {
+	  font-size: em(22);
+	  line-height: 1em;
+	}
+
+  display: inline-block;
+  //max-width: em(400);
 
 	.description {
-		padding: $default-margin/2 $default-margin;
+    max-width: em(400);
+    display: inline-block;
+		padding: $default-margin/2;
+	}
+
+	//.follow img {
+  //  width: em(150);
+  //}
+
+  .avatar {
+    vertical-align: top;
+    display: inline-block;
+    width: em(80);
+		padding: $default-margin/2;
+    img {
+      //border: 2px solid transparent;
+      border-radius: 2px;
+    }
 	}
 
 	@media only screen and (max-width: $screen-break-right) {
-		.avatar {
-			padding: $default-margin 0 $default-margin $default-margin;
-			width: 30%;
-			float: left;
-		}
-
-		.description {
-			padding: $default-margin;
-			float: left;
-			width: 70%;
-		}
 	}
 }
 
