@@ -83,11 +83,12 @@ article {
 	}
 
 	header {
-		padding: em(64) $default-margin 0 $default-margin;
+    
+		padding: em($icon-size) $default-margin 0 $default-margin;
 
 		.post-format {
-			width: em(64);
-			height: em(64);
+			width: em($icon-size);
+			height: em($icon-size);
 			left: $default-margin;
 			top: 0em;
 			position: absolute;
@@ -101,9 +102,9 @@ article {
 			line-height: em(26);
 			color: #fff;
 			background-color: #ccc;
-			width: em(64);
+			width: em($icon-size);
 			height: em(25);
-			left: em(64 ) + $default-margin;
+			left: em($icon-size ) + $default-margin;
 			top: 0em;
 			position: absolute;
 		}
@@ -112,13 +113,13 @@ article {
 			padding-top: $default-margin;
 
 			.post-format {
-				left: em(-64);
+				left: em(-$icon-size);
 				top: em(20);
 			}
 
 			.post-date {
-				top: em(64 + 20 + 1);
-			left: em(-64);
+				top: em($icon-size + 20 + 1);
+			left: em(-$icon-size);
 			}
 		}
 
@@ -247,12 +248,12 @@ footer {
 // so they are hand made for now
 
 .icon-sprite, .icon-cloud, .icon-gis, .icon-idea, .icon-python, .icon-web {
-  background-image: url('../img/icon-se270bbf41a.png');
   background-repeat: no-repeat;
+  background-size: 100%;
 }
 
-.icon-cloud { background-position: 0 0; }
-.icon-gis { background-position: 0 -64px; }
-.icon-idea { background-position: 0 -128px; }
-.icon-python { background-position: 0 -192px; }
-.icon-web { background-position: 0 -256px; }
+.icon-cloud { background-image: url('../img/icon/cloud.png'); }
+.icon-gis { background-image: url('../img/icon/gis.png'); }
+.icon-idea { background-image: url('../img/icon/idea.png'); }
+.icon-python { background-image: url('../img/icon/python.png'); }
+.icon-web { background-image: url('../img/icon/web.png'); }
