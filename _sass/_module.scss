@@ -83,7 +83,7 @@ article {
 	}
 
 	header {
-    
+    $date-font-size: 0.75 * $default-font-size;
 		padding: em($icon-size) $default-margin 0 $default-margin;
 
 		.post-format {
@@ -96,15 +96,16 @@ article {
 		}
 
 		.post-date {
-			font-size: $default-font-size;
+			font-size: em($date-font-size);
+      font-weight: bold;
 			text-transform: uppercase;
 			text-align: center;
-			line-height: em(26);
+			line-height: em(26, $date-font-size);
 			color: #fff;
 			background-color: #ccc;
-			width: em($icon-size);
-			height: em(25);
-			left: em($icon-size ) + $default-margin;
+			width: em($icon-size, $date-font-size);
+			height: em(25, $date-font-size);
+			left: em($icon-size, $date-font-size) + $default-margin;
 			top: 0em;
 			position: absolute;
 		}
@@ -118,8 +119,8 @@ article {
 			}
 
 			.post-date {
-				top: em($icon-size + 20 + 1);
-			left: em(-$icon-size);
+				top: em($icon-size + 20 + 1, $date-font-size);
+			  left: em(-$icon-size, $date-font-size);
 			}
 		}
 
@@ -240,6 +241,14 @@ footer {
 
   @media only screen and (max-width: em(800)) {
     font-size: 0.8em;
+  }
+}
+
+#content-blog {
+  article h1 {
+	  font-size: em(22);
+	  line-height: 1.2em;
+    margin-bottom: 0.5em;
   }
 }
 
