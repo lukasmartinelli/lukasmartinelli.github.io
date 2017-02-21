@@ -50,18 +50,20 @@
 @media only screen and (min-width: $screen-break-right) {
 }
 
-#content-blog, #content-projects {
+#content-blog, #content-projects, #content-twitter {
 	background: $shadow;
+  display: inline-block;
+  width: 30%;
+  vertical-align: top;
 }
 
 #content-blog {
-  width: 49%;
-  float: left;
 }
 
 #content-projects {
-  width: 49%;
-  float: right; 
+}
+
+#content-twitter {
 }
 
 /* ===Bottom=== */
