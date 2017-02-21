@@ -1,4 +1,6 @@
 {% assign projects = site.pages | where:"category", "project" | sort: "order" %}
 {% for project in projects %}
-  {% include project.html %}
+  {% if project.popular != false %}
+    {% include project.html %}
+  {% endif %}
 {% endfor %}
