@@ -1,0 +1,4 @@
+{% assign projects = site.pages | where:"category", "project" | sort: "order" %}
+{% for project in projects %}
+  {% include project.html %}
+{% endfor %}

@@ -27,12 +27,7 @@ div.branding {
 
 #top-nav {
 	float: right;
-	margin: $default-margin 0 $default-margin/2 0;
-
-	// When we have a whole row for our nav, we don't need such a big margin to the top
-	@media only screen and (max-width: $screen-break-right) {
-		margin: $default-margin/2 0 $default-margin/2 0;
-	}
+	padding: $default-margin/2;
 
 	li {
 		float: left;
@@ -55,7 +50,36 @@ div.branding {
 
 }
 
+/* ===Section Title === */
+
+.section-title {
+    //border-top: 3px solid $color-highlight;
+    border-bottom: 1px solid $color-border;
+    @include clearfix;
+    @include shiny-box;
+    padding: $default-margin;
+
+    h1, h2, h3 {
+      margin-bottom: 0px;
+      display: inline;
+    }
+
+    > a, > iframe {
+      display: inline;
+      margin-left: $default-margin/2;
+      //float: right;
+      //margin-top: em(12);
+    }
+
+    @media only screen and (max-width: 900px) {
+      border-bottom: 3px solid #e86a4d;
+    }
+}
+
 /* ===Article=== */
+
+#content-blog, #content-project {
+}
 
 article.post {
     ul, ol {
@@ -76,18 +100,22 @@ article.post {
 article {
 	@include shiny-box;
 	position: relative;
-	margin: 0 0 $default-margin 0;
 
 	.content {
 		padding: 0 $default-margin;
 	}
 
+  @media only screen and (max-width: 900px) {
+    margin-bottom: $default-margin/2;
+  }
+
 	header {
-		padding: em(64) $default-margin 0 $default-margin;
+    $date-font-size: 0.75 * $default-font-size;
+		padding: $default-margin $default-margin 0 $default-margin;
 
 		.post-format {
-			width: em(64);
-			height: em(64);
+			width: em($icon-size);
+			height: em($icon-size);
 			left: $default-margin;
 			top: 0em;
 			position: absolute;
@@ -95,15 +123,16 @@ article {
 		}
 
 		.post-date {
-			font-size: $default-font-size;
+			font-size: em($date-font-size);
+      font-weight: bold;
 			text-transform: uppercase;
 			text-align: center;
-			line-height: em(26);
+			line-height: em(26, $date-font-size);
 			color: #fff;
 			background-color: #ccc;
-			width: em(64);
-			height: em(25);
-			left: em(64 ) + $default-margin;
+			width: em($icon-size, $date-font-size);
+			height: em(25, $date-font-size);
+			left: em($icon-size, $date-font-size) + $default-margin;
 			top: 0em;
 			position: absolute;
 		}
@@ -112,13 +141,13 @@ article {
 			padding-top: $default-margin;
 
 			.post-format {
-				left: em(-64);
+				left: em(-$icon-size);
 				top: em(20);
 			}
 
 			.post-date {
-				top: em(64 + 20 + 1);
-			left: em(-64);
+				top: em($icon-size + 20 + 1, $date-font-size);
+			  left: em(-$icon-size, $date-font-size);
 			}
 		}
 
@@ -127,9 +156,16 @@ article {
 
 	footer {
 		padding: $default-margin/2 $default-margin;
-		border-top: 1px solid #eee;
-		overflow: hidden;
+    padding-top: 0px;
+		//border-top: 1px solid #eee;
+		//overflow: hidden;
 	}
+}
+
+@media only screen and (max-width: $screen-max-container) {
+  #content-blog article header, #content-post article header {
+		padding-top: em($icon-size + 5);
+  }
 }
 
 /* ===Comments=== */
@@ -141,25 +177,36 @@ article {
 
 /* ===Biography=== */
 .bio {
-	overflow: hidden;
-	@include shiny-box;
-
-	.description {
-		padding: $default-margin/2 $default-margin;
+	h1 {
+	  font-size: em(22);
 	}
 
-	@media only screen and (max-width: $screen-break-right) {
-		.avatar {
-			padding: $default-margin 0 $default-margin $default-margin;
-			width: 30%;
-			float: left;
-		}
+  display: inline-block;
+  //max-width: em(400);
 
-		.description {
-			padding: $default-margin;
-			float: left;
-			width: 70%;
-		}
+	.avatar-description {
+    max-width: em(400);
+    height: em(50);
+    display: inline-block;
+		padding: $default-margin/2;
+    padding-right: 0px;
+	}
+
+  .avatar-name a {
+    text-decoration: none;
+  }
+
+  .avatar {
+    vertical-align: top;
+    display: inline-block;
+		padding: $default-margin/2;
+    padding-right: 0px;
+    padding-left: 0px;
+
+    img {
+      height: em(32);
+      border-radius: 2px;
+    }
 	}
 }
 
@@ -198,10 +245,6 @@ a.gallery img {
 	.content {
 		padding: 0 $default-margin;
 	}
-
-	header {
-        padding: $default-margin;
-    }
 }
 
 .project {
@@ -209,12 +252,13 @@ a.gallery img {
 
     header {
         @include clearfix;
-
-        h3 span {
-            display: block;
-            float: left;
+        h1, h2, h3, a, iframe {
+          display: inline-block;
         }
-        .github-stars { float: right; }
+
+        a, iframe {
+          margin-left: $default-margin/2;
+        }
     }
 }
 
@@ -228,8 +272,9 @@ footer {
 		color: $color-light;
 	}
 
-	.tags { float: left; }
-	.permalink { float: right; }
+	.tags {
+    display: inline-block;
+  }
 }
 
 /* ===Code Highlighting=== */
@@ -242,17 +287,25 @@ footer {
   }
 }
 
+#content-blog, #content-projects {
+  article header h1 {
+	  font-size: em(22);
+	  line-height: 1.2em;
+    margin-bottom: 0.5em;
+  }
+}
+
 /* ===Icons === */
 // Can no longer generate these without compass
 // so they are hand made for now
 
 .icon-sprite, .icon-cloud, .icon-gis, .icon-idea, .icon-python, .icon-web {
-  background-image: url('../img/icon-se270bbf41a.png');
   background-repeat: no-repeat;
+  background-size: 100%;
 }
 
-.icon-cloud { background-position: 0 0; }
-.icon-gis { background-position: 0 -64px; }
-.icon-idea { background-position: 0 -128px; }
-.icon-python { background-position: 0 -192px; }
-.icon-web { background-position: 0 -256px; }
+.icon-cloud { background-image: url('../img/icon/cloud.png'); }
+.icon-gis { background-image: url('../img/icon/gis.png'); }
+.icon-idea { background-image: url('../img/icon/idea.png'); }
+.icon-python { background-image: url('../img/icon/python.png'); }
+.icon-web { background-image: url('../img/icon/web.png'); }
