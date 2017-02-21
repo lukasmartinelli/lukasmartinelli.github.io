@@ -57,5 +57,21 @@ $screen-max-container: em(1150);
 	padding: 0 $default-margin;
 	overflow: hidden;
 	// Allow scaling the container until the supported wide screen
-	max-width: $screen-max-container
+	max-width: $screen-max-container;
+
+  @media screen and (max-width: 850px) {
+	  max-width: 650px;
+  }
+
+  @media screen and (min-width: 1600px) {
+	  max-width: 1550px;
+  }
+
+  @media screen and (min-width: 1900px) {
+	  max-width: 1850px;
+  }
+}
+
+.post .container {
+	max-width: 750px;
 }
