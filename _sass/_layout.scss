@@ -46,9 +46,6 @@
   @include clearfix;
 }
 
-@media only screen and (min-width: $screen-break-right) {
-}
-
 #content-blog, #content-projects, #content-twitter {
 	background: $shadow;
   display: inline-block;
@@ -58,12 +55,20 @@
 }
 
 #content-blog {
+  margin-left: 0;
 }
 
-#content-projects {
-}
+@media only screen and (max-width: 900px) {
+  #content-twitter {
+    max-width: 450px;
+  }
 
-#content-twitter {
+  #content-blog, #content-projects, #content-twitter {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: $default-margin;
+  }
 }
 
 /* ===Bottom=== */

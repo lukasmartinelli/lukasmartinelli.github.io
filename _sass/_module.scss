@@ -70,6 +70,10 @@ div.branding {
       //float: right;
       //margin-top: em(12);
     }
+
+    @media only screen and (max-width: 900px) {
+      border-bottom: 3px solid #e86a4d;
+    }
 }
 
 /* ===Article=== */
@@ -101,9 +105,13 @@ article {
 		padding: 0 $default-margin;
 	}
 
+  @media only screen and (max-width: 900px) {
+    margin-bottom: $default-margin/2;
+  }
+
 	header {
     $date-font-size: 0.75 * $default-font-size;
-		padding: em($icon-size) $default-margin 0 $default-margin;
+		padding: $default-margin $default-margin 0 $default-margin;
 
 		.post-format {
 			width: em($icon-size);
@@ -154,6 +162,10 @@ article {
 	}
 }
 
+#content-blog article header, #content-post article header {
+		padding-top: em($icon-size);
+}
+
 /* ===Comments=== */
 .comments {
 	@include shiny-box;
@@ -187,14 +199,12 @@ article {
     display: inline-block;
 		padding: $default-margin/2;
     padding-right: 0px;
+    padding-left: 0px;
 
     img {
       height: em(32);
       border-radius: 2px;
     }
-	}
-
-	@media only screen and (max-width: $screen-break-right) {
 	}
 }
 
