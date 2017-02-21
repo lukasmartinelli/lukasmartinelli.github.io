@@ -263,8 +263,9 @@ footer {
 		color: $color-light;
 	}
 
-	.tags { float: left; }
-	.permalink { float: right; }
+	.tags {
+    display: inline-block;
+  }
 }
 
 /* ===Code Highlighting=== */
