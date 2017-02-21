@@ -162,8 +162,10 @@ article {
 	}
 }
 
-#content-blog article header, #content-post article header {
-		padding-top: em($icon-size);
+@media only screen and (max-width: $screen-max-container) {
+  #content-blog article header, #content-post article header {
+		padding-top: em($icon-size + 5);
+  }
 }
 
 /* ===Comments=== */
@@ -243,10 +245,6 @@ a.gallery img {
 	.content {
 		padding: 0 $default-margin;
 	}
-
-	header {
-      padding: $default-margin;
-  }
 }
 
 .project {
@@ -254,8 +252,8 @@ a.gallery img {
 
     header {
         @include clearfix;
-        h3, a, iframe {
-          display: inline;
+        h1, h2, h3, a, iframe {
+          display: inline-block;
         }
 
         a, iframe {
@@ -289,8 +287,8 @@ footer {
   }
 }
 
-#content-blog {
-  article h1 {
+.home #content-blog, .home #content-projects {
+  article header h1 {
 	  font-size: em(22);
 	  line-height: 1.2em;
     margin-bottom: 0.5em;
