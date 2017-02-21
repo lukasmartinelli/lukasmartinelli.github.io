@@ -38,7 +38,9 @@ $color-medium: #666;
 $color-dark: #444;
 $color-highlight: #e86a4d;
 $color-border: #d4d4d4;
-$shadow: rgba(40,40,40, .1);
+$shadow: rgba(40,40,40, .07);
+
+$icon-size: 48;
 
 $screen-break-top: em(420);
 $screen-break-right: em(1224);
@@ -55,5 +57,21 @@ $screen-max-container: em(1150);
 	padding: 0 $default-margin;
 	overflow: hidden;
 	// Allow scaling the container until the supported wide screen
-	max-width: $screen-max-container
+	max-width: $screen-max-container;
+
+  @media screen and (max-width: 850px) {
+	  max-width: 650px;
+  }
+
+  @media screen and (min-width: 1600px) {
+	  max-width: 1550px;
+  }
+
+  @media screen and (min-width: 1900px) {
+	  max-width: 1850px;
+  }
+}
+
+.post .container, .default .container {
+	max-width: 750px;
 }
