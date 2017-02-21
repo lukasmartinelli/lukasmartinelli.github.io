@@ -46,28 +46,29 @@
   @include clearfix;
 }
 
-#content-blog, #content-projects, #content-twitter {
-	background: $shadow;
-  display: inline-block;
-  width: 32%;
-  margin-left: 1%;
-  vertical-align: top;
-}
-
-#content-blog {
-  margin-left: 0;
-}
-
-@media only screen and (max-width: 900px) {
-  #content-twitter {
-    max-width: 450px;
+.home {
+  #content-blog, #content-projects, #content-twitter {
+    background: $shadow;
+    display: inline-block;
+    width: 32%;
+    margin-left: 1%;
+    vertical-align: top;
   }
 
-  #content-blog, #content-projects, #content-twitter {
-    display: block;
-    width: 100%;
-    margin: 0 auto;
-    margin-top: $default-margin;
+  #content-blog {
+    margin-left: 0;
+  }
+  @media only screen and (max-width: 900px) {
+    #content-twitter {
+      max-width: 450px;
+    }
+
+    #content-blog, #content-projects, #content-twitter {
+      display: block;
+      width: 100%;
+      margin: 0 auto;
+      margin-top: $default-margin;
+    }
   }
 }
 
