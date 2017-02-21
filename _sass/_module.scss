@@ -58,7 +58,6 @@ div.branding {
     @include clearfix;
     @include shiny-box;
     //background: linear-gradient(to bottom, #ffffff 0%, #ffffff 65%, #eeeeee 100%);
-    margin-bottom: $default-margin;
     padding: $default-margin;
 
     h1, h2, h3 {
@@ -95,7 +94,6 @@ article.post {
 article {
 	@include shiny-box;
 	position: relative;
-	margin: 0 0 $default-margin 0;
 
 	.content {
 		padding: 0 $default-margin;
@@ -148,8 +146,9 @@ article {
 
 	footer {
 		padding: $default-margin/2 $default-margin;
-		border-top: 1px solid #eee;
-		overflow: hidden;
+    padding-top: 0px;
+		//border-top: 1px solid #eee;
+		//overflow: hidden;
 	}
 }
 
