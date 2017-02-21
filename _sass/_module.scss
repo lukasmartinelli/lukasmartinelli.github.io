@@ -50,6 +50,27 @@ div.branding {
 
 }
 
+/* ===Section Title === */
+
+.section-title {
+    //border-top: 3px solid $color-highlight;
+    border-bottom: 1px solid $color-border;
+    @include clearfix;
+    @include shiny-box;
+    //background: linear-gradient(to bottom, #ffffff 0%, #ffffff 65%, #eeeeee 100%);
+    margin-bottom: $default-margin;
+    padding: $default-margin;
+
+    h1, h2, h3 {
+      margin-bottom: 0px;
+      float: left;
+    }
+}
+
+.section-link {
+  float: right;
+}
+
 /* ===Article=== */
 
 #content-blog, #content-project {
@@ -149,23 +170,26 @@ article {
   display: inline-block;
   //max-width: em(400);
 
-	.description {
+	.avatar-description {
     max-width: em(400);
+    height: em(50);
     display: inline-block;
 		padding: $default-margin/2;
+    padding-right: 0px;
 	}
 
-	//.follow img {
-  //  width: em(150);
-  //}
+  .avatar-name a {
+    text-decoration: none;
+  }
 
   .avatar {
     vertical-align: top;
     display: inline-block;
-    width: em(80);
 		padding: $default-margin/2;
+    padding-right: 0px;
+
     img {
-      //border: 2px solid transparent;
+      height: em(50);
       border-radius: 2px;
     }
 	}
