@@ -1,0 +1,16 @@
+<article class="project">
+  <header>
+    <h3>{{ project.title }}</h3>
+    <a class="github-button" href="https://github.com/{{ project.repo }}" data-icon="octicon-star" data-count-href="/{{repo}}/stargazers" data-count-api="/repos/{{project.repo}}#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star {{project.repo}} on GitHub">Star</a>
+  </header>
+  <div class="content">
+    {{ project.content | markdownify }}
+  </div>
+  <footer>
+    <span class="tags">
+      {% for tag in project.tags %}
+        <a href="#" rel="tag">#{{tag}}</a>
+      {% endfor %}
+    </span>
+  </footer>
+</article>

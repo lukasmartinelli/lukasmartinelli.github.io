@@ -72,6 +72,6 @@ $screen-max-container: em(1150);
   }
 }
 
-.post .container {
+.post .container, .default .container {
 	max-width: 750px;
 }
