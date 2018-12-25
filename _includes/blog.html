@@ -1,4 +1,5 @@
 {% for post in site.posts %}
+{% if post.hidden != true  %}
 <article>
     <header>
         <div class="post-format icon-{{ post.categories[0] }}">&nbsp;</div>
@@ -17,4 +18,5 @@
         </span>
     </footer>
 </article>
+{% endif %}
 {% endfor %}
