@@ -3,7 +3,7 @@ layout: default
 category: project
 title: pgfutter
 tags: golang, postgres, cli
-repo: lukasmartinelli/pgfutter
+github_repo: lukasmartinelli/pgfutter
 order: 10
 ---
 
