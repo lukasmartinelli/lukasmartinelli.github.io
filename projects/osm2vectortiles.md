@@ -3,7 +3,7 @@ layout: default
 category: project
 title: osm2vectortiles
 tags: gis, openstreetmap, webmap, bigdata
-github_repo: lukasmartinelli/osm2vectortiles
+github_repo: osm2vectortiles/osm2vectortiles
 order: 30
 ---
 

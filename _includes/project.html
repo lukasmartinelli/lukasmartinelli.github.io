@@ -1,7 +1,7 @@
 <article class="project">
   <header>
     <h1>{{ project.title }}</h1>
-    <a class="github-button" href="https://github.com/{{ project.repo }}" data-icon="octicon-star" data-count-href="/{{repo}}/stargazers" data-count-api="/repos/{{project.repo}}#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star {{project.repo}} on GitHub">Star</a>
+    <a class="github-button" href="https://github.com/{{ project.github_repo }}" data-icon="octicon-star" data-show-count="true" aria-label="Star {{project.github_repo}} on GitHub">Star</a>
   </header>
   <div class="content">
     {{ project.content | markdownify }}
