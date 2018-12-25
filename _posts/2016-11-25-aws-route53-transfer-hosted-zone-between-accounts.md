@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Transfer Hosted Zone between AWS accounts
+hidden: true
 tags:
   - aws
   - route53

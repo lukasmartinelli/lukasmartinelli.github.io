@@ -2,7 +2,8 @@
 layout: post
 title: Future of Cuckoo Drive
 published: true
-tags: 
+hidden: true
+tags:
   - idea
   - cloud
 categories: idea

@@ -1,9 +1,12 @@
 ---
 layout: post
+hidden: true
 title: Using Python to Parse iCalendar File
 published: true
-tags: 
-  - "python, icalendar, productivity"
+tags:
+  - python
+  - icalendar
+  - productivity
 categories: python
 ---
 

@@ -1,7 +1,8 @@
 ---
 layout: post
 title: Install CoreOS on CloudStack
-tags: 
+hidden: true
+tags:
   - cloud
   - coreos
   - cloudstack

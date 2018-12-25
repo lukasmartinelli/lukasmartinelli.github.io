@@ -2,6 +2,7 @@
 layout: post
 title: Extract Data from BFS STAT-TAB
 published: true
+hidden: true
 tags:
   - opendata
   - government

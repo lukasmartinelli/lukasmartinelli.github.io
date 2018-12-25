@@ -2,6 +2,7 @@
 layout: post
 title: An Opensource Notetaking Concept
 published: true
+hidden: true
 tags: 
   - idea
   - productivity
