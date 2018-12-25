@@ -5,7 +5,7 @@ title: mbtoolbox
 tags: python, mbtiles, gis
 github_repo: lukasmartinelli/mbtoolbox
 order: 155
-popular: yes
+popular: no
 ---
 
 A MBTiles introspection tool for optimizing and verifying MBTiles files.
