@@ -2,7 +2,8 @@
 layout: post
 title: Cuckoo Drive Architecture
 published: true
-tags: 
+hidden: true
+tags:
   - cloud
   - architecture
 categories: python

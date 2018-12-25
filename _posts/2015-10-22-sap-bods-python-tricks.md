@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Python Tips for SAP BODS
+hidden: true
 published: true
 tags:
   - python
