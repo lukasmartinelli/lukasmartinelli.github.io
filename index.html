@@ -3,13 +3,6 @@ layout: home
 title: Lukas Martinelli's Dev Blog
 ---
 
-<section id="content-blog">
-  <header class="section-title">
-    <h2><a href="/blog.html">Blog</a></h2>
-    <a href='https://feedly.com/i/subscription/feed%2Fhttp%3A%2F%2Flukasmartinelli.ch%2Ffeed.xml'  target='blank'><img id='feedlyFollow' src='http://s3.feedly.com/img/follows/feedly-follow-rectangle-volume-small_2x.png' alt='follow us in feedly' width='66' height='20'></a>
-  </header>
-{% include blog.html %}
-</section>
 <section id="content-projects">
   <header class="section-title">
     <h2><a href="/projects.html">Projects</a></h2>
@@ -17,29 +10,4 @@ title: Lukas Martinelli's Dev Blog
   </header>
 {% include popular_projects.html %}
 </section>
-<section id="content-twitter">
-  <header class="section-title">
-    <h2><a href="https://twitter.com/lukmartinelli">Twitter</a></h2>
-    <a class="twitter-follow-button"
-      data-dnt="true"
-      data-show-screen-name="false"
-      href="https://twitter.com/lukmartinelli">Follow on Twitter</a>
-  </header>
-  {% include twitter_timeline.html %}
-</section>
 
-<!-- http://jekyllrb.com/docs/pagination/
-<div class="pagination">
-	{% if paginator.previous_page %}
-	<a href="/page{{ paginator.previous_page }}" class="previous">Previous</a>
-	{% else %}
-	<span class="previous">Previous</span>
-	{% endif %}
-	<span class="page-number">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
-	{% if paginator.next_page %}
-	<a href="/page{{ paginator.next_page }}" class="next">Next</a>
-	{% else %}
-	<span class="next ">Next</span>
-	{% endif %}
-</div>
--->
