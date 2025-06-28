@@ -1,0 +1,60 @@
+posts:
+  - title: "OpenStreetMap US Conference takeaways"
+    ugc_id: "urn:li:share:7343314121368420352"
+    height: 1280
+    date: "2024-12-24"
+    
+  - title: "Mapbox alumni legacy"
+    ugc_id: "urn:li:share:7341931156675694593"
+    height: 797
+    date: "2024-12-21"
+    
+  - title: "Y Combinator Zurich event"
+    ugc_id: "urn:li:share:7312498459763183619"
+    height: 533
+    date: "2024-10-28"
+    
+  - title: "Foursquare innovation conversation"
+    ugc_id: "urn:li:activity:7294791835196014593"
+    height: 800
+    date: "2024-08-28"
+    
+  - title: "Humans and Agents collaboration"
+    ugc_id: "urn:li:activity:7292617614290231296"
+    height: 800
+    date: "2024-08-20"
+    
+  - title: "Foursquare data explorer"
+    ugc_id: "urn:li:activity:7267291406837133313"
+    height: 800
+    date: "2024-06-15"
+    
+  - title: "Foursquare free data announcement"
+    ugc_id: "urn:li:activity:7265695546852483072"
+    height: 800
+    date: "2024-06-10"
+    
+  - title: "Claude computer use agent"
+    ugc_id: "urn:li:activity:7264997164311822336"
+    height: 800
+    date: "2024-06-05"
+    
+  - title: "Building entrances detection"
+    ugc_id: "urn:li:activity:7261805751688470529"
+    height: 800
+    date: "2024-05-25"
+    
+  - title: "Reprompt document studio"
+    ugc_id: "urn:li:activity:7260667438394933249"
+    height: 800
+    date: "2024-05-20"
+    
+  - title: "Image models with LLMs"
+    ugc_id: "urn:li:activity:7255609071582511104"
+    height: 800
+    date: "2024-04-15"
+    
+  - title: "Online Group AI-Day"
+    ugc_id: "urn:li:activity:7231935365706584064"
+    height: 800
+    date: "2024-02-15" 

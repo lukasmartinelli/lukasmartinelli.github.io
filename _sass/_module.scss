@@ -122,19 +122,40 @@ article {
 			background-color: $color-highlight;
 		}
 
+		.post-date-container {
+			position: absolute;
+			left: $default-margin;
+			top: em($icon-size);
+			width: em($icon-size);
+		}
+
 		.post-date {
 			font-size: em($date-font-size);
       font-weight: bold;
 			text-transform: uppercase;
 			text-align: center;
-			line-height: em(26, $date-font-size);
+			line-height: em(16, $date-font-size);
 			color: #fff;
 			background-color: #ccc;
-			width: em($icon-size, $date-font-size);
-			height: em(25, $date-font-size);
-			left: em($icon-size, $date-font-size) + $default-margin;
-			top: 0em;
-			position: absolute;
+			width: 100%;
+			height: em(16, $date-font-size);
+			display: block;
+			margin: 0;
+			padding: 0;
+		}
+
+		.post-year {
+			font-size: em($date-font-size * 0.75);
+			font-weight: bold;
+			text-align: center;
+			color: #666;
+			background-color: #ddd;
+			width: 100%;
+			height: em(14, $date-font-size * 0.75);
+			line-height: em(14, $date-font-size * 0.75);
+			display: block;
+			margin: 0;
+			padding: 0;
 		}
 
 		@media only screen and (min-width: $screen-max-container) {
@@ -145,9 +166,9 @@ article {
 				top: em(20);
 			}
 
-			.post-date {
-				top: em($icon-size + 20 + 1, $date-font-size);
-			  left: em(-$icon-size, $date-font-size);
+			.post-date-container {
+				top: em(20 + $icon-size);
+			  left: em(-$icon-size);
 			}
 		}
 
@@ -164,7 +185,7 @@ article {
 
 @media only screen and (max-width: $screen-max-container) {
   #content-blog article header, #content-post article header {
-		padding-top: em($icon-size + 5);
+		padding-top: em($icon-size + 10);
   }
 }
 

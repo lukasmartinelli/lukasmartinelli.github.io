@@ -20,20 +20,90 @@ title: Lukas's Dev Blog
     <h2><a href="https://www.linkedin.com/in/lukas-martinelli/">Posts</a></h2>
     <a href="https://www.linkedin.com/in/lukas-martinelli/" 
        target="_blank"
-       style="background: #0077b5; color: white; padding: 5px 10px; text-decoration: none; border-radius: 3px; font-size: 0.8em; display: inline-block; margin-top: 8px;">
-      Connect on LinkedIn
+       class="linkedin-follow-button">
+      Follow on LinkedIn
     </a>
   </header>
   {% include linkedin_posts.html %}
 </section>
 
-<section id="content-twitter">
-  <header class="section-title">
-    <h2><span style="text-decoration: line-through; opacity: 0.6;">Twitter</span> <span style="color: #999; font-size: 0.8em;">(RIP)</span></h2>
-    <div style="font-size: 0.8em; color: #666; margin-top: 5px;">
-      <p>Twitter is no longer displaying content due to API changes. Follow me on <a href="https://www.linkedin.com/in/lukas-martinelli/" target="_blank">LinkedIn</a> instead!</p>
-    </div>
-  </header>
-  {% include twitter_timeline.html %}
-</section>
+<style>
+.linkedin-follow-button {
+  background: #0a66c2;
+  color: white !important;
+  padding: 6px 16px;
+  text-decoration: none !important;
+  border-radius: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5px;
+  border: 1px solid #0a66c2;
+  vertical-align: top;
+  line-height: 1.33;
+  min-height: 32px;
+  box-sizing: border-box;
+  transition: all 0.15s ease;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+}
+
+.linkedin-follow-button:hover {
+  background: #004182;
+  border-color: #004182;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.12);
+  transform: translateY(-1px);
+}
+
+.linkedin-follow-button:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+}
+
+/* Align all follow buttons consistently */
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section-title h2 {
+  margin: 0;
+}
+
+/* Style GitHub button container to match */
+.github-button {
+  margin-top: 5px !important;
+}
+
+/* Style Feedly button to align properly */
+#feedlyFollow {
+  margin-top: 3px;
+  vertical-align: top;
+}
+
+/* Hide LinkedIn logo with CSS overlay */
+.linkedin-posts .linkedin-post {
+  position: relative;
+}
+
+.linkedin-posts .linkedin-post iframe {
+  position: relative;
+}
+
+.linkedin-posts .linkedin-post::before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 80px;
+  height: 25px;
+  background: white;
+  z-index: 999;
+  pointer-events: none;
+  border-radius: 3px;
+}
+</style>
 

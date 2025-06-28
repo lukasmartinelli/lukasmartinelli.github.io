@@ -7,8 +7,11 @@ class: post
 <article class="post">
 	<header>
 		<div class="post-format icon-{{ page.categories[0] }}">&nbsp;</div>
-		<time class="post-date" datetime="{{ page.date }}" pubdate="pubdate" title"{{ page.date | date: '%B %d, %Y' }}
+		<div class="post-date-container">
+			<time class="post-date" datetime="{{ page.date }}" pubdate="pubdate" title"{{ page.date | date: '%B %d, %Y' }}
 ">{{ page.date | date: "%b %-d"}}</time>
+			<div class="post-year">{{ page.date | date: "%Y"}}</div>
+		</div>
 		<h1><a href=" {{ page.url }}">{{ page.title }}</a></h1>
 	</header>
 	<div class="content">
