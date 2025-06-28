@@ -1,3 +1,9 @@
+# Lukas Martinelli's Personal Website
+
+This is my personal website built with Jekyll and hosted on GitHub Pages.
+
+<!-- Last updated: 2025-01-12 -->
+
 # My personal Blog [![Build Status](https://travis-ci.org/lukasmartinelli/lukasmartinelli.github.io.svg?branch=master)](https://travis-ci.org/lukasmartinelli/lukasmartinelli.github.io)
 
 If you want to correct a fact or spelling mistake.
