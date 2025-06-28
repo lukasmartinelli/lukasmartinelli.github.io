@@ -1,4 +1,4 @@
-name: Lukas Martinelli's Blog
+name: Lukas's Blog
 description: I blog about tech, oss, python, web, js, c#, ideas
 url: http://lukasmartinelli.ch
 markdown: kramdown
@@ -8,7 +8,7 @@ kramdown:
   extensions: ["fenced_code_blocks", "tables"]
 safe: true
 rouge: true
-exclude: ['CNAME', 'Guardfile', 'README.md']
+exclude: ['CNAME', 'Guardfile', 'README.md', 'vendor', 'Gemfile', 'Gemfile.lock']
 prose:
   media: 'media'
   ignore:
