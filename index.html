@@ -9,23 +9,30 @@ title: Lukas's Dev Blog
     <a href='https://feedly.com/i/subscription/feed%2Fhttp%3A%2F%2Flukasmartinelli.ch%2Ffeed.xml'  target='blank'><img id='feedlyFollow' src='http://s3.feedly.com/img/follows/feedly-follow-rectangle-volume-small_2x.png' alt='follow us in feedly' width='66' height='20'></a>
   </header>
 {% include blog.html %}
-</section>
-
-<section id="content-projects">
+</section><section id="content-projects">
   <header class="section-title">
     <h2><a href="/projects.html">Projects</a></h2>
     <a class="github-button" href="https://github.com/lukasmartinelli" data-show-count="true" aria-label="Follow @lukasmartinelli on GitHub">Follow</a>
   </header>
 {% include popular_projects.html %}
+</section><section id="content-linkedin">
+  <header class="section-title">
+    <h2><a href="https://www.linkedin.com/in/lukas-martinelli/">Posts</a></h2>
+    <a href="https://www.linkedin.com/in/lukas-martinelli/" 
+       target="_blank"
+       style="background: #0077b5; color: white; padding: 5px 10px; text-decoration: none; border-radius: 3px; font-size: 0.8em; display: inline-block; margin-top: 8px;">
+      Connect on LinkedIn
+    </a>
+  </header>
+  {% include linkedin_posts.html %}
 </section>
 
 <section id="content-twitter">
   <header class="section-title">
-    <h2><a href="https://twitter.com/lukmartinelli">Twitter</a></h2>
-    <a class="twitter-follow-button"
-      data-dnt="true"
-      data-show-screen-name="false"
-      href="https://twitter.com/lukmartinelli">Follow on Twitter</a>
+    <h2><span style="text-decoration: line-through; opacity: 0.6;">Twitter</span> <span style="color: #999; font-size: 0.8em;">(RIP)</span></h2>
+    <div style="font-size: 0.8em; color: #666; margin-top: 5px;">
+      <p>Twitter is no longer displaying content due to API changes. Follow me on <a href="https://www.linkedin.com/in/lukas-martinelli/" target="_blank">LinkedIn</a> instead!</p>
+    </div>
   </header>
   {% include twitter_timeline.html %}
 </section>
