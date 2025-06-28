@@ -1,0 +1,24 @@
+---
+layout: null
+permalink: /llms.txt
+---
+# {{ site.name }}
+
+> {{ site.description }}
+
+I'm a software engineer passionate about Geographic Information Systems (GIS), cloud infrastructure, data visualization, and open source development. This blog documents my technical explorations, projects, and insights gained from working with mapping data, cloud platforms, and developer tools.
+
+## Blog Posts
+{% for post in site.posts -%}
+- [{{ post.title }}]({{ site.url }}{{ post.url }}): {{ post.content | strip_html | truncatewords: 20 | remove: '...' }}
+{% endfor %}
+
+## Projects
+{% assign all_projects = site.pages | where: "layout", "default" | where: "category", "project" | sort: "order" %}
+{% for project in all_projects -%}
+- [{{ project.title }}]({{ site.url }}{{ project.url }}){% if project.github_repo %}: [GitHub](https://github.com/{{ project.github_repo }}){% endif %}
+{% endfor %}
+
+## Optional
+- [Blog Archive]({{ site.url }}/archive.html): Complete chronological list of all blog posts
+- [CV]({{ site.url }}/cv.html): Professional background and experience 
