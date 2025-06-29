@@ -8,14 +8,7 @@ title: Resume Lukas
         <h1>About me</h1>
     </header>
     <div class="content">
-        <p>
-        I'm <a href="/cv.html">Lukas</a>, a software engineer working on maps and the big data infrastructure to make them happen.
-        </p>
-        <p>
-        I am very passionate about maps, the web and especially <a href="/projects.html">open source</a>.
-        I love trying out new technologies and programming languages and
-        have acquired a large and broad skill set across the entire software stack.
-        </p>
+        {{ site.data.bio.about | markdownify }}
 
         <h2>Expertise</h2>
         <p>I have a very good general purpose skill set consisting out of Linux, Python, HTML/CSS, JavaScript, Node, Linux, Go and Haskell as well as experience in data engineering, PostgreSQL and PostGIS, OpenStreetMap and scaling applications in the cloud.</p>
@@ -31,16 +24,33 @@ title: Resume Lukas
         <h2>Work Experience</h2>
         <ul class="timeline">
 		  <li class='work'>
-		    <input class='radio' id='work-mapbox' name='works' type='radio' checked>
+		    <input class='radio' id='work-reprompt' name='works' type='radio' checked>
 		    <div class="relative">
-		      <label for='work-mapbox'>Software Engineer at Mapbox</label>
-		      <span class='date'>2017-today</span>
+		      <label for='work-reprompt'>CEO at Reprompt</label>
+		      <span class='date'>2023-Present</span>
 		      <span class='circle'></span>
 		    </div>
 		    <div class='content'>
 		      <p>
-							<a href="https://www.mapbox.com/about/team/lukas-martinelli/">I am part of the cartography team at Mapbox.</a>
-              <p>I work on the infrastructure/rendering pipeline side of our mapping stack helping <a href="https://www.mapbox.com">Mapbox</a> to provide the best-looking and most-usable maps for our customers. I find new ways to cope with ever growing OpenStreetMap data and create open source tools for developers.</p>
+							CEO of <a href="https://repromptai.com/">Reprompt</a> (<a href="https://www.ycombinator.com/companies/reprompt">YC W24</a>), where we're mapping the physical world with AI. 
+              We help companies like Foursquare and TomTom get the most up-to-date information about businesses through our AI agents that can read web content, documents, and visual data.
+              Our platform automates location data collection and enrichment to keep maps and business directories current.
+		      </p>
+		    </div>
+		  </li>
+		  <li class='work'>
+		    <input class='radio' id='work-mapbox' name='works' type='radio'>
+		    <div class="relative">
+		      <label for='work-mapbox'>General Manager & Engineering Director at Mapbox</label>
+		      <span class='date'>2017-2023</span>
+		      <span class='circle'></span>
+		    </div>
+		    <div class='content'>
+		      <p>
+              Spent 7 years running engineering, product, and operations as General Manager for the Search business at <a href="https://www.mapbox.com">Mapbox</a>, which provides APIs to 2 million developers. 
+              Led the executive team for Map Data, Search and Navigation SDK products. 
+              Helped scale geospatial data processing systems and built tools used by millions of developers worldwide.
+              </p>
           <p><img src="/img/mapbox.png" /></p>
 		    </div>
 		  </li>

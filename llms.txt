@@ -6,7 +6,10 @@ permalink: /llms.txt
 
 > {{ site.description }}
 
-I'm a software engineer passionate about Geographic Information Systems (GIS), cloud infrastructure, data visualization, and open source development. This blog documents my technical explorations, projects, and insights gained from working with mapping data, cloud platforms, and developer tools.
+{{ site.data.bio.about }}
+
+For detailed professional background, see my [CV]({{ site.url }}/cv.html).
+
 
 ## Blog Posts
 {% for post in site.posts -%}
