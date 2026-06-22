@@ -50,22 +50,24 @@
   #content {
     display: flex;
     flex-wrap: wrap;
+    align-items: flex-start; // cards size to their own content, no stretched empty box
     gap: 2%;
   }
-  
+
   // Projects are the focus: wide primary column
   #content-projects {
-    background: $shadow;
     flex: 3;
     min-width: 300px;
   }
 
-  // Blog is de-emphasised: narrow compact sidebar
+  // Blog is de-emphasised: narrow compact sidebar card
   #content-blog {
-    background: $shadow;
     flex: 1;
     min-width: 220px;
     max-width: 30%;
+    padding: em(8) em(20) em(20);
+    background: $shadow;
+    border-radius: em(4);
   }
 
   @media only screen and (max-width: 768px) {
