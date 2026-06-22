@@ -53,27 +53,26 @@
     gap: 2%;
   }
   
-  #content-blog, #content-projects, #content-linkedin {
+  // Projects are the focus: wide primary column
+  #content-projects {
+    background: $shadow;
+    flex: 3;
+    min-width: 300px;
+  }
+
+  // Blog is de-emphasised: narrow compact sidebar
+  #content-blog {
     background: $shadow;
     flex: 1;
-    min-width: 250px;
-    max-width: 32%;
+    min-width: 220px;
+    max-width: 30%;
   }
 
-  #content-twitter {
-    background: $shadow;
-    width: 100%;
-    margin-top: $default-margin;
-  }
-  
   @media only screen and (max-width: 768px) {
-    #content-linkedin, #content-twitter {
-      max-width: 450px;
-    }
-
-    #content-blog, #content-projects, #content-linkedin, #content-twitter {
+    #content-projects, #content-blog {
       display: block;
       width: 100%;
+      max-width: 100%;
       margin: 0 auto;
       margin-top: $default-margin;
     }
